@@ -1,7 +1,6 @@
 {
   "name": "Ripka",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack"
@@ -14,6 +13,19 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "webpack": "^3.11.0"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksenyaoleniuk/Ripka.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ksenyaoleniuk/Ripka/issues"
+  },
+  "homepage": "https://github.com/ksenyaoleniuk/Ripka#readme",
+  "description": ""
 }

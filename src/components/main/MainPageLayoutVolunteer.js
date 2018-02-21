@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import Navigation from "../common/Navigation"
 import Event from "../main/Event"
 import Footer from "../common/Footer"
-import EventContainer from "EventContainer"
+import EventContainer from "./EventContainer"
 
 class MainPageLayoutVolunteer extends Component{
     constructor(props) {

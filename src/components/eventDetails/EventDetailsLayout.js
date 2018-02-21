@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 import Navigation from "../common/Navigation"
-import EventDetails from "EventDetails"
+import EventDetails from "./EventDetails"
 import Footer from "../common/Footer"
 
 class EventDetailsLayout extends Component {

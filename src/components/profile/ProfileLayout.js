@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 import Navigation from "../common/Navigation"
 import Footer from "../common/Footer"
-import Profile from "src/components/profile/Profile";
+import Profile from "./Profile"
 
 class ProfileLayout extends Component{
     constructor(props) {
@@ -11,7 +11,7 @@ class ProfileLayout extends Component{
     }
     render(){
         return (
-            <div className = "ProfileLayoutOrg">
+            <div className = "ProfileLayout">
                 <Navigation/>
                 <Profile/>
                 <Footer/>
