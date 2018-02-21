@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-class Navigation extends Component {
+class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {}
@@ -8,9 +8,9 @@ class Navigation extends Component {
 
     render() {
         return (
-            <div className="Navigation">Navigation</div>
+            <div className="Login">Login</div>
         )
     }
 }
 
-export default Navigation
+export default Login
