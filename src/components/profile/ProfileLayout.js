@@ -2,18 +2,18 @@ import React, {Component} from 'react'
 
 import Navigation from "../common/Navigation"
 import Footer from "../common/Footer"
-import PersonalProfile from "PersonalProfile";
+import Profile from "src/components/profile/Profile";
 
-class PersonalProfileLayout extends Component{
+class ProfileLayout extends Component{
     constructor(props) {
         super(props)
         this.state = {}
     }
     render(){
         return (
-            <div className = "PersonalProfileLayoutOrg">
+            <div className = "ProfileLayoutOrg">
                 <Navigation/>
-                <PersonalProfile/>
+                <Profile/>
                 <Footer/>
             </div>
 
@@ -21,6 +21,6 @@ class PersonalProfileLayout extends Component{
     }
 }
 
-export default PersonalProfileLayout
+export default ProfileLayout
 
 
