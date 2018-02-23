@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 
-import SignUp from "SignUp"
-import Navigation from "../common/Navigation"
-import Footer from "../common/Footer"
+import SignUp from "src/components/nextStage/authorization/SignUp"
+import Navigation from "../../common/Navigation"
+import Footer from "../../common/Footer"
 
 class SignUpLayout extends Component{
     constructor(props) {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import Footer from "../common/Footer"
+import Footer from "../../common/Footer"
 
 class MainPageLayoutUnregistered extends Component{
     constructor(props) {
