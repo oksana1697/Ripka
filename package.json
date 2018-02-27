@@ -18,7 +18,9 @@
     "react-dom": "^16.2.0",
     "webpack": "^3.11.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-redux": "^5.0.7"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ksenyaoleniuk/Ripka.git"
