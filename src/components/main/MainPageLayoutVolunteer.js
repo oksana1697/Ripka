@@ -5,7 +5,9 @@ import Event from "../main/Event"
 import Footer from "../common/Footer"
 import EventContainer from "./EventContainer"
 
-class MainPageLayoutVolunteer extends Component{
+import { createStore } from 'react'
+
+export class MainPageLayoutVolunteer extends Component{
     constructor(props) {
         super(props)
         this.state = {}
@@ -23,5 +25,6 @@ class MainPageLayoutVolunteer extends Component{
 }
 
 export default MainPageLayoutVolunteer
+
 
 
