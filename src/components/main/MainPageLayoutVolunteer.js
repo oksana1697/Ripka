@@ -5,7 +5,7 @@ import Event from "../main/Event"
 import Footer from "../common/Footer"
 import EventContainer from "./EventContainer"
 
-import { createStore } from 'react'
+
 
 export class MainPageLayoutVolunteer extends Component{
     constructor(props) {
