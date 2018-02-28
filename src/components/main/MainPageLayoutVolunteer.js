@@ -4,6 +4,9 @@ import Footer from "../common/Footer"
 import {AddEvent} from "./AddEvent"
 import {EventContainer} from "./EventContainer"
 
+//toDo: fix structure
+//toDo: bug with representing Events
+
 
 let nextEventId = 0;
 class MainPageLayoutVolunteer extends Component {
