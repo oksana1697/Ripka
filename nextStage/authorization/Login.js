@@ -8,7 +8,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="Login">Login</div>
+            <div className="Lfogin">Login</div>
         )
     }
 }
