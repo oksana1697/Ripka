@@ -1,19 +1,41 @@
-import React, {Component} from 'react'
+import { Event } from "./Event"
+import React, {Component} from 'react';
+export const EventContainer = ({events}) => (
+    <ul>
+        {events.map(event =>
+            <Event
+                key={event.id}
+                {...event}
+            />
+        )}
+    </ul>
+);
 
 
-class EventContainer extends Component{
-    constructor(props) {
-        super(props)
-        this.state = {}
+const event = (state, action) => {
+    switch (action.type) {
+        case 'ADD_EVENT':
+            return {
+                id: action.id,
+                text: action.text,
+                completed: false
+            };
+        case 'REMOVE_EVENT':
+            if (state.id !== action.id) {
+                return state;
+            }
+
+            return {
+                ...state,
+                completed: !state.completed
+            };
+        default:
+            return state;
     }
-    render(){
-        return (
-            <div className = "EventContainer">EventContainer</div>
+};
 
-        )
-    }
-}
 
-export default EventContainer
+
+
 
 

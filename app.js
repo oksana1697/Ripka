@@ -1,8 +1,10 @@
-import MainPageLayoutVolunteer from "./src/components/main/MainPageLayoutVolunteer"
-import Events from "./src/redux-store"
 import React, {Component} from 'react';
-
 import ReactDOM from "react-dom";
+import MainPageLayoutVolunteer  from "./src/components/main/MainPageLayoutVolunteer"
+import {store} from "./src/components/reducers/events";
 
-const wrapper = document.getElementById("root");
-wrapper ? ReactDOM.render(<MainPageLayoutVolunteer/>, wrapper) : false;
+ReactDOM.render(
+    <MainPageLayoutVolunteer events={store.getState().events}
+    store ={store}/>,
+    document.getElementById('root')
+);
