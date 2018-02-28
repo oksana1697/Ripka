@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
-import Navigation from "../../common/Navigation"
-import Footer from "../../common/Footer"
+import Navigation from "../../../main/Navigation"
+import Footer from "../../../main/Footer"
 import Profile from "./Profile"
 
 class ProfileLayout extends Component{

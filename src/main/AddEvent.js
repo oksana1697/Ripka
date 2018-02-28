@@ -6,7 +6,7 @@ export const AddEvent = ({onAddClick}) => {
         <div>
             <input ref={node => {
                 input = node;
-            }} />
+            }}/>
             <button onClick={() => {
                 onAddClick(input.value);
                 input.value = '';

@@ -1,38 +1,35 @@
 import React, {Component} from 'react';
-import Navigation from "../common/Navigation"
-import Footer from "../common/Footer"
+import Navigation from "./Navigation"
+import Footer from "./Footer"
 import {AddEvent} from "./AddEvent"
 import {EventContainer} from "./EventContainer"
 
-//toDo: fix structure
-//toDo: bug with representing Events
-
-
 let nextEventId = 0;
-class MainPageLayoutVolunteer extends Component {
+
+class MainPageLayout extends Component {
     render() {
         const {events, store} = this.props;
 
         return (
-            <div className="MainPageLayoutVolunteer">
+            <div className="MainPageLayout">
                 <Navigation/>
                 <AddEvent
                     onAddClick={text =>
                         store.dispatch({
-                            type: 'ADD_TODO',
+                            type: 'ADD_EVENT',
                             id: nextEventId++,
                             text
                         })
                     }
                 />
-                <EventContainer events={events}/>
+                <EventContainer
+                    events={events}/>
                 <Footer/>
             </div>);
     }
 }
 
-
-export default MainPageLayoutVolunteer
+export default MainPageLayout
 
 
 

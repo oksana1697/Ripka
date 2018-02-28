@@ -1,4 +1,5 @@
 import {createStore} from "redux";
+import {event} from '../actions/index'
 
 export const events = (state = [], action) => {
     switch (action.type) {
@@ -14,7 +15,7 @@ export const events = (state = [], action) => {
     }
 };
 
-import { combineReducers } from 'redux'; // CDN Redux import
+import {combineReducers} from 'redux'; 
 
 const eventApp = combineReducers({
     events

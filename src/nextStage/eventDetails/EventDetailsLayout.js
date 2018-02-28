@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 
-import Navigation from "../../common/Navigation"
+import Navigation from "../../../main/Navigation"
 import EventDetails from "./EventDetails"
-import Footer from "../../common/Footer"
+import Footer from "../../../main/Footer"
 
 class EventDetailsLayout extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {}
     }
 

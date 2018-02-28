@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
 import ReactDOM from "react-dom";
-import MainPageLayoutVolunteer  from "./src/components/main/MainPageLayoutVolunteer"
-import {store} from "./src/components/reducers/events";
+import MainPageLayout  from "./src/main/MainPageLayout"
+import {store} from "./src/reducers/events";
 
-ReactDOM.render(
-    <MainPageLayoutVolunteer events={store.getState().events}
-    store ={store}/>,
-    document.getElementById('root')
-);
+const render = () => {
+    ReactDOM.render(
+        <MainPageLayout
+            events={store.getState().events}
+               store ={store}
+        />,
+        document.getElementById('root')
+    );
+};
+store.subscribe(render);
+render();

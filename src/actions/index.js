@@ -1,20 +1,8 @@
-import { Event } from "./Event"
-import React, {Component} from 'react';
-export const EventContainer = ({events}) => (
-    <ul>
-        {events.map(event =>
-            <Event
-                key={event.id}
-                {...event}
-            />
-        )}
-    </ul>
-);
-
-
-const event = (state, action) => {
+export const event = (state, action) => {
     switch (action.type) {
         case 'ADD_EVENT':
+            // console.log('aaaa', action)
+
             return {
                 id: action.id,
                 text: action.text,
@@ -33,9 +21,3 @@ const event = (state, action) => {
             return state;
     }
 };
-
-
-
-
-
-

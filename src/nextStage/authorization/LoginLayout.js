@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 
-import Navigation from "../../common/Navigation"
-import Footer from "../../common/Footer"
-import Login from "src/components/nextStage/authorization/Login"
+import Navigation from "../../main/Navigation"
+import Footer from "../../main/Footer"
+import Login from "src/nextStage/authorization/Login"
 class LoginLayout extends Component{
     constructor(props) {
         super(props)
