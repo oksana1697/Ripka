@@ -14,11 +14,12 @@ class MainPageLayout extends Component {
             <div className="MainPageLayout">
                 <Navigation/>
                 <AddEvent
-                    onAddClick={text =>
+                    onAddClick={ (text, description) =>
                         store.dispatch({
                             type: 'ADD_EVENT',
                             id: nextEventId++,
-                            text
+                            text,
+                         description
                         })
                     }
                 />

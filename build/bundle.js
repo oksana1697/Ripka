@@ -1401,11 +1401,6 @@ var _events = __webpack_require__(40);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// ReactDOM.render(
-//     <MainPageLayout events={store.getState().events}
-//     store ={store}/>,
-//     document.getElementById('root')
-// );
 var render = function render() {
     _reactDom2.default.render(_react2.default.createElement(_MainPageLayout2.default, {
         events: _events.store.getState().events,
@@ -18760,10 +18755,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//toDo: fix structure
-//toDo: bug with representing Events
-
-
 var nextEventId = 0;
 
 var MainPageLayout = function (_Component) {
@@ -18788,11 +18779,12 @@ var MainPageLayout = function (_Component) {
                 { className: "MainPageLayout" },
                 _react2.default.createElement(_Navigation2.default, null),
                 _react2.default.createElement(_AddEvent.AddEvent, {
-                    onAddClick: function onAddClick(text) {
+                    onAddClick: function onAddClick(text, description) {
                         return store.dispatch({
                             type: 'ADD_EVENT',
                             id: nextEventId++,
-                            text: text
+                            text: text,
+                            description: description
                         });
                     }
                 }),
@@ -18935,18 +18927,38 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var AddEvent = exports.AddEvent = function AddEvent(_ref) {
     var onAddClick = _ref.onAddClick;
 
-    var input = void 0;
+    var name = void 0,
+        description = void 0;
     return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(
+            'h3',
+            null,
+            'Enter Name:'
+        ),
         _react2.default.createElement('input', { ref: function ref(node) {
-                input = node;
+                name = node;
             } }),
+        _react2.default.createElement(
+            'h3',
+            null,
+            'Enter description:'
+        ),
+        _react2.default.createElement('input', { ref: function ref(node) {
+                description = node;
+            } }),
+        _react2.default.createElement(
+            'h3',
+            null,
+            'Submit:'
+        ),
         _react2.default.createElement(
             'button',
             { onClick: function onClick() {
-                    onAddClick(input.value);
-                    input.value = '';
+                    onAddClick(name.value, description.value);
+                    name.value = '';
+                    description.value = '';
                 } },
             'Add Event'
         )
@@ -19001,7 +19013,7 @@ var EventContainer = exports.EventContainer = function EventContainer(_ref) {
 
 
 Object.defineProperty(exports, "__esModule", {
-                   value: true
+    value: true
 });
 exports.Event = undefined;
 
@@ -19012,20 +19024,25 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Event = exports.Event = function Event(_ref) {
-                   var text = _ref.text;
-                   return (
-                                      //  photo={this.state.photo}
-                                      // location={this.state.location}
-                                      // time={this.state.time}
-                                      // name={this.state.name}
-                                      // orgName={this.state.orgName}
+    var text = _ref.text,
+        description = _ref.description;
+    return (
+        //  photo={this.state.photo}
+        // location={this.state.location}
+        // time={this.state.time}
+        // name={this.state.name}
+        // orgName={this.state.orgName}
 
-                                      _react2.default.createElement(
-                                                         'li',
-                                                         null,
-                                                         text
-                                      )
-                   );
+        _react2.default.createElement(
+            'div',
+            null,
+            ' Name: ',
+            text,
+            _react2.default.createElement('br', null),
+            'Description:',
+            description
+        )
+    );
 };
 
 /***/ }),
@@ -19061,8 +19078,6 @@ var events = exports.events = function events() {
             return state;
     }
 };
-
-// CDN Redux import
 
 var eventApp = (0, _redux.combineReducers)({
     events: events
@@ -19684,6 +19699,7 @@ var event = exports.event = function event(state, action) {
             return {
                 id: action.id,
                 text: action.text,
+                description: action.description,
                 completed: false
             };
         case 'REMOVE_EVENT':

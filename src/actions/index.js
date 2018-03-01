@@ -6,6 +6,7 @@ export const event = (state, action) => {
             return {
                 id: action.id,
                 text: action.text,
+                description: action.description,
                 completed: false
             };
         case 'REMOVE_EVENT':
