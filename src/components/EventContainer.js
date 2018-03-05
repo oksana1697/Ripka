@@ -1,7 +1,7 @@
-import {Event} from "./Event"
-import React, {Component} from 'react';
+import Event from './Event'
+import React from 'react';
 
-export const EventContainer = ({events, onTodoClick}) => (
+const EventContainer = ({events, onTodoClick}) => (
     <ul>
         {
             events.map(event =>
@@ -10,10 +10,14 @@ export const EventContainer = ({events, onTodoClick}) => (
                     {...event}
                     onClick={() => onTodoClick(event.id)}
                 />
+
             )
         }
     </ul>
-);
+
+)
+
+export default EventContainer
 
 
 

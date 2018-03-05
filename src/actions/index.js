@@ -1,24 +1,12 @@
-export const event = (state, action) => {
-    switch (action.type) {
-        case 'ADD_EVENT':
-            // console.log('aaaa', action)
+import { v4 } from 'node-uuid'
+import { DateTime } from "luxon/src/datetime.js";
+export const addEvent  = (name,description, date ) => ({
+    type: 'ADD_EVENT',
+    id: v4(),
+    name,
+    description,
+    // date: date.toFormat("yyyy"),
+    date
+});
 
-            return {
-                id: action.id,
-                text: action.text,
-                description: action.description,
-                completed: false
-            };
-        case 'REMOVE_EVENT':
-            if (state.id !== action.id) {
-                return state;
-            }
 
-            return {
-                ...state,
-                completed: !state.completed
-            };
-        default:
-            return state;
-    }
-};
