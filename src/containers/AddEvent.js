@@ -2,45 +2,50 @@ import React from 'react'
 import {addEvent} from '../actions/index'
 import {connect} from 'react-redux'
 import {DateTime} from "luxon/src/datetime";
-import { Duration } from "luxon/src/duration.js";
 
 let AddEvent = ({dispatch}) => {
-    let name, description, year, month, day, hour, minute;
+    let name, description,organization, contacts, year, month, day, hour, minute;
     return (
         <div>
-            <h3>Enter Name:</h3>
+            <p>Enter Name:</p>
             <input ref={node => {
                 name = node;
             }}/>
-            <h3>Enter description:</h3>
+            <p >Enter description:</p>
             <input ref={node => {
                 description = node;
-            }}/>
-            <h3>Enter Day</h3>
+            }} required/>
+            <p>Enter Day</p>
             <input ref={node => {
                 day = node;
             }}/>
-            <h3>Enter Month</h3>
+            <p>Enter Month</p>
             <input ref={node => {
                 month = node;
             }}/>
-            <h3>Enter Year</h3>
+            <p>Enter Year</p>
             <input ref={node => {
                 year = node;
             }}/>
-            <h3>Enter Hour</h3>
+            <p>Enter Hour</p>
             <input ref={node => {
                 hour = node;
             }}/>
-            <h3>Enter Minute</h3>
+            <p>Enter Minute</p>
             <input ref={node => {
                 minute = node;
             }}/>
-
-            <h3>Submit:</h3>
+            <p>Enter Organization Name</p>
+            <input ref={node => {
+                organization = node;
+            }}/>
+            <p>Enter Contacts</p>
+            <input ref={node => {
+                contacts = node;
+            }}/>
+            <p>Submit:</p>
             <button onClick={()=> {
-                // checkField({name.value, description.value, year.value, month.value, day.value, hour.value, minute.value});
-
+            // checkField();
                 const toDate = DateTime.fromObject({
                     year: Number(year.value),
                     month: Number(month.value),
@@ -49,9 +54,14 @@ let AddEvent = ({dispatch}) => {
                     minute: Number(minute.value)
                 });
                 console.log("generated Object DateTime:",toDate);
-                dispatch(addEvent(name.value,description.value, toDate
-            ));
-                name.value =  description.value = minute.value = year.value = month.value = hour.value = day.value = ''
+
+                if(checkField([description.value,contacts.value,name.value, description.value, year.value, month.value, day.value, hour.value, minute.value])
+            ){
+                    dispatch(addEvent(name.value,description.value, toDate, organization.value, contacts.value
+                    ));
+
+                }
+                description.value  = contacts.value = name.value =  description.value = minute.value = year.value = month.value = hour.value = day.value = ''
             }}>
                 Add Event
             </button>
@@ -60,14 +70,14 @@ let AddEvent = ({dispatch}) => {
 };
 const checkField = (array1) => {
 console.log("aaa",array1)
-    // for (let x: array1)    {
-    //
-    //     if (x == ""){
-    //     alert("Value should be between 0 - 100");
-    //
-    // }
-    // }
-}
+for (let i in array1){
+    console.log('i:',array1[i])
+        if (array1[i] === ""){
+        alert("Value should be between 0 - 100");
+        return false
+    }
+return true}}
+
 
 
 AddEvent = connect()(AddEvent);

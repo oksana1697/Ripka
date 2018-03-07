@@ -22453,6 +22453,8 @@ var AddEvent = function AddEvent(_ref) {
 
     var name = void 0,
         description = void 0,
+        organization = void 0,
+        contacts = void 0,
         year = void 0,
         month = void 0,
         day = void 0,
@@ -22462,7 +22464,7 @@ var AddEvent = function AddEvent(_ref) {
         'div',
         null,
         _react2.default.createElement(
-            'h3',
+            'p',
             null,
             'Enter Name:'
         ),
@@ -22470,7 +22472,7 @@ var AddEvent = function AddEvent(_ref) {
                 name = node;
             } }),
         _react2.default.createElement(
-            'h3',
+            'p',
             null,
             'Enter description:'
         ),
@@ -22478,7 +22480,7 @@ var AddEvent = function AddEvent(_ref) {
                 description = node;
             } }),
         _react2.default.createElement(
-            'h3',
+            'p',
             null,
             'Enter Day'
         ),
@@ -22486,7 +22488,7 @@ var AddEvent = function AddEvent(_ref) {
                 day = node;
             } }),
         _react2.default.createElement(
-            'h3',
+            'p',
             null,
             'Enter Month'
         ),
@@ -22494,7 +22496,7 @@ var AddEvent = function AddEvent(_ref) {
                 month = node;
             } }),
         _react2.default.createElement(
-            'h3',
+            'p',
             null,
             'Enter Year'
         ),
@@ -22502,7 +22504,7 @@ var AddEvent = function AddEvent(_ref) {
                 year = node;
             } }),
         _react2.default.createElement(
-            'h3',
+            'p',
             null,
             'Enter Hour'
         ),
@@ -22510,7 +22512,7 @@ var AddEvent = function AddEvent(_ref) {
                 hour = node;
             } }),
         _react2.default.createElement(
-            'h3',
+            'p',
             null,
             'Enter Minute'
         ),
@@ -22518,14 +22520,31 @@ var AddEvent = function AddEvent(_ref) {
                 minute = node;
             } }),
         _react2.default.createElement(
-            'h3',
+            'p',
+            null,
+            'Enter Organization Name'
+        ),
+        _react2.default.createElement('input', { ref: function ref(node) {
+                organization = node;
+            } }),
+        _react2.default.createElement(
+            'p',
+            null,
+            'Enter Contacts'
+        ),
+        _react2.default.createElement('input', { ref: function ref(node) {
+                contacts = node;
+            } }),
+        _react2.default.createElement(
+            'p',
             null,
             'Submit:'
         ),
         _react2.default.createElement(
             'button',
             { onClick: function onClick() {
-                    checkField([name.value, description.value, year.value, month.value, day.value, hour.value, minute.value]);
+                    // checkField({name.value, description.value, year.value, month.value, day.value, hour.value, minute.value});
+
                     var toDate = _datetime.DateTime.fromObject({
                         year: Number(year.value),
                         month: Number(month.value),
@@ -22534,22 +22553,22 @@ var AddEvent = function AddEvent(_ref) {
                         minute: Number(minute.value)
                     });
                     console.log("generated Object DateTime:", toDate);
-                    dispatch((0, _index.addEvent)(name.value, description.value, toDate));
+                    dispatch((0, _index.addEvent)(name.value, description.value, toDate, organization.value, contacts.value));
                     name.value = description.value = minute.value = year.value = month.value = hour.value = day.value = '';
                 } },
             'Add Event'
         )
     );
 };
-var checkField = function checkField(array) {
-    console.log(array);
-    for (var x in array) {
-        console.log(x);
-
-        if (x == "") {
-            alert("Value should be between 0 - 100");
-        }
-    }
+var checkField = function checkField(array1) {
+    console.log("aaa", array1);
+    // for (let x: array1)    {
+    //
+    //     if (x == ""){
+    //     alert("Value should be between 0 - 100");
+    //
+    // }
+    // }
 };
 
 AddEvent = (0, _reactRedux.connect)()(AddEvent);
@@ -22569,13 +22588,16 @@ exports.addEvent = undefined;
 
 var _nodeUuid = __webpack_require__(142);
 
-var addEvent = exports.addEvent = function addEvent(name, description, date) {
+var addEvent = exports.addEvent = function addEvent(name, description, date, organization, contacts) {
     return {
         type: 'ADD_EVENT',
         id: (0, _nodeUuid.v4)(),
         name: name,
         description: description,
-        date: date
+        date: date,
+        organization: organization,
+        contacts: contacts
+
     };
 };
 
@@ -39752,7 +39774,9 @@ var events = function events() {
                 id: action.id,
                 name: action.name,
                 description: action.description,
-                date: action.date
+                date: action.date,
+                organization: action.organization,
+                contacts: action.contacts
             }]);
         default:
             return state;

@@ -4,6 +4,7 @@ import { loadState, saveState } from './localStorage'
 import eventApp from "./src/reducers";
 
 const configureStore = () => {
+    localStorage.clear();
     const persistedState = loadState();
     const store = createStore(eventApp, persistedState)
 

@@ -11,7 +11,9 @@ const events = (state = [], action) => {
                     id: action.id,
                     name: action.name,
                     description: action.description,
-                    date: action.date
+                    date: action.date,
+                    organization: action.organization,
+                    contacts: action.contacts
                 }
             ];
         default:
