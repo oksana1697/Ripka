@@ -1,13 +1,16 @@
 import React from 'react';
 import App from './App';
-import { BrowserRouter, Route } from 'react-router-dom'
+import Footer from './Footer';
+import { HashRouter, Route, Switch } from 'react-router-dom'
 import {Provider} from 'react-redux'
 
 const Root = ({ store }) => (
     <Provider store={store}>
-        <BrowserRouter>
-            <Route path='/' component={App} />
-        </BrowserRouter>
+        <HashRouter>
+            {/*<App />*/}
+            <Route path='/:eventName?' component={App} />
+
+        </HashRouter>
     </Provider>
 );
 

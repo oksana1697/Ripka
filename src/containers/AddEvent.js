@@ -69,12 +69,12 @@ let AddEvent = ({dispatch}) => {
     );
 };
 const checkField = (array1) => {
-console.log("aaa",array1)
+console.log("aaa",array1);
 for (let i in array1){
-    console.log('i:',array1[i])
+    console.log('i:',array1[i]);
         if (array1[i] === ""){
         alert("Value should be between 0 - 100");
-        return false
+        return true
     }
 return true}}
 

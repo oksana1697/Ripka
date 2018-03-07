@@ -1,14 +1,25 @@
 import React from 'react';
-import {DateTime} from "luxon/src/datetime";
+import { NavLink } from 'react-router-dom';
 
 const Event = ({name, description, date}) => (
+
+    // console.log('----', this.props.match)
+
     (<div>
-        <p><a href='/' path="/:name?"> Name: {name}</a></p>
+        <NavLink
+            to={'/' + name}
+            activeStyle={{
+                textDecoration: 'none',
+                color: 'black',
+            }}
+        >
+            Name: {name}
+        </NavLink>
         <p>About</p>
         <p>{description}</p>
         <p>Date & time</p>
-        <p>{date.toFormat("yyyy LLL dd")}</p>
-        <p>{date.toFormat("HH:mm")}</p>
+        {/*<p>{date.toFormat("yyyy LLL dd")}</p>*/}
+        {/*<p>{date.toFormat("HH:mm")}</p>*/}
         <br/>
         <br/>
     </div>));
