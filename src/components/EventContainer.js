@@ -1,14 +1,14 @@
 import Event from './Event'
 import React from 'react';
 
-const EventContainer = ({events, onTodoClick}) => (
+const EventContainer = ({events, onEventClick}) => (
     <ul>
         {
             events.map(event =>
                 <Event
                     key={event.id}
                     {...event}
-                    onClick={() => onTodoClick(event.id)}
+                    onClick={() => onEventClick(event.id)}
                 />
 
             )

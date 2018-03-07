@@ -4,6 +4,9 @@ module.exports = {
     output: {
         filename: "build/bundle.js"
     },
+    node: {
+        fs: 'empty'
+    },
     module: {
         rules: [
             {

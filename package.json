@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start:server": "webpack-dev-server",
+    "json:server": "json-server --watch db.json"
   },
   "keywords": [],
   "author": "",
@@ -21,13 +22,18 @@
     "webpack-cli": "^2.0.10"
   },
   "dependencies": {
+    "json-server": "^0.12.1",
+    "jsonfile": "^4.0.0",
+    "lowdb": "^1.0.0",
     "luxon": "^0.5.3",
     "node-uuid": "^1.4.8",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "webpack-dev-server": "^2.11.2"
+    "webpack-dev-server": "^2.11.2",
+    "write-json": "^3.0.1",
+    "write-json-file": "^2.3.0"
   },
   "repository": {
     "type": "git",
