@@ -15046,7 +15046,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Footer = __webpack_require__(77);
+var _Footer = __webpack_require__(142);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -15054,7 +15054,7 @@ var _App = __webpack_require__(76);
 
 var _App2 = _interopRequireDefault(_App);
 
-var _AddEvent = __webpack_require__(142);
+var _AddEvent = __webpack_require__(77);
 
 var _AddEvent2 = _interopRequireDefault(_AddEvent);
 
@@ -15078,7 +15078,6 @@ var App = function App() {
     return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_AddEvent2.default, null),
         _react2.default.createElement(
             _reactRouterDom.Switch,
             null,
@@ -15102,47 +15101,146 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _index = __webpack_require__(143);
+
+var _reactRedux = __webpack_require__(41);
+
+var _datetime = __webpack_require__(28);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var AddEvent = function AddEvent(_ref) {
+    var dispatch = _ref.dispatch;
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+    var name = void 0,
+        description = void 0,
+        organization = void 0,
+        contacts = void 0,
+        year = void 0,
+        month = void 0,
+        day = void 0,
+        hour = void 0,
+        minute = void 0;
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+            'p',
+            null,
+            'Enter Name:'
+        ),
+        _react2.default.createElement('input', { ref: function ref(node) {
+                name = node;
+            } }),
+        _react2.default.createElement(
+            'p',
+            null,
+            'Enter description:'
+        ),
+        _react2.default.createElement('input', { ref: function ref(node) {
+                description = node;
+            }, required: true }),
+        _react2.default.createElement(
+            'p',
+            null,
+            'Enter Day'
+        ),
+        _react2.default.createElement('input', { ref: function ref(node) {
+                day = node;
+            } }),
+        _react2.default.createElement(
+            'p',
+            null,
+            'Enter Month'
+        ),
+        _react2.default.createElement('input', { ref: function ref(node) {
+                month = node;
+            } }),
+        _react2.default.createElement(
+            'p',
+            null,
+            'Enter Year'
+        ),
+        _react2.default.createElement('input', { ref: function ref(node) {
+                year = node;
+            } }),
+        _react2.default.createElement(
+            'p',
+            null,
+            'Enter Hour'
+        ),
+        _react2.default.createElement('input', { ref: function ref(node) {
+                hour = node;
+            } }),
+        _react2.default.createElement(
+            'p',
+            null,
+            'Enter Minute'
+        ),
+        _react2.default.createElement('input', { ref: function ref(node) {
+                minute = node;
+            } }),
+        _react2.default.createElement(
+            'p',
+            null,
+            'Enter Organization Name'
+        ),
+        _react2.default.createElement('input', { ref: function ref(node) {
+                organization = node;
+            } }),
+        _react2.default.createElement(
+            'p',
+            null,
+            'Enter Contacts'
+        ),
+        _react2.default.createElement('input', { ref: function ref(node) {
+                contacts = node;
+            } }),
+        _react2.default.createElement(
+            'p',
+            null,
+            'Submit:'
+        ),
+        _react2.default.createElement(
+            'button',
+            { onClick: function onClick() {
+                    // checkField();
+                    var toDate = _datetime.DateTime.fromObject({
+                        year: Number(year.value),
+                        month: Number(month.value),
+                        day: Number(day.value),
+                        hour: Number(hour.value),
+                        minute: Number(minute.value)
+                    });
+                    console.log("generated Object DateTime:", toDate);
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Footer = function (_Component) {
-    _inherits(Footer, _Component);
-
-    function Footer(props) {
-        _classCallCheck(this, Footer);
-
-        var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
-
-        _this.state = {};
-        return _this;
-    }
-
-    _createClass(Footer, [{
-        key: "render",
-        value: function render() {
-            return _react2.default.createElement(
-                "div",
-                { className: "Footer" },
-                "Footer"
-            );
+                    if (checkField([description.value, contacts.value, name.value, description.value, year.value, month.value, day.value, hour.value, minute.value])) {
+                        dispatch((0, _index.addEvent)(name.value, description.value, toDate, organization.value, contacts.value));
+                    }
+                    description.value = contacts.value = name.value = description.value = minute.value = year.value = month.value = hour.value = day.value = '';
+                } },
+            'Add Event'
+        )
+    );
+};
+var checkField = function checkField(array1) {
+    console.log("aaa", array1);
+    for (var i in array1) {
+        console.log('i:', array1[i]);
+        if (array1[i] === "") {
+            alert("Value should be between 0 - 100");
+            return true;
         }
-    }]);
+        return true;
+    }
+};
 
-    return Footer;
-}(_react.Component);
-
-exports.default = Footer;
+AddEvent = (0, _reactRedux.connect)()(AddEvent);
+exports.default = AddEvent;
 
 /***/ }),
 /* 78 */
@@ -21164,10 +21262,6 @@ var _App = __webpack_require__(76);
 
 var _App2 = _interopRequireDefault(_App);
 
-var _Footer = __webpack_require__(77);
-
-var _Footer2 = _interopRequireDefault(_Footer);
-
 var _reactRouterDom = __webpack_require__(68);
 
 var _reactRedux = __webpack_require__(41);
@@ -22593,146 +22687,47 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _index = __webpack_require__(143);
-
-var _reactRedux = __webpack_require__(41);
-
-var _datetime = __webpack_require__(28);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var AddEvent = function AddEvent(_ref) {
-    var dispatch = _ref.dispatch;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    var name = void 0,
-        description = void 0,
-        organization = void 0,
-        contacts = void 0,
-        year = void 0,
-        month = void 0,
-        day = void 0,
-        hour = void 0,
-        minute = void 0;
-    return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-            'p',
-            null,
-            'Enter Name:'
-        ),
-        _react2.default.createElement('input', { ref: function ref(node) {
-                name = node;
-            } }),
-        _react2.default.createElement(
-            'p',
-            null,
-            'Enter description:'
-        ),
-        _react2.default.createElement('input', { ref: function ref(node) {
-                description = node;
-            }, required: true }),
-        _react2.default.createElement(
-            'p',
-            null,
-            'Enter Day'
-        ),
-        _react2.default.createElement('input', { ref: function ref(node) {
-                day = node;
-            } }),
-        _react2.default.createElement(
-            'p',
-            null,
-            'Enter Month'
-        ),
-        _react2.default.createElement('input', { ref: function ref(node) {
-                month = node;
-            } }),
-        _react2.default.createElement(
-            'p',
-            null,
-            'Enter Year'
-        ),
-        _react2.default.createElement('input', { ref: function ref(node) {
-                year = node;
-            } }),
-        _react2.default.createElement(
-            'p',
-            null,
-            'Enter Hour'
-        ),
-        _react2.default.createElement('input', { ref: function ref(node) {
-                hour = node;
-            } }),
-        _react2.default.createElement(
-            'p',
-            null,
-            'Enter Minute'
-        ),
-        _react2.default.createElement('input', { ref: function ref(node) {
-                minute = node;
-            } }),
-        _react2.default.createElement(
-            'p',
-            null,
-            'Enter Organization Name'
-        ),
-        _react2.default.createElement('input', { ref: function ref(node) {
-                organization = node;
-            } }),
-        _react2.default.createElement(
-            'p',
-            null,
-            'Enter Contacts'
-        ),
-        _react2.default.createElement('input', { ref: function ref(node) {
-                contacts = node;
-            } }),
-        _react2.default.createElement(
-            'p',
-            null,
-            'Submit:'
-        ),
-        _react2.default.createElement(
-            'button',
-            { onClick: function onClick() {
-                    // checkField();
-                    var toDate = _datetime.DateTime.fromObject({
-                        year: Number(year.value),
-                        month: Number(month.value),
-                        day: Number(day.value),
-                        hour: Number(hour.value),
-                        minute: Number(minute.value)
-                    });
-                    console.log("generated Object DateTime:", toDate);
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-                    if (checkField([description.value, contacts.value, name.value, description.value, year.value, month.value, day.value, hour.value, minute.value])) {
-                        dispatch((0, _index.addEvent)(name.value, description.value, toDate, organization.value, contacts.value));
-                    }
-                    description.value = contacts.value = name.value = description.value = minute.value = year.value = month.value = hour.value = day.value = '';
-                } },
-            'Add Event'
-        )
-    );
-};
-var checkField = function checkField(array1) {
-    console.log("aaa", array1);
-    for (var i in array1) {
-        console.log('i:', array1[i]);
-        if (array1[i] === "") {
-            alert("Value should be between 0 - 100");
-            return true;
-        }
-        return true;
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Footer = function (_Component) {
+    _inherits(Footer, _Component);
+
+    function Footer(props) {
+        _classCallCheck(this, Footer);
+
+        var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+
+        _this.state = {};
+        return _this;
     }
-};
 
-AddEvent = (0, _reactRedux.connect)()(AddEvent);
-exports.default = AddEvent;
+    _createClass(Footer, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "Footer" },
+                "Footer"
+            );
+        }
+    }]);
+
+    return Footer;
+}(_react.Component);
+
+exports.default = Footer;
 
 /***/ }),
 /* 143 */
@@ -36092,7 +36087,6 @@ var _EventContainer2 = _interopRequireDefault(_EventContainer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//done
 var getVisibleEvents = function getVisibleEvents(events) {
     return events;
 };
@@ -36122,6 +36116,10 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _AddEvent = __webpack_require__(77);
+
+var _AddEvent2 = _interopRequireDefault(_AddEvent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var EventContainer = function EventContainer(_ref) {
@@ -36130,6 +36128,7 @@ var EventContainer = function EventContainer(_ref) {
     return _react2.default.createElement(
         'ul',
         null,
+        _react2.default.createElement(_AddEvent2.default, null),
         events.map(function (event) {
             return _react2.default.createElement(_Event2.default, _extends({
                 key: event.id

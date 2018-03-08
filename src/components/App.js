@@ -9,7 +9,7 @@ import EventDetails from "./EventDetails";
 
 const App = () => (
     <div>
-        <AddEvent />
+
             <Switch>
                 <Route exact path='/' component={VisibleEventList}/>
                 <Route exact path='/:eventName' component={VisibleEventDetailList}/>
