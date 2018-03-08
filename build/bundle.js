@@ -15233,7 +15233,7 @@ var checkField = function checkField(array1) {
         console.log('i:', array1[i]);
         if (array1[i] === "") {
             alert("Value should be between 0 - 100");
-            return true;
+            return false;
         }
         return true;
     }
@@ -36199,6 +36199,16 @@ var Event = function Event(_ref) {
                 'p',
                 null,
                 'Date & time'
+            ),
+            _react2.default.createElement(
+                'p',
+                null,
+                date.toFormat("yyyy LLL dd")
+            ),
+            _react2.default.createElement(
+                'p',
+                null,
+                date.toFormat("HH:mm")
             ),
             _react2.default.createElement('br', null),
             _react2.default.createElement('br', null)
