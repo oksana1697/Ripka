@@ -7,6 +7,6 @@ const getVisibleEvents = (events) => {
     return events
 };
 
-const VisibleEventList = connect(getVisibleEvents)(EventContainer);
+    const VisibleEventList = connect(getVisibleEvents)(EventContainer);
 
 export default VisibleEventList;

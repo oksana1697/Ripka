@@ -8,8 +8,7 @@ const Root = ({ store }) => (
     <Provider store={store}>
         <HashRouter>
             {/*<App />*/}
-            <Route path='/:eventName?' component={App} />
-
+            <Route path='/' component={App}/>
         </HashRouter>
     </Provider>
 );
