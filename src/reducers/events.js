@@ -3,8 +3,6 @@ const events = (state = [], action) => {
         case 'ADD_EVENT':
             console.log("JSON ACTION.DATE",JSON.stringify(action.date));
             console.log("TYPEOF ACTION.DATE",action.date.toFormat("yyyy"))
-
-
             return [
                 ...state,
                 {
@@ -23,3 +21,6 @@ const events = (state = [], action) => {
 
 
 export default events
+
+
+
