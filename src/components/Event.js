@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Event = ({name, description, date}) => (
-
-    // console.log('----', this.props.match)
+const Event = ({name, description,
+                   // date
+}) => (
 
     (<div>
         <NavLink
@@ -17,7 +17,7 @@ const Event = ({name, description, date}) => (
         </NavLink>
         <p>About</p>
         <p>{description}</p>
-        <p>Date & time</p>
+        {/*<p>Date & time</p>*/}
         {/*<p>{date.toFormat("yyyy LLL dd")}</p>*/}
         {/*<p>{date.toFormat("HH:mm")}</p>*/}
         <br/>
