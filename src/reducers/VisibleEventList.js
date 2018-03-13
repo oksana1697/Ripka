@@ -1,24 +1,15 @@
 import {connect} from 'react-redux'
-// import EventContainer from '../components/EventContainer'
-// const getVisibleEvents = (events) => {
-//     return events
-// };
-//
-// const VisibleEventList = connect(getVisibleEvents)(EventContainer);
-//
-// export default VisibleEventList;
 import React, {Component} from'react'
 import EventContainer from "../components/EventContainer";
 import {withRouter} from "react-router-dom";
-import * as fetchTodos from "../actions";
-// import {getVisibleEvents} from "../reducers";
+import * as fetchEvents from "../actions";
 class VisibleEventList extends Component {
     componentDidMount(){
-            this.fetchData()
+        this.fetchData()
     }
     fetchData(){
-        const  {fetchTodos} = this.props;
-        fetchTodos()
+        const  {fetchEvents} = this.props;
+        fetchEvents()
     }
     render(){
         const { ...rest} =  this.props;
@@ -30,21 +21,13 @@ class VisibleEventList extends Component {
         )
     }
 }
-// const mapStateToTodoListProps = (state) => {
-//     return {
-//         events: getVisibleEvents(
-//             state)
-//     }
-// };
-
 const getVisibleEvents = (events) =>{
     return events
-}
+};
 
 VisibleEventList = withRouter(connect(
-    // mapStateToTodoListProps,
     getVisibleEvents,
-    fetchTodos
+    fetchEvents
 )(VisibleEventList));
 
 export default VisibleEventList;

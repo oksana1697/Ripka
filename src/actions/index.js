@@ -1,9 +1,7 @@
 import {v4} from 'node-uuid'
 import * as api from '../api'
 
-export const addEvent = (name, description,
-                         date, organization,contacts
-) =>
+export const addEvent = (name, description, date, organization, contacts, location) =>
     ({
         type: 'ADD_EVENT',
         id: v4(),
@@ -12,19 +10,18 @@ export const addEvent = (name, description,
         date,
         organization,
         contacts,
-
+        location,
     });
 
-const receiveTodos = (response) => ({
-    type: 'RECEIVE_TODOS',
+const receiveEvents = (response) => ({
+    type: 'RECEIVE_EVENTS',
     response
 });
 
-export const fetchTodos = () =>
-api.fetchTodos().then(response =>
-        receiveTodos(response)
-
-);
+export const fetchEvents = () =>
+    api.fetchEvents().then(response =>
+        receiveEvents(response)
+    );
 
 
 

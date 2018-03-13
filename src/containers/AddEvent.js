@@ -1,68 +1,73 @@
 import React from 'react'
 import {addEvent} from '../actions/index'
 import {connect} from 'react-redux'
-import {DateTime} from "luxon/src/datetime";
-
+import {DateTime} from "luxon"
 let AddEvent = ({dispatch}) => {
     let name, description, organization, contacts, year, month, day, hour, minute, location;
     return (
         <div>
-            <h1 className="AddEvent__title">Add event details</h1>
-            <h1 className="AddEvent__subtitle">Event Overview</h1>
-            <div className="AddEvent__container">
-                <p className="AddEvent__field">EVENT NAME</p>
-                <input className="AddEvent__input" ref={node => {
+            <h1 className="add-event__title">Add event details</h1>
+<div className="add-event__subtitle_container">
+            <img src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png"/>
+                <h1 className="add-event__subtitle">Event Overview</h1>
+</div>
+
+
+
+        <div className="add-event__input_container">
+                <p className="add-event__field">EVENT NAME</p>
+                <input className="add-event__input" placeholder="Event Name" ref={node => {
                     name = node;
                 }}/>
             </div>
-            <div className="AddEvent__container">
-                <p className="AddEvent__field">ORGANIZATION NAME</p>
-                <input className="AddEvent__input" ref={node => {
+            <div className="add-event__input_container">
+                <p className="add-event__field">ORGANIZATION NAME</p>
+                <input className="add-event__input" placeholder="Organization Name" ref={node => {
                     organization = node;
                 }}/>
             </div>
-            <div className="AddEvent__container">
-                <p className="AddEvent__field">LOCATION</p>
-                <input className="AddEvent__input" ref={node => {
+            <div className="add-event__input_container">
+                <p className="add-event__field">LOCATION</p>
+                <input className="add-event__input" placeholder="Location" ref={node => {
+                    location = node;
+                }}/>
+            </div>
+            <div className="add-event__input_container">
+                <p className="add-event__field">CONTACTS</p>
+                <input className="add-event__input" placeholder="Contacts" ref={node => {
                     contacts = node;
                 }}/>
             </div>
-            <div className="AddEvent__container">
-                <p className="AddEvent__field">CONTACTS</p>
-                <input className="AddEvent__input" ref={node => {
-                    contacts = node;
-                }}/>
-            </div>
-            <div className="AddEvent__container">
-                <p className="AddEvent__field">EVENT DESCRIPTION & REQUIREMENTS</p>
-                <input className="AddEvent__input" ref={node => {
+            <div className="add-event__input_container">
+                <p className="add-event__field">EVENT DESCRIPTION & REQUIREMENTS</p>
+                <input className="add-event__input" placeholder="Description" ref={node => {
                     description = node;
                 }} required/>
             </div>
-            <p>Enter Day</p>
-            <input ref={node => {
+            <div className="add-event__input_container">
+                <p className="add-event__field">ENTER DATE</p>
+            <input className="add-event__input" placeholder="DD" ref={node => {
                 day = node;
             }}/>
-            <p>Enter Month</p>
-            <input ref={node => {
+            <input className="add-event__input" placeholder="MM" ref={node => {
                 month = node;
             }}/>
-            <p>Enter Year</p>
-            <input ref={node => {
+            <input className="add-event__input" placeholder="YYYY" ref={node => {
                 year = node;
             }}/>
-            <p>Enter Hour</p>
-            <input ref={node => {
+            </div>
+            <div className="add-event__input_container">
+            <p className="add-event__field">ENTER TIME</p>
+            <input className="add-event__input" placeholder="HH" ref={node => {
                 hour = node;
             }}/>
-            <p>Enter Minute</p>
-            <input ref={node => {
+            <input className="add-event__input" placeholder="MM" ref={node => {
                 minute = node;
             }}/>
+        </div>
 
-            <p>Submit:</p>
-            <button onClick={() => {
-                // checkField();
+            <div className="add-event__submit-container">
+            <button className="add-event__submit" onClick={() => {
                 const toDate = DateTime.fromObject({
                     year: Number(year.value),
                     month: Number(month.value),
@@ -70,18 +75,42 @@ let AddEvent = ({dispatch}) => {
                     hour: Number(hour.value),
                     minute: Number(minute.value)
                 });
-                console.log("generated Object DateTime:", toDate);
-
-                if (checkField([location.value, description.value, contacts.value, name.value, description.value, year.value, month.value, day.value, hour.value, minute.value])
+                console.log("toDate:",toDate.toFormat("yyyy"))
+                if (checkField([location.value,
+                        description.value,
+                        contacts.value,
+                        name.value,
+                        description.value,
+                        year.value,
+                        month.value,
+                        day.value,
+                        hour.value,
+                        minute.value])
                 ) {
-                    dispatch(addEvent(name.value, description.value, toDate, organization.value, contacts.value, location.value
+                    dispatch(addEvent(
+                        name.value,
+                        description.value,
+                        toDate,
+                        organization.value,
+                        contacts.value,
+                        location.value
                     ));
 
                 }
-                description.value = contacts.value = name.value = description.value = location.value = minute.value = year.value = month.value = hour.value = day.value = ''
+                description.value =
+                    contacts.value =
+                    name.value =
+                        description.value =
+                        location.value =
+                            minute.value =
+                            year.value =
+                                month.value =
+                                hour.value =
+                                    day.value = ''
             }}>
                 Add Event
             </button>
+            </div>
         </div>
     );
 };

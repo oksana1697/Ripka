@@ -5,7 +5,6 @@ class Navigation extends Component {
         super(props)
         this.state = {}
     }
-
     render() {
         return (
             <div className="Navigation">Navigation</div>

@@ -25,7 +25,7 @@
     "json-server": "^0.12.1",
     "jsonfile": "^4.0.0",
     "lowdb": "^1.0.0",
-    "luxon": "^0.5.3",
+    "luxon": "^0.5.6",
     "node-uuid": "^1.4.8",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
