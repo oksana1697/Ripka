@@ -1,0 +1,30 @@
+.navigation {
+    background: rgb(64, 196, 207);
+}
+.navigation__container{
+    background: rgb(64, 196, 207);
+    display: flex;
+    flex-direction: row;
+
+
+}
+.navigation__logo {
+    padding: 2%;
+    margin: 0;
+    color: #F5F5F6;
+    font-family: "Helvetica", "Arial", sans-serif;
+
+}
+
+.navigation__button{
+    margin: auto 70px auto auto;
+    align-self: left;
+    border:2px solid #F5F5F6;
+    background: rgb(64, 196, 207);
+    height: 40px;
+    border-radius: 6px;
+    width:180px;
+    color: #F5F5F6;
+    font-weight: bold;
+    /*text-align: right;*/
+}

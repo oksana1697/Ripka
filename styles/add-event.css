@@ -5,13 +5,19 @@ body{
     margin: 0;
 }
 .add-event{
-    /*background-color: plum;*/
+    margin: 0;
+}
+.add-event__title_container{
+    background-color: #F5F5F6;
 }
 .add-event__title{
-    background-color: #F5F5F6;
+
+    width: 600px;
+    margin: auto;
     font-family: "Helvetica", "Arial", sans-serif;
     color: #504b4d;
-    padding: 5%;
+    padding: 2%;
+    margin-top: 0;
 }
 .add-event__subtitle{
     font-family: "Helvetica", "Arial", sans-serif;
@@ -24,8 +30,11 @@ body{
 
 
 .add-event__subtitle_container{
+    width: 600px;
     display: flex;
-    margin: 0 50px 30px 50px;
+    margin: auto;
+    margin-bottom: 30px;
+    /*margin: 0 50px 30px 50px;*/
     padding: 10px;
     border-bottom: 1px solid rgba(98, 105, 119, 0.31);
 
@@ -68,6 +77,9 @@ background: rgb(64, 196, 207);
     height: 40px;
     border-radius: 6px;
 width:210px;
+    color: #F5F5F6;
+    font-weight: bold;
+
 }
 
 .add-event__submit-container{

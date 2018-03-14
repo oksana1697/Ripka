@@ -6,7 +6,9 @@ let AddEvent = ({dispatch}) => {
     let name, description, organization, contacts, year, month, day, hour, minute, location;
     return (
         <div>
+            <div className="add-event__title_container">
             <h1 className="add-event__title">Add event details</h1>
+            </div>
 <div className="add-event__subtitle_container">
             <img src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png"/>
                 <h1 className="add-event__subtitle">Event Overview</h1>

@@ -5,7 +5,7 @@ import AddEvent from '../containers/AddEvent'
 import { events } from '../reducers/events'
 
 const EventContainer = ({events, onEventClick}) => (
-    <ul className="AddEvent">
+    <ul className="add-event">
         <AddEvent/>
         <div className="event__block">
         {

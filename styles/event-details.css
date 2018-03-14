@@ -5,3 +5,15 @@ flex-direction: row;
 .event-details__container{
 
 }
+.event-details__subtitle{
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 0;
+
+}
+.event-details__content{
+    font-size: 18px;
+    font-weight: normal;
+    color: rgba(24, 24, 24, 0.7);
+    margin: 0;
+}

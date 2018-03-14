@@ -7,7 +7,8 @@ const Event = ({name, description, date, location,organization}) =>
             <div>
             <img src="http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"/>
             </div>
-                <p className="event__location">{location}</p><p className="event__time">{date.toFormat("HH:mm")}</p>
+                <p className="event__location">{location}</p>
+            {/*<p className="event__time">{date.toFormat("HH:mm")}</p>*/}
             <NavLink
                 to={'/' + name}
                 activeStyle={{

@@ -7,7 +7,10 @@ class Navigation extends Component {
     }
     render() {
         return (
-            <div className="Navigation">Navigation</div>
+            <div className="navigation__container">
+                <h1 className="navigation__logo">Ripka</h1>
+                <button className="navigation__button">POST AN EVENT</button>
+            </div>
         )
     }
 }
