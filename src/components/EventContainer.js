@@ -6,7 +6,7 @@ import { events } from '../reducers/events'
 
 const EventContainer = ({events, onEventClick}) => (
     <ul className="add-event">
-        <AddEvent/>
+        {/*<AddEvent/>*/}
         <div className="event__block">
         {
             events.map(event =>
@@ -15,7 +15,6 @@ const EventContainer = ({events, onEventClick}) => (
                     {...event}
                     onClick={() => onEventClick(event.id)}
                 />
-
             )
         }
         </div>

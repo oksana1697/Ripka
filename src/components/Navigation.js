@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom';
 
 class Navigation extends Component {
     constructor(props) {
@@ -9,7 +10,8 @@ class Navigation extends Component {
         return (
             <div className="navigation__container">
                 <h1 className="navigation__logo">Ripka</h1>
-                <button className="navigation__button">POST AN EVENT</button>
+                <Link to="/addevent"><button className="navigation__button">POST AN EVENT</button></Link>
+                {/*<button className="navigation__button">POST AN EVENT</button>*/}
             </div>
         )
     }
