@@ -1,44 +1,48 @@
-.event__block{
+.event__block {
     display: flex;
     flex-wrap: wrap;
 }
-.event__container{
+
+.event__container {
     margin: 15px;
     display: flex;
     flex-direction: column;
-width: 265px;
+    width: 265px;
 }
 
-.event__name{
+.event__name {
     font-family: "Gotham", "Helvetica", "Arial", sans-serif;
-   text-decoration: none;
+    text-decoration: none;
     font-size: 15px;
     font-weight: 600;
     color: #464646;
     margin: 0;
 }
-.event__name:hover{
+
+.event__name:hover {
     color: #1e214a;
 }
-.event__location{
+
+.event__location {
     margin: 0;
     font-size: 14px;
     font-weight: 300;
     color: #9398a1;
-    font-family:  "Gotham", "Helvetica", "Arial", sans-serif;
+    font-family: "Gotham", "Helvetica", "Arial", sans-serif;
 }
-.event__time{
+
+.event__time {
     text-align: right;
     margin: 0;
     font-size: 14px;
     font-weight: 300;
     color: #9398a1;
-    font-family:  "Gotham", "Helvetica", "Arial", sans-serif;
+    font-family: "Gotham", "Helvetica", "Arial", sans-serif;
 }
 
-.event__organization{
+.event__organization {
     margin: 0;
-    font-family:  "Gotham", "Helvetica", "Arial", sans-serif;
+    font-family: "Gotham", "Helvetica", "Arial", sans-serif;
     font-size: 11px;
     font-weight: 600;
     color: #9398a1;

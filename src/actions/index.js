@@ -1,9 +1,8 @@
 import {v4} from 'node-uuid'
 import * as api from '../api'
 
-export const addEvent = (name, description, date, organization, contacts, location) =>
-    ({
-        type: 'ADD_EVENT',
+export const addEvent = (name, description, date, organization, contacts, location,photo) => {
+    return api.pushEvent({
         id: v4(),
         name,
         description,
@@ -11,7 +10,14 @@ export const addEvent = (name, description, date, organization, contacts, locati
         organization,
         contacts,
         location,
+        photo,
+    }).then(response => {
+        return {
+            type: 'ADD_EVENT',
+            ...response
+        }
     });
+};
 
 const receiveEvents = (response) => ({
     type: 'RECEIVE_EVENTS',

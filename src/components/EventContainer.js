@@ -3,10 +3,12 @@ import React from 'react';
 import AddEvent from '../containers/AddEvent'
 
 import { events } from '../reducers/events'
+import Cover from "./Cover";
 
 const EventContainer = ({events, onEventClick}) => (
-    <ul className="add-event">
-        {/*<AddEvent/>*/}
+
+    <ul>
+        <Cover/>
         <div className="event__block">
         {
             events.map(event =>

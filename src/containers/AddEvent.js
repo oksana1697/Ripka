@@ -2,8 +2,9 @@ import React from 'react'
 import {addEvent} from '../actions/index'
 import {connect} from 'react-redux'
 import {DateTime} from "luxon"
+import {Link} from "react-router-dom";
 let AddEvent = ({dispatch}) => {
-    let name, description, organization, contacts, year, month, day, hour, minute, location;
+    let name, description, organization, contacts, year, month, day, hour, minute, location, photo;
     return (
         <div>
             <div className="add-event__title_container">
@@ -67,9 +68,18 @@ let AddEvent = ({dispatch}) => {
                 minute = node;
             }}/>
         </div>
-
+            <div className="add-event__input_container">
+                <p className="add-event__field">DOWNLOAD PHOTO</p>
+                <input className="add-event__input" type='file'  ref={node => {
+                    photo = node;}}
+                />
+            </div>
             <div className="add-event__submit-container">
-            <button className="add-event__submit" onClick={() => {
+
+
+                <Link to="/">
+
+                <button className="add-event__submit" onClick={() => {
                 const toDate = DateTime.fromObject({
                     year: Number(year.value),
                     month: Number(month.value),
@@ -95,7 +105,8 @@ let AddEvent = ({dispatch}) => {
                         toDate,
                         organization.value,
                         contacts.value,
-                        location.value
+                        location.value,
+                        photo.value,
                     ));
 
                 }
@@ -108,10 +119,13 @@ let AddEvent = ({dispatch}) => {
                             year.value =
                                 month.value =
                                 hour.value =
-                                    day.value = ''
+                                    day.value =
+                                        photo.value = ''
             }}>
                 Add Event
             </button>
+
+                </Link>
             </div>
         </div>
     );
