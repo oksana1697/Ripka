@@ -70,9 +70,12 @@ let AddEvent = ({dispatch}) => {
         </div>
             <div className="add-event__input_container">
                 <p className="add-event__field">DOWNLOAD PHOTO</p>
-                <input className="add-event__input" type='file'  ref={node => {
+                <p className="add-event__input">
+                <input className="add-event__photo" type='file'  ref={node => {
                     photo = node;}}
                 />
+                </p>
+
             </div>
             <div className="add-event__submit-container">
 

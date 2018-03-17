@@ -32,6 +32,8 @@ VisibleEventList = withRouter(connect(
 )(VisibleEventList));
 
 export default VisibleEventList;
+   // to cxomponets
+
 
 // import InfiniteScroll from "react-infinite-scroller";
 // class VisibleEventList extends Component {

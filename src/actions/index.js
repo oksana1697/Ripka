@@ -1,5 +1,7 @@
 import {v4} from 'node-uuid'
 import * as api from '../api'
+// TODO: thunk middleware
+
 
 export const addEvent = (name, description, date, organization, contacts, location,photo) => {
     return api.pushEvent({

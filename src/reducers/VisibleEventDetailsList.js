@@ -8,3 +8,4 @@ const getVisibleEvents = (events) => {
 
 const VisibleEventDetailList = connect(getVisibleEvents)(EventDetails);
 export default VisibleEventDetailList;
+ // to components

@@ -7,7 +7,7 @@ const date = DateTime.fromObject({
     hour: Number(20),
     minute: Number(20)
 })
-
+//TODO: add json server
 let fakeDatabase = {
     events: [{
         id: v4(),

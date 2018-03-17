@@ -90,18 +90,11 @@ width:210px;
     border-bottom: 1px solid rgba(98, 105, 119, 0.31);
 }
 
-
-/*test*/
-
-
 .add-event__photo{
-    border:1px solid rgb(64, 196, 207);
-    background: rgb(64, 196, 207) !important;
-    height: 40px;
     border-radius: 6px;
-    width:210px;
     color: #F5F5F6;
     font-weight: bold;
 }
+
 
 
