@@ -5,7 +5,7 @@ import AddEvent from '../containers/AddEvent'
 
 import { events } from '../reducers/events'
 import Cover from "./Cover";
-import EventTest from "../../fakeData";
+import EventTest from "../../getFakeData";
 
 
 
@@ -13,7 +13,6 @@ const EventContainer = ({events, onEventClick}) => (
 
     <ul>
         <Cover/>
-        <EventTest/>
         <div className="event__block">
         {
             events.map(event =>
