@@ -21,6 +21,8 @@ export const addEvent = (name, description, date, organization, contacts, locati
     });
 };
 
+
+
 const receiveEvents = (response) => ({
     type: 'RECEIVE_EVENTS',
     response
