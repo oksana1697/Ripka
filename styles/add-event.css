@@ -10,8 +10,8 @@ body{
 .add-event__title_container{
     background-color: #F5F5F6;
 }
-.add-event__title{
 
+.add-event__title{
     width: 600px;
     margin: auto;
     font-family: "Helvetica", "Arial", sans-serif;
@@ -19,14 +19,14 @@ body{
     padding: 2%;
     margin-top: 0;
 }
-.add-event__subtitle{
-    font-family: "Helvetica", "Arial", sans-serif;
-    color: #626977;
-    /*height:36px;*/
-    /*border-bottom: 1px solid #626977;*/
-    font-size: 1.125em;
-    font-weight: 500;
-    margin-left: 10px}
+    .add-event__subtitle{
+        font-family: "Helvetica", "Arial", sans-serif;
+        color: #626977;
+        /*height:36px;*/
+        /*border-bottom: 1px solid #626977;*/
+        font-size: 1.125em;
+        font-weight: 500;
+        margin-left: 10px}
 
 
 .add-event__subtitle_container{
@@ -73,13 +73,13 @@ body{
 
 .add-event__submit{
     border:1px solid rgb(64, 196, 207);
-background: rgb(64, 196, 207);
+    background: rgb(64, 196, 207);
     height: 40px;
     border-radius: 6px;
-width:210px;
+    width:210px;
     color: #F5F5F6;
     font-weight: bold;
-
+    cursor: pointer;
 }
 
 .add-event__submit-container{
@@ -91,10 +91,22 @@ width:210px;
 }
 
 .add-event__photo{
+    height: 28px;
+    width: 150px;
+    border: 2px solid #40c4cf;
     border-radius: 6px;
-    color: #F5F5F6;
+    color: #40c4cf;
     font-weight: bold;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
 }
+.add-event__photo:hover{
+background: rgba(78, 232, 232, 0.27);
+}
+.add-event__photo_text{
+    margin-top: 5%;}
 
 
 

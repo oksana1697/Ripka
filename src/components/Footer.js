@@ -43,14 +43,6 @@ class Footer extends Component {
     render() {
         return (
             <div className="footer">
-                <Dropzone
-                    onDrop={this.handleDrop}
-                    multiple
-                    accept="image/*"
-                    // style={styles.dropzone}
-                >
-                    <p>Drop your files or click here to upload</p>
-                </Dropzone>
                 <div className="footer__container">
                     <p className="footer__heading">ABOUT US</p>
                     <p className="footer__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>

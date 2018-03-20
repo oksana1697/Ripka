@@ -11,7 +11,7 @@ const App = () => (
     <div>
     <Navigation/>
             <Switch>
-                <Route exact path='/' component={VisibleEventList}></Route>
+                <Route exact path='/' component={VisibleEventList}/>
                     <Route exact path='/addevent' component={AddEvent}/>
                 <Route exact path='/:eventName' component={VisibleEventDetailList}/>
             </Switch>

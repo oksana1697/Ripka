@@ -1,9 +1,9 @@
 import React from 'react'
 import {addEvent} from '../actions/index'
 import {connect} from 'react-redux'
-import {DateTime} from "luxon"
 import {Link} from "react-router-dom";
 import PhotoUpload from "../components/PhotoUpload";
+import DateTime from 'luxon/src/datetime.js'
 
 let AddEvent = ({dispatch}) => {
     let name, description, organization, contacts, year, month, day, hour, minute, location, photo;
@@ -71,7 +71,7 @@ let AddEvent = ({dispatch}) => {
             </div>
             <div className="add-event__input_container">
                 <p className="add-event__field">DOWNLOAD PHOTO</p>
-                    <PhotoUpload/>
+                    <PhotoUpload photo = {(URL) => {photo = URL}}/>
             </div>
 
 
@@ -97,8 +97,7 @@ let AddEvent = ({dispatch}) => {
                                 month.value,
                                 day.value,
                                 hour.value,
-                                minute.value,
-                                photo.value])
+                                minute.value])
                         ) {
                             dispatch(addEvent(
                                 name.value,
@@ -107,7 +106,7 @@ let AddEvent = ({dispatch}) => {
                                 organization.value,
                                 contacts.value,
                                 location.value,
-                                photo.value,
+                                photo
                             ));
 
                         }
@@ -121,7 +120,7 @@ let AddEvent = ({dispatch}) => {
                                                     month.value =
                                                         hour.value =
                                                             day.value =
-                                                                photo.value = ''
+                                                                photo = ''
                     }}>
                         Add Event
                     </button>

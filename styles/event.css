@@ -3,6 +3,11 @@
     flex-wrap: wrap;
 }
 
+.event__photo{
+    height: auto;
+    width: 265px;
+}
+
 .event__container {
     margin: 15px;
     display: flex;

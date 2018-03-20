@@ -5,7 +5,10 @@ const Event = ({name, description, date, location,organization,photo}) =>
     (
         <div className="event__container">
             <div>
-            <img src={photo}/>
+            <img
+                src={photo}
+                className="event__photo"
+            />
             </div>
                 <p className="event__location">{location}</p>
             {/*<p className="event__time">{date.toFormat("HH:mm")}</p>*/}

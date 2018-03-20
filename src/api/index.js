@@ -1,5 +1,6 @@
 import { v4 } from 'node-uuid';
 import {DateTime} from 'luxon'
+import {getData, postData} from "../../test";
 const date = DateTime.fromObject({
     year: Number(1999),
     month: Number(2),
@@ -46,14 +47,14 @@ let fakeDatabase = {
     },
         {
             id: v4(),
-            name: 'Фестивалю "Добрі справи 2018" потрібен логотип',
+            name: 'Membership Services Assistant - Seasonal',
             description: 'Добрі справи 2018"- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи.\n' +
             'Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю.\n' +
             'А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.',
             date: date,
-            organization: "Добрі справи 2018",
+            organization: "East Bay Zoological Society",
             contacts: +38098678594,
-            location:"Київська область, Київ",
+            location:"Oakland, CA",
             photo: "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg",
 
         },
@@ -90,11 +91,18 @@ const delay = (ms) =>
         setTimeout(resolve, ms));
 
 export const fetchEvents = () =>
-    delay(500).then(() => {
-        return fakeDatabase.events})
-
-export const pushEvent = (newEvent) =>
-    delay(500).then(() => {
-        fakeDatabase.events.push(newEvent);
-        return newEvent;
+    // delay(500).then(() => {
+    //     return fakeDatabase.events})
+    getData('http://localhost:3000/events').then(function (data){
+        console.log(data);
+        return data;
     });
+export const pushEvent = (newEvent) =>
+    // delay(500).then(() => {
+    //     fakeDatabase.events.push(newEvent);
+        postData('http://localhost:3000/events', newEvent).then(function(newEvent){
+            return newEvent
+        });
+
+        // return newEvent;
+
