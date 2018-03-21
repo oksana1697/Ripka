@@ -14,8 +14,8 @@ async function makeRequest (url, method, data) {
             method: method, // *GET, POST, PUT, DELETE, etc.
         }
     }
-    return fetch(url, body)
-        .then(response => response.json()) // parses response to JSON
+    // return fetch(url, body)
+    //     .then(response => response.json()) // parses response to JSON
     let response = await fetch(url, body)
     data = await response.json();
     return data;

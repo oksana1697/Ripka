@@ -2,7 +2,6 @@ import {v4} from 'node-uuid'
 import * as api from '../api'
 // TODO: thunk middleware
 
-
 export const addEvent = (name, description, date, organization, contacts, location,photo) => {
     return api.pushEvent({
         id: v4(),
@@ -28,10 +27,11 @@ const receiveEvents = (response) => ({
     response
 });
 
-export const fetchEvents = () =>
-    api.fetchEvents().then(response =>
-        receiveEvents(response)
-    );
+export const fetchEvents = () => (dispatch) => {
+        return api.fetchEvents().then((response) => {
+            return dispatch(receiveEvents(response));
+        });
+};
 
 
 

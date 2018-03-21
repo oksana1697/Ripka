@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 import React, {Component} from'react'
 import EventContainer from "../components/EventContainer";
 import {withRouter} from "react-router-dom";
-import * as fetchEvents from "../actions";
+import {fetchEvents} from "../actions";
 class VisibleEventList extends Component {
 
     componentDidMount(){
@@ -10,7 +10,7 @@ class VisibleEventList extends Component {
     }
     fetchData(){
         const  {fetchEvents} = this.props;
-        fetchEvents()
+        fetchEvents();
     }
     render(){
         const { ...rest} =  this.props;
@@ -28,7 +28,9 @@ const getVisibleEvents = (events) =>{
 
 VisibleEventList = withRouter(connect(
     getVisibleEvents,
-    fetchEvents
+    {
+        fetchEvents
+    }
 )(VisibleEventList));
 
 export default VisibleEventList;
