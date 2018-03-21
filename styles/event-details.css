@@ -4,9 +4,17 @@
 .event-details__title_container{
     background-color: #F5F5F6;
 }
-.event-details__block{
+.event-details__block-column{
     display: flex;
     flex-direction: column;
+    width: 70%;
+    margin: auto;
+    border-bottom: 1px solid rgba(98, 105, 119, 0.31);
+    padding-bottom: 20px;
+}
+.event-details__block-row{
+    display: flex;
+    flex-direction: row;
     width: 70%;
     margin: auto;
     border-bottom: 1px solid rgba(98, 105, 119, 0.31);
@@ -29,17 +37,41 @@
     color: #626977;
     font-family: "Helvetica", "Arial", sans-serif;
 }
-
+.event-details__icon-flag{
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    /*content: url("../src/icons/heart.xml");*/
+    content: url("http://res.cloudinary.com/ucu/image/upload/c_scale,w_22/v1521580692/flag_r6rioh.png") ;
+}
+.event-details__button-descr{
+    display: inline-block;
+    vertical-align: middle;
+}
+.event-details__icon-heard{
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    content: url("http://res.cloudinary.com/ucu/image/upload/c_scale,w_22/v1521615164/icon_h_irityr.png") ;
+}
 .event-details__button{
+    display: inline-block;
+    font-size: 14px;
     border: transparent;
     background: transparent;
     height: 40px;
-    width: 10%;
+    /*width: 15%;*/
     color: #9398a1;
     font-weight: bold;
     cursor: pointer;
     text-align: left;
 }
+
+.event-details__button:active{
+    color: #40c4cf;
+    border: transparent;
+}
+
 .event-details__content{
     font-size: 18px;
     font-weight: normal;

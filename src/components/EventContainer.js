@@ -5,7 +5,6 @@ import AddEvent from '../containers/AddEvent'
 
 import { events } from '../reducers/events'
 import Cover from "./Cover";
-import EventTest from "../../getFakeData";
 
 
 

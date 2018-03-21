@@ -1,4 +1,6 @@
-function makeRequest(url, method, data) {
+"use strict";
+
+async function makeRequest (url, method, data) {
 
     let body = {
         body: JSON.stringify(data), // must match 'Content-Type' header
@@ -12,9 +14,11 @@ function makeRequest(url, method, data) {
             method: method, // *GET, POST, PUT, DELETE, etc.
         }
     }
-    return fetch(url, body )
+    return fetch(url, body)
         .then(response => response.json()) // parses response to JSON
-
+    let response = await fetch(url, body)
+    data = await response.json();
+    return data;
 }
 
 export function getData(url) {
