@@ -10,15 +10,12 @@
     width: 70%;
     margin: auto;
     border-bottom: 1px solid rgba(98, 105, 119, 0.31);
-    padding-bottom: 20px;
 }
 .event-details__block-row{
     display: flex;
     flex-direction: row;
     width: 70%;
     margin: auto;
-    border-bottom: 1px solid rgba(98, 105, 119, 0.31);
-    padding-bottom: 20px;
 }
 
 .event-details__title{
@@ -26,10 +23,7 @@
     color: #2c374a;
     font-size: 22px;
 }
-.event-details__subtitle{
-    color: #2c374a;
-    font-size: 15px;
-    font-family: "Helvetica", "Arial", sans-serif;}
+
 
 .event-details__location{
     display: inline;
@@ -41,8 +35,12 @@
     margin-right: 5px;
     display: inline-block;
     vertical-align: middle;
-    /*content: url("../src/icons/heart.xml");*/
-    content: url("http://res.cloudinary.com/ucu/image/upload/c_scale,w_22/v1521580692/flag_r6rioh.png") ;
+    content: url("../src/icons/flag.svg");
+}
+
+.event-details__icon-flag:active{
+    /*fill: #40c4cf;*/
+    fill: white;
 }
 .event-details__button-descr{
     display: inline-block;
@@ -52,7 +50,8 @@
     margin-right: 5px;
     display: inline-block;
     vertical-align: middle;
-    content: url("http://res.cloudinary.com/ucu/image/upload/c_scale,w_22/v1521615164/icon_h_irityr.png") ;
+    content: url("../src/icons/heart.svg");
+    /*content: url("http://res.cloudinary.com/ucu/image/upload/c_scale,w_22/v1521615164/icon_h_irityr.png") ;*/
 }
 .event-details__button{
     display: inline-block;
@@ -73,7 +72,35 @@
 }
 
 .event-details__content{
+    margin-left:54px;
     font-size: 18px;
     font-weight: normal;
     color: rgba(24, 24, 24, 0.7);
+}
+
+.event-details__subtitle{
+    font-family: "Helvetica", "Arial", sans-serif;
+    color: #626977;
+    font-size: 1.125em;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+
+
+.event-details__subtitle_container{
+    width: 97%;
+    display: flex;
+    margin: auto;
+    padding: 10px;
+    border-bottom: 1px solid rgba(98, 105, 119, 0.31);}
+
+.event-details__icon-contact{
+    content: url("../src/icons/contact.svg");
+}
+.event-details__icon-paper{
+    content: url("../src/icons/paper.svg");
+}
+.event-details__icon-calendar{
+    content: url("../src/icons/calendar.svg");
 }

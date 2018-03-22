@@ -5,7 +5,6 @@ import thunk from 'redux-thunk'
 
 
 const configureStore = () => {
-        // const middlewares = [promise];
         const middlewares = [];
     if (process.env.NODE_ENV !== 'production') {
         middlewares.push(createLogger());
