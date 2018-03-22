@@ -1,106 +1,108 @@
-.img{
+.img {
     display: block;
 }
-.event-details__title_container{
+
+.event-details__title_container {
     background-color: #F5F5F6;
 }
-.event-details__block-column{
+
+.event-details__block-column {
     display: flex;
     flex-direction: column;
     width: 70%;
     margin: auto;
     border-bottom: 1px solid rgba(98, 105, 119, 0.31);
 }
-.event-details__block-row{
+
+.event-details__block-row {
     display: flex;
     flex-direction: row;
     width: 70%;
     margin: auto;
 }
 
-.event-details__title{
+.event-details__title {
     font-family: "Helvetica", "Arial", sans-serif;
     color: #2c374a;
     font-size: 22px;
 }
 
-
-.event-details__location{
+.event-details__location {
     display: inline;
     font-size: 15px;
     color: #626977;
     font-family: "Helvetica", "Arial", sans-serif;
 }
-.event-details__icon-flag{
+
+.event-details__icon-flag {
     margin-right: 5px;
     display: inline-block;
     vertical-align: middle;
     content: url("../src/icons/flag.svg");
 }
 
-.event-details__icon-flag:active{
-    /*fill: #40c4cf;*/
-    fill: white;
-}
-.event-details__button-descr{
+
+.event-details__button-descr {
     display: inline-block;
     vertical-align: middle;
 }
-.event-details__icon-heard{
+
+.event-details__icon-heard {
     margin-right: 5px;
     display: inline-block;
     vertical-align: middle;
     content: url("../src/icons/heart.svg");
-    /*content: url("http://res.cloudinary.com/ucu/image/upload/c_scale,w_22/v1521615164/icon_h_irityr.png") ;*/
 }
-.event-details__button{
+
+.event-details__button {
     display: inline-block;
     font-size: 14px;
     border: transparent;
     background: transparent;
     height: 40px;
-    /*width: 15%;*/
     color: #9398a1;
     font-weight: bold;
     cursor: pointer;
     text-align: left;
 }
 
-.event-details__button:active{
+.event-details__button:active {
     color: #40c4cf;
     border: transparent;
 }
 
-.event-details__content{
-    margin-left:54px;
+.event-details__content {
+    margin-left: 54px;
     font-size: 18px;
     font-weight: normal;
     color: rgba(24, 24, 24, 0.7);
 }
 
-.event-details__subtitle{
+.event-details__subtitle {
     font-family: "Helvetica", "Arial", sans-serif;
     color: #626977;
     font-size: 1.125em;
     font-weight: 500;
     margin-left: 5px;
+
 }
 
-
-
-.event-details__subtitle_container{
+.event-details__subtitle_container {
     width: 97%;
     display: flex;
     margin: auto;
     padding: 10px;
-    border-bottom: 1px solid rgba(98, 105, 119, 0.31);}
+    border-bottom: 1px solid rgba(98, 105, 119, 0.31);
+}
 
-.event-details__icon-contact{
+.event-details__icon-contact {
     content: url("../src/icons/contact.svg");
 }
-.event-details__icon-paper{
+
+.event-details__icon-paper {
     content: url("../src/icons/paper.svg");
 }
-.event-details__icon-calendar{
+
+.event-details__icon-calendar {
     content: url("../src/icons/calendar.svg");
 }

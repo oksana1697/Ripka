@@ -1,4 +1,4 @@
-.navigation__container{
+.navigation__container {
     background: rgb(64, 196, 207);
     display: flex;
     flex-direction: row;
@@ -13,18 +13,19 @@
 
 }
 
-.navigation__button{
+.navigation__button {
     margin: auto 70px auto auto;
-    border:2px solid #F5F5F6;
+    border: 2px solid #F5F5F6;
     border-radius: 6px;
 }
-.navigation__button_content{
+
+.navigation__button_content {
     background: rgb(64, 196, 207);
     border-radius: 6px;
     color: #F5F5F6;
     font-weight: bold;
     height: 40px;
-    width:180px;
+    width: 180px;
     border: transparent;
     cursor: pointer;
 }

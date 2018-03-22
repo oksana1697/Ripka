@@ -1,22 +1,19 @@
 "use strict";
 
-async function makeRequest (url, method, data) {
-
+async function makeRequest(url, method, data) {
     let body = {
-        body: JSON.stringify(data), // must match 'Content-Type' header
+        body: JSON.stringify(data),
         headers: {
             'content-type': 'application/json'
         },
-        method: method, // *GET, POST, PUT, DELETE, etc.
-    }
-    if (method === 'GET'){
+        method: method,
+    };
+    if (method === 'GET') {
         body = {
-            method: method, // *GET, POST, PUT, DELETE, etc.
+            method: method,
         }
     }
-    // return fetch(url, body)
-    //     .then(response => response.json()) // parses response to JSON
-    let response = await fetch(url, body)
+    let response = await fetch(url, body);
     data = await response.json();
     return data;
 }
@@ -30,8 +27,6 @@ export function getData(url) {
 
 export function postData(url, data) {
     return makeRequest(url, 'POST', data)
-
-
 }
 
 // postData('http://localhost:3000/events', {"test": "test1", "id": 5})
@@ -51,5 +46,3 @@ function deleteData(url, data) {
 
 // deleteData('http://localhost:3000/events', {id:5})
 
-
-// TODO: pagination, infinity scroll

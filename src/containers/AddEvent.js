@@ -71,9 +71,10 @@ let AddEvent = ({dispatch}) => {
             </div>
             <div className="add-event__input_container">
                 <p className="add-event__field">DOWNLOAD PHOTO</p>
-                    <PhotoUpload photo = {(URL) => {photo = URL}}/>
+                <PhotoUpload photo={(URL) => {
+                    photo = URL
+                }}/>
             </div>
-
 
 
             <div className="add-event__submit-container">

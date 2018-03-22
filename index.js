@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 
 const store = configureStore();
 ReactDOM.render(
-
     <Root store={store} />,
     document.getElementById('root')
 );

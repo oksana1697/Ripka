@@ -1,6 +1,5 @@
 import {v4} from 'node-uuid'
 import * as api from '../api'
-// TODO: thunk middleware
 
 
 const add = (response) => ({
@@ -8,8 +7,7 @@ const add = (response) => ({
     ...response
 });
 
-
-export const addEvent =(name, description, date, organization, contacts, location,photo)=> (dispatch) => {
+export const addEvent = (name, description, date, organization, contacts, location, photo) => (dispatch) => {
     return api.pushEvent({
         id: v4(),
         name,
@@ -25,16 +23,15 @@ export const addEvent =(name, description, date, organization, contacts, locatio
 };
 
 
-
 const receiveEvents = (response) => ({
     type: 'RECEIVE_EVENTS',
     response
 });
 
 export const fetchEvents = () => (dispatch) => {
-        return api.fetchEvents().then((response) => {
-            return dispatch(receiveEvents(response));
-        });
+    return api.fetchEvents().then((response) => {
+        return dispatch(receiveEvents(response));
+    });
 };
 
 

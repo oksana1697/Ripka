@@ -1,4 +1,3 @@
-import event from './event';
 const events = (state = [], action) => {
     switch (action.type) {
         case 'ADD_EVENT':
