@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 
 class EventDetails extends Component {
     render() {
+        // to reducer selectors (connect), id
         const currentEvent = this.props.events.find((element) => {
             return element.name === this.props.match.params.eventName;
         });

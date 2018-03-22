@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import EventDetails from "../components/EventDetails";
+import EventDetails from "./EventDetails";
 
 
 const getVisibleEvents = (events) => {
@@ -8,4 +8,3 @@ const getVisibleEvents = (events) => {
 
 const VisibleEventDetailList = connect(getVisibleEvents)(EventDetails);
 export default VisibleEventDetailList;
- // to components

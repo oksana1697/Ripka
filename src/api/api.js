@@ -50,3 +50,6 @@ function deleteData(url, data) {
 }
 
 // deleteData('http://localhost:3000/events', {id:5})
+
+
+// TODO: pagination, infinity scroll

@@ -2,8 +2,8 @@ import React from 'react'
 import Footer from './Footer'
 import Event from './App'
 import AddEvent from '../containers/AddEvent'
-import VisibleEventList from '../reducers/VisibleEventList'
-import VisibleEventDetailList from '../reducers/VisibleEventDetailsList';
+import VisibleEventList from './VisibleEventList'
+import VisibleEventDetailList from './VisibleEventDetailsList';
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import Navigation from "./Navigation";
 

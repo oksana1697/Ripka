@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
-import todoApp from './src/reducers/index'
+import todoApp from './reducers/index'
 import thunk from 'redux-thunk'
 
 

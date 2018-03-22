@@ -1,12 +1,12 @@
 {
   "name": "Ripka",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "/index.js",
   "scripts": {
     "build": "webpack",
     "start:server": "webpack-dev-server || serve --single",
-    "data:local": "json-server --watch db.json",
-    "data:fake": "json-server --watch generateFakeData.js"
+    "data:local": "json-server --watch ./src/data/db.json",
+    "data:fake": "json-server --watch ./src/data/generateFakeData.js"
   },
   "keywords": [],
   "author": "",

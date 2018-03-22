@@ -1,8 +1,8 @@
 import {connect} from 'react-redux'
 import React, {Component} from'react'
-import EventContainer from "../components/EventContainer";
+import EventContainer from "./EventContainer";
 import {withRouter} from "react-router-dom";
-import {fetchEvents} from "../actions";
+import {fetchEvents} from "../actions/index";
 class VisibleEventList extends Component {
 
     componentDidMount(){

@@ -7,9 +7,16 @@ module.exports = function(){
                 id: n,
                 name: faker.Company.companyName(),
                 description: faker.Company.catchPhrase(),
+                organization:faker.Company.companySuffix(),
                 contacts: faker.PhoneNumber.phoneNumber(),
                 location: faker.Address.streetAddress(),
                 photo: faker.Image.cats()
+
+
+
+
+
+
 
             }})}}
 // generate and save locally to json file
