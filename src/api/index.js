@@ -19,4 +19,12 @@ export const pushEvent = (newEvent) =>
         postData('http://localhost:3000/events', newEvent).then(function(newEvent){
             return newEvent
         });
-
+export const fetchUsers = () =>
+    getData('http://localhost:3000/users').then(function (data){
+        console.log(data);
+        return data;
+    });
+export const pushUser = (newUser) =>
+    postData('http://localhost:3000/users', newUser).then(function(newUser){
+        return newUser
+    });
