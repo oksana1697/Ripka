@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
-import todoApp from './reducers/index'
+import eventApp from './reducers/index'
 import thunk from 'redux-thunk'
 
 
@@ -11,7 +11,7 @@ const configureStore = () => {
     }
 
     return createStore(
-        todoApp,
+        eventApp,
             applyMiddleware(thunk)
     );
 };

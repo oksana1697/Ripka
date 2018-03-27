@@ -20,10 +20,10 @@ const users = (state = [], action) => {
         default:
             return state
     }
-}
+};
 
 
-export default events
+export default users
 
 
 

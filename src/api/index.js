@@ -9,6 +9,11 @@ const date = DateTime.fromObject({
     hour: Number(20),
     minute: Number(20)
 })
+export const fetchSliceEvent = (num) =>
+    getData('http://localhost:3000/events?_start=' + num + '&_limit=4').then(function(data){
+    console.log(data);
+    return data;
+});
 
 export const fetchEvents = () =>
     getData('http://localhost:3000/events').then(function (data){
@@ -20,8 +25,7 @@ export const pushEvent = (newEvent) =>
             return newEvent
         });
 export const fetchUsers = () =>
-    getData('http://localhost:3000/users').then(function (data){
-        console.log(data);
+getData('http://localhost:3000/users').then(function (data){
         return data;
     });
 export const pushUser = (newUser) =>

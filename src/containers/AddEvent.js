@@ -75,11 +75,8 @@ let AddEvent = ({dispatch}) => {
                     photo = URL
                 }}/>
             </div>
-
-
             <div className="add-event__submit-container">
                 <Link to="/">
-
                     <button className="add-event__submit" onClick={() => {
                         const toDate = DateTime.fromObject({
                             year: Number(year.value),
@@ -88,7 +85,6 @@ let AddEvent = ({dispatch}) => {
                             hour: Number(hour.value),
                             minute: Number(minute.value)
                         });
-                        console.log("toDate:", toDate.toFormat("yyyy"))
                         if (checkField([location.value,
                                 description.value,
                                 contacts.value,

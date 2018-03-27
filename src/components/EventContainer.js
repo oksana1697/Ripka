@@ -7,13 +7,14 @@ import { events } from '../reducers/events'
 import Cover from "./Cover";
 
 const EventContainer = ({events, onEventClick}) => (
-
     <ul>
         <Cover/>
         <div className="event__block">
         {
+            // console.log("events:", events)
+
             events.map(event =>
-                <Event
+            <Event
                     key={event.id}
                     {...event}
                     onClick={() => onEventClick(event.id)}

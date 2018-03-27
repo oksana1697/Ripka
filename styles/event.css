@@ -4,7 +4,8 @@
 }
 
 .event__photo{
-    height: auto;
+    object-fit: scale-down;
+    height: 200px;
     width: 265px;
 }
 

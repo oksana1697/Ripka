@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "/index.js",
   "scripts": {
+    "test": "mocha --compilers js:babel-register",
     "build": "webpack",
     "start:server": "webpack-dev-server || serve --single",
     "data:local": "json-server --watch ./src/data/db.json",
@@ -12,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-polyfill": "^6.26.0",
@@ -19,6 +21,9 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "mocha": "^5.0.5",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "webpack": "^3.11.0",
