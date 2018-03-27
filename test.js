@@ -25,6 +25,7 @@ describe('tests', function(){
                 // "location": "Kyiv",
                 // "photo": "https://res.cloudinary.com/ucu/image/upload/v1521905282/hlehumlq5evp7opbvn8k.png"
             }], 'ADD_EVENT');
+            
             // console.log("received:", received)
             // console.log("expected:", expected)
             assert.deepEqual(expected, received)
