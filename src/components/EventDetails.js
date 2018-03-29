@@ -2,10 +2,10 @@ import React, {Component} from 'react'
 
 class EventDetails extends Component {
     render() {
-        // TODO: to reducer selectors (connect), id
-        const currentEvent = this.props.events.find((element) => {
-            return element.name === this.props.match.params.eventName;
-        });
+         // TODO: to reducer selectors (connect), id
+         const currentEvent = this.props.events.find((element) => {
+             return element.name === this.props.match.params.eventName;
+         });
 
         return (
             <div>
@@ -13,7 +13,6 @@ class EventDetails extends Component {
                     <div className="event-details__block-column">
                         <h1 className="event-details__title">{currentEvent.name}</h1>
                         <h2 className="event-details__subtitle">{currentEvent.organization}</h2>
-                        {/*<img src="http://res.cloudinary.com/ucu/image/upload/c_scale,w_24/v1521495793/icon_plvdyt.png"/>*/}
                         <p className="event-details__location">{currentEvent.location}</p>
                     </div>
                 </div>

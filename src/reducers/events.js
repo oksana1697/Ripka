@@ -1,5 +1,6 @@
+// TODO: add event receive
+// TODO:remove event (remove, remove success, remove fail)
 const events = (state = [], action) => {
-    // console.log("STATE:",state)
     switch (action.type) {
         case 'ADD_EVENT':
             return [
@@ -18,13 +19,17 @@ const events = (state = [], action) => {
                 return [
                     ...action.response,
                 ];
+        case 'DELETE_EVENT':
+            return [
+                ...action.response
+            ]
         default:
             return state
     }
 };
-
-
 export default events
+
+
 
 
 

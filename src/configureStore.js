@@ -3,7 +3,7 @@ import { createLogger } from 'redux-logger';
 import eventApp from './reducers/index'
 import thunk from 'redux-thunk'
 
-
+//TODO: UPDATE TO REDUX DEV TOOLS
 const configureStore = () => {
         const middlewares = [];
     if (process.env.NODE_ENV !== 'production') {
@@ -12,6 +12,7 @@ const configureStore = () => {
 
     return createStore(
         eventApp,
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
             applyMiddleware(thunk)
     );
 };

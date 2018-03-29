@@ -38,7 +38,7 @@
     margin-right: 5px;
     display: inline-block;
     vertical-align: middle;
-    content: url("../src/icons/flag.svg");
+    content: url("icons/flag.svg");
 }
 
 
@@ -51,7 +51,7 @@
     margin-right: 5px;
     display: inline-block;
     vertical-align: middle;
-    content: url("../src/icons/heart.svg");
+    content: url("icons/heart.svg");
 }
 
 .event-details__button {
@@ -96,13 +96,13 @@
 }
 
 .event-details__icon-contact {
-    content: url("../src/icons/contact.svg");
+    content: url("icons/contact.svg");
 }
 
 .event-details__icon-paper {
-    content: url("../src/icons/paper.svg");
+    content: url("icons/paper.svg");
 }
 
 .event-details__icon-calendar {
-    content: url("../src/icons/calendar.svg");
+    content: url("icons/calendar.svg");
 }

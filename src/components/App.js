@@ -19,14 +19,13 @@ const App = () => (
                 <Route exact path='/' render={() =>(
                     <div>
                         <VisibleEventList/>
-                        {/*<VisibleUserList/>*/}
+                        <VisibleUserList/>
                     </div>
                 )}/>
                 <Route exact path='/addevent' component={AddEvent}/>
-                {/*<Route exact path='/adduser' component={AddUser}/>*/}
+                <Route exact path='/adduser' component={AddUser}/>
                 <Route exact path='/:eventName' component={VisibleEventDetailList}/>
-                {/*<Route exact path='/:userName' component={VisibleUserDetailList}/>*/}
-
+                <Route exact path='/:userName' component={VisibleUserDetailList}/>
             </Switch>
         <Footer/>
     </div>

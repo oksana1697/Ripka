@@ -1,7 +1,10 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import {addEvent} from "../actions";
+import {deleteEvent} from "../api";
 
-const Event = ({name, description, date, location,organization,photo}) =>
+const Event = ({id,name, description, date, location,organization,photo}) =>
+
     (
         <div className="event__container">
             <div>
@@ -19,9 +22,14 @@ const Event = ({name, description, date, location,organization,photo}) =>
                     color: 'black',
                 }}
             className="event__name">
-                {name}
+               {name}
             </NavLink>
             <p className="event__organization">{organization}</p>
+
+           {/*<button className="add-event__submit" onClick={() => {*/}
+           {/*console.log("deleting")}}*/}
+           {/*>*/}
+           {/*</button>*/}
         </div>
     )
 

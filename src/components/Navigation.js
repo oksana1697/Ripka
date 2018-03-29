@@ -17,7 +17,7 @@ class Navigation extends Component {
                         <button className="navigation__button_content">POST AN EVENT</button>
                     </Link>
                     <Link className="navigation__button" to="/adduser">
-                        <button className="navigation__button_content">LOG IN</button>
+                        <button className="navigation__button_content">FAKE SIGN UP</button>
                     </Link>
                 </div>
             </div>

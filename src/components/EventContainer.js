@@ -11,13 +11,11 @@ const EventContainer = ({events, onEventClick}) => (
         <Cover/>
         <div className="event__block">
         {
-            // console.log("events:", events)
-
             events.map(event =>
             <Event
                     key={event.id}
                     {...event}
-                    onClick={() => onEventClick(event.id)}
+                    onClick={() =>onEventClick(event.id)}
                 />
             )
         }

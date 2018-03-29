@@ -1,7 +1,7 @@
 import {v4} from 'node-uuid'
 import * as api from '../api'
 
-
+//TODO:'ADD_EVENT' to action types
 const addEVENT = (response) => ({
     type: 'ADD_EVENT',
     ...response
@@ -37,7 +37,6 @@ const addUSER = (response) => ({
     type: 'ADD_USER',
     ...response
 });
-
 export const addUser = (user_name, user_description, user_date, user_interests, user_contacts, user_location,user_photo) => (dispatch) => {
     return api.pushUser({
         id: v4(),
@@ -53,6 +52,8 @@ export const addUser = (user_name, user_description, user_date, user_interests, 
     });
 };
 
+
+
 const receiveUsers = (response) => ({
     type: 'RECEIVE_USERS',
     response
@@ -63,6 +64,17 @@ export const fetchUsers = () => (dispatch) => {
         return dispatch(receiveUsers(response));
     });
 };
+
+// const deleteEVENT = (responce) => ({
+//     type: 'DELETE_EVENT',
+//     ...responce
+// })
+//
+// export const deleteEvent = () => (dispatch) => {
+//     return api.deleteEvent(dispatch).then((response) => {
+//         return dispatch(deleteEVENT(response));
+//     });
+// }
 
 
 

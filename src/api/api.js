@@ -39,7 +39,7 @@ export function putData(url, data) {
 // putData('http://localhost:3000/events', {"test": "test15", "id": 5})
 
 
-function deleteData(url, data) {
+export function deleteData(url, data) {
     return makeRequest(url + '/' + data.id, 'DELETE', data)
 
 }
