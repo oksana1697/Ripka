@@ -2,22 +2,28 @@
 // import React, {Component} from 'react'
 // import EventContainer from "./EventContainer";
 // import {withRouter} from "react-router-dom";
-// import {fetchEvents} from "../actions/index";
+// // import {fetchEvents} from "../actions/index";
+// import {testfetchSliceEvents} from "../actions/index";
 //
 // class VisibleEventList extends Component {
 //
 //     componentDidMount() {
+//         console.log("didMount/this.fetchData",this.fetchData())
 //         this.fetchData()
 //     }
 //
 //     fetchData() {
-//         const {fetchEvents} = this.props;
-//         fetchEvents();
+//         // const {fetchEvents} = this.props;
+//         // fetchEvents();
+//         const{testfetchSliceEvents} = this.props;
+//         testfetchSliceEvents()
+//         console.log("fetchData/test",testfetchSliceEvents)
 //     }
 //
 //     render() {
 //         const {...rest} = this.props;
-//         console.log("Render:", {...rest})
+//         console.log("{...rest}", {...rest})
+//         console.log("this.props", this.props)
 //         return (
 //             <EventContainer
 //                 {...rest}
@@ -33,55 +39,65 @@
 // VisibleEventList = withRouter(connect(
 //     getVisibleEvents,
 //     {
-//         fetchEvents
+//         testfetchSliceEvents
 //     }
 // )(VisibleEventList));
 //
 // export default VisibleEventList;
-
 
 import {v4} from "node-uuid";
 import {connect} from 'react-redux'
 import React, {Component} from 'react'
 import EventContainer from "./EventContainer";
 import {withRouter} from "react-router-dom";
-import {fetchSliceEvent} from '../api/index';
+// import {fetchSliceEvents} from '../api/index';
 import InfiniteScroll from 'react-infinite-scroller';
-import {fetchEvents} from "../actions/index";
+import {testfetchSliceEvents} from "../actions/index";
+import Event from "./Event";
+
 class VisibleEventList extends Component {
     constructor(props){
         super(props);
         this.state = {
-            events: [],
+            // events: [],
             items: 0,
             hasMoreItems: true
         }
     }
-    // componentWillUpdate(){
-    //     this.setState({...this.state, events: [...this.state.events,...this.props.events]})
+
+    // shouldComponentUpdate(prevProps, newProps) {
+    //     console.log('prevProps', prevProps);
+    //     console.log('prevProps', newProps);
+    //
     // }
-       loadMore() {
-        if(this.state.items === 100){
+
+    // componentDidMount() {
+    //     this.fetchData()
+    // }
+    loadMore() {
+        if(this.state.items === 16){
             this.setState({...this.state, hasMoreItems: false});
-            console.log("finished",this.state.hasMoreItems)
         }else{
-            console.log("State before",this.state);
-            const items =  this.state.items + 4;
-            console.log("State after",this.state);
-            this.fetchData(items).then(newItems => {
-                this.setState({...this.state, events : [...this.state.events, ...newItems], items});
-                console.log(newItems)
-                console.log('state',this.state);
+console.log('-----', this.props);
+            this.fetchData(this.state.items).then(newItems => {
+                console.log("this.props", this.props);
+                const items =  this.state.items + 4;
+                this.setState({items});
+
             });
         }
     }
 
+
     fetchData(num) {
-        console.log("NUM:", num)
-        // const {fetchSliceEvent} = this.props;
-        return fetchSliceEvent(num);
+        console.log(num)
+        const {testfetchSliceEvents} = this.props;
+        return testfetchSliceEvents(num)
     }
     render() {
+        const {...rest} = this.props;
+        console.log("REST:", {...rest})
+        // console.log("STATE", this.state.events)
         return (
             <div>
                 <div style={{height:'600px', overflow:'auto'}}>
@@ -90,7 +106,8 @@ class VisibleEventList extends Component {
                         hasMore={this.state.hasMoreItems}
                         loader={<div className="loader"> Loading...</div>}
                         useWindow={false}>
-                        <EventContainer events={this.state.events}/>
+                        <EventContainer {...rest}/>
+                        {/*<EventContainer events={this.state.events}/>*/}
                     </InfiniteScroll>{" "}
                 </div>{" "}
             </div>
@@ -102,15 +119,22 @@ const getVisibleEvents = (store) => {
     // return {events: [...store.events]}
     return store
 };
-
+//
 VisibleEventList = withRouter(connect(
     getVisibleEvents,
     {
-        fetchEvents
+        testfetchSliceEvents
     }
 )(VisibleEventList));
 
 export default VisibleEventList;
+
+
+
+
+
+
+//
 // const getEvents = (dispatch, ownProps) =>{
 //
 //     return {
@@ -129,7 +153,7 @@ export default VisibleEventList;
 //                     // console.log('STATE',state);
 //                     // console.log('ITEMS',state.items)
 //                     // console.log('EVENT',state.events)
-//                     // state.events.forEach((event)=>{ //FIXME it is posiable that state has not changed by that moment
+//                     // state.events.forEach((event)=>{
 //                     //     console.log('3',event);
 //                     //     dispatch(addEvent(event))
 //                     // })

@@ -1,6 +1,7 @@
-// TODO: add event receive
 // TODO:remove event (remove, remove success, remove fail)
-const events = (state = [], action) => {
+// TODO: edit event ( edit, edit success, edit fail)
+// TODO: test
+export const events = (state = [], action) => {
     switch (action.type) {
         case 'ADD_EVENT':
             return [
@@ -19,6 +20,10 @@ const events = (state = [], action) => {
                 return [
                     ...action.response,
                 ];
+        case 'SLICE_EVENTS':
+            return [...state,
+                ...action.response
+            ];
         case 'DELETE_EVENT':
             return [
                 ...action.response

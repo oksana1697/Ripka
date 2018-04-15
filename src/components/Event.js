@@ -16,7 +16,7 @@ const Event = ({id,name, description, date, location,organization,photo}) =>
                 <p className="event__location">{location}</p>
             {/*<p className="event__time">{date.toFormat("HH:mm")}</p>*/}
             <NavLink
-                to={'/' + name}
+                to={'/' + id}
                 activeStyle={{
                     textDecoration: 'none',
                     color: 'black',

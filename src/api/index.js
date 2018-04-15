@@ -3,14 +3,15 @@ import {DateTime} from 'luxon'
 import {deleteData, getData, postData} from "./api";
 
 
-export const fetchSliceEvent = (num) =>
+export const fetchSliceEvents = (num) =>
     getData('http://localhost:3000/events?_start=' + num + '&_limit=4').then(function (data) {
-        // console.log("DATA",data)
+        console.log("api/index (1):",data)
         return data;
     });
 
 export const fetchEvents = () =>
     getData('http://localhost:3000/events').then(function (data) {
+        console.log("api/index/fetchData", data)
         return data;
     });
 export const pushEvent = (newEvent) =>

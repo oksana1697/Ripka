@@ -106,3 +106,16 @@
 .event-details__icon-calendar {
     content: url("icons/calendar.svg");
 }
+
+.event-details__button-delete {
+    border: 1px solid rgb(64, 196, 207);
+    background: rgb(64, 196, 207);
+    height: 40px;
+    border-radius: 6px;
+    width: 210px;
+    color: #F5F5F6;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: center;
+    margin-bottom: 10%;
+}

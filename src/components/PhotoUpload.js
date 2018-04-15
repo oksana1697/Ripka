@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Dropzone from 'react-dropzone'
 import axios from 'axios'
 
-// TODO: редагування івенту, користувачі, скрол, роутінг, ФОТО
+// TODO: редагування івенту
 class PhotoUpload extends Component {
     constructor(props) {
         super(props)
@@ -61,6 +61,7 @@ class PhotoUpload extends Component {
 
         )
         }
+
 
 }
 

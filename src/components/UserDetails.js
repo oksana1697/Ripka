@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 
 class UserDetails extends Component {
     render() {
-        // TODO: to reducer selectors (connect), id
+        // TODO: change match by name to id / fix routing on this page
+
         const currentUser = this.props.users.find((element) => {
             return element.user_name === this.props.match.params.userName;
         });

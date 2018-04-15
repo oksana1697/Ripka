@@ -1,12 +1,10 @@
 import {v4} from 'node-uuid'
 import * as api from '../api'
 
-//TODO:'ADD_EVENT' to action types
 const addEVENT = (response) => ({
     type: 'ADD_EVENT',
     ...response
 });
-
 export const addEvent = (name, description, date, organization, contacts, location, photo) => (dispatch) => {
     return api.pushEvent({
         id: v4(),
@@ -22,17 +20,17 @@ export const addEvent = (name, description, date, organization, contacts, locati
     });
 };
 
-
 const receiveEvents = (response) => ({
     type: 'RECEIVE_EVENTS',
     response
 });
-
 export const fetchEvents = () => (dispatch) => {
     return api.fetchEvents().then((response) => {
+        console.log("action/index/fetchEvents:", response)
         return dispatch(receiveEvents(response));
     });
 };
+
 const addUSER = (response) => ({
     type: 'ADD_USER',
     ...response
@@ -52,29 +50,39 @@ export const addUser = (user_name, user_description, user_date, user_interests, 
     });
 };
 
-
-
 const receiveUsers = (response) => ({
     type: 'RECEIVE_USERS',
     response
 });
-
 export const fetchUsers = () => (dispatch) => {
     return api.fetchUsers().then((response) => {
         return dispatch(receiveUsers(response));
     });
 };
 
-// const deleteEVENT = (responce) => ({
-//     type: 'DELETE_EVENT',
-//     ...responce
-// })
-//
-// export const deleteEvent = () => (dispatch) => {
-//     return api.deleteEvent(dispatch).then((response) => {
-//         return dispatch(deleteEVENT(response));
-//     });
-// }
+const receiveSliceEvents = (response) => ({
+    type: 'SLICE_EVENTS',
+    response
+});
+export const testfetchSliceEvents = (num) => (dispatch) => {
+    console.log("test_num:", num)
+    return api.fetchSliceEvents(num).then((response) => {
+        console.log("action/index:", response)
+        return dispatch(receiveSliceEvents(response));
+    });
+};
+
+
+const deleteEVENT = (responce) => ({
+    type: 'DELETE_EVENT',
+    ...responce
+})
+
+export const deleteEvent = (event) => (dispatch) => {
+    return api.deleteEvent(event).then((response) => {
+        return dispatch(deleteEVENT(response));
+    });
+}
 
 
 
