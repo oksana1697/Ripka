@@ -99,9 +99,7 @@ let AddUser = ({dispatch}) => {
     );
 };
 const checkField = (array1) => {
-    console.log("aaa", array1);
     for (let i in array1) {
-        console.log('i:', array1[i]);
         if (array1[i] === "") {
             alert("Please fill mandatory fields!");
             return true

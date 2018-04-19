@@ -25,11 +25,6 @@ const Event = ({id,name, description, date, location,organization,photo}) =>
                {name}
             </NavLink>
             <p className="event__organization">{organization}</p>
-
-           {/*<button className="add-event__submit" onClick={() => {*/}
-           {/*console.log("deleting")}}*/}
-           {/*>*/}
-           {/*</button>*/}
         </div>
     )
 

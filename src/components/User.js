@@ -25,7 +25,6 @@ const User = ({user_name,
                 className="event__name">
                 {user_name}
             </NavLink>
-            {/*<p className="event__organization"></p>*/}
         </div>
     )
 

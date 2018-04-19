@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import Dropzone from 'react-dropzone'
 import axios from 'axios'
 
-// TODO: редагування івенту
 class PhotoUpload extends Component {
     constructor(props) {
         super(props)
@@ -39,26 +38,16 @@ class PhotoUpload extends Component {
     render()
         {
         return (
-                //<div className="add-event__input">
-                  //  <Dropzone className="add-event__photo"
-                    //          onDrop={this.handleDrop}
-                      //        multiple
-                        //      accept="image/*">
-                        //<p className="add-event__photo_text"> Upload a photo</p>
-                        //<img src={this.state.imageURL} alt="img" />
-                    //</Dropzone>
-                //</div>
+
             <div className="add-event__input-big">
                 <Dropzone className="add-event__photo"
                           onDrop={this.handleDrop}
                           multiple
                           accept="image/*">
                     <p className="add-event__photo_text"> Upload a photo</p>
-                    {/*<img src={this.state.imageURL}  className="add-event__photo_upload"/>*/}
                     {this.state.imageURL?  <img src={this.state.imageURL}  className="add-event__photo_upload"/>:'' }
                 </Dropzone>
             </div>
-
         )
         }
 

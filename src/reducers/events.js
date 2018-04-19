@@ -1,6 +1,3 @@
-// TODO:remove event (remove, remove success, remove fail)
-// TODO: edit event ( edit, edit success, edit fail)
-// TODO: test
 export const events = (state = [], action) => {
     switch (action.type) {
         case 'ADD_EVENT':
@@ -25,9 +22,7 @@ export const events = (state = [], action) => {
                 ...action.response
             ];
         case 'DELETE_EVENT':
-            return [
-                ...action.response
-            ]
+            return state.filter((event) => {event.id !== action.event.id });
         default:
             return state
     }

@@ -64,23 +64,22 @@ const receiveSliceEvents = (response) => ({
     type: 'SLICE_EVENTS',
     response
 });
+
 export const testfetchSliceEvents = (num) => (dispatch) => {
-    console.log("test_num:", num)
     return api.fetchSliceEvents(num).then((response) => {
-        console.log("action/index:", response)
         return dispatch(receiveSliceEvents(response));
     });
 };
 
 
-const deleteEVENT = (responce) => ({
+const deleteEVENT = (event) => ({
     type: 'DELETE_EVENT',
-    ...responce
+    event
 })
 
 export const deleteEvent = (event) => (dispatch) => {
-    return api.deleteEvent(event).then((response) => {
-        return dispatch(deleteEVENT(response));
+    return api.deleteEvent(event).then(() => {
+        return dispatch(deleteEVENT(event));
     });
 }
 

@@ -27,7 +27,5 @@ export const pushUser = (newUser) =>
         return newUser
     });
 export const deleteEvent = (Event) =>
-    deleteData('http://localhost:3000/events', Event).then(function (Event) {
-        return Event
-    });
+    deleteData('http://localhost:3000/events', Event);
 

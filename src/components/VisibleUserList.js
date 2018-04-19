@@ -17,7 +17,6 @@ class VisibleUserList extends Component {
 
     render() {
         const {...rest} = this.props;
-        console.log("Render:", {...rest})
         return (
             <UserContainer
                 {...rest}
