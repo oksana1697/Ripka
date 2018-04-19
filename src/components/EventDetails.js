@@ -66,7 +66,7 @@ class EventDetails extends Component {
                     <button className="event-details__button-delete" onClick={() => {
                         console.log('121212121212', currentEvent)
                         console.log('121212121212', deleteEvent)
-                        props.dispatch(deleteEvent(currentEvent));
+                        props.dispatch(deleteEvent(currentEvent.id));
                         props.history.push('/');
                     }
                     }>

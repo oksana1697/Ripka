@@ -72,16 +72,32 @@ export const testfetchSliceEvents = (num) => (dispatch) => {
 };
 
 
-const deleteEVENT = (event) => ({
-    type: 'DELETE_EVENT',
-    event
-})
+// const deleteEVENT = (event) => ({
+//     type: 'DELETE_EVENT',
+//     event
+// })
 
-export const deleteEvent = (event) => (dispatch) => {
-    return api.deleteEvent(event).then(() => {
-        return dispatch(deleteEVENT(event));
-    });
-}
+const deleteEventStart = (id) => ({type: "DELETE_EVENT", id});
+const deleteEventSuccess = (id) => ({type: "DELETE_EVENT_SUCCESS", id})
+const deleteEventFailure = (id) => ({type: "DELETE_EVENT_FAILURE", id})
+
+
+// export const deleteEvent = (event) => (dispatch) => {
+//     return api.deleteEvent(event).then(() => {
+//         return dispatch(deleteEVENT(event));
+//     });
+// }
+
+export const deleteEvent = (id) => async (dispatch) => {
+    dispatch(deleteEventStart(id));
+    try {
+        await api.deleteEvent(id)
+        dispatch(deleteEventSuccess(id))
+    } catch (e) {
+        dispatch(deleteEventFailure(id))
+    }
+
+};
 
 
 

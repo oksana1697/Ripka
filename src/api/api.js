@@ -39,9 +39,12 @@ export function putData(url, data) {
 // putData('http://localhost:3000/events', {"test": "test15", "id": 5})
 
 
-export function deleteData(url, data) {
-    return makeRequest(url + '/' + data.id, 'DELETE', data)
-
+// export function deleteData(url, data) {
+//     return makeRequest(url + '/' + data.id, 'DELETE', data)
+//
+// }
+export const deleteData =  async(url, id)=> {
+    await makeRequest(url + '/' + id, 'DELETE')
 }
 
 // deleteData('http://localhost:3000/events', {id:5})

@@ -22,7 +22,9 @@ export const events = (state = [], action) => {
                 ...action.response
             ];
         case 'DELETE_EVENT':
-            return state.filter((event) => {event.id !== action.event.id });
+            const {id} = action;
+            return state.filter(el => el.id !== id);
+            // return state.filter((event) => {event.id !== action.event.id });
         default:
             return state
     }

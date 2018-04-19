@@ -26,6 +26,6 @@ export const pushUser = (newUser) =>
     postData('http://localhost:3000/users', newUser).then(function (newUser) {
         return newUser
     });
-export const deleteEvent = (Event) =>
-    deleteData('http://localhost:3000/events', Event);
+export const deleteEvent = async(id) =>
+    await deleteData('http://localhost:3000/events', id);
 
