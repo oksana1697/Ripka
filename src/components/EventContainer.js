@@ -9,7 +9,8 @@ import Cover from "./Cover";
 const EventContainer = ({events, onEventClick}) => (
     <ul>
         <Cover/>
-        <div className="event__block">
+
+            <div className="event__block">
         {
             events.map(event =>
             <Event
