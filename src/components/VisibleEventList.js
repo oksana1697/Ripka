@@ -5,25 +5,23 @@ import EventContainer from "./EventContainer";
 import {withRouter} from "react-router-dom";
 import InfiniteScroll from 'react-infinite-scroller';
 import {testfetchSliceEvents} from "../actions/index";
-import Cover from "./Cover";
 
 class VisibleEventList extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             items: 0,
             hasMoreItems: true
         }
     }
-
     loadMore() {
-        if(this.state.items === 12){
+        if (this.state.items === 12) {
 
             this.setState({...this.state, hasMoreItems: false});
-        }else{
+        } else {
             console.log("this.items", this.state.items)
             this.fetchData(this.state.items).then(newItems => {
-                const items =  this.state.items + 4;
+                const items = this.state.items + 4;
                 this.setState({items});
 
             });
@@ -36,11 +34,12 @@ class VisibleEventList extends Component {
         const {testfetchSliceEvents} = this.props;
         return testfetchSliceEvents(num)
     }
+
     render() {
         const {...rest} = this.props;
         return (
-<div>
-                <div style={{height:'400px', overflow:'auto'}}>
+            <div>
+                <div style={{height: '600px', overflow: 'auto'}}>
                     <InfiniteScroll
                         loadMore={this.loadMore.bind(this)}
                         hasMore={this.state.hasMoreItems}
@@ -49,7 +48,8 @@ class VisibleEventList extends Component {
                         <EventContainer {...rest}/>
                         {/*<EventContainer events={this.state.events}/>*/}
                     </InfiniteScroll>{" "}
-                </div>{" "}
+                </div>
+                {" "}
             </div>
         )
     }
