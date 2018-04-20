@@ -2,11 +2,11 @@
     display: block;
 }
 
-.user-details__title_container {
+.event-details__title_container {
     background-color: #F5F5F6;
 }
 
-.user-details__block-column {
+.event-details__block-column {
     display: flex;
     flex-direction: column;
     width: 70%;
@@ -14,47 +14,47 @@
     border-bottom: 1px solid rgba(98, 105, 119, 0.31);
 }
 
-.user-details__block-row {
+.event-details__block-row {
     display: flex;
     flex-direction: row;
     width: 70%;
     margin: auto;
 }
 
-.user-details__title {
+.event-details__title {
     font-family: "Helvetica", "Arial", sans-serif;
     color: #2c374a;
     font-size: 22px;
 }
 
-.user-details__location {
+.event-details__location {
     display: inline;
     font-size: 15px;
     color: #626977;
     font-family: "Helvetica", "Arial", sans-serif;
 }
 
-.user-details__icon-flag {
-    margin-right: 5px;
+//.event-details__icon-flag {
+//    margin-right: 5px;
+//    display: inline-block;
+//    vertical-align: middle;
+//    content: url("icons/flag.svg");
+//}
+
+
+.event-details__button-descr {
     display: inline-block;
     vertical-align: middle;
-    content: url("icons/flag.svg");
 }
 
+//.event-details__icon-heard {
+//    margin-right: 5px;
+//    display: inline-block;
+//    vertical-align: middle;
+//    content: url("icons/heart.svg");
+//}
 
-.user-details__button-descr {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.user-details__icon-heard {
-    margin-right: 5px;
-    display: inline-block;
-    vertical-align: middle;
-    content: url("icons/heart.svg");
-}
-
-.user-details__button {
+.event-details__button {
     display: inline-block;
     font-size: 14px;
     border: transparent;
@@ -66,19 +66,19 @@
     text-align: left;
 }
 
-.user-details__button:active {
+.event-details__button:active {
     color: #40c4cf;
     border: transparent;
 }
 
-.user-details__content {
+.event-details__content {
     margin-left: 54px;
     font-size: 18px;
     font-weight: normal;
     color: rgba(24, 24, 24, 0.7);
 }
 
-.user-details__subtitle {
+.event-details__subtitle {
     font-family: "Helvetica", "Arial", sans-serif;
     color: #626977;
     font-size: 1.125em;
@@ -87,7 +87,7 @@
 
 }
 
-.user-details__subtitle_container {
+.event-details__subtitle_container {
     width: 97%;
     display: flex;
     margin: auto;
@@ -95,14 +95,27 @@
     border-bottom: 1px solid rgba(98, 105, 119, 0.31);
 }
 
-.user-details__icon-contact {
-    content: url("icons/contact.svg");
-}
+//.event-details__icon-contact {
+//    content: url("icons/contact.svg");
+//}
+//
+//.event-details__icon-paper {
+//    content: url("icons/paper.svg");
+//}
+//
+//.event-details__icon-calendar {
+//    content: url("icons/calendar.svg");
+//}
 
-.user-details__icon-paper {
-    content: url("icons/paper.svg");
-}
-
-.user-details__icon-calendar {
-    content: url("icons/calendar.svg");
+.event-details__button-delete {
+    border: 1px solid rgb(64, 196, 207);
+    background: rgb(64, 196, 207);
+    height: 40px;
+    border-radius: 6px;
+    width: 210px;
+    color: #F5F5F6;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: center;
+    margin-bottom: 10%;
 }

@@ -6,6 +6,8 @@ import AddEvent from '../containers/AddEvent'
 import { events } from '../reducers/events'
 import Cover from "./Cover";
 
+import "../../styles/event.less"
+
 const EventContainer = ({events, onEventClick}) => (
     <ul>
         <Cover/>

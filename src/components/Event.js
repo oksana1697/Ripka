@@ -3,6 +3,8 @@ import {NavLink} from 'react-router-dom';
 import {addEvent} from "../actions";
 import {deleteEvent} from "../api";
 
+import "../../styles/event.less"
+
 const Event = ({id,name, description, date, location,organization,photo}) =>
 
     (

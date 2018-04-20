@@ -5,6 +5,8 @@ import {Link} from "react-router-dom";
 import PhotoUpload from "../components/PhotoUpload";
 import DateTime from 'luxon/src/datetime.js'
 
+import "../../styles/add-event.less"
+
 let AddEvent = ({dispatch}) => {
     let name, description, organization, contacts, year, month, day, hour, minute, location, photo;
     return (

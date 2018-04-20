@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 
+import "../../styles/user-details.less"
+
 class UserDetails extends Component {
     render() {
         // TODO: change match by name to id / fix routing on this page

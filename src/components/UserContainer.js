@@ -6,6 +6,10 @@ import AddEvent from '../containers/AddEvent'
 import { users } from '../reducers/users'
 import Cover from "./Cover";
 
+import "../../styles/user.less"
+import "../../styles/user-details.less"
+
+
 const UserContainer = ({users, onUserClick}) => (
 
     <ul>

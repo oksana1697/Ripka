@@ -4,11 +4,13 @@ import {connect} from 'react-redux'
 import {Link} from "react-router-dom";
 import PhotoUpload from "../components/PhotoUpload";
 import DateTime from 'luxon/src/datetime.js'
+
+import "../../styles/event-details.less"
+
 const getVisibleEvents = (store) => {
     // return {events: [...store.events]}
         return store
         };
-
 
 
 class EventDetails extends Component {

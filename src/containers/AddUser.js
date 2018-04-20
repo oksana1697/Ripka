@@ -5,6 +5,8 @@ import {Link} from "react-router-dom";
 import PhotoUpload from "../components/PhotoUpload";
 import DateTime from 'luxon/src/datetime.js'
 
+import "../../styles/add-user.less"
+
 let AddUser = ({dispatch}) => {
     let user_name,
         user_location,
