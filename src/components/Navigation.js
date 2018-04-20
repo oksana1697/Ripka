@@ -13,7 +13,7 @@ class Navigation extends Component {
         return (
             <div>
                 <div className="navigation__container">
-                    <Link style={{textDecoration: 'none'}} to="/"><h1 className="navigation__logo_content">Ripka</h1>
+                    <Link style={{textDecoration: 'none'}} to="/"><h1 className="navigation__logo-content">Ripka</h1>
                     </Link>
                     <Link className="navigation__button" to="/addevent">
                         <button className="navigation__button_content">POST AN EVENT</button>
