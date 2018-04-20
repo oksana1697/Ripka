@@ -9,8 +9,8 @@ import Cover from "./Cover";
 const UserContainer = ({users, onUserClick}) => (
 
     <ul>
-        <h1 className="event-details__title"> USERS</h1>
-        <div className="event__block">
+        <h1 className="user-details__title"> USERS</h1>
+        <div className="user__block">
             {
                 users.map(user =>
                     <User

@@ -1,0 +1,108 @@
+.img {
+    display: block;
+}
+
+.user-details__title_container {
+    background-color: #F5F5F6;
+}
+
+.user-details__block-column {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    border-bottom: 1px solid rgba(98, 105, 119, 0.31);
+}
+
+.user-details__block-row {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin: auto;
+}
+
+.user-details__title {
+    font-family: "Helvetica", "Arial", sans-serif;
+    color: #2c374a;
+    font-size: 22px;
+}
+
+.user-details__location {
+    display: inline;
+    font-size: 15px;
+    color: #626977;
+    font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.user-details__icon-flag {
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    content: url("icons/flag.svg");
+}
+
+
+.user-details__button-descr {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.user-details__icon-heard {
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    content: url("icons/heart.svg");
+}
+
+.user-details__button {
+    display: inline-block;
+    font-size: 14px;
+    border: transparent;
+    background: transparent;
+    height: 40px;
+    color: #9398a1;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+}
+
+.user-details__button:active {
+    color: #40c4cf;
+    border: transparent;
+}
+
+.user-details__content {
+    margin-left: 54px;
+    font-size: 18px;
+    font-weight: normal;
+    color: rgba(24, 24, 24, 0.7);
+}
+
+.user-details__subtitle {
+    font-family: "Helvetica", "Arial", sans-serif;
+    color: #626977;
+    font-size: 1.125em;
+    font-weight: 500;
+    margin-left: 5px;
+
+}
+
+.user-details__subtitle_container {
+    width: 97%;
+    display: flex;
+    margin: auto;
+    padding: 10px;
+    border-bottom: 1px solid rgba(98, 105, 119, 0.31);
+}
+
+.user-details__icon-contact {
+    content: url("icons/contact.svg");
+}
+
+.user-details__icon-paper {
+    content: url("icons/paper.svg");
+}
+
+.user-details__icon-calendar {
+    content: url("icons/calendar.svg");
+}

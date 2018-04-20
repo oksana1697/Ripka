@@ -1,0 +1,135 @@
+/*UL, BODY*/
+ul {
+    padding: 0;
+}
+
+body {
+    margin: 0;
+}
+
+.add-user {
+    margin: 0;
+}
+
+.add-user__title_container {
+    background-color: #F5F5F6;
+}
+/*fjjfjdfdfmdf*/
+
+.add-user__title {
+    width: 600px;
+    margin: auto;
+    font-family: "Helvetica", "Arial", sans-serif;
+    color: #504b4d;
+    padding: 2%;
+    margin-top: 0;
+}
+
+.add-user__subtitle {
+    font-family: "Helvetica", "Arial", sans-serif;
+    color: #626977;
+    font-size: 1.125em;
+    font-weight: 500;
+    margin: auto 0 auto 10px;
+}
+
+.add-user__subtitle_container {
+    width: 600px;
+    display: flex;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(98, 105, 119, 0.31);
+
+}
+
+.add-user__input_container {
+    display: flex;
+    /*height: 50px;*/
+    width: 600px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.add-user__field {
+    color: #626977;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 10px;
+    flex: 0 0 100px;
+}
+/*.add-user__photo_upload{*/
+    /*object-fit: scale-down;*/
+    /*height: 70px;*/
+    /*width: 70px;*/
+    /*display: block;*/
+/*}*/
+.add-user__input {
+    border-radius: 4px;
+    border: 1px solid #b3b3b3;
+    height: 31px;
+    width: 100%;
+    font-size: 16px;
+    margin-left: 10px;
+    padding: 6.5px;
+    outline: 0;
+}
+
+/*.add-user__input-big {*/
+    /*border-radius: 4px;*/
+    /*border: 1px solid #b3b3b3;*/
+    /*height: 110px;*/
+    /*width: 100%;*/
+    /*font-size: 16px;*/
+    /*margin-left: 10px;*/
+    /*padding: 6.5px;*/
+    /*outline: 0;*/
+/*}*/
+
+.add-user__input:hover {
+    border: 2px solid #b3b3b3;
+}
+
+.add-user__submit {
+    border: 1px solid rgb(64, 196, 207);
+    background: rgb(64, 196, 207);
+    height: 40px;
+    border-radius: 6px;
+    width: 210px;
+    color: #F5F5F6;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-user__submit-container {
+    justify-content: center;
+    display: flex;
+    margin: 0 50px 30px 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(98, 105, 119, 0.31);
+}
+
+/*.add-user__photo {*/
+    /*height: 28px;*/
+    /*width: 150px;*/
+    /*border: 2px solid #40c4cf;*/
+    /*border-radius: 6px;*/
+    /*color: #40c4cf;*/
+    /*font-weight: bold;*/
+    /*font-family: "Helvetica", "Arial", sans-serif;*/
+    /*font-size: 12px;*/
+    /*text-align: center;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*.add-user__photo:hover {*/
+    /*background: rgba(78, 232, 232, 0.27);*/
+/*}*/
+
+/*.add-user__photo_text {*/
+    /*margin-top: 5%;*/
+/*}*/
+
+
+
