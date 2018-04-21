@@ -1,4 +1,4 @@
-import { v4 } from 'node-uuid';
+import { v4 } from 'uuid';
 import * as api from '../api';
 
 const addEVENT = response => ({
@@ -85,7 +85,7 @@ const receiveSliceEvents = response => ({
   response,
 });
 
-export const testfetchSliceEvents = num => dispatch => {
+export const testFetchSliceEvents = num => dispatch => {
   return api.fetchSliceEvents(num).then(response => {
     return dispatch(receiveSliceEvents(response));
   });

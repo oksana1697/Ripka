@@ -1,38 +1,23 @@
-import Event from './Event'
-import React from 'react';
-import AddEvent from '../containers/AddEvent'
-
-
-import { events } from '../reducers/events'
+import Event from "./Event";
+import React, { Fragment } from "react";
 import Cover from "./Cover";
 
-import "../../styles/event.less"
+import "../../styles/event.less";
 
-const EventContainer = ({events, onEventClick}) => (
-    <ul>
-        <Cover/>
+const EventContainer = ({ events, onEventClick }) => (
+  <Fragment>
+    <Cover />
 
-            <div className="event__block">
-        {
-            events.map(event =>
-            <Event
-                    key={event.id}
-                    {...event}
-                    onClick={() =>onEventClick(event.id)}
-                />
-            )
-        }
-        </div>
+    <div className="event__block">
+      {events.map(event => (
+        <Event
+          key={event.id}
+          {...event}
+          onClick={() => onEventClick(event.id)}
+        />
+      ))}
+    </div>
+  </Fragment>
+);
 
-    </ul>
-
-)
-
-export default EventContainer
-
-
-
-
-
-
-
+export default EventContainer;

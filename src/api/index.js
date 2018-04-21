@@ -1,4 +1,4 @@
-import { v4 } from 'node-uuid';
+import { v4 } from 'uuid';
 import { DateTime } from 'luxon';
 import { deleteData, getData, postData } from './api';
 

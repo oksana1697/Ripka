@@ -1,66 +1,53 @@
-import { v4 } from 'node-uuid';
-import { connect } from 'react-redux';
-import React, { Component } from 'react';
-import EventContainer from './EventContainer';
-import { withRouter } from 'react-router-dom';
-import InfiniteScroll from 'react-infinite-scroller';
-import { testfetchSliceEvents } from '../actions/index';
+import React, { Component } from "react";
+import { v4 } from "uuid";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroller";
+
+import EventContainer from "./EventContainer";
+import { testFetchSliceEvents } from "../actions";
 
 class VisibleEventList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: 0,
-      hasMoreItems: true,
-    };
-  }
-  loadMore() {
-    if (this.state.items === 12) {
-      this.setState({ ...this.state, hasMoreItems: false });
-    } else {
-      console.log('this.items', this.state.items);
-      this.fetchData(this.state.items).then(newItems => {
-        const items = this.state.items + 4;
-        this.setState({ items });
-      });
-    }
-  }
+  state = {
+    items: 0,
+    hasMoreItems: true
+  };
 
-  fetchData(num) {
-    console.log(num);
-    const { testfetchSliceEvents } = this.props;
-    return testfetchSliceEvents(num);
+  loadMore = async () => {
+    const { items } = this.state;
+
+    if (items === 12) {
+      this.setState({ hasMoreItems: false });
+    } else {
+      await this.fetchData(this.state.items);
+      this.setState(({ items }) => ({ items: items + 4 }));
+    }
+  };
+
+  fetchData(offset) {
+    return this.props.testFetchSliceEvents(offset);
   }
 
   render() {
-    const { ...rest } = this.props;
     return (
       <div>
-        <div style={{ height: '600px', overflow: 'auto' }}>
+        <div style={{ height: "600px", overflow: "auto" }}>
           <InfiniteScroll
-            loadMore={this.loadMore.bind(this)}
+            loadMore={this.loadMore}
             hasMore={this.state.hasMoreItems}
-            loader={<div className="loader"> Loading...</div>}
-            useWindow={false}
+            loader={<div key={1} className="loader"> Loading...</div>}
+            useWindow={true}
           >
-            <EventContainer {...rest} />
-            {/*<EventContainer events={this.state.events}/>*/}
-          </InfiniteScroll>{' '}
-        </div>{' '}
+            <EventContainer {...this.props} />
+          </InfiniteScroll>{" "}
+        </div>{" "}
       </div>
     );
   }
 }
 
-const getVisibleEvents = store => {
-  // return {events: [...store.events]}
-  return store;
-};
-
 VisibleEventList = withRouter(
-  connect(getVisibleEvents, {
-    testfetchSliceEvents,
-  })(VisibleEventList),
+  connect(store => store, { testFetchSliceEvents })(VisibleEventList)
 );
 
 export default VisibleEventList;

@@ -1,31 +1,31 @@
-// import {v4} from "node-uuid";
+const faker = require('faker');
+const _ = require('lodash');
+const { v4 } = require('uuid');
 
 module.exports = function() {
-  let faker = require('faker');
-  let _ = require('lodash');
-  let { v4 } = require('node-uuid');
+  console.log(faker);
   return {
     events: _.times(100, function(n) {
       return {
         // id: n,
         id: v4(),
-        name: faker.Company.companyName(),
-        description: faker.Company.catchPhrase(),
-        organization: faker.Company.companySuffix(),
-        contacts: faker.PhoneNumber.phoneNumber(),
-        location: faker.Address.streetAddress(),
-        photo: faker.Image.cats(),
+        name: faker.company.companyName(),
+        description: faker.company.catchPhrase(),
+        organization: faker.company.companySuffix(),
+        contacts: faker.phone.phoneNumber(),
+        location: faker.address.streetAddress(),
+        photo: faker.image.cats(),
       };
     }),
     users: _.times(2, function(n) {
       return {
         id: v4(),
-        user_name: faker.Name.findName(),
-        user_description: faker.Name.lastName(),
+        user_name: faker.name.findName(),
+        user_description: faker.name.lastName(),
         // organization:faker.Company.companySuffix(),
-        user_contacts: faker.PhoneNumber.phoneNumber(),
-        user_location: faker.Address.streetAddress(),
-        user_photo: faker.Image.cats(),
+        user_contacts: faker.phone.phoneNumber(),
+        user_location: faker.address.streetAddress(),
+        user_photo: faker.image.cats(),
       };
     }),
   };

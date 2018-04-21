@@ -1,0 +1,10 @@
+http://localhost:3000/events
+
+###
+POST http://localhost:3000/events
+
+Content-type: application/json
+
+{"test": "test1", "id": 5}
+
+###
