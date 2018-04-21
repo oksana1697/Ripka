@@ -6,6 +6,7 @@ import InfiniteScroll from "react-infinite-scroller";
 
 import EventContainer from "./EventContainer";
 import { testFetchSliceEvents } from "../actions";
+import { getAllAvailableEvents } from "../reducers";
 
 class VisibleEventList extends Component {
   state = {
@@ -29,6 +30,7 @@ class VisibleEventList extends Component {
   }
 
   render() {
+    const {events} = this.props;
     return (
       <div>
         <div style={{ height: "600px", overflow: "auto" }}>
@@ -38,7 +40,7 @@ class VisibleEventList extends Component {
             loader= "Loading..."
             useWindow={true}
           >
-            <EventContainer {...this.props} />
+            <EventContainer events = {events} onEventClick = {this.props.onEventClick} />
           </InfiniteScroll>{" "}
         </div>{" "}
       </div>
@@ -47,7 +49,9 @@ class VisibleEventList extends Component {
 }
 
 VisibleEventList = withRouter(
-  connect(store => store, { testFetchSliceEvents })(VisibleEventList)
+  connect(store => ({
+    events: getAllAvailableEvents(store)
+  }), { testFetchSliceEvents })(VisibleEventList)
 );
 
 export default VisibleEventList;

@@ -1,14 +1,14 @@
-import React from 'react';
-import Footer from './Footer';
-import Event from './App';
-import AddEvent from '../containers/AddEvent';
-import VisibleEventList from './VisibleEventList';
-import VisibleEventDetailList from './VisibleEventDetailsList';
-import { HashRouter, Route, Switch } from 'react-router-dom';
-import Navigation from './Navigation';
-import AddUser from '../containers/AddUser';
-import VisibleUserList from './VisibleUserList';
-import VisibleUserDetailList from './VisibleUserDetailsList';
+import React from "react";
+import Footer from "./Footer";
+import Event from "./App";
+import AddEvent from "../containers/AddEvent";
+import VisibleEventList from "./VisibleEventList";
+import VisibleEventDetailList from "./VisibleEventDetailsList";
+import { HashRouter, Route, Switch } from "react-router-dom";
+import Navigation from "./Navigation";
+import AddUser from "../containers/AddUser";
+import VisibleUserList from "./VisibleUserList";
+import VisibleUserDetailList from "./VisibleUserDetailsList";
 
 const App = () => (
   <div>
@@ -24,7 +24,10 @@ const App = () => (
           </div>
         )}
       />
-      <Route exact path="/addevent" component={AddEvent} />
+      <Route exact path="/addevent">
+        { (props) => <AddEvent onSuccess={() => props.history.push("/")} />}
+
+      </Route>
       <Route exact path="/adduser" component={AddUser} />
       <Route exact path="/:eventId" component={VisibleEventDetailList} />
       <Route exact path="/:userName" component={VisibleUserDetailList} />

@@ -1,28 +1,48 @@
+import { combineReducers } from "redux";
+import {
+  ADD_EVENT_START,
+  ADD_EVENT_FAILURE,
+  ADD_EVENT_SUCCESS
+} from "../actions/actionTypes";
+
 export const events = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_EVENT':
-      return [
-        ...state,
-        {
-          id: action.id,
-          name: action.name,
-          description: action.description,
-          date: action.date,
-          organization: action.organization,
-          contacts: action.contacts,
-          location: action.location,
-        },
-      ];
-    case 'RECEIVE_EVENTS':
+    case ADD_EVENT_SUCCESS:
+      return [...state, action.event];
+
+    case "RECEIVE_EVENTS":
       return [...action.response];
-    case 'SLICE_EVENTS':
+
+    case "SLICE_EVENTS":
       return [...state, ...action.response];
-    case 'DELETE_EVENT':
+
+    case "DELETE_EVENT":
       const { id } = action;
       return state.filter(el => el.id !== id);
-    // return state.filter((event) => {event.id !== action.event.id });
+
     default:
       return state;
   }
 };
-export default events;
+
+const isEventProcessing = (state = false, action) => {
+  switch (action.type) {
+    case ADD_EVENT_START:
+      return true;
+
+    case ADD_EVENT_FAILURE:
+    case ADD_EVENT_SUCCESS:
+      return false;
+
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({
+  events,
+  isEventProcessing
+});
+
+export const getIsEventProcessing = state => state.isEventProcessing;
+export const getAllAvailableEvents = state => state.events;

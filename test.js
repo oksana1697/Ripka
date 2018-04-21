@@ -28,7 +28,7 @@ describe('tests', function () {
         assert.deepEqual(eventReducers.events(undefined, {}),[])
     });
     it('add event to events state', function () {
-        assert.deepEqual(eventReducers.events(Event, 'ADD_EVENT'),Event)
+        assert.deepEqual(eventReducers.events(Event, 'ADD_EVENT_START'),Event)
     });
     it('receive events', function () {
         assert.deepEqual(eventReducers.events(undefined, 'RECEIVE_EVENTS'),[])

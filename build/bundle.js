@@ -15250,7 +15250,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var addEvent = exports.addEvent = function addEvent(name, description, date, organization, contacts) {
     return {
-        type: 'ADD_EVENT',
+        type: 'ADD_EVENT_START',
         id: (0, _nodeUuid.v4)(),
         name: name,
         description: description,
@@ -21127,7 +21127,7 @@ var events = function events() {
     var action = arguments[1];
 
     switch (action.type) {
-        case 'ADD_EVENT':
+        case 'ADD_EVENT_START':
             return [].concat(_toConsumableArray(state), [{
                 id: action.id,
                 name: action.name,
@@ -21159,7 +21159,7 @@ exports.default = events;
 //
 // const byId = (state = {}, action) => {
 //     switch (action.type) {
-//         case 'ADD_EVENT':
+//         case 'ADD_EVENT_START':
 //             return {
 //                 ...state,
 //                 [action.id]: event(state[action.id], action),
@@ -21171,7 +21171,7 @@ exports.default = events;
 //
 // const allIds = (state = [], action) => {
 //     switch (action.type) {
-//         case 'ADD_EVENT':
+//         case 'ADD_EVENT_START':
 //             return [...state, action.id];
 //         default:
 //             return state;

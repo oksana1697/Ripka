@@ -1,4 +1,5 @@
 async function makeRequest(url, method, data) {
+
   let body = {
     body: JSON.stringify(data),
     headers: {
@@ -6,11 +7,13 @@ async function makeRequest(url, method, data) {
     },
     method: method,
   };
+
   if (method === 'GET') {
     body = {
       method: method,
     };
   }
+
   let response = await fetch(url, body);
   data = await response.json();
   return data;
@@ -21,9 +24,8 @@ export const getData  = async (url) =>{
 }
 
 
-export const postData = async (url, data)=> {
-  await makeRequest(url, 'POST', data);
-};
+export const postData = async (url, data) =>  await makeRequest(url, 'POST', data);
+
 
 export const putData = async (url, data) => {
   return makeRequest(url + '/' + data.id, 'PUT', data);

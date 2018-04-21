@@ -1,184 +1,160 @@
-import React from "react";
+import React, { Component } from "react";
 import { addEvent } from "../actions/index";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+//
+import DateTimePicker from "react-datetime-picker";
 import PhotoUpload from "../components/PhotoUpload";
-import DateTime from "luxon/src/datetime.js";
+//
+import { getIsEventProcessing } from "../reducers";
 
 import "../../styles/add-event.less";
 
-let AddEvent = ({ dispatch }) => {
-  let name,
-    description,
-    organization,
-    contacts,
-    year,
-    month,
-    day,
-    hour,
-    minute,
-    location,
-    photo;
-  return (
-    <div>
-      <div className="add-event__title_container">
-        <h1 className="add-event__title">Add event details</h1>
-      </div>
-      <div className="add-event__subtitle_container">
-        <img src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png" />
-        <h1 className="add-event__subtitle">Event Overview</h1>
-      </div>
+class AddEvent extends Component {
+  static defaultProps = {
+    onSuccess() {}
+  };
 
-      <div className="add-event__input_container">
-        <p className="add-event__field">EVENT NAME</p>
-        <input
-          className="add-event__input"
-          placeholder="Event Name"
-          ref={node => {
-            name = node;
-          }}
-        />
-      </div>
-      <div className="add-event__input_container">
-        <p className="add-event__field">ORGANIZATION NAME</p>
-        <input
-          className="add-event__input"
-          placeholder="Organization Name"
-          ref={node => {
-            organization = node;
-          }}
-        />
-      </div>
-      <div className="add-event__input_container">
-        <p className="add-event__field">LOCATION</p>
-        <input
-          className="add-event__input"
-          placeholder="Location"
-          ref={node => {
-            location = node;
-          }}
-        />
-      </div>
-      <div className="add-event__input_container">
-        <p className="add-event__field">CONTACTS</p>
-        <input
-          className="add-event__input"
-          placeholder="Contacts"
-          ref={node => {
-            contacts = node;
-          }}
-        />
-      </div>
-      <div className="add-event__input_container">
-        <p className="add-event__field">EVENT DESCRIPTION & REQUIREMENTS</p>
-        <input
-          className="add-event__input"
-          placeholder="Description"
-          ref={node => {
-            description = node;
-          }}
-          required
-        />
-      </div>
-      <div className="add-event__input_container">
-        <p className="add-event__field">ENTER DATE</p>
-        <input
-          className="add-event__input"
-          placeholder="DD"
-          ref={node => {
-            day = node;
-          }}
-        />
-        <input
-          className="add-event__input"
-          placeholder="MM"
-          ref={node => {
-            month = node;
-          }}
-        />
-        <input
-          className="add-event__input"
-          placeholder="YYYY"
-          ref={node => {
-            year = node;
-          }}
-        />
-      </div>
-      <div className="add-event__input_container">
-        <p className="add-event__field">ENTER TIME</p>
-        <input
-          className="add-event__input"
-          placeholder="HH"
-          ref={node => {
-            hour = node;
-          }}
-        />
-        <input
-          className="add-event__input"
-          placeholder="MM"
-          ref={node => {
-            minute = node;
-          }}
-        />
-      </div>
+  static getDerivedStateFromProps(
+    { isEventProcessing, onSuccess },
+    { formSubmitted }
+  ) {
+    if (formSubmitted && !isEventProcessing) {
+      onSuccess();
+    }
+    return {};
+  }
 
-      <div className="add-event__input_container">
-        <p className="add-event__field">DOWNLOAD PHOTO</p>
-        <PhotoUpload
-          photo={URL => {
-            photo = URL;
-          }}
-        />
-      </div>
-      <div className="add-event__submit-container">
-        <Link to="/">
-          <button
-            className="add-event__submit"
-            onClick={() => {
-              const toDate = DateTime.fromObject({
-                year: Number(year.value),
-                month: Number(month.value),
-                day: Number(day.value),
-                hour: Number(hour.value),
-                minute: Number(minute.value)
-              });
-              if (
-                checkField([
-                  location.value,
-                  description.value,
-                  contacts.value,
-                  name.value,
-                  description.value,
-                  year.value,
-                  month.value,
-                  day.value,
-                  hour.value,
-                  minute.value
-                ])
-              ) {
-                dispatch(
-                  addEvent(
-                    name.value,
-                    description.value,
-                    toDate,
-                    organization.value,
-                    contacts.value,
-                    location.value,
-                    photo
-                  )
-                );
-              }
-              description.value = contacts.value = name.value = description.value = location.value = minute.value = year.value = month.value = hour.value = day.value = photo =
-                "";
-            }}
-          >
-            Add Event
-          </button>
-        </Link>
-      </div>
-    </div>
-  );
-};
+  state = {
+    name: "JavaScript Event",
+    description: `
+      It's time for Lviv to wake up to the power of JavaScript.
+      Dear all, we want to invite you to our April JavaScript Event. During this meetup we gonna listen two to cool speakers:
+      Rostyslav Belmeha - “Angular with Redux do I need it?”
+      Varenko Nodarii - "Web UI Performance checklist."
+      April JavaScript Event is all about JavaScript and sharing our experience!
+      Don't forget to register: https://goo.gl/NQ777x :)
+      P.S. Whether you are going to code your first lines of JavaScript, or create some magic – feel free to join us, all skill levels are very welcome!
+    `,
+    organization: "SoftServe",
+    contacts: "Hello",
+
+    time: new Date(),
+
+    location: "Hello",
+    photo: "Hello",
+    formSubmitted: false
+  };
+
+  handleSubmit = ev => {
+    ev.preventDefault();
+
+    const { addEvent } = this.props;
+    const { formSubmitted, ...event } = this.state;
+
+    //TODO: verify data;
+
+    addEvent(event);
+    this.setState({ formSubmitted: true });
+  };
+
+  changeHandler = property => ev => {
+    const { value } = ev.target;
+    this.setState({ [property]: value });
+  };
+
+  render() {
+    const {
+      name,
+      description,
+      organization,
+      contacts,
+      time,
+      location,
+      formSubmitted
+    } = this.state;
+
+    return (
+      <form className="add-event" onSubmit={this.handleSubmit}>
+        {formSubmitted && <div className="add-event__carpet" />}
+        <div className="add-event__title_container">
+          <h1 className="add-event__title">Add event details</h1>
+        </div>
+        <div className="add-event__subtitle_container">
+          <img src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png" />
+          <h1 className="add-event__subtitle">Event Overview</h1>
+        </div>
+
+        <label className="add-event__input_container">
+          <span className="add-event__field">Event name</span>
+          <input
+            className="add-event__input"
+            placeholder="Event Name"
+            value={name}
+            onChange={this.changeHandler("name")}
+          />
+        </label>
+        <div className="add-event__input_container">
+          <p className="add-event__field">ORGANIZATION NAME</p>
+          <input
+            className="add-event__input"
+            placeholder="Organization Name"
+            value={organization}
+            onChange={this.changeHandler("organization")}
+          />
+        </div>
+        <div className="add-event__input_container">
+          <p className="add-event__field">LOCATION</p>
+          <input
+            className="add-event__input"
+            placeholder="Location"
+            value={location}
+            onChange={this.changeHandler("location")}
+          />
+        </div>
+
+        <div className="add-event__input_container">
+          <p className="add-event__field">CONTACTS</p>
+          <input
+            className="add-event__input"
+            placeholder="Contacts"
+            value={contacts}
+            onChange={this.changeHandler("contacts")}
+          />
+        </div>
+
+        <div className="add-event__input_container">
+          <span className="add-event__field">
+            EVENT DESCRIPTION & REQUIREMENTS
+          </span>
+          <textarea
+            className="add-event__textarea"
+            placeholder="Description"
+            value={description}
+            onChange={this.changeHandler("description")}
+            required
+          />
+        </div>
+
+        <div className="add-event__input_container">
+          <span className="add-event__field">Time</span>
+          <DateTimePicker
+            value={time}
+            onChange={time => this.setState({ time })}
+          />
+        </div>
+
+        <div className="add-event__input_container">
+          <p className="add-event__field">DOWNLOAD PHOTO</p>
+          <PhotoUpload photo={URL => this.setState({ photo: URL })} />
+        </div>
+
+        <div className="add-event__submit-container">
+          <button className="add-event__submit">Add Event</button>
+        </div>
+      </form>
+    );
+  }
+}
 
 const checkField = array1 => {
   for (let i in array1) {
@@ -190,7 +166,9 @@ const checkField = array1 => {
   }
 };
 
-//
-
-AddEvent = connect()(AddEvent);
-export default AddEvent;
+export default connect(
+  state => ({
+    isEventProcessing: getIsEventProcessing(state)
+  }),
+  { addEvent }
+)(AddEvent);
