@@ -35,7 +35,7 @@ class VisibleEventList extends Component {
           <InfiniteScroll
             loadMore={this.loadMore}
             hasMore={this.state.hasMoreItems}
-            loader={<div key={1} className="loader"> Loading...</div>}
+            loader= "Loading..."
             useWindow={true}
           >
             <EventContainer {...this.props} />

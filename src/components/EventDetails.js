@@ -1,14 +1,11 @@
-import React, {Component} from 'react'
-import {addEvent, deleteEvent} from "../actions";
-import {connect} from 'react-redux'
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
+import { addEvent, deleteEvent } from "../actions";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import PhotoUpload from "../components/PhotoUpload";
-import DateTime from 'luxon/src/datetime.js'
+import DateTime from "luxon/src/datetime.js";
 
-import "../../styles/event-details.less"
-
-
-
+import "../../styles/event-details.less";
 
 const getVisibleEvents = store => {
   // return {events: [...store.events]}
@@ -24,7 +21,7 @@ class EventDetails extends Component {
       return idToString === props.match.params.eventId;
     });
 
-    console.log('121212', currentEvent);
+    console.log("121212", currentEvent);
 
     return (
       <div>
@@ -71,10 +68,10 @@ class EventDetails extends Component {
           <button
             className="event-details__button-delete"
             onClick={() => {
-              console.log('121212121212', currentEvent);
-              console.log('121212121212', deleteEvent);
+              console.log("121212121212", currentEvent);
+              console.log("121212121212", deleteEvent);
               props.dispatch(deleteEvent(currentEvent.id));
-              props.history.push('/');
+              props.history.push("/");
             }}
           >
             Delete event

@@ -1,36 +1,36 @@
-import React, { Component } from 'react';
-import Dropzone from 'react-dropzone';
-import axios from 'axios';
+import React, { Component } from "react";
+import Dropzone from "react-dropzone";
+import axios from "axios";
 
 class PhotoUpload extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageURL: '',
+      imageURL: ""
     };
     this.handleDrop = this.handleDrop.bind(this);
   }
   handleDrop = files => {
     const uploaders = files.map(file => {
       const formData = new FormData();
-      formData.append('file', file);
-      formData.append('tags', `codeinfuse, medium, gist`);
-      formData.append('upload_preset', 'x0pndjup');
-      formData.append('api_key', '723345884241221');
-      formData.append('timestamp', (Date.now() / 1000) | 0);
+      formData.append("file", file);
+      formData.append("tags", `codeinfuse, medium, gist`);
+      formData.append("upload_preset", "x0pndjup");
+      formData.append("api_key", "723345884241221");
+      formData.append("timestamp", (Date.now() / 1000) | 0);
       return axios
         .post(
-          'https://api.cloudinary.com/v1_1/codeinfuse/image/upload',
+          "https://api.cloudinary.com/v1_1/codeinfuse/image/upload",
           formData,
           {
-            headers: { 'X-Requested-With': 'XMLHttpRequest' },
-          },
+            headers: { "X-Requested-With": "XMLHttpRequest" }
+          }
         )
         .then(response => {
           const data = response.data;
           const fileURL = data.secure_url; // You should store this URL for future references in your app
           this.setState({ imageURL: fileURL });
-          console.log('this.state.file: ', fileURL);
+          console.log("this.state.file: ", fileURL);
           this.props.photo(fileURL);
           return fileURL;
         });
@@ -54,7 +54,7 @@ class PhotoUpload extends Component {
               className="add-event__photo_upload"
             />
           ) : (
-            ''
+            ""
           )}
         </Dropzone>
       </div>

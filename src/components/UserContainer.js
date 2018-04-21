@@ -1,34 +1,19 @@
-import User from './User';
-import React from 'react';
-import AddEvent from '../containers/AddEvent';
+import User from "./User";
+import React from "react";
+import { users } from "../reducers/users";
 
-import { users } from '../reducers/users';
-import Cover from './Cover';
+import "../../styles/user.less";
+import "../../styles/user-details.less";
 
-import "../../styles/user.less"
-import "../../styles/user-details.less"
+const UserContainer = ({ users, onUserClick }) => (
+  <ul>
+    <h1 className="user-details__title"> USERS</h1>
+    <div className="user__block">
+      {users.map(user => (
+        <User key={user.id} {...user} onClick={() => onUserClick(user.id)} />
+      ))}
+    </div>
+  </ul>
+);
 
-
-const UserContainer = ({users, onUserClick}) => (
-
-    <ul>
-        <h1 className="user-details__title"> USERS</h1>
-        <div className="user__block">
-            {
-                users.map(user =>
-                    <User
-                        key={user.id}
-                        {...user}
-                        onClick={() => onUserClick(user.id)}
-                    />
-                )
-            }
-        </div>
-
-    </ul>
-
-)
-
-export default UserContainer
-
-
+export default UserContainer;
