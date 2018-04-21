@@ -1,10 +1,9 @@
-import User from './User'
+import User from './User';
 import React from 'react';
-import AddEvent from '../containers/AddEvent'
+import AddEvent from '../containers/AddEvent';
 
-
-import { users } from '../reducers/users'
-import Cover from "./Cover";
+import { users } from '../reducers/users';
+import Cover from './Cover';
 
 import "../../styles/user.less"
 import "../../styles/user-details.less"
@@ -31,10 +30,5 @@ const UserContainer = ({users, onUserClick}) => (
 )
 
 export default UserContainer
-
-
-
-
-
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
-import {addEvent} from "../actions";
-import {deleteEvent} from "../api";
+import { NavLink } from 'react-router-dom';
+import { addEvent } from '../actions';
+import { deleteEvent } from '../api';
 
 import "../../styles/event.less"
 
