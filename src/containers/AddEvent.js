@@ -49,6 +49,7 @@ let AddEvent = ({dispatch}) => {
                 <input className="add-event__input" placeholder="Description" ref={node => {
                     description = node;
                 }} required/>
+
             </div>
             <div className="add-event__input_container">
                 <p className="add-event__field">ENTER DATE</p>
@@ -71,6 +72,7 @@ let AddEvent = ({dispatch}) => {
                     minute = node;
                 }}/>
             </div>
+
             <div className="add-event__input_container">
                 <p className="add-event__field">DOWNLOAD PHOTO</p>
                 <PhotoUpload photo={(URL) => {
@@ -139,6 +141,8 @@ const checkField = (array1) => {
     }
 };
 
+
+//
 
 AddEvent = connect()(AddEvent);
 export default AddEvent

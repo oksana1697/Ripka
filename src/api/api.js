@@ -1,5 +1,4 @@
 'use strict';
-
 async function makeRequest(url, method, data) {
   let body = {
     body: JSON.stringify(data),
@@ -18,27 +17,27 @@ async function makeRequest(url, method, data) {
   return data;
 }
 
-export function getData(url) {
-  return makeRequest(url, 'GET');
+export const getData  = async (url) =>{
+  await makeRequest(url, 'GET');
 }
 
 // getData('http://localhost:3000/events').then(function(data) {
 //     console.log(data);})
 
-export function postData(url, data) {
-  return makeRequest(url, 'POST', data);
-}
+export const postData = async (url, data)=> {
+  await makeRequest(url, 'POST', data);
+};
 
 // postData('http://localhost:3000/events', {"test": "test1", "id": 5})
 
-export function putData(url, data) {
+export const putData = async (url, data) => {
   return makeRequest(url + '/' + data.id, 'PUT', data);
-}
+};
 
 // putData('http://localhost:3000/events', {"test": "test15", "id": 5})
 
-// export function deleteData(url, data) {
-//     return makeRequest(url + '/' + data.id, 'DELETE', data)
+// export function deleteData(url, id) {
+//     return makeRequest(url + '/' + id, 'DELETE')
 //
 // }
 export const deleteData = async (url, id) => {
