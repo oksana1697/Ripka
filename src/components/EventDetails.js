@@ -1,27 +1,22 @@
 import React, { Component } from "react";
 import { deleteEvent } from "../actions";
-import { connect } from "react-redux";
 
 import "../../styles/event-details.less";
 
 class EventDetails extends Component {
   render() {
     let props = this.props;
+    const { event } = this.props;
 
-    const currentEvent = props.events.find(element => {
-      let idToString = element.id.toString();
-      return idToString === props.match.params.eventId;
-    });
+    if (!event) { return "Loading..."; }
 
     return (
       <div>
         <div className="event-details__title_container">
           <div className="event-details__block-column">
-            <h1 className="event-details__title">{currentEvent.name}</h1>
-            <h2 className="event-details__subtitle">
-              {currentEvent.organization}
-            </h2>
-            <p className="event-details__location">{currentEvent.location}</p>
+            <h1 className="event-details__title">{event.name}</h1>
+            <h2 className="event-details__subtitle">{event.organization}</h2>
+            <p className="event-details__location">{event.location}</p>
           </div>
         </div>
         <div className="event-details__title_container">
@@ -42,7 +37,7 @@ class EventDetails extends Component {
             <h1 className="event-details__subtitle">Event Overview</h1>
           </div>
           <div className="event-details__container">
-            <p className="event-details__content">{currentEvent.description}</p>
+            <p className="event-details__content">{event.description}</p>
             <div className="event-details__subtitle_container">
               <img className="event-details__icon-calendar" />
               <h1 className="event-details__subtitle">Date & time</h1>
@@ -53,12 +48,12 @@ class EventDetails extends Component {
               <img className="event-details__icon-contact" />
               <h1 className="event-details__subtitle">Contacts</h1>
             </div>
-            <p className="event-details__content">{currentEvent.contacts}</p>
+            <p className="event-details__content">{event.contacts}</p>
           </div>
           <button
             className="event-details__button-delete"
             onClick={() => {
-              props.dispatch(deleteEvent(currentEvent.id));
+              props.dispatch(deleteEvent(event.id));
               props.history.push("/");
             }}
           >
@@ -70,5 +65,4 @@ class EventDetails extends Component {
   }
 }
 
-EventDetails = connect()(EventDetails);
 export default EventDetails;

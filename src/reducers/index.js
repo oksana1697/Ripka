@@ -12,3 +12,5 @@ export const getIsEventProcessing = state =>
   fromEvents.getIsEventProcessing(state.events);
 
 export const getAllAvailableEvents = state => fromEvents.getAllAvailableEvents(state.events);
+export const getEventById = (id, state) => fromEvents.getEventById(id, state.events);
+export const getIsEventFetching = (id, state) => fromEvents.getIsEventFetching(id, state.events);

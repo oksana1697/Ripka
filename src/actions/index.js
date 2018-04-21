@@ -12,7 +12,10 @@ import {
   //
   RECEIVE_EVENTS,
   RECEIVE_USERS,
-  SLICE_EVENTS
+  SLICE_EVENTS,
+  FETCH_EVENT_START,
+  FETCH_EVENT_FAILURE,
+  FETCH_EVENT_SUCCESS
 } from "./actionTypes";
 
 const addEventStart = event => ({ type: ADD_EVENT_START, event });
@@ -80,11 +83,8 @@ const receiveUsers = response => ({
   type: RECEIVE_USERS,
   response
 });
-export const fetchUsers = () => dispatch => {
-  return api.fetchUsers().then(response => {
-    return dispatch(receiveUsers(response));
-  });
-};
+export const fetchUsers = () => dispatch =>
+  api.fetchUsers().then(response => dispatch(receiveUsers(response)));
 
 const receiveSliceEvents = response => ({
   type: SLICE_EVENTS,
@@ -108,5 +108,25 @@ export const deleteEvent = id => async dispatch => {
     dispatch(deleteEventSuccess(id));
   } catch (e) {
     dispatch(deleteEventFailure(id));
+  }
+};
+
+const fetchEventStart = id => ({ type: FETCH_EVENT_START, id });
+const fetchEventSuccess = event => ({ type: FETCH_EVENT_SUCCESS, event });
+const fetchEventFailure = error => ({ type: FETCH_EVENT_FAILURE, error });
+
+export const fetchEvent = id => async dispatch => {
+  dispatch(fetchEventStart(id));
+
+  try {
+    const event = await api.fetchEvent(id);
+
+    if (!event.error) {
+      dispatch(fetchEventSuccess(event));
+    } else {
+      dispatch(fetchEventFailure(error));
+    }
+  } catch (error) {
+    fetchEventFailure(error);
   }
 };

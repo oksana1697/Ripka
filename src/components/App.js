@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import Event from "./App";
 import AddEvent from "../containers/AddEvent";
 import VisibleEventList from "./VisibleEventList";
-import VisibleEventDetailList from "./VisibleEventDetailsList";
+import EventDetailsConnector from "./EventDetailsConnector";
 import { HashRouter, Route, Switch } from "react-router-dom";
 import Navigation from "./Navigation";
 import AddUser from "../containers/AddUser";
@@ -25,11 +25,12 @@ const App = () => (
         )}
       />
       <Route exact path="/addevent">
-        { (props) => <AddEvent onSuccess={() => props.history.push("/")} />}
-
+        {props => <AddEvent onSuccess={() => props.history.push("/")} />}
       </Route>
       <Route exact path="/adduser" component={AddUser} />
-      <Route exact path="/:eventId" component={VisibleEventDetailList} />
+      <Route exact path="/:id">
+        {props => <EventDetailsConnector id={props.match.params.id} />}
+      </Route>
       <Route exact path="/:userName" component={VisibleUserDetailList} />
     </Switch>
     <Footer />

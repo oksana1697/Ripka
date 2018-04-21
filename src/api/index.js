@@ -6,6 +6,8 @@ export const fetchSliceEvents = num =>
 
 export const fetchEvents = () => getData("http://localhost:3000/events");
 
+export const fetchEvent = id => getData(`http://localhost:3000/events/${id}`);
+
 export const addEvent = newEvent =>
   postData("http://localhost:3000/events", newEvent);
 
