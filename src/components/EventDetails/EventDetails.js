@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { deleteEvent } from "../actions";
+import { deleteEvent } from "../../actions/index";
 
-import "../../styles/event-details.less";
-
+import "../../../styles/event-details.less";
+/**
+ * Represents view of single Event Details
+ */
 class EventDetails extends Component {
   render() {
     let props = this.props;

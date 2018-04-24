@@ -5,11 +5,13 @@ import AddEvent from "../containers/AddEvent";
 import VisibleEventList from "./VisibleEventList";
 import EventDetailsConnector from "./EventDetailsConnector";
 import { HashRouter, Route, Switch } from "react-router-dom";
-import Navigation from "./Navigation";
+import Navigation from "./Navigation/Navigation";
 import AddUser from "../containers/AddUser";
 import VisibleUserList from "./VisibleUserList";
 import VisibleUserDetailList from "./VisibleUserDetailsList";
-
+/**
+ * App js description
+ */
 const App = () => (
   <div>
     <Navigation />
@@ -19,7 +21,7 @@ const App = () => (
         path="/"
         render={() => (
           <div>
-            <VisibleEventList />
+              <VisibleEventList />
             <VisibleUserList />
           </div>
         )}

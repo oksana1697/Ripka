@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import "../../styles/navigation.less";
+import "../../../styles/navigation.less";
 
 class Navigation extends Component {
   constructor(props) {

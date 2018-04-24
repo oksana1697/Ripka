@@ -18,7 +18,6 @@ npm i
 
 A step by step series of examples that tell you have to get a development env running
 
-Say what the step will be
 
 ```
 npm run start:server
@@ -37,17 +36,16 @@ npm run data:fake
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+0.1.0
+We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Olena Skibinska**
+* **Oleniuk Oksana**
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 

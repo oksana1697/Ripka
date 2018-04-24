@@ -2,7 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import "../../styles/event.less";
-
+/**
+ * Represents view of single Event
+ */
 const Event = ({
   id,
   name,
@@ -33,3 +35,4 @@ const Event = ({
 );
 
 export default Event;
+
