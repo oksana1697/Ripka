@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroller";
 
-import EventContainer from "./EventContainer";
+import EventContainer from "./EventContainer/EventContainer";
 import { testFetchSliceEvents } from "../actions";
 import { getAllAvailableEvents } from "../reducers";
 

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
-import UserContainer from "./UserContainer";
+import UserContainer from "./UserContainer/UserContainer";
 import { withRouter } from "react-router-dom";
 import { fetchUsers } from "../actions/index";
 

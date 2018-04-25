@@ -2,18 +2,12 @@ React component example:
 
 ```js
 <div className="user__container">
-    <div
-      to={"/" + user_name}
-      activeStyle={{
-        textDecoration: "none",
-        color: "black"
-      }}
-      className="user__name"
-    >
+    <div className="user__name">
       Oksana Oleniuk
     </div>
     <div className="user__info-container">
-      <img src={user_photo} className="user__photo" />
+      <img src="http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+ className="user__photo" />
       <div className="user__info">
         <p className="user__contacts">+38093123456</p>
         <p className="user__location">Kyiv, Artioma 88</p>

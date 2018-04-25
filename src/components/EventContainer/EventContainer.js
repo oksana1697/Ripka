@@ -1,13 +1,12 @@
-import Event from "./Event/Event";
+import Event from "../Event/Event";
 import React, { Fragment } from "react";
-import Cover from "./Cover/Cover";
+import Cover from "../Cover/Cover";
 
-import "../../styles/event.less";
+import "../../../styles/event.less";
 
 const EventContainer = ({ events, onEventClick }) => (
   <Fragment>
     <Cover />
-
     <div className="event__block">
       {events.map(event => (
         <Event
