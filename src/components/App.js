@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "./Footer";
+import Footer from "./Footer/Footer";
 import Event from "./App";
 import AddEvent from "../containers/AddEvent";
 import VisibleEventList from "./VisibleEventList";

@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import "../../styles/event.less";
+import "../../../styles/event.less";
 /**
  * Represents view of single Event
  */
