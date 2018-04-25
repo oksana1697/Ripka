@@ -4,7 +4,7 @@ React component example:
 
 <div className="navigation__container">
           <div style={{ textDecoration: "none" }} to="/">
-            <h1 className="navigation__logo_content">Ripka</h1>
+            <h1 className="navigation__logo-content">Ripka</h1>
           </div>
           <div className="navigation__button" to="/addevent">
             <button className="navigation__button_content">

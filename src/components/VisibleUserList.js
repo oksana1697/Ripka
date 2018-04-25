@@ -4,6 +4,8 @@ import UserContainer from "./UserContainer";
 import { withRouter } from "react-router-dom";
 import { fetchUsers } from "../actions/index";
 
+import { getAllAvailableUsers} from "../reducers";
+
 class VisibleUserList extends Component {
   componentDidMount() {
     this.fetchData();
@@ -15,13 +17,15 @@ class VisibleUserList extends Component {
   }
 
   render() {
-    const { ...rest } = this.props;
-    return <UserContainer {...rest} />;
+      const {users} = this.props;
+    return <UserContainer users = {users} onEventClick = {this.props.onEventClick}  />;
   }
 }
 
 VisibleUserList = withRouter(
-  connect(users => users, { fetchUsers })(VisibleUserList)
+    connect(store => ({
+        events: getAllAvailableUsers(store)
+    }), { fetchUsers })(VisibleUserList)
 );
 
 export default VisibleUserList;

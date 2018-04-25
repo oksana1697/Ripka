@@ -2,7 +2,10 @@ import { combineReducers } from "redux";
 import {
   ADD_EVENT_START,
   ADD_EVENT_FAILURE,
-  ADD_EVENT_SUCCESS, FETCH_EVENT_SUCCESS, FETCH_EVENT_START, FETCH_EVENT_FAILURE
+  ADD_EVENT_SUCCESS,
+  FETCH_EVENT_SUCCESS,
+  FETCH_EVENT_START,
+  FETCH_EVENT_FAILURE
 } from "../actions/actionTypes";
 
 export const events = (state = [], action) => {
@@ -10,7 +13,7 @@ export const events = (state = [], action) => {
     case ADD_EVENT_SUCCESS:
     case FETCH_EVENT_SUCCESS:
       return [...state, action.event];
-      
+
     case "RECEIVE_EVENTS":
       return [...action.response];
 

@@ -7,7 +7,6 @@ import "../../styles/event.less";
 const EventContainer = ({ events, onEventClick }) => (
   <Fragment>
     <Cover />
-
     <div className="event__block">
       {events.map(event => (
         <Event

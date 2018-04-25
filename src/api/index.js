@@ -11,8 +11,9 @@ export const fetchEvent = id => getData(`http://localhost:3000/events/${id}`);
 export const addEvent = newEvent =>
   postData("http://localhost:3000/events", newEvent);
 
-export const fetchUsers = () => getData("http://localhost:3000/users");
-export const pushUser = newUser =>
+export const fetchUsers = id => getData(`http://localhost:3000/users/${id}`);
+
+export const addUser = newUser =>
   postData("http://localhost:3000/users", newUser);
 
 export const deleteEvent = async id =>

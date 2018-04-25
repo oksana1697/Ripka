@@ -25,23 +25,15 @@ class AddEvent extends Component {
   }
 
   state = {
-    name: "JavaScript Event",
-    description: `
-      It's time for Lviv to wake up to the power of JavaScript.
-      Dear all, we want to invite you to our April JavaScript Event. During this meetup we gonna listen two to cool speakers:
-      Rostyslav Belmeha - “Angular with Redux do I need it?”
-      Varenko Nodarii - "Web UI Performance checklist."
-      April JavaScript Event is all about JavaScript and sharing our experience!
-      Don't forget to register: https://goo.gl/NQ777x :)
-      P.S. Whether you are going to code your first lines of JavaScript, or create some magic – feel free to join us, all skill levels are very welcome!
-    `,
-    organization: "SoftServe",
-    contacts: "Hello",
+    name: "",
+    description: "",
+    organization: "",
+    contacts: "",
 
     time: new Date(),
 
-    location: "Hello",
-    photo: "Hello",
+    location: "",
+    photo: "",
     formSubmitted: false
   };
 
@@ -93,35 +85,35 @@ class AddEvent extends Component {
             onChange={this.changeHandler("name")}
           />
         </label>
-        <div className="add-event__input_container">
-          <p className="add-event__field">ORGANIZATION NAME</p>
+        <label className="add-event__input_container">
+          <span className="add-event__field">ORGANIZATION NAME</span>
           <input
             className="add-event__input"
             placeholder="Organization Name"
             value={organization}
             onChange={this.changeHandler("organization")}
           />
-        </div>
-        <div className="add-event__input_container">
-          <p className="add-event__field">LOCATION</p>
+        </label>
+        <label className="add-event__input_container">
+          <span className="add-event__field">LOCATION</span>
           <input
             className="add-event__input"
             placeholder="Location"
             value={location}
             onChange={this.changeHandler("location")}
           />
-        </div>
-        <div className="add-event__input_container">
-          <p className="add-event__field">CONTACTS</p>
+        </label>
+        <label className="add-event__input_container">
+          <span className="add-event__field">CONTACTS</span>
           <input
             className="add-event__input"
             placeholder="Contacts"
             value={contacts}
             onChange={this.changeHandler("contacts")}
           />
-        </div>
+        </label>
 
-        <div className="add-event__input_container">
+        <label className="add-event__input_container">
           <span className="add-event__field">
             EVENT DESCRIPTION & REQUIREMENTS
           </span>
@@ -132,20 +124,20 @@ class AddEvent extends Component {
             onChange={this.changeHandler("description")}
             required
           />
-        </div>
+        </label>
 
-        <div className="add-event__input_container">
+        <label className="add-event__input_container">
           <span className="add-event__field">Time</span>
           <DateTimePicker
             value={time}
             onChange={time => this.setState({ time })}
           />
-        </div>
+        </label>
 
-        <div className="add-event__input_container">
-          <p className="add-event__field">DOWNLOAD PHOTO</p>
+        <label className="add-event__input_container">
+          <span className="add-event__field">DOWNLOAD PHOTO</span>
           <PhotoUpload photo={URL => this.setState({ photo: URL })} />
-        </div>
+        </label>
 
         <div className="add-event__submit-container">
           <button className="add-event__submit">Add Event</button>
