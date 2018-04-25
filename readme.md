@@ -37,7 +37,6 @@ npm run data:fake
 ## Versioning
 
 0.1.0
-We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 
@@ -45,10 +44,3 @@ We use [SemVer](http://semver.org/) for versioning.
 * **Oleniuk Oksana**
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc

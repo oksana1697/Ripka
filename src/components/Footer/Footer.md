@@ -1,14 +1,6 @@
-import React, { Component } from "react";
-import "../../styles/footer.less";
+React component example:
 
-class Footer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
+```js
       <div className="footer">
         <div className="footer__container">
           <p className="footer__heading">ABOUT US</p>
@@ -38,8 +30,17 @@ class Footer extends Component {
           </p>
         </div>
       </div>
-    );
-  }
-}
+```
 
-export default Footer;
+Needed lib imports
+
+```jsx static
+import React, { Component } from "react";
+```
+
+Following custom styles used
+
+```jsx static
+import "../../../styles/footer.less";
+```
+

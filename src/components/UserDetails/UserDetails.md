@@ -1,22 +1,12 @@
-import React, { Component } from "react";
+React component example:
 
-import "../../styles/user-details.less";
-
-class UserDetails extends Component {
-  render() {
-    // TODO: change match by name to id / fix routing on this page
-
-    const currentUser = this.props.users.find(element => {
-      return element.user_name === this.props.match.params.userName;
-    });
-
-    return (
-      <div>
+```js
+ <div>
         <div className="user-details__title_container">
           <div className="user-details__block-column">
-            <h1 className="user-details__title">{currentUser.user_name}</h1>
+            <h1 className="user-details__title">Oksana Oleniuk</h1>
             <h2 className="user-details__subtitle">
-              {currentUser.user_location}
+              Ukraine, Kyiv
             </h2>
           </div>
         </div>
@@ -39,7 +29,7 @@ class UserDetails extends Component {
           </div>
           <div className="user-details__container">
             <p className="user-details__content">
-              {currentUser.user_description}
+              :)
             </p>
             <div className="user-details__subtitle_container">
               <img className="user-details__icon-calendar" />
@@ -51,12 +41,21 @@ class UserDetails extends Component {
               <img className="user-details__icon-contact" />
               <h1 className="user-details__subtitle">Contacts</h1>
             </div>
-            <p className="user-details__content">{currentUser.user_contacts}</p>
+            <p className="user-details__content">+38093123456</p>
           </div>
         </div>
       </div>
-    );
-  }
-}
+```
 
-export default UserDetails;
+Needed lib imports
+
+```jsx static
+import React, { Component } from "react";
+```
+
+Following custom styles used
+
+```jsx static
+import "../../../styles/user-details.less";
+```
+

@@ -1,4 +1,4 @@
-import User from "./User";
+import User from "./User/User";
 import React from "react";
 import { users } from "../reducers/users";
 
