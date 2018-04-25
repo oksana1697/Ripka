@@ -111,7 +111,6 @@ class AddEvent extends Component {
             onChange={this.changeHandler("location")}
           />
         </div>
-
         <div className="add-event__input_container">
           <p className="add-event__field">CONTACTS</p>
           <input
