@@ -1,7 +1,6 @@
 React component example:
 
 ```js
- <Fragment>
         <h1 className="user-details__title"> USERS</h1>
         <div className="user__block">
            <div className="user__container">
@@ -44,7 +43,7 @@ React component example:
                    </div>
                  </div>
         </div>
-    </Fragment>
+
 ```
 
 Needed lib imports

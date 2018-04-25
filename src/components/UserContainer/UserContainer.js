@@ -1,9 +1,9 @@
 import User from "../User/User";
-import React from "react";
 import { users } from "../../reducers/users";
+import React, { Fragment } from "react";
 
 import "../../../styles/user.less";
-import "../../styles/user-details.less";
+import "../../../styles/user-details.less";
 
 const UserContainer = ({ users, onUserClick }) => (
     <Fragment>

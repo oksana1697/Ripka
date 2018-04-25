@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 import "../../../styles/cover.less";
+
+/**
+ * Represents view of Cover with static image.
+ */
 class Cover extends Component {
   constructor(props) {
     super(props);

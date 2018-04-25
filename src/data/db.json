@@ -111,23 +111,10 @@
       "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
     },
     {
-      "id": 12,
-      "name": "123",
-      "description": "",
-      "date": null,
-      "organization": "",
-      "contacts": "",
-      "location": "",
-      "photo": "https://res.cloudinary.com/ucu/image/upload/v1522316895/fklnzt0stxow8cwsefz3.png"
+      "id": 12
     },
     {
       "id": 13
-    },
-    {
-      "id": 14
-    },
-    {
-      "id": 15
     }
   ],
   "users": [
