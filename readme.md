@@ -43,4 +43,6 @@ npm run data:fake
 * **Olena Skibinska**
 * **Oleniuk Oksana**
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+## Documentation
+
+For all documentation please consider [Docs](https://ksenyaoleniuk.github.io/Ripka/styleguide/index.html)
