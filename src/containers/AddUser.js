@@ -8,6 +8,7 @@ import {getIsUserProcessing} from "../reducers";
 
 import "../../styles/add.less";
 import "../../styles/common.less";
+import PropTypes from "prop-types";
 
 class AddUser extends Component {
     static defaultProps = {
@@ -40,6 +41,8 @@ class AddUser extends Component {
         const {formSubmitted, ...user} = this.state;
 
         //TODO: verify data;
+import "../../styles/add-user.less";
+import PropTypes from "prop-types";
 
         addUser(user);
         this.setState({formSubmitted: true});
@@ -139,3 +142,11 @@ export default connect(
     }),
     { addUser }
 )(AddUser);
+AddUser.propTypes = {
+    name: PropTypes.string,
+    interests: PropTypes.string,
+    organization: PropTypes.string,
+    contacts: PropTypes.string,
+    location:  PropTypes.string,
+    // formSubmitted: PropTypes.bool
+};
