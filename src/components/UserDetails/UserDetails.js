@@ -4,21 +4,15 @@ import "../../../styles/user-details.less";
 
 class UserDetails extends Component {
     render() {
-        // TODO: change match by name to id / fix routing on this page
-
-        // const currentUser = this.props.users.find(element => {
-        //   return element.user_name === this.props.match.params.userName;
-
-        // });
         const { user } = this.props;
 
         return (
             <div>
               <div className="user-details__title_container">
                 <div className="user-details__block-column">
-                  <h1 className="user-details__title">{user.user_name}</h1>
+                  <h1 className="user-details__title">{user.name}</h1>
                   <h2 className="user-details__subtitle">
-                      {user.user_location}
+                      {user.location}
                   </h2>
                 </div>
               </div>
@@ -41,7 +35,7 @@ class UserDetails extends Component {
                 </div>
                 <div className="user-details__container">
                   <p className="user-details__content">
-                      {user.user_description}
+                      {user.description}
                   </p>
                   <div className="user-details__subtitle_container">
                     <img className="user-details__icon-calendar" />
@@ -53,7 +47,7 @@ class UserDetails extends Component {
                     <img className="user-details__icon-contact" />
                     <h1 className="user-details__subtitle">Contacts</h1>
                   </div>
-                  <p className="user-details__content">{user.user_contacts}</p>
+                  <p className="user-details__content">{user.contacts}</p>
                 </div>
               </div>
             </div>
