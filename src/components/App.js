@@ -24,14 +24,14 @@ const App = () => (
                 render={() => (
                     <div>
                         <VisibleEventList/>
-
+                        <VisibleUserList/>
                     </div>
                 )}
             />
-            <Route exact path="/users">
-                <VisibleUserList/>
-                {/*{props => <Experiment onSuccess={() => props.history.push("/")}/>}*/}
-            </Route>
+            {/*<Route exact path="/users">*/}
+                {/*<VisibleUserList/>*/}
+                {/*/!*{props => <Experiment onSuccess={() => props.history.push("/")}/>}*!/*/}
+            {/*</Route>*/}
             <Route exact path="/addevent">
                 {props => <AddEvent onSuccess={() => props.history.push("/")}/>}
             </Route>
@@ -39,7 +39,7 @@ const App = () => (
             <Route exact path="/:id">
                 {props => <EventDetailsConnector id={props.match.params.id}/>}
             </Route>
-            <Route exact path="/users/:id">
+            <Route exact path="/:id">
                 {props => <UserDetailsConnector id={props.match.params.id}/>}
             </Route>
             {/*<Route exact path="/:userName" component={VisibleUserDetailList} />*/}
