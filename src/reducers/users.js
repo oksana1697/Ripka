@@ -16,7 +16,7 @@ export const users = (state = [], action) => {
 
         case RECEIVE_USERS:
             console.log("receive_users:",[...action.response])
-        return [...state,...action.response];
+        return [...action.response];
 
         default:
             return state;

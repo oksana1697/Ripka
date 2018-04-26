@@ -41,8 +41,6 @@ class AddUser extends Component {
         const {formSubmitted, ...user} = this.state;
 
         //TODO: verify data;
-import "../../styles/add-user.less";
-import PropTypes from "prop-types";
 
         addUser(user);
         this.setState({formSubmitted: true});
