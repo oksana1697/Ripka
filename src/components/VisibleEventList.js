@@ -33,7 +33,6 @@ class VisibleEventList extends Component {
     const {events} = this.props;
     return (
       <div>
-        <div style={{ height: "600px", overflow: "auto" }}>
           <InfiniteScroll
             loadMore={this.loadMore}
             hasMore={this.state.hasMoreItems}
@@ -42,7 +41,6 @@ class VisibleEventList extends Component {
           >
             <EventContainer events = {events} onEventClick = {this.props.onEventClick} />
           </InfiniteScroll>{" "}
-        </div>{" "}
       </div>
     );
   }

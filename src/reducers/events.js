@@ -15,7 +15,7 @@ export const events = (state = [], action) => {
       return [...action.response];
 
     case "SLICE_EVENTS":
-      return [...state, ...action.response];
+      return [...state,...action.response];
 
     case "DELETE_EVENT":
       const { id } = action;

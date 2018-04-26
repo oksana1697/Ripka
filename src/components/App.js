@@ -9,7 +9,6 @@ import {HashRouter, Route, Switch} from "react-router-dom";
 import Navigation from "./Navigation/Navigation";
 import AddUser from "../containers/AddUser";
 import VisibleUserList from "./VisibleUserList";
-import Experiment from "./Experiment";
 
 /**
  * App js description
@@ -24,14 +23,13 @@ const App = () => (
                 render={() => (
                     <div>
                         <VisibleEventList/>
-                        <VisibleUserList/>
+
                     </div>
                 )}
             />
-            {/*<Route exact path="/users">*/}
-                {/*<VisibleUserList/>*/}
-                {/*/!*{props => <Experiment onSuccess={() => props.history.push("/")}/>}*!/*/}
-            {/*</Route>*/}
+            <Route exact path="/users">
+                <VisibleUserList/>
+            </Route>
             <Route exact path="/addevent">
                 {props => <AddEvent onSuccess={() => props.history.push("/")}/>}
             </Route>
