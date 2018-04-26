@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
 import {
-  ADD_EVENT_START,
-  ADD_EVENT_FAILURE,
-  ADD_EVENT_SUCCESS, FETCH_EVENT_SUCCESS, FETCH_EVENT_START, FETCH_EVENT_FAILURE
+    ADD_EVENT_START,
+    ADD_EVENT_FAILURE,
+    ADD_EVENT_SUCCESS, FETCH_EVENT_SUCCESS, FETCH_EVENT_START, FETCH_EVENT_FAILURE, DELETE_EVENT, RECEIVE_EVENTS,
+    SLICE_EVENTS
 } from "../actions/actionTypes";
 
 export const events = (state = [], action) => {
@@ -11,13 +12,13 @@ export const events = (state = [], action) => {
     case FETCH_EVENT_SUCCESS:
       return [...state, action.event];
       
-    case "RECEIVE_EVENTS":
+    case RECEIVE_EVENTS:
       return [...action.response];
 
-    case "SLICE_EVENTS":
+    case SLICE_EVENTS:
       return [...state,...action.response];
 
-    case "DELETE_EVENT":
+    case DELETE_EVENT:
       const { id } = action;
       return state.filter(el => el.id !== id);
 

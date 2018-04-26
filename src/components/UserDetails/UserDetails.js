@@ -31,16 +31,13 @@ class UserDetails extends Component {
               <div className="user-details__block-column">
                 <div className="user-details__subtitle_container">
                   <img className="user-details__icon-paper" />
-                  <h1 className="user-details__subtitle">Event Overview</h1>
+                  <h1 className="user-details__subtitle">User description</h1>
                 </div>
                 <div className="user-details__container">
                   <p className="user-details__content">
                       {user.description}
                   </p>
-                  <div className="user-details__subtitle_container">
-                    <img className="user-details__icon-calendar" />
-                    <h1 className="user-details__subtitle">Date & time</h1>
-                  </div>
+
                     {/*<p className="user-details__content">{currentEvent.date.toFormat("yyyy LLL dd")}</p>*/}
                     {/*<p className="user-details__content">{currentEvent.date.toFormat("HH:mm")}</p>*/}
                   <div className="user-details__subtitle_container">
