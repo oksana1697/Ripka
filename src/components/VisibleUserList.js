@@ -2,26 +2,36 @@ import { connect } from "react-redux";
 import React, { Component } from "react";
 import UserContainer from "./UserContainer/UserContainer";
 import { withRouter } from "react-router-dom";
-import { fetchUsers } from "../actions/index";
+import { fetchUsers } from "../actions";
+
+import { getAllAvailableUsers} from "../reducers";
 
 class VisibleUserList extends Component {
-  componentDidMount() {
-    this.fetchData();
-  }
+    componentDidMount() {
+        this.fetchData();
+    }
 
-  fetchData() {
-    const { fetchUsers } = this.props;
-    fetchUsers();
-  }
+    fetchData() {
+        const { fetchUsers } = this.props;
+        console.log("1",fetchUsers)
+        fetchUsers();
+    }
 
-  render() {
-    const { ...rest } = this.props;
-    return <UserContainer {...rest} />;
-  }
+    render() {
+        // this.fetchData();
+        const {...users} = this.props;
+        console.log("users",this.props);
+        return <UserContainer  {...users}
+                              // onEventClick = {this.props.onEventClick}
+        />;
+
+    }
 }
 
 VisibleUserList = withRouter(
-  connect(users => users, { fetchUsers })(VisibleUserList)
+    connect(store => ({
+        users: getAllAvailableUsers(store)
+    }), { fetchUsers })(VisibleUserList)
 );
 
 export default VisibleUserList;

@@ -1,14 +1,16 @@
-/*UL, BODY*/
-ul {
-  padding: 0;
-}
-
-body {
+.add{
+  position: relative;
   margin: 0;
-}
 
-.add-user {
-  margin: 0;
+  &__carpet {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+  }
 
   &__title_container {
     background-color: #F5F5F6;
@@ -28,7 +30,8 @@ body {
     color: #626977;
     font-size: 1.125em;
     font-weight: 500;
-    margin: auto 0 auto 10px;
+    margin-left: 10px;
+    //margin: auto 0 auto 10px;
 
     &_container {
       width: 600px;
@@ -39,10 +42,26 @@ body {
       border-bottom: 1px solid rgba(98, 105, 119, 0.31);
 
     }
+  }
 
+  &__textarea {
+    resize: vertical;
+    border-radius: 4px;
+    border: 1px solid #b3b3b3;
+    font-size: 16px;
+    margin-left: 10px;
+    padding: 0.5em;
+    outline: none;
+    height: 220px;
+    font-family: inherit;
+    width: 100%;
+
+    &:hover { border: 1px solid #6d7ce7; }
+    &:focus { border: 1px solid #6d7ce7; }
   }
 
   &__input {
+
     border-radius: 4px;
     border: 1px solid #b3b3b3;
     height: 31px;
@@ -52,9 +71,8 @@ body {
     padding: 6.5px;
     outline: 0;
 
-    &:hover {
-      border: 2px solid #b3b3b3;
-    }
+    &:hover { border: 1px solid #6d7ce7; }
+    &:focus { border: 1px solid #6d7ce7; }
 
     &_container {
       display: flex;
@@ -66,12 +84,20 @@ body {
   }
 
   &__field {
+    text-transform: uppercase;
     color: #626977;
     font-family: "Helvetica", "Arial", sans-serif;
     font-size: 12px;
     font-weight: bold;
     margin: 10px;
     flex: 0 0 100px;
+  }
+
+  &__photo_upload {
+    object-fit: scale-down;
+    height: 70px;
+    width: 70px;
+    display: block;
   }
 
   &__submit {
@@ -92,7 +118,40 @@ body {
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(98, 105, 119, 0.31);
   }
+
+  &__photo {
+    height: 28px;
+    width: 150px;
+    border: 2px solid #40c4cf;
+    border-radius: 6px;
+    color: #40c4cf;
+    font-weight: bold;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(78, 232, 232, 0.27);
+    }
+
+    &_text {
+      margin-top: 5%;
+    }
+  }
+  &__input-big {
+    border-radius: 4px;
+    border: 1px solid #b3b3b3;
+    height: 110px;
+    width: 100%;
+    font-size: 16px;
+    margin-left: 10px;
+    padding: 6.5px;
+    outline: 0;
+  }
 }
+
+
 
 
 

@@ -7,7 +7,12 @@ import PhotoUpload from "../components/PhotoUpload";
 //
 import { getIsEventProcessing } from "../reducers";
 
-import "../../styles/add-event.less";
+// import "../../styles/add-event.less";
+
+import "../../styles/add.less";
+import "../../styles/common.less";
+import "../../styles/react-datetime-picker.less";
+
 
 class AddEvent extends Component {
   static defaultProps = {
@@ -25,23 +30,15 @@ class AddEvent extends Component {
   }
 
   state = {
-    name: "JavaScript Event",
-    description: `
-      It's time for Lviv to wake up to the power of JavaScript.
-      Dear all, we want to invite you to our April JavaScript Event. During this meetup we gonna listen two to cool speakers:
-      Rostyslav Belmeha - “Angular with Redux do I need it?”
-      Varenko Nodarii - "Web UI Performance checklist."
-      April JavaScript Event is all about JavaScript and sharing our experience!
-      Don't forget to register: https://goo.gl/NQ777x :)
-      P.S. Whether you are going to code your first lines of JavaScript, or create some magic – feel free to join us, all skill levels are very welcome!
-    `,
-    organization: "SoftServe",
-    contacts: "Hello",
+    name: "",
+    description: "",
+    organization: "",
+    contacts: "",
 
     time: new Date(),
 
-    location: "Hello",
-    photo: "Hello",
+    location: "",
+    photo: "",
     formSubmitted: false
   };
 
@@ -74,59 +71,59 @@ class AddEvent extends Component {
     } = this.state;
 
     return (
-      <form className="add-event" onSubmit={this.handleSubmit}>
+      <form className="add" onSubmit={this.handleSubmit}>
         {formSubmitted && <div className="add-event__carpet" />}
-        <div className="add-event__title_container">
-          <h1 className="add-event__title">Add event details</h1>
+        <div className="add__title_container">
+          <h1 className="add__title">Add event details</h1>
         </div>
-        <div className="add-event__subtitle_container">
+        <div className="add__subtitle_container">
           <img src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png" />
-          <h1 className="add-event__subtitle">Event Overview</h1>
+          <h1 className="add__subtitle">Event Overview</h1>
         </div>
 
-        <label className="add-event__input_container">
-          <span className="add-event__field">Event name</span>
+        <label className="add__input_container">
+          <span className="add__field">Event name</span>
           <input
-            className="add-event__input"
+            className="add__input"
             placeholder="Event Name"
             value={name}
             onChange={this.changeHandler("name")}
           />
         </label>
-        <div className="add-event__input_container">
-          <p className="add-event__field">ORGANIZATION NAME</p>
+        <div className="add__input_container">
+          <p className="add__field">ORGANIZATION NAME</p>
           <input
-            className="add-event__input"
+            className="add__input"
             placeholder="Organization Name"
             value={organization}
             onChange={this.changeHandler("organization")}
           />
         </div>
-        <div className="add-event__input_container">
-          <p className="add-event__field">LOCATION</p>
+        <div className="add__input_container">
+          <p className="add__field">LOCATION</p>
           <input
-            className="add-event__input"
+            className="add__input"
             placeholder="Location"
             value={location}
             onChange={this.changeHandler("location")}
           />
         </div>
-        <div className="add-event__input_container">
-          <p className="add-event__field">CONTACTS</p>
+        <div className="add__input_container">
+          <p className="add__field">CONTACTS</p>
           <input
-            className="add-event__input"
+            className="add__input"
             placeholder="Contacts"
             value={contacts}
             onChange={this.changeHandler("contacts")}
           />
         </div>
 
-        <div className="add-event__input_container">
-          <span className="add-event__field">
+        <div className="add__input_container">
+          <span className="add__field">
             EVENT DESCRIPTION & REQUIREMENTS
           </span>
           <textarea
-            className="add-event__textarea"
+            className="add__textarea"
             placeholder="Description"
             value={description}
             onChange={this.changeHandler("description")}
@@ -134,21 +131,21 @@ class AddEvent extends Component {
           />
         </div>
 
-        <div className="add-event__input_container">
-          <span className="add-event__field">Time</span>
+        <div className="add__input_container">
+          <span className="add__field">Time</span>
           <DateTimePicker
             value={time}
             onChange={time => this.setState({ time })}
           />
         </div>
 
-        <div className="add-event__input_container">
-          <p className="add-event__field">DOWNLOAD PHOTO</p>
+        <div className="add__input_container">
+          <p className="add__field">DOWNLOAD PHOTO</p>
           <PhotoUpload photo={URL => this.setState({ photo: URL })} />
         </div>
 
-        <div className="add-event__submit-container">
-          <button className="add-event__submit">Add Event</button>
+        <div className="add__submit-container">
+          <button className="add__submit">Add Event</button>
         </div>
       </form>
     );

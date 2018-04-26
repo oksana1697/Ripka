@@ -40,18 +40,18 @@ class PhotoUpload extends Component {
 
   render() {
     return (
-      <div className="add-event__input-big">
+      <div className="add__input-big">
         <Dropzone
-          className="add-event__photo"
+          className="add__photo"
           onDrop={this.handleDrop}
           multiple
           accept="image/*"
         >
-          <p className="add-event__photo_text"> Upload a photo</p>
+          <p className="add__photo_text"> Upload a photo</p>
           {this.state.imageURL ? (
             <img
               src={this.state.imageURL}
-              className="add-event__photo_upload"
+              className="add__photo_upload"
             />
           ) : (
             ""

@@ -6,5 +6,29 @@ POST http://localhost:3000/events
 Content-type: application/json
 
 {"test": "test1", "id": 5}
+###
 
+
+###
+PUT http://localhost:3000/events
+
+Content-type: application/json
+
+{"test": "test1", "id": 5}
+###
+
+###
+DELETE http://localhost:3000/events
+
+Content-type: application/json
+
+{id:5}
+###
+
+###
+GET http://localhost:3000/users
+
+Content-type: application/json
+
+{id:1}
 ###
