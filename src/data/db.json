@@ -109,6 +109,15 @@
       "interests": "1222-12-22T12:12:00.000+02:00",
       "location": "Київська область, Київ",
       "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+    },
+    {
+      "id": 12
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
     }
   ],
   "users": [
@@ -147,6 +156,12 @@
       "interests": "1222-12-22T12:12:00.000+02:00",
       "location": "Київська область, Київ",
       "photo": "http://res.cloudinary.com/drzw6h31n/image/upload/v1524735851/lubka_htnrt3.jpg"
+    },
+    {
+      "id": 322
+    },
+    {
+      "id": 323
     }
   ]
 }

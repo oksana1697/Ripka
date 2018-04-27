@@ -1,5 +1,5 @@
 import { normalize, schema } from 'normalizr';
-
+ // TODO: id : user
 // Define a users schema
 const user = new schema.Entity('users');
 

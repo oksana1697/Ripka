@@ -7,8 +7,7 @@ import PhotoUpload from "../components/PhotoUpload";
 //
 import { getIsEventProcessing } from "../reducers";
 
-// import "../../styles/add-event.less";
-
+// Todo: refactoring Add , swagger
 import "../../styles/add.less";
 import "../../styles/common.less";
 import "../../styles/react-datetime-picker.less";

@@ -45,4 +45,6 @@ npm run data:fake
 
 ## Documentation
 
-For all documentation please consider [Docs](https://ksenyaoleniuk.github.io/Ripka/styleguide/index.html)
+For Components documentation consider [Docs](https://ksenyaoleniuk.github.io/Ripka/styleguide/index.html)
+
+For API documentation consider [API Docs](https://ksenyaoleniuk.github.io/Ripka/styleguide/output.html)

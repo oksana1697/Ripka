@@ -14,7 +14,7 @@ const User = ({
               }) => (
     <div className="user__container">
         <NavLink
-            to={"/" + id}
+            to={"users/" + id}
             activeStyle={{
                 textDecoration: "none",
                 color: "black"
