@@ -16,8 +16,8 @@ class Navigation extends Component {
           <Link style={{ textDecoration: "none" }} to="/">
             <h1 className="navigation__logo-content">Ripka</h1>
           </Link>
-          <Link className="navigation__button" to="/users">
-            <button className="navigation__button_content">
+          <Link className="navigation__button " to="/users">
+            <button className="navigation__button_content hvr-float ">
               USERS
             </button>
           </Link>

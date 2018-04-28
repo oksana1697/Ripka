@@ -34,6 +34,11 @@ Fake data
 npm run data:fake
 ```
 
+## For updating API docs run:
+```
+https://ksenyaoleniuk.github.io/Ripka/styleguide/output.html
+```
+
 ## Versioning
 
 0.1.0

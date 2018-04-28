@@ -14,7 +14,7 @@ const Event = ({
   organization,
   photo
 }) => (
-  <div className="event__container">
+  <div className="event__container ">
     <div>
       <img src={photo} className="event__photo" />
     </div>
