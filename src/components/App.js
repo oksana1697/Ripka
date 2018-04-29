@@ -18,9 +18,7 @@ const App = () => (
         <Navigation/>
         <Switch>
             <Route
-                exact
-                path="/"
-                render={() => (
+                exact path="/" render={() => (
                     <div>
                         <VisibleEventList/>
 

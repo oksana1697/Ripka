@@ -55,8 +55,9 @@ class EventDetails extends Component {
           <button
             className="event-details__button-delete"
             onClick={() => {
-              props.dispatch(deleteEvent(event.id));
-              props.history.push("/");
+                props.dispatch(deleteEvent(event.id))
+
+                props.history.push("/");
             }}
           >
             Delete event

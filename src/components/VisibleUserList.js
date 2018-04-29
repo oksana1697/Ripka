@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import UserContainer from "./UserContainer/UserContainer";
 import { withRouter } from "react-router-dom";
 import { fetchUsers } from "../actions";
-
 import { getAllAvailableUsers} from "../reducers";
 
 class VisibleUserList extends Component {
@@ -13,7 +12,6 @@ class VisibleUserList extends Component {
 
     fetchData() {
         const { fetchUsers } = this.props;
-        console.log("1",fetchUsers)
         fetchUsers();
     }
 

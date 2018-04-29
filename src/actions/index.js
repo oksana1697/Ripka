@@ -10,8 +10,7 @@ import {
     DELETE_EVENT_FAILURE,
     DELETE_EVENT_SUCCESS,
     //
-    RECEIVE_EVENTS,
-    RECEIVE_USERS,
+    FETCH_EVENTS,
     SLICE_EVENTS,
     FETCH_EVENT_START,
     FETCH_EVENT_FAILURE,
@@ -23,7 +22,8 @@ import {
     //
     FETCH_USER_START,
     FETCH_USER_FAILURE,
-    FETCH_USER_SUCCESS
+    FETCH_USER_SUCCESS, FETCH_USERS_START, FETCH_USERS_SUCCESS, FETCH_USERS_FAILURE, FETCH_EVENTS_START,
+    FETCH_EVENTS_SUCCESS, FETCH_EVENTS_FAILURE
 } from "./actionTypes";
 
 const addEventStart = event => ({type: ADD_EVENT_START, event});
@@ -47,16 +47,16 @@ export const addEvent = event => async dispatch => {
 };
 
 const receiveEvents = response => ({
-    type: RECEIVE_EVENTS,
+    type: FETCH_EVENTS,
     response
 });
-
-export const fetchEvents = () => dispatch => {
-    return api.fetchEvents().then(response => {
-        console.log("action/index/fetchEvents:", response);
-        return dispatch(receiveEvents(response));
-    });
-};
+//
+// export const fetchEvents = () => dispatch => {
+//     return api.fetchEvents().then(response => {
+//         console.log("action/index/fetchEvents:", response);
+//         return dispatch(receiveEvents(response));
+//     });
+// };
 
 const receiveSliceEvents = response => ({
     type: SLICE_EVENTS,
@@ -125,13 +125,55 @@ export const addUser = user => async dispatch => {
     }
 };
 
-const receiveUsers = response => ({
-    type: RECEIVE_USERS,
-    response
-});
+// const receiveUsers = response => ({
+//     type: FETCH_USERS,
+//     response
+// });
 
-export const fetchUsers = () => dispatch =>
-    api.fetchUsers().then(response => dispatch(receiveUsers(response)));
+// export const fetchUsers = () => dispatch =>
+//     api.fetchUsers().then(response => dispatch(receiveUsers(response)));
+
+
+
+const fetchUsersStart = response => ({type: FETCH_USERS_START, response});
+const fetchUsersSuccess = response => ({type: FETCH_USERS_SUCCESS, response});
+const fetchUsersFailure = error => ({type: FETCH_USERS_FAILURE, error});
+
+export const fetchUsers = () => async dispatch => {
+    dispatch(fetchUsersStart());
+    try {
+        const response = await api.fetchUsers();
+        if (!response.error) {
+            dispatch(fetchUsersSuccess(response));
+        } else {
+            dispatch(fetchUsersFailure(response.error));
+        }
+    } catch (error) {
+        fetchUsersFailure(error);
+    }
+};
+
+
+const fetchEventsStart = response => ({type: FETCH_EVENTS_START, response});
+const fetchEventsSuccess = response => ({type: FETCH_EVENTS_SUCCESS, response});
+const fetchEventsFailure = error => ({type: FETCH_EVENTS_FAILURE, error});
+
+export const fetchEvents = () => async dispatch => {
+    dispatch(fetchEventsStart());
+    try {
+        const response = await api.fetchEvents();
+
+        if (!response.error) {
+            dispatch(fetchEventsSuccess(response));
+        } else {
+            dispatch(fetchEventsFailure(response.error));
+        }
+    } catch (error) {
+        fetchEventsFailure(error);
+    }
+};
+
+
 
 const fetchUserStart = id => ({type: FETCH_USER_START, id});
 const fetchUserSuccess = user => ({type: FETCH_USER_SUCCESS, user});
