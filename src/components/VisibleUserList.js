@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import React, { Component } from "react";
 import UserContainer from "./UserContainer/UserContainer";
 import { withRouter } from "react-router-dom";
-import { fetchUsers } from "../actions";
+import { fetchUsers } from "../actions/fetch";
 import { getAllAvailableUsers} from "../reducers";
 
 class VisibleUserList extends Component {

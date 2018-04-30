@@ -60,11 +60,10 @@
 
 import { connect } from "react-redux";
 import React, { Component } from "react";
-import UserContainer from "./UserContainer/UserContainer";
 import { withRouter } from "react-router-dom";
-import {fetchEvents, fetchUsers} from "../actions";
+import {fetchEvents} from "../actions/fetch";
 
-import {getAllAvailableEvents, getAllAvailableUsers} from "../reducers";
+import {getAllAvailableEvents} from "../reducers";
 import EventContainer from "./EventContainer/EventContainer";
 
 class VisibleEventList extends Component {

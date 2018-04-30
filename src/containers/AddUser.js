@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {addUser} from "../actions/index";
+import {addUser} from "../actions/add";
 import {connect} from "react-redux";
 
 import PhotoUpload from "../components/PhotoUpload";

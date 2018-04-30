@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { addEvent } from "../actions/index";
+import { addEvent } from "../actions/add";
 import { connect } from "react-redux";
 //
 import DateTimePicker from "react-datetime-picker";

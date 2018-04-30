@@ -1,7 +1,6 @@
 import { combineReducers } from "redux";
 import events, * as fromEvents from "./events";
 import users, * as fromUsers from "./users";
-// import users from "./users";
 
 const eventApp = combineReducers({
     events,

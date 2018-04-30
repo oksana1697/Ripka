@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { deleteEvent } from "../../actions/index";
+import { deleteEvent } from "../../actions/delete";
 
 import "../../../styles/event-details.less";
 /**
