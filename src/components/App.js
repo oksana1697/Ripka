@@ -37,6 +37,11 @@ const App = () => (
             <Route exact path="/:id">
                 {props => <EventDetailsConnector id={props.match.params.id}/>}
             </Route>
+
+            <Route exact path="/edit/:id">
+                {props => <EventDetailsConnector id={props.match.params.id}/>}
+            </Route>
+
             <Route exact path="/users/:id">
                 {props => <UserDetailsConnector id={props.match.params.id}/>}
             </Route>

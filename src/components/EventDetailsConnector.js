@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import EventDetails from "./EventDetails/EventDetails";
 import { getEventById, getIsEventFetching } from "../reducers";
-import { fetchEvent } from "../actions";
+import { fetchEvent } from "../actions/fetch";
 
 export default connect(
   (state, { id }) => ({

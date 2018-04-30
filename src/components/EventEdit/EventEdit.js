@@ -1,10 +1,13 @@
 import "../../styles/add-event.less";
+import {Component} from "react";
+import {DateTimePicker} from "react-datetime-picker";
+import {connect} from "react-redux";
+import {getIsEventProcessing} from "../../reducers";
 
 class EventEdit extends Component {
     static defaultProps = {
         onSuccess() {}
     };
-
     static getDerivedStateFromProps(
         { isEventProcessing, onSuccess },
         { formSubmitted }
@@ -14,9 +17,8 @@ class EventEdit extends Component {
         }
         return {};
     }
-
     state = {
-        name: "JavaScript Event",
+        name: "Name",
         description: `
       It's time for Lviv to wake up to the power of JavaScript.
       Dear all, we want to invite you to our April JavaScript Event. During this meetup we gonna listen two to cool speakers:
@@ -28,17 +30,13 @@ class EventEdit extends Component {
     `,
         organization: "SoftServe",
         contacts: "Hello",
-
         time: new Date(),
-
         location: "Hello",
         photo: "Hello",
         formSubmitted: false
     };
-
     handleSubmit = ev => {
         ev.preventDefault();
-
         const { addEvent } = this.props;
         const { formSubmitted, ...event } = this.state;
 
@@ -63,7 +61,9 @@ class EventEdit extends Component {
             location,
             formSubmitted
         } = this.state;
+        const { event } = this.props;
 
+        if (!event) { return "Loading..."; }
         return (
             <form className="add-event" onSubmit={this.handleSubmit}>
                 {formSubmitted && <div className="add-event__carpet" />}
@@ -80,7 +80,7 @@ class EventEdit extends Component {
                     <input
                         className="add-event__input"
                         placeholder="Event Name"
-                        value={name}
+                        value={event.name}
                         onChange={this.changeHandler("name")}
                     />
                 </label>
@@ -89,7 +89,7 @@ class EventEdit extends Component {
                     <input
                         className="add-event__input"
                         placeholder="Organization Name"
-                        value={organization}
+                        value={event.organization}
                         onChange={this.changeHandler("organization")}
                     />
                 </div>
@@ -98,7 +98,7 @@ class EventEdit extends Component {
                     <input
                         className="add-event__input"
                         placeholder="Location"
-                        value={location}
+                        value={event.location}
                         onChange={this.changeHandler("location")}
                     />
                 </div>
@@ -107,7 +107,7 @@ class EventEdit extends Component {
                     <input
                         className="add-event__input"
                         placeholder="Contacts"
-                        value={contacts}
+                        value={event.contacts}
                         onChange={this.changeHandler("contacts")}
                     />
                 </div>
@@ -119,7 +119,7 @@ class EventEdit extends Component {
                     <textarea
                         className="add-event__textarea"
                         placeholder="Description"
-                        value={description}
+                        value={event.description}
                         onChange={this.changeHandler("description")}
                         required
                     />
@@ -128,47 +128,28 @@ class EventEdit extends Component {
                 <div className="add-event__input_container">
                     <span className="add-event__field">Time</span>
                     <DateTimePicker
-                        value={time}
+                        value={event.time}
                         onChange={time => this.setState({ time })}
                     />
                 </div>
 
-                <div className="add-event__input_container">
-                    <p className="add-event__field">DOWNLOAD PHOTO</p>
-                    <PhotoUpload photo={URL => this.setState({ photo: URL })} />
-                </div>
+                {/*<div className="add-event__input_container">*/}
+                    {/*<p className="add-event__field">DOWNLOAD PHOTO</p>*/}
+                    {/*<PhotoUpload photo={URL => this.setState({ photo: URL })} />*/}
+                {/*</div>*/}
 
                 <div className="add-event__submit-container">
-                    <button className="add-event__submit">Add Event</button>
+                    <button className="add-event__submit">Save changes</button>
                 </div>
             </form>
         );
     }
 }
 
-const checkField = array1 => {
-    for (let i in array1) {
-        if (array1[i] === "") {
-            alert("Please fill mandatory fields!");
-            return true;
-        }
-        return true;
-    }
-};
 
 export default connect(
     state => ({
         isEventProcessing: getIsEventProcessing(state)
     }),
-    { addEvent }
-)(AddEvent);
-
-AddEvent.propTypes = {
-    name: PropTypes.string,
-    description: PropTypes.string,
-    organization: PropTypes.string,
-    contacts: PropTypes.string,
-    location:  PropTypes.string,
-    date: PropTypes.object,
-    formSubmitted: PropTypes.bool
-};
+    { editEvent }
+)(EventEdit);

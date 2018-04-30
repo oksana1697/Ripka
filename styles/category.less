@@ -1,0 +1,53 @@
+.category {
+  &__container {
+    width: 650px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  &__item {
+    display: block;
+    float: left;
+    margin: 15px 7.5px 0;
+    width: 115px;
+    height: 140px;
+    text-align: center;
+    text-decoration: none;
+  }
+  &__item-icon {
+    margin: 15px auto 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #d9f3f5;
+    line-height: 80px;
+  }
+  &__item-icon-food {
+      width: 40px;
+      height: 40px;
+      vertical-align: middle;
+    content: url('icons/food.svg');
+  }
+    &__item-icon-education {
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+        content: url('icons/education.svg');
+    }
+    &__item-icon-nonprofit{
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+        content: url('icons/nonprofit.svg');
+    }
+
+  &__item-title {
+    margin-top: 10px;
+    line-height: 20px;
+    text-transform: capitalize;
+    font-size: 0.875em;
+    font-weight: 500;
+    color: #626977;
+  }
+}

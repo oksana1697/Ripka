@@ -13,6 +13,8 @@ import {
   fetchUserStart,
   fetchUserSuccess,
 } from './index';
+import { arrayOfEvents } from './schema';
+import { normalize } from 'normalizr';
 
 export const fetchEvent = id => async dispatch => {
   dispatch(fetchEventStart(id));
@@ -47,10 +49,12 @@ export const fetchUsers = () => async dispatch => {
 export const fetchEvents = () => async dispatch => {
   dispatch(fetchEventsStart());
   try {
-    const response = await api.fetchEvents();
-
+    // const response = await api.fetchEvents();
+    let response = await api.fetchEvents();
     if (!response.error) {
+      // response = normalize(response, arrayOfEvents);
       dispatch(fetchEventsSuccess(response));
+      // dispatch(fetchEventsSuccess(response.result, response.entities.events));
     } else {
       dispatch(fetchEventsFailure(response.error));
     }

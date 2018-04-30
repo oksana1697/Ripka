@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { deleteEvent } from "../../actions/delete";
 
 import "../../../styles/event-details.less";
+import {NavLink} from "react-router-dom";
 /**
  * Represents view of single Event Details
  */
@@ -52,6 +53,16 @@ class EventDetails extends Component {
             </div>
             <p className="event-details__content">{event.contacts}</p>
           </div>
+            <NavLink
+                to={"/edit/" + event.id}
+                activeStyle={{
+                    textDecoration: "none",
+                    color: "black"
+                }}
+                className="event-details__button"
+            >
+                Edit event
+            </NavLink>
           <button
             className="event-details__button-delete"
             onClick={() => {

@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import UserDetails from "./UserDetails/UserDetails";
 import { getUserById, getIsUserFetching } from "../reducers";
-import { fetchUser } from "../actions";
+import { fetchUser } from "../actions/fetch";
 
 export default connect(
     (state, { id }) => ({
