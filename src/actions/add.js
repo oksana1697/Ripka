@@ -10,10 +10,11 @@ import {
 } from './index';
 
 export const addEvent = event => async dispatch => {
+  const tempEvent = {...event};
   dispatch(addEventStart(event));
 
   try {
-    const event = await api.addEvent(event);
+    const event = await api.addEvent(tempEvent);
 
     if (!event.errors) {
       dispatch(addEventSuccess(event));
@@ -26,10 +27,11 @@ export const addEvent = event => async dispatch => {
 };
 
 export const addUser = user => async dispatch => {
+  const tempUser = {...user};
   dispatch(addUserStart(user));
 
   try {
-    const user = await api.addUser(user);
+    const user = await api.addUser(tempUser);
 
     if (!user.errors) {
       dispatch(addUserSuccess(user));
