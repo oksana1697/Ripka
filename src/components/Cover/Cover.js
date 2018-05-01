@@ -17,7 +17,6 @@ class Cover extends Component {
           className="cover"
           src="http://res.cloudinary.com/ucu/image/upload/v1521105623/Volunteering_Hands_sugvjw.png"
         />
-     
         <div className="category__container">
           <a className="category__item">
               <div className="category__item-icon">
