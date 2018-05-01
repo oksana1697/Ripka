@@ -29,6 +29,7 @@ export const fetchUsersStart = response => ({type: FETCH_USERS_START, response})
 export const fetchUsersSuccess = response => ({type: FETCH_USERS_SUCCESS, response});
 export const fetchUsersFailure = error => ({type: FETCH_USERS_FAILURE, error});
 
+
 export const fetchEventsStart = response => ({type: FETCH_EVENTS_START, response});
 export const fetchEventsSuccess = (response) => ({type: FETCH_EVENTS_SUCCESS, response});
 // export const fetchEventsSuccess = (ids, response) => ({type: FETCH_EVENTS_SUCCESS, ids, response});
