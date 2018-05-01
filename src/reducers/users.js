@@ -63,5 +63,5 @@ export const getIsUserProcessing = state => state.isUserProcessing;
 export const getAllAvailableUsers = state => state.users;
 export const getUserById = (id, state) =>
   state.users.find(user => user.id === Number(id));
-
-export const getIsUserFetching = (id, state) => state.isUserFetching[id];
+export const getIsUserFetching = (id, state) =>
+     state.isUserFetching[id];

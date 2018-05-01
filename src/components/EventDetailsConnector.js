@@ -24,11 +24,18 @@ import {getEventById} from "../reducers/events";
 //     };
 //   },
 // )(EventDetails);
-
-
+// VisibleEventList = withRouter(
+//     connect(store => {
+//             console.log();
+//             const ids = getAllAvailableEvents(store);
+//             return {
+//                 events: ids.map((id)=>getEventById(store, id))
+//             }
+//         },
+//         {fetchEvents}
+//     )(VisibleEventList));
 export default connect(
   (state, { id }) =>
-      console.log("state from details:", state, id)
       ({
     // event: getEventById(id, state),
     event: getEventById(state, id),
