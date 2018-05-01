@@ -69,6 +69,7 @@
 //     state.events.find(event => event.id === Number(id));
 //
 // export const getIsEventFetching = (id, state) => state.isFetching[id];
+import {assoc} from "ramda";
 import { combineReducers } from 'redux';
 import {
   ADD_EVENT_START,
@@ -88,11 +89,13 @@ export const byId = (state = {}, action) => {
   switch (action.type) {
     case FETCH_EVENT_SUCCESS:
     case ADD_EVENT_SUCCESS:
+      console.log('Fetch:event:byID:action', action);
       return {
         ...state,
         ...action.event,
       };
     case FETCH_EVENTS_SUCCESS:
+        console.log('Fetch:events:byID:action', action);
       return { ...state, ...action.events };
 
     case FETCH_EVENT_FAILURE:
@@ -119,32 +122,6 @@ export const allIds = (state = [], action) => {
       return state;
   }
 };
-const AllEventsIds = (state = [], action) => {
-  switch (action.type) {
-    case FETCH_EVENTS_SUCCESS:
-      return [...action.ids];
-    default:
-      return state;
-  }
-};
-export const events = (state = [], action) => {
-  switch (action.type) {
-    case ADD_EVENT_SUCCESS:
-    case FETCH_EVENT_SUCCESS:
-      return [...state, action.event];
-    case FETCH_EVENTS_SUCCESS:
-      return [...action.response];
-    case SLICE_EVENTS:
-      return [...state, ...action.response];
-
-    case DELETE_EVENT:
-      const { id } = action;
-      return state.filter(el => el.id !== id);
-
-    default:
-      return state;
-  }
-};
 
 const isEventProcessing = (state = false, action) => {
   switch (action.type) {
@@ -163,7 +140,7 @@ const isFetching = (state = {}, action) => {
   switch (action.type) {
     case FETCH_EVENT_START:
     case FETCH_EVENTS_START:
-      return {
+      return{
         ...state,
         [action.id]: true,
       };
@@ -175,22 +152,43 @@ const isFetching = (state = {}, action) => {
         ...state,
         [action.id]: false,
       };
-
     default:
       return state;
   }
 };
 export default combineReducers({
-  events,
-  // byId,
-  //   allIds,
+  // events,
+  byId,
+  allIds,
   isFetching,
   isEventProcessing,
 });
-// export const getEventById = (id, state) => state.byId[id];
 export const getIsEventProcessing = state => state.isEventProcessing;
-export const getAllAvailableEvents = state => state.events;
-export const getEventById = (id, state) =>
-  state.events.find(event => event.id === Number(id));
-
-export const getIsEventFetching = (id, state) => state.isFetching[id];
+export const getAllAvailableEvents = state => state.events.allIds;
+export const getEventById = (state, id) => {
+  console.log('STATE:', state, 'id', id);
+  console.log('STATE.event.byId:', state.events.byId[id]);
+  return state.events.byId[id];
+};
+export const getIsEventFetching = (id, state) =>{
+  console.log("STATE.ISFetching:",id, state,state.isFetching[id]);
+    return state.isFetching[id];
+}
+// export const getEventById = (id, state) =>
+//   state.events.find(event => event.id === Number(id));
+// export const events = (state = [], action) => {
+//     switch (action.type) {
+//         case ADD_EVENT_SUCCESS:
+//         case FETCH_EVENT_SUCCESS:
+//             return [...state, action.event];
+//         case FETCH_EVENTS_SUCCESS:
+//             return [...action.response];
+//
+//         case DELETE_EVENT:
+//             const { id } = action;
+//             return state.filter(el => el.id !== id);
+//
+//         default:
+//             return state;
+//     }
+// };

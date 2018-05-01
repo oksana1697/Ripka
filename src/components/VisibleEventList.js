@@ -58,13 +58,14 @@
 //
 //
 
-import { connect } from "react-redux";
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import {fetchEvents} from "../actions/fetch";
+import {connect} from 'react-redux';
+import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
+import {fetchEvents} from '../actions/fetch';
 
-import {getAllAvailableEvents} from "../reducers";
-import EventContainer from "./EventContainer/EventContainer";
+import {getAllAvailableEvents} from '../reducers';
+import EventContainer from './EventContainer/EventContainer';
+import {getEventById} from '../reducers';
 
 class VisibleEventList extends Component {
     componentDidMount() {
@@ -72,23 +73,28 @@ class VisibleEventList extends Component {
     }
 
     fetchData() {
-        const { fetchEvents } = this.props;
+        const {fetchEvents} = this.props;
         fetchEvents();
     }
 
     render() {
         const {...events} = this.props;
-        console.log("users",this.props);
-        return <EventContainer  {...events}
-        />;
-
+        console.log('users', this.props);
+        return <EventContainer {...events} />;
     }
 }
 
+
 VisibleEventList = withRouter(
-    connect(store => ({
-        events: getAllAvailableEvents(store)
-    }), { fetchEvents })(VisibleEventList)
-);
+    connect(store => {
+        console.log();
+            const ids = getAllAvailableEvents(store);
+            return {
+                events: ids.map((id)=>getEventById(store, id))
+            }
+        },
+        {fetchEvents}
+    )(VisibleEventList));
 
 export default VisibleEventList;
+

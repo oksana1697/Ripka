@@ -22,7 +22,9 @@ export const addUserSuccess = user => ({type: ADD_USER_SUCCESS, user});
 export const addUserFailure = error => ({type: ADD_USER_FAILURE, error});
 
 export const fetchEventStart = id => ({type: FETCH_EVENT_START, id});
-export const fetchEventSuccess = event => ({type: FETCH_EVENT_SUCCESS, event});
+// export const fetchEventSuccess = event => ({type: FETCH_EVENT_SUCCESS, event});
+export const fetchEventSuccess =(id, event) => ({type: FETCH_EVENT_SUCCESS, id,event});
+
 export const fetchEventFailure = error => ({type: FETCH_EVENT_FAILURE, error});
 
 export const fetchUsersStart = response => ({type: FETCH_USERS_START, response});
@@ -31,8 +33,8 @@ export const fetchUsersFailure = error => ({type: FETCH_USERS_FAILURE, error});
 
 
 export const fetchEventsStart = response => ({type: FETCH_EVENTS_START, response});
-export const fetchEventsSuccess = (response) => ({type: FETCH_EVENTS_SUCCESS, response});
-// export const fetchEventsSuccess = (ids, response) => ({type: FETCH_EVENTS_SUCCESS, ids, response});
+// export const fetchEventsSuccess = (response) => ({type: FETCH_EVENTS_SUCCESS, response});
+export const fetchEventsSuccess = (ids, events) => ({type: FETCH_EVENTS_SUCCESS, ids, events});
 export const fetchEventsFailure = error => ({type: FETCH_EVENTS_FAILURE, error});
 
 export const fetchUserStart = id => ({type: FETCH_USER_START, id});

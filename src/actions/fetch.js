@@ -18,12 +18,15 @@ import { normalize } from 'normalizr';
 
 export const fetchEvent = id => async dispatch => {
   dispatch(fetchEventStart(id));
-
   try {
-    const event = await api.fetchEvent(id);
+    let event = await api.fetchEvent(id);
 
     if (!event.error) {
-      dispatch(fetchEventSuccess(event));
+        event = normalize([event], arrayOfEvents);
+        // dispatch(fetchEventsSuccess(response));
+        console.log("event form norm",event.result,event.entities.events)
+        dispatch(fetchEventSuccess(event.result, event.entities.events));
+      // dispatch(fetchEventSuccess(event));
     } else {
       dispatch(fetchEventFailure(event.error));
     }
@@ -52,9 +55,9 @@ export const fetchEvents = () => async dispatch => {
     // const response = await api.fetchEvents();
     let response = await api.fetchEvents();
     if (!response.error) {
-      // response = normalize(response, arrayOfEvents);
-      dispatch(fetchEventsSuccess(response));
-      // dispatch(fetchEventsSuccess(response.result, response.entities.events));
+      response = normalize(response, arrayOfEvents);
+      // dispatch(fetchEventsSuccess(response));
+      dispatch(fetchEventsSuccess(response.result, response.entities.events));
     } else {
       dispatch(fetchEventsFailure(response.error));
     }
