@@ -69,18 +69,19 @@
 //     state.events.find(event => event.id === Number(id));
 //
 // export const getIsEventFetching = (id, state) => state.isFetching[id];
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import {
-    ADD_EVENT_START,
-    ADD_EVENT_FAILURE,
-    ADD_EVENT_SUCCESS,
-    FETCH_EVENT_SUCCESS,
-    FETCH_EVENT_START,
-    FETCH_EVENT_FAILURE,
-    FETCH_EVENTS_SUCCESS,
-    FETCH_EVENTS_FAILURE,
-    FETCH_EVENTS_START,
-    DELETE_EVENT_SUCCESS, EDIT_EVENT_SUCCESS,
+  ADD_EVENT_START,
+  ADD_EVENT_FAILURE,
+  ADD_EVENT_SUCCESS,
+  FETCH_EVENT_SUCCESS,
+  FETCH_EVENT_START,
+  FETCH_EVENT_FAILURE,
+  FETCH_EVENTS_SUCCESS,
+  FETCH_EVENTS_FAILURE,
+  FETCH_EVENTS_START,
+  DELETE_EVENT_SUCCESS,
+  EDIT_EVENT_SUCCESS,
 } from '../actions/actionTypes';
 // export const events = (state = [], action) => {
 //     switch (action.type) {
@@ -114,19 +115,19 @@ export const byId = (state = {}, action) => {
       };
     case FETCH_EVENTS_SUCCESS:
       return { ...state, ...action.events };
-      case DELETE_EVENT_SUCCESS:
+    case DELETE_EVENT_SUCCESS:
       const { id } = action;
       let keys = Object.keys(state).filter(el => el !== id);
       console.log('aaaKEYS', keys);
       let newState = {};
       keys.forEach(item => {
-          newState[item] = state[item];
+        newState[item] = state[item];
       });
 
-      return {...newState};
-      case EDIT_EVENT_SUCCESS:
-          const {edit_id} = action;
-          return state.filter(el => el.id !== edit_id);
+      return { ...newState };
+    case EDIT_EVENT_SUCCESS:
+      const { edit_id } = action;
+      return state.filter(el => el.id !== edit_id);
     case FETCH_EVENT_FAILURE:
     case ADD_EVENT_FAILURE:
     case FETCH_EVENTS_FAILURE:
@@ -136,7 +137,7 @@ export const byId = (state = {}, action) => {
   }
 };
 export const allIds = (state = [], action) => {
-  console.log('ACTION:', action)
+  console.log('ACTION:', action);
   switch (action.type) {
     case FETCH_EVENT_SUCCESS:
     case FETCH_EVENTS_SUCCESS:
@@ -144,9 +145,10 @@ export const allIds = (state = [], action) => {
       return [...state, ...action.ids].filter(
         (el, i, arr) => arr.indexOf(el) === i,
       );
-    case DELETE_EVENT_SUCCESS:
-    {console.log('asasasassa-------:', action)
-      return state.filter(el => el !== action.id);}
+    case DELETE_EVENT_SUCCESS: {
+      console.log('asasasassa-------:', action);
+      return state.filter(el => el !== action.id);
+    }
     case FETCH_EVENT_FAILURE:
     case FETCH_EVENTS_FAILURE:
     case ADD_EVENT_FAILURE:

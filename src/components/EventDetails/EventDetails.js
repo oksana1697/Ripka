@@ -76,7 +76,7 @@ class EventDetails extends Component {
                         <button
                             className="event-details__button-delete"
                             onClick={() => {
-                                props.dispatch(deleteEvent(event.id))
+                                props.deleteEvent(event.id)
                                 this.props.onSuccess();
                             }}
                         >
