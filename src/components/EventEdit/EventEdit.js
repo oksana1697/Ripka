@@ -1,57 +1,60 @@
-import "../../styles/add-event.less";
-import {Component} from "react";
-import {DateTimePicker} from "react-datetime-picker";
+import "../../../styles/add.less";
+import React, {Component} from "react";
+import DateTimePicker from "react-datetime-picker";
 import {connect} from "react-redux";
 import {getIsEventProcessing} from "../../reducers";
+import {editEvent} from "../../actions/edit";
+import {getEventById} from "../../reducers/events";
 
 class EventEdit extends Component {
     static defaultProps = {
-        onSuccess() {}
+        onSuccess() {
+        }
     };
-    static getDerivedStateFromProps(
-        { isEventProcessing, onSuccess },
-        { formSubmitted }
-    ) {
+
+    static getDerivedStateFromProps({isEventProcessing, onSuccess},
+                                    {formSubmitted}) {
         if (formSubmitted && !isEventProcessing) {
             onSuccess();
         }
         return {};
     }
+
     state = {
-        name: "Name",
-        description: `
-      It's time for Lviv to wake up to the power of JavaScript.
-      Dear all, we want to invite you to our April JavaScript Event. During this meetup we gonna listen two to cool speakers:
-      Rostyslav Belmeha - “Angular with Redux do I need it?”
-      Varenko Nodarii - "Web UI Performance checklist."
-      April JavaScript Event is all about JavaScript and sharing our experience!
-      Don't forget to register: https://goo.gl/NQ777x :)
-      P.S. Whether you are going to code your first lines of JavaScript, or create some magic – feel free to join us, all skill levels are very welcome!
-    `,
-        organization: "SoftServe",
-        contacts: "Hello",
+        name: this.props.name,
+        description: '',
+        organization: "",
+        contacts: "",
         time: new Date(),
-        location: "Hello",
-        photo: "Hello",
+        location: "",
+        photo: "",
         formSubmitted: false
     };
     handleSubmit = ev => {
         ev.preventDefault();
-        const { addEvent } = this.props;
-        const { formSubmitted, ...event } = this.state;
+        const {addEvent} = this.props;
+        const {formSubmitted, ...event} = this.state;
 
-        //TODO: verify data;
-
-        addEvent(event);
-        this.setState({ formSubmitted: true });
+        // addEvent(event);
+        this.setState({formSubmitted: true});
     };
 
     changeHandler = property => ev => {
-        const { value } = ev.target;
-        this.setState({ [property]: value });
+        const {value} = ev.target;
+        this.setState({[property]: value});
     };
 
     render() {
+        const initState =  {
+            name: "",
+            description: '',
+            organization: "",
+            contacts: "",
+            time: new Date(),
+            location: "",
+            photo: "",
+            formSubmitted: false
+        };
         const {
             name,
             description,
@@ -60,86 +63,84 @@ class EventEdit extends Component {
             time,
             location,
             formSubmitted
-        } = this.state;
-        const { event } = this.props;
-
-        if (!event) { return "Loading..."; }
+        } = this.props.event? this.props.event: initState;
+        // const {event} = this.props;
         return (
-            <form className="add-event" onSubmit={this.handleSubmit}>
-                {formSubmitted && <div className="add-event__carpet" />}
-                <div className="add-event__title_container">
-                    <h1 className="add-event__title">Add event details</h1>
+            <form className="add" onSubmit={this.handleSubmit}>
+                {formSubmitted && <div className="add__carpet"/>}
+                <div className="add__title_container">
+                    <h1 className="add__title">Add event details</h1>
                 </div>
-                <div className="add-event__subtitle_container">
-                    <img src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png" />
-                    <h1 className="add-event__subtitle">Event Overview</h1>
+                <div className="add__subtitle_container">
+                    <img src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png"/>
+                    <h1 className="add__subtitle">Event Overview</h1>
                 </div>
 
-                <label className="add-event__input_container">
-                    <span className="add-event__field">Event name</span>
+                <label className="add__input_container">
+                    <span className="add__field">Event name</span>
                     <input
-                        className="add-event__input"
+                        className="add__input"
                         placeholder="Event Name"
-                        value={event.name}
+                        value={name}
                         onChange={this.changeHandler("name")}
                     />
                 </label>
-                <div className="add-event__input_container">
-                    <p className="add-event__field">ORGANIZATION NAME</p>
+                <div className="add__input_container">
+                    <p className="add__field">ORGANIZATION NAME</p>
                     <input
-                        className="add-event__input"
+                        className="add__input"
                         placeholder="Organization Name"
-                        value={event.organization}
+                        value={organization}
                         onChange={this.changeHandler("organization")}
                     />
                 </div>
-                <div className="add-event__input_container">
-                    <p className="add-event__field">LOCATION</p>
+                <div className="add__input_container">
+                    <p className="add__field">LOCATION</p>
                     <input
-                        className="add-event__input"
+                        className="add__input"
                         placeholder="Location"
-                        value={event.location}
+                        value={location}
                         onChange={this.changeHandler("location")}
                     />
                 </div>
-                <div className="add-event__input_container">
-                    <p className="add-event__field">CONTACTS</p>
+                <div className="add__input_container">
+                    <p className="add__field">CONTACTS</p>
                     <input
-                        className="add-event__input"
+                        className="add__input"
                         placeholder="Contacts"
-                        value={event.contacts}
+                        value={contacts}
                         onChange={this.changeHandler("contacts")}
                     />
                 </div>
 
-                <div className="add-event__input_container">
-          <span className="add-event__field">
+                <div className="add__input_container">
+          <span className="add__field">
             EVENT DESCRIPTION & REQUIREMENTS
           </span>
                     <textarea
-                        className="add-event__textarea"
+                        className="add__textarea"
                         placeholder="Description"
-                        value={event.description}
+                        value={description}
                         onChange={this.changeHandler("description")}
                         required
                     />
                 </div>
 
-                <div className="add-event__input_container">
-                    <span className="add-event__field">Time</span>
+                <div className="add__input_container">
+                    <span className="add__field">Time</span>
                     <DateTimePicker
-                        value={event.time}
-                        onChange={time => this.setState({ time })}
+                        value={time}
+                        onChange={time => this.setState({time})}
                     />
                 </div>
 
                 {/*<div className="add-event__input_container">*/}
-                    {/*<p className="add-event__field">DOWNLOAD PHOTO</p>*/}
-                    {/*<PhotoUpload photo={URL => this.setState({ photo: URL })} />*/}
+                {/*<p className="add-event__field">DOWNLOAD PHOTO</p>*/}
+                {/*<PhotoUpload photo={URL => this.setState({ photo: URL })} />*/}
                 {/*</div>*/}
 
-                <div className="add-event__submit-container">
-                    <button className="add-event__submit">Save changes</button>
+                <div className="add__submit-container">
+                    <button className="add__submit">Save changes</button>
                 </div>
             </form>
         );
@@ -148,8 +149,9 @@ class EventEdit extends Component {
 
 
 export default connect(
-    state => ({
-        isEventProcessing: getIsEventProcessing(state)
+    (state, {id}) => ({
+        isEventProcessing: getIsEventProcessing(state),
+        event: getEventById(state, id)
     }),
-    { editEvent }
+    {editEvent}
 )(EventEdit);

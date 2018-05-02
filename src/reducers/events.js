@@ -69,18 +69,18 @@
 //     state.events.find(event => event.id === Number(id));
 //
 // export const getIsEventFetching = (id, state) => state.isFetching[id];
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import {
-  ADD_EVENT_START,
-  ADD_EVENT_FAILURE,
-  ADD_EVENT_SUCCESS,
-  FETCH_EVENT_SUCCESS,
-  FETCH_EVENT_START,
-  FETCH_EVENT_FAILURE,
-  FETCH_EVENTS_SUCCESS,
-  FETCH_EVENTS_FAILURE,
-  FETCH_EVENTS_START,
-  DELETE_EVENT_SUCCESS,
+    ADD_EVENT_START,
+    ADD_EVENT_FAILURE,
+    ADD_EVENT_SUCCESS,
+    FETCH_EVENT_SUCCESS,
+    FETCH_EVENT_START,
+    FETCH_EVENT_FAILURE,
+    FETCH_EVENTS_SUCCESS,
+    FETCH_EVENTS_FAILURE,
+    FETCH_EVENTS_START,
+    DELETE_EVENT_SUCCESS, EDIT_EVENT_SUCCESS,
 } from '../actions/actionTypes';
 // export const events = (state = [], action) => {
 //     switch (action.type) {
@@ -124,7 +124,9 @@ export const byId = (state = {}, action) => {
       });
 
       return {...newState};
-
+      case EDIT_EVENT_SUCCESS:
+          const {edit_id} = action;
+          return state.filter(el => el.id !== edit_id);
     case FETCH_EVENT_FAILURE:
     case ADD_EVENT_FAILURE:
     case FETCH_EVENTS_FAILURE:
@@ -197,7 +199,7 @@ export default combineReducers({
 export const getIsEventProcessing = state => state.isEventProcessing;
 export const getAllAvailableEvents = state => state.events.allIds;
 export const getEventById = (state, id) => {
-  //console.log('STATE:', state, 'id', id);
+  console.log('STATE:', state, 'id', id);
   // console.log('STATE.event.byId:', state.events.byId[id]);
   return state.events.byId[id];
 };

@@ -18,3 +18,5 @@ export const fetchUser = id => getData(`${API_ENDPOINT}/users/${id}`);
 export const addUser = newUser => postData(`${API_ENDPOINT}/users`, newUser);
 
 export const deleteEvent = async id => await deleteData(`${API_ENDPOINT}/events`, id);
+
+export const editEvent = updateEvent => postData(`${API_ENDPOINT}/events`, updateEvent);
