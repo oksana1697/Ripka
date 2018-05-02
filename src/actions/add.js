@@ -8,18 +8,21 @@ import {
   addUserStart,
   addUserSuccess,
 } from './index';
-
-export const addEvent = event => async dispatch => {
-  const tempEvent = {...event};
-  dispatch(addEventStart(event));
+import {arrayOfEvents} from "./schema";
+import { normalize } from 'normalizr';
+export const addEvent = events => async dispatch => {
+  const tempEvent = {...events};
+  dispatch(addEventStart(events));
 
   try {
-    const event = await api.addEvent(tempEvent);
+    let events = await api.addEvent(tempEvent);
 
-    if (!event.errors) {
-      dispatch(addEventSuccess(event));
+    if (!events.errors) {
+        events = normalize([events], arrayOfEvents);
+        console.log("API add event: ",events)
+      dispatch(addEventSuccess(events.result,events.entities.events));
     } else {
-      dispatch(addEventFailure(event.error));
+      dispatch(addEventFailure(events.error));
     }
   } catch (error) {
     dispatch(addEventFailure(error));

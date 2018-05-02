@@ -32,8 +32,8 @@ export const fetchUserFailure = error => ({type: FETCH_USER_FAILURE, error});
 
 
 
-export const addEventStart = event => ({type: ADD_EVENT_START, event});
-export const addEventSuccess = event => ({type: ADD_EVENT_SUCCESS, event});
+export const addEventStart =  events => ({type: ADD_EVENT_START, events});
+export const addEventSuccess = (ids,events) => ({type: ADD_EVENT_SUCCESS, ids,events});
 export const addEventFailure = error => ({type: ADD_EVENT_FAILURE, error});
 
 export const addUserStart = user => ({type: ADD_USER_START, user});

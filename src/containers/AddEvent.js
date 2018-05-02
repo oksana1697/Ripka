@@ -11,6 +11,7 @@ import { getIsEventProcessing } from "../reducers";
 import "../../styles/add.less";
 import "../../styles/common.less";
 import "../../styles/react-datetime-picker.less";
+import {Link} from "react-router-dom";
 
 
 class AddEvent extends Component {
@@ -144,7 +145,9 @@ class AddEvent extends Component {
         </div>
 
         <div className="add__submit-container">
+            <Link to="/">
           <button className="add__submit">Add Event</button>
+            </Link>
         </div>
       </form>
     );

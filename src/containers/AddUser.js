@@ -9,6 +9,7 @@ import {getIsUserProcessing} from "../reducers";
 import "../../styles/add.less";
 import "../../styles/common.less";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 
 class AddUser extends Component {
     static defaultProps = {
@@ -124,7 +125,9 @@ class AddUser extends Component {
                     <PhotoUpload photo={URL => this.setState({ photo: URL })} />
                 </label>
                 <div className="add__submit-container">
+                    <Link to="/">
                     <button className="add__submit">Add User</button>
+                    </Link>
                 </div>
             </form>
         );
