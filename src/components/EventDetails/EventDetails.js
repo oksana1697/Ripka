@@ -44,6 +44,8 @@ class EventDetails extends Component {
                             </button>
                         </div>
                     </div>
+                </div>
+                <div className='block2'>
                     <div className="event-details__block-column">
                         <div className="event-details__subtitle_container">
                             <img className="event-details__icon-paper"/>

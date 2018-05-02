@@ -82,7 +82,7 @@ import {
     FETCH_EVENTS_SUCCESS,
     FETCH_EVENTS_FAILURE,
     FETCH_EVENTS_START,
-    DELETE_EVENT_SUCCESS, EDIT_EVENT_SUCCESS,
+    DELETE_EVENT_SUCCESS, EDIT_EVENT_SUCCESS, EDIT_EVENT_FAILURE, EDIT_EVENT_START,
 } from '../actions/actionTypes';
 // export const events = (state = [], action) => {
 //     switch (action.type) {
@@ -146,10 +146,13 @@ export const allIds = (state = [], action) => {
 const isEventProcessing = (state = false, action) => {
     switch (action.type) {
         case ADD_EVENT_START:
+        case EDIT_EVENT_START:
             return true;
 
         case ADD_EVENT_FAILURE:
         case ADD_EVENT_SUCCESS:
+        case EDIT_EVENT_FAILURE:
+        case EDIT_EVENT_SUCCESS:
             return false;
 
         default:

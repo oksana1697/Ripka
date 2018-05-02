@@ -2,50 +2,16 @@ import "../../../styles/add.less";
 import React, {Component} from "react";
 import DateTimePicker from "react-datetime-picker";
 import {connect} from "react-redux";
-import {getIsEventProcessing} from "../../reducers";
+import {getIsEventProcessing, getIsEventFetching} from "../../reducers";
 import {editEvent} from "../../actions/edit";
 import {getEventById} from "../../reducers/events";
+import PhotoUpload from "../PhotoUpload";
+import { fetchEvent } from '../../actions/fetch';
 
 class EventEdit extends Component {
-    static defaultProps = {
-        onSuccess() {
-        }
-    };
-
-    static getDerivedStateFromProps({isEventProcessing, onSuccess},
-                                    {formSubmitted}) {
-        if (formSubmitted && !isEventProcessing) {
-            onSuccess();
-        }
-        return {};
-    }
-
-    state = {
-        name: this.props.name,
-        description: '',
-        organization: "",
-        contacts: "",
-        time: new Date(),
-        location: "",
-        photo: "",
-        formSubmitted: false
-    };
-    handleSubmit = ev => {
-        ev.preventDefault();
-        const {addEvent} = this.props;
-        const {formSubmitted, ...event} = this.state;
-
-        // addEvent(event);
-        this.setState({formSubmitted: true});
-    };
-
-    changeHandler = property => ev => {
-        const {value} = ev.target;
-        this.setState({[property]: value});
-    };
-
-    render() {
-        const initState =  {
+    constructor(props) {
+        super(props);
+        const initState = {
             name: "",
             description: '',
             organization: "",
@@ -55,6 +21,39 @@ class EventEdit extends Component {
             photo: "",
             formSubmitted: false
         };
+        this.state = this.props.event? this.props.event : initState;
+    }
+    static defaultProps = {
+        onSuccess() {
+        }
+    };
+
+
+    static getDerivedStateFromProps({event, isEventProcessing, onSuccess },
+                                    { formSubmitted }) {
+        // console.log("f")
+        if (formSubmitted && !isEventProcessing) {
+            onSuccess();
+        }
+        return event;
+    }
+
+    handleSubmit = ev => {
+        ev.preventDefault();
+        const {editEvent, id} = this.props;
+        const {formSubmitted, ...event} = this.state;
+
+        editEvent(event, id);
+        this.setState({formSubmitted: true});
+    };
+
+    changeHandler = property => ev => {
+        const {value} = ev.target;
+        this.setState({[property]: value});
+    };
+
+    render() {
+
         const {
             name,
             description,
@@ -62,8 +61,9 @@ class EventEdit extends Component {
             contacts,
             time,
             location,
+            photo,
             formSubmitted
-        } = this.props.event? this.props.event: initState;
+        } = this.state;
         // const {event} = this.props;
         return (
             <form className="add" onSubmit={this.handleSubmit}>
@@ -126,19 +126,19 @@ class EventEdit extends Component {
                     />
                 </div>
 
-                <div className="add__input_container">
-                    <span className="add__field">Time</span>
-                    <DateTimePicker
-                        value={time}
-                        onChange={time => this.setState({time})}
-                    />
-                </div>
-
-                {/*<div className="add-event__input_container">*/}
-                {/*<p className="add-event__field">DOWNLOAD PHOTO</p>*/}
-                {/*<PhotoUpload photo={URL => this.setState({ photo: URL })} />*/}
+                {/*<div className="add__input_container">*/}
+                    {/*<span className="add__field">Time</span>*/}
+                    {/*<DateTimePicker*/}
+                        {/*value={time}*/}
+                        {/*onChange={time => this.setState({time})}*/}
+                    {/*/>*/}
                 {/*</div>*/}
 
+                <div className="add__input_container">
+                    <p className="add__field">DOWNLOAD PHOTO</p>
+                    <img src={photo} />
+                    <PhotoUpload photo={URL => this.setState({photo: URL})}/>
+                </div>
                 <div className="add__submit-container">
                     <button className="add__submit">Save changes</button>
                 </div>
@@ -150,8 +150,21 @@ class EventEdit extends Component {
 
 export default connect(
     (state, {id}) => ({
+        isFetching: getIsEventFetching(id, state),
         isEventProcessing: getIsEventProcessing(state),
         event: getEventById(state, id)
     }),
-    {editEvent}
+    {editEvent, fetchEvent},
+    ({ event, isFetching, isEventProcessing}, { fetchEvent, editEvent }, { id, onSuccess}) => {
+        if (!event && !isFetching) {
+            fetchEvent(id);
+        }
+        return {
+            id,
+            event,
+            editEvent,
+            onSuccess,
+            isEventProcessing
+        };
+    },
 )(EventEdit);

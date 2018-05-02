@@ -40,7 +40,7 @@ const App = () => (
             </Route>
 
             <Route exact path="/edit/:id">
-                {props => <EventEdit id={props.match.params.id}/>}
+                {props => <EventEdit id={props.match.params.id} onSuccess={() => props.history.push("/")}/>}
             </Route>
 
             <Route exact path="/users/:id">

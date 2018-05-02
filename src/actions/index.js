@@ -13,7 +13,7 @@ import {
     FETCH_USERS_SUCCESS,
     EDIT_EVENT,
     EDIT_EVENT_FAILURE,
-    EDIT_EVENT_SUCCESS
+    EDIT_EVENT_SUCCESS, EDIT_EVENT_START
 } from "./actionTypes";
 
 export const fetchEventStart = id => ({type: FETCH_EVENT_START, id});
@@ -47,6 +47,6 @@ export const deleteEventStart = id => ({ type: DELETE_EVENT, id });
 export const deleteEventSuccess = id => ({ type: DELETE_EVENT_SUCCESS, id });
 export const deleteEventFailure = id => ({ type: DELETE_EVENT_FAILURE, id });
 
-export const editEventStart = id => ({ type: EDIT_EVENT, id });
+export const editEventStart = id => ({ type: EDIT_EVENT_START, id });
 export const editEventSuccess = id => ({ type: EDIT_EVENT_SUCCESS, id });
 export const editEventFailure = id => ({ type: EDIT_EVENT_FAILURE, id });
