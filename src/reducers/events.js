@@ -69,7 +69,6 @@
 //     state.events.find(event => event.id === Number(id));
 //
 // export const getIsEventFetching = (id, state) => state.isFetching[id];
-import {assoc} from "ramda";
 import { combineReducers } from 'redux';
 import {
   ADD_EVENT_START,
@@ -83,21 +82,39 @@ import {
   FETCH_EVENTS_SUCCESS,
   FETCH_EVENTS_FAILURE,
   FETCH_EVENTS_START,
+  DELETE_EVENT_SUCCESS,
 } from '../actions/actionTypes';
+// export const events = (state = [], action) => {
+//     switch (action.type) {
+//         case ADD_EVENT_SUCCESS:
+//         case FETCH_EVENT_SUCCESS:
+//             return [...state, action.event];
+//         case FETCH_EVENTS_SUCCESS:
+//             return [...action.response];
+//
+//         case DELETE_EVENT:
+//             const { id } = action;
+//             return state.filter(el => el.id !== id);
+//
+//         default:
+//             return state;
+//     }
+// };
 
 export const byId = (state = {}, action) => {
   switch (action.type) {
     case FETCH_EVENT_SUCCESS:
     case ADD_EVENT_SUCCESS:
-      console.log('Fetch:event:byID:action', action);
+      console.log('(from Reducer fetch event) action.event: ', state,action.events);
       return {
         ...state,
-        ...action.event,
+        ...action.events,
       };
     case FETCH_EVENTS_SUCCESS:
-        console.log('Fetch:events:byID:action', action);
       return { ...state, ...action.events };
-
+    case DELETE_EVENT_SUCCESS:
+      const { id } = action;
+      return state.filter(el => el.id !== id);
     case FETCH_EVENT_FAILURE:
     case ADD_EVENT_FAILURE:
     case FETCH_EVENTS_FAILURE:
@@ -140,7 +157,7 @@ const isFetching = (state = {}, action) => {
   switch (action.type) {
     case FETCH_EVENT_START:
     case FETCH_EVENTS_START:
-      return{
+      return {
         ...state,
         [action.id]: true,
       };
@@ -167,28 +184,10 @@ export const getIsEventProcessing = state => state.isEventProcessing;
 export const getAllAvailableEvents = state => state.events.allIds;
 export const getEventById = (state, id) => {
   console.log('STATE:', state, 'id', id);
-  console.log('STATE.event.byId:', state.events.byId[id]);
+  // console.log('STATE.event.byId:', state.events.byId[id]);
   return state.events.byId[id];
 };
-export const getIsEventFetching = (id, state) =>{
-  console.log("STATE.ISFetching:",id, state,state.isFetching[id]);
-    return state.isFetching[id];
-}
-// export const getEventById = (id, state) =>
-//   state.events.find(event => event.id === Number(id));
-// export const events = (state = [], action) => {
-//     switch (action.type) {
-//         case ADD_EVENT_SUCCESS:
-//         case FETCH_EVENT_SUCCESS:
-//             return [...state, action.event];
-//         case FETCH_EVENTS_SUCCESS:
-//             return [...action.response];
-//
-//         case DELETE_EVENT:
-//             const { id } = action;
-//             return state.filter(el => el.id !== id);
-//
-//         default:
-//             return state;
-//     }
-// };
+export const getIsEventFetching = (id, state) => {
+  // console.log('STATE.ISFetching:', id, state, state.isFetching[id]);
+  return state.isFetching[id];
+};

@@ -20,7 +20,22 @@ export const users = (state = [], action) => {
       return state;
   }
 };
-
+// export const events = (state = [], action) => {
+//     switch (action.type) {
+//         case ADD_EVENT_SUCCESS:
+//         case FETCH_EVENT_SUCCESS:
+//             return [...state, action.event];
+//         case FETCH_EVENTS_SUCCESS:
+//             return [...action.response];
+//
+//         case DELETE_EVENT:
+//             const { id } = action;
+//             return state.filter(el => el.id !== id);
+//
+//         default:
+//             return state;
+//     }
+// };
 const isUserProcessing = (state = false, action) => {
   switch (action.type) {
     case ADD_USER_START:

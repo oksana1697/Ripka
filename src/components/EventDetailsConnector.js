@@ -1,9 +1,26 @@
 import { connect } from 'react-redux';
 import EventDetails from './EventDetails/EventDetails';
-import {getAllAvailableEvents, getIsEventFetching} from '../reducers';
-import {fetchEvent, fetchEvents} from '../actions/fetch';
-import {withRouter} from "react-router-dom";
-import {getEventById} from "../reducers/events";
+import { getAllAvailableEvents, getIsEventFetching } from '../reducers';
+import { fetchEvent } from '../actions/fetch';
+import { getEventById } from '../reducers';
+
+
+export default connect(
+  (state, { id }) =>
+      ({
+    event: getEventById(state, id),
+    isFetching: getIsEventFetching(id, state),
+  }),
+  { fetchEvent },
+  ({ event, isFetching }, { fetchEvent }, { id },store) => {
+      if (!event && !isFetching) {
+          fetchEvent(id)
+      }
+      return {
+          event
+      };
+  })(EventDetails);
+
 
 
 // export default connect(
@@ -34,20 +51,3 @@ import {getEventById} from "../reducers/events";
 //         },
 //         {fetchEvents}
 //     )(VisibleEventList));
-export default connect(
-  (state, { id }) =>
-      ({
-    // event: getEventById(id, state),
-    event: getEventById(state, id),
-    isFetching: getIsEventFetching(id, state),
-  }),
-  { fetchEvent },
-  ({ event, isFetching }, { fetchEvent }, { id }) => {
-    if (!event && !isFetching) {
-      fetchEvent(id);
-    }
-    return {
-      event,
-    };
-  },
-)(EventDetails);
