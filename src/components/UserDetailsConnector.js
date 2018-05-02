@@ -1,21 +1,27 @@
 import { connect } from "react-redux";
 import UserDetails from "./UserDetails/UserDetails";
+
 import { getUserById, getIsUserFetching } from "../reducers";
 import { fetchUser } from "../actions/fetch";
+import {deleteUser} from "../actions/delete";
 
 export default connect(
-    (state, { id }) => ({
+    (state, { id ,onSuccess}) => ({
         user: getUserById(id, state),
-        isUserFetching: getIsUserFetching(id, state)
+        isUserFetching: getIsUserFetching(id, state),
+        onSuccess,
+        deleteUser,
     }),
-    { fetchUser },
-    ({ user, isUserFetching }, { fetchUser }, { id }) => {
+    { fetchUser, deleteUser },
+    ({ user, isUserFetching }, { fetchUser,deleteUser }, { id, onSuccess }) => {
         if (!user && !isUserFetching) {
             fetchUser(id);
         }
 
         return {
-            user
+            user,
+            onSuccess,
+            deleteUser
         };
     }
 )(UserDetails);

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import "../../../styles/navigation.less";
+import '../../../styles/navigation.less';
 
 class Navigation extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class Navigation extends Component {
     return (
       <div>
         <div className="navigation__container">
-          <Link style={{ textDecoration: "none" }} to="/">
+          <Link style={{ textDecoration: 'none' }} to="/">
             <h1 className="navigation__logo-content">Ripka</h1>
           </Link>
           <Link className="navigation__button " to="/users">

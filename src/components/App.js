@@ -30,13 +30,15 @@ const App = () => (
                 <VisibleUserList/>
             </Route>
             <Route exact path="/addevent">
-                {props => <AddEvent onSuccess={() => props.history.push("/")}/>}
+                {props => <AddEvent onSuccess={() => {
+                    return props.history.push("/")
+                }}/>}
             </Route>
             <Route exact path="/adduser">
                 {props => <AddUser onSuccess={() => props.history.push("users")}/>}
             </Route>
             <Route exact path="/:id">
-                {props => <EventDetailsConnector id={props.match.params.id}/>}
+                {props => <EventDetailsConnector id={props.match.params.id} onSuccess={()=> props.history.push("/")}/>}
             </Route>
 
             <Route exact path="/edit/:id">

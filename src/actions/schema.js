@@ -1,5 +1,4 @@
 import { schema} from 'normalizr';
- // TODO: id : user
 
 export const eventSchema = new schema.Entity('events');
 export const arrayOfEvents = new schema.Array(eventSchema);

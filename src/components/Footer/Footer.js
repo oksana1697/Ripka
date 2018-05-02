@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import "../../../styles/footer.less";
+import '../../../styles/footer.less';
 
 class Footer extends Component {
   constructor(props) {

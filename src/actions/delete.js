@@ -3,6 +3,9 @@ import {
   deleteEventFailure,
   deleteEventStart,
   deleteEventSuccess,
+  deleteUserFailure,
+  deleteUserStart,
+  deleteUserSuccess,
 } from './index';
 
 export const deleteEvent = id => async dispatch => {
@@ -12,5 +15,15 @@ export const deleteEvent = id => async dispatch => {
     dispatch(deleteEventSuccess(id));
   } catch (e) {
     dispatch(deleteEventFailure(id));
+  }
+};
+export const deleteUser = id => async dispatch => {
+  console.log('111111111111');
+  dispatch(deleteUserStart(id));
+  try {
+    await api.deleteUser(id);
+    dispatch(deleteUserSuccess(id));
+  } catch (e) {
+    dispatch(deleteUserFailure(id));
   }
 };

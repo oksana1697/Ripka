@@ -1,9 +1,8 @@
-import React, {Component} from "react";
-import {deleteEvent} from "../../actions/delete";
+import React, { Component } from "react";
+import { deleteEvent } from "../../actions/delete";
 
 import "../../../styles/event-details.less";
 import {NavLink} from "react-router-dom";
-
 /**
  * Represents view of single Event Details
  */
@@ -11,19 +10,11 @@ class EventDetails extends Component {
     render() {
         let props = this.props;
         const {event} = this.props;
-        // console.log({event});
-        // console.log(event);
-        // console.log(this.props);
-
         if (!event) {
             return "Loading...";
         }
-
         return (
             <div className="cont">
-                {/*<div className="photo">*/}
-                    {/*<img src={event.photo} className="photo-img"/>*/}
-                {/*</div>*/}
                 <div className="block">
                     <div className="event-details__title_container">
                         <div className="event-details__block-column">
@@ -79,8 +70,8 @@ class EventDetails extends Component {
                         <button
                             className="event-details__button-delete"
                             onClick={() => {
-                                props.dispatch(deleteEvent(event.id))
-                                props.history.push("/");
+                                props.deleteEvent(event.id)
+                                this.props.onSuccess();
                             }}
                         >
                             Delete event

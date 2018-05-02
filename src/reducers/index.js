@@ -9,13 +9,11 @@ const eventApp = combineReducers({
 export default eventApp;
 
 export const getIsEventProcessing = state => fromEvents.getIsEventProcessing(state.events);
-export const getAllAvailableEvents = state => {console.log("state.events:", state);
-    return fromEvents.getAllAvailableEvents(state); };
+export const getAllAvailableEvents = state =>fromEvents.getAllAvailableEvents(state);
 export const getEventById = (state, id) => fromEvents.getEventById(state, id);
 export const getIsEventFetching = (id, state) => fromEvents.getIsEventFetching(id, state.events);
 
-
 export const getIsUserProcessing = state => fromUsers.getIsUserProcessing(state.users);
-export const getAllAvailableUsers = state => fromUsers.getAllAvailableUsers(state.users);
-export const getUserById = (id, state) => fromUsers.getUserById(id, state.users);
+export const getAllAvailableUsers = state => fromUsers.getAllAvailableUsers(state);
+export const getUserById = (state, id) => fromUsers.getUserById(state, id);
 export const getIsUserFetching = (id, state) => fromUsers.getIsUserFetching(id, state.users);
