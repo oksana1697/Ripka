@@ -10,11 +10,9 @@ class EventDetails extends Component {
   render() {
     let props = this.props;
     const { event } = this.props;
-
     if (!event) { return "Loading..."; }
-
     return (
-      <div>
+        <div>
         <div className="event-details__title_container">
           <div className="event-details__block-column">
             <h1 className="event-details__title">{event.name}</h1>
@@ -53,27 +51,29 @@ class EventDetails extends Component {
             </div>
             <p className="event-details__content">{event.contacts}</p>
           </div>
-            <NavLink
-                to={"/edit/" + event.id}
-                activeStyle={{
-                    textDecoration: "none",
-                    color: "black"
-                }}
-                className="event-details__button"
-            >
-                Edit event
-            </NavLink>
+            {/*<NavLink*/}
+                {/*to={"/edit/" + event.id}*/}
+                {/*activeStyle={{*/}
+                    {/*textDecoration: "none",*/}
+                    {/*color: "black"*/}
+                {/*}}*/}
+                {/*className="event-details__button"*/}
+            {/*>*/}
+                {/*Edit event*/}
+            {/*</NavLink>*/}
           <button
             className="event-details__button-delete"
             onClick={() => {
-                props.dispatch(deleteEvent(event.id))
-                props.history.push("/");
+                //props.dispatch(deleteEvent(event.id));
+                //console.log('----', this.props);
+                props.deleteEvent(event.id);
+                this.props.onSuccess()
             }}
           >
             Delete event
           </button>
         </div>
-      </div>
+        </div>
     );
   }
 }

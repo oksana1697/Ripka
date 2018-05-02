@@ -77,8 +77,6 @@ import {
   FETCH_EVENT_SUCCESS,
   FETCH_EVENT_START,
   FETCH_EVENT_FAILURE,
-  DELETE_EVENT,
-  SLICE_EVENTS,
   FETCH_EVENTS_SUCCESS,
   FETCH_EVENTS_FAILURE,
   FETCH_EVENTS_START,
@@ -105,16 +103,28 @@ export const byId = (state = {}, action) => {
   switch (action.type) {
     case FETCH_EVENT_SUCCESS:
     case ADD_EVENT_SUCCESS:
-      console.log('(from Reducer fetch event) action.event: ', state,action.events);
+      console.log(
+        '(from Reducer fetch event) action.event: ',
+        state,
+        action.events,
+      );
       return {
         ...state,
         ...action.events,
       };
     case FETCH_EVENTS_SUCCESS:
       return { ...state, ...action.events };
-    case DELETE_EVENT_SUCCESS:
+      case DELETE_EVENT_SUCCESS:
       const { id } = action;
-      return state.filter(el => el.id !== id);
+      let keys = Object.keys(state).filter(el => el !== id);
+      console.log('aaaKEYS', keys);
+      let newState = {};
+      keys.forEach(item => {
+          newState[item] = state[item];
+      });
+
+      return {...newState};
+
     case FETCH_EVENT_FAILURE:
     case ADD_EVENT_FAILURE:
     case FETCH_EVENTS_FAILURE:
@@ -124,6 +134,7 @@ export const byId = (state = {}, action) => {
   }
 };
 export const allIds = (state = [], action) => {
+  console.log('ACTION:', action)
   switch (action.type) {
     case FETCH_EVENT_SUCCESS:
     case FETCH_EVENTS_SUCCESS:
@@ -131,6 +142,9 @@ export const allIds = (state = [], action) => {
       return [...state, ...action.ids].filter(
         (el, i, arr) => arr.indexOf(el) === i,
       );
+    case DELETE_EVENT_SUCCESS:
+    {console.log('asasasassa-------:', action)
+      return state.filter(el => el !== action.id);}
     case FETCH_EVENT_FAILURE:
     case FETCH_EVENTS_FAILURE:
     case ADD_EVENT_FAILURE:
@@ -183,7 +197,7 @@ export default combineReducers({
 export const getIsEventProcessing = state => state.isEventProcessing;
 export const getAllAvailableEvents = state => state.events.allIds;
 export const getEventById = (state, id) => {
-  console.log('STATE:', state, 'id', id);
+  //console.log('STATE:', state, 'id', id);
   // console.log('STATE.event.byId:', state.events.byId[id]);
   return state.events.byId[id];
 };

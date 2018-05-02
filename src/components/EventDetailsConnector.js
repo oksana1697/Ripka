@@ -2,26 +2,28 @@ import { connect } from 'react-redux';
 import EventDetails from './EventDetails/EventDetails';
 import { getAllAvailableEvents, getIsEventFetching } from '../reducers';
 import { fetchEvent } from '../actions/fetch';
+import { deleteEvent } from '../actions/delete';
 import { getEventById } from '../reducers';
 
-
 export default connect(
-  (state, { id }) =>
-      ({
+  (state, { id, onSuccess }) => ({
     event: getEventById(state, id),
     isFetching: getIsEventFetching(id, state),
+    onSuccess,
+    deleteEvent,
   }),
-  { fetchEvent },
-  ({ event, isFetching }, { fetchEvent }, { id },store) => {
-      if (!event && !isFetching) {
-          fetchEvent(id)
-      }
-      return {
-          event
-      };
-  })(EventDetails);
-
-
+  { fetchEvent, deleteEvent },
+  ({ event, isFetching }, { fetchEvent, deleteEvent }, { id, onSuccess }) => {
+    if (!event && !isFetching) {
+      fetchEvent(id);
+    }
+    return {
+      event,
+      onSuccess,
+      deleteEvent
+    };
+  },
+)(EventDetails);
 
 // export default connect(
 //   (state, { id }) =>

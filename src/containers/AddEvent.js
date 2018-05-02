@@ -1,27 +1,26 @@
-import React, { Component } from "react";
-import { addEvent } from "../actions/add";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { addEvent } from '../actions/add';
+import { connect } from 'react-redux';
 //
-import DateTimePicker from "react-datetime-picker";
-import PhotoUpload from "../components/PhotoUpload";
+import DateTimePicker from 'react-datetime-picker';
+import PhotoUpload from '../components/PhotoUpload';
 //
-import { getIsEventProcessing } from "../reducers";
+import { getIsEventProcessing } from '../reducers';
 
 // Todo: refactoring Add , swagger
-import "../../styles/add.less";
-import "../../styles/common.less";
-import "../../styles/react-datetime-picker.less";
-import {Link} from "react-router-dom";
-
+import '../../styles/add.less';
+import '../../styles/common.less';
+import '../../styles/react-datetime-picker.less';
+import { Link } from 'react-router-dom';
 
 class AddEvent extends Component {
   static defaultProps = {
-    onSuccess() {}
+    onSuccess() {},
   };
 
   static getDerivedStateFromProps(
     { isEventProcessing, onSuccess },
-    { formSubmitted }
+    { formSubmitted },
   ) {
     if (formSubmitted && !isEventProcessing) {
       onSuccess();
@@ -30,33 +29,28 @@ class AddEvent extends Component {
   }
 
   state = {
-    name: "",
-    description: "",
-    organization: "",
-    contacts: "",
-
+    name: '',
+    description: '',
+    organization: '',
+    contacts: '',
     time: new Date(),
-
-    location: "",
-    photo: "",
-    formSubmitted: false
+    location: '',
+    photo: '',
+    formSubmitted: false,
   };
 
   handleSubmit = ev => {
     ev.preventDefault();
-
     const { addEvent } = this.props;
     const { formSubmitted, ...event } = this.state;
-
-    //TODO: verify data;
-
     addEvent(event);
     this.setState({ formSubmitted: true });
+    this.props.onSuccess()
   };
 
   changeHandler = property => ev => {
     const { value } = ev.target;
-    this.setState({ [property]: value });
+      this.setState({ [property]: value });
   };
 
   render() {
@@ -67,7 +61,7 @@ class AddEvent extends Component {
       contacts,
       time,
       location,
-      formSubmitted
+      formSubmitted,
     } = this.state;
 
     return (
@@ -87,7 +81,7 @@ class AddEvent extends Component {
             className="add__input"
             placeholder="Event Name"
             value={name}
-            onChange={this.changeHandler("name")}
+            onChange={this.changeHandler('name')}
           />
         </label>
         <div className="add__input_container">
@@ -96,7 +90,7 @@ class AddEvent extends Component {
             className="add__input"
             placeholder="Organization Name"
             value={organization}
-            onChange={this.changeHandler("organization")}
+            onChange={this.changeHandler('organization')}
           />
         </div>
         <div className="add__input_container">
@@ -105,7 +99,7 @@ class AddEvent extends Component {
             className="add__input"
             placeholder="Location"
             value={location}
-            onChange={this.changeHandler("location")}
+            onChange={this.changeHandler('location')}
           />
         </div>
         <div className="add__input_container">
@@ -114,19 +108,17 @@ class AddEvent extends Component {
             className="add__input"
             placeholder="Contacts"
             value={contacts}
-            onChange={this.changeHandler("contacts")}
+            onChange={this.changeHandler('contacts')}
           />
         </div>
 
         <div className="add__input_container">
-          <span className="add__field">
-            EVENT DESCRIPTION & REQUIREMENTS
-          </span>
+          <span className="add__field">EVENT DESCRIPTION & REQUIREMENTS</span>
           <textarea
             className="add__textarea"
             placeholder="Description"
             value={description}
-            onChange={this.changeHandler("description")}
+            onChange={this.changeHandler('description')}
             required
           />
         </div>
@@ -145,28 +137,16 @@ class AddEvent extends Component {
         </div>
 
         <div className="add__submit-container">
-            <Link to="/">
-          <button className="add__submit">Add Event</button>
-            </Link>
+              <button className="add__submit">Add Event</button>
         </div>
       </form>
     );
   }
 }
 
-const checkField = array1 => {
-  for (let i in array1) {
-    if (array1[i] === "") {
-      alert("Please fill mandatory fields!");
-      return true;
-    }
-    return true;
-  }
-};
-
 export default connect(
   state => ({
-    isEventProcessing: getIsEventProcessing(state)
+    isEventProcessing: getIsEventProcessing(state),
   }),
-  { addEvent }
+  { addEvent },
 )(AddEvent);
