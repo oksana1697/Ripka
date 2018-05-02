@@ -4,6 +4,7 @@ import Event from "./App";
 import AddEvent from "../containers/AddEvent";
 import VisibleEventList from "./VisibleEventList";
 import EventDetailsConnector from "./EventDetailsConnector";
+import EventEdit from "./EventEdit/EventEdit"
 import UserDetailsConnector from "./UserDetailsConnector";
 import {HashRouter, Route, Switch} from "react-router-dom";
 import Navigation from "./Navigation/Navigation";
@@ -39,7 +40,7 @@ const App = () => (
             </Route>
 
             <Route exact path="/edit/:id">
-                {props => <EventDetailsConnector id={props.match.params.id}/>}
+                {props => <EventEdit id={props.match.params.id}/>}
             </Route>
 
             <Route exact path="/users/:id">

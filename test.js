@@ -1,6 +1,5 @@
 "use strict";
 const assert = require('assert');
-import * as Actions from './src/actions/index'
 import * as eventReducers from './src/reducers/events'
 const User = [{
     "id": 1,
