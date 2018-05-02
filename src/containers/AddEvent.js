@@ -7,11 +7,9 @@ import PhotoUpload from '../components/PhotoUpload';
 //
 import { getIsEventProcessing } from '../reducers';
 
-// Todo: refactoring Add , swagger
 import '../../styles/add.less';
 import '../../styles/common.less';
 import '../../styles/react-datetime-picker.less';
-import { Link } from 'react-router-dom';
 
 class AddEvent extends Component {
   static defaultProps = {

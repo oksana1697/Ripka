@@ -10,19 +10,11 @@ class EventDetails extends Component {
     render() {
         let props = this.props;
         const {event} = this.props;
-        // console.log({event});
-        // console.log(event);
-        // console.log(this.props);
-
         if (!event) {
             return "Loading...";
         }
-
         return (
             <div className="cont">
-                {/*<div className="photo">*/}
-                    {/*<img src={event.photo} className="photo-img"/>*/}
-                {/*</div>*/}
                 <div className="block">
                     <div className="event-details__title_container">
                         <div className="event-details__block-column">

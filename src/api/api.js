@@ -6,13 +6,11 @@ async function makeRequest(url, method, data) {
     },
     method: method,
   };
-
   if (method === 'GET') {
     body = {
       method: method,
     };
   }
-
   let response = await fetch(url, body);
   data = await response.json();
   return data;

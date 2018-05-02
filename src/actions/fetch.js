@@ -22,7 +22,6 @@ export const fetchEvent = id => async dispatch => {
     let events = await api.fetchEvent(id);
     if (!events.error) {
       events = normalize([events], arrayOfEvents);
-      console.log("API fetch event: ",events)
       dispatch(fetchEventSuccess(events.result, events.entities.events));
     } else {
       dispatch(fetchEventFailure(events.error));
@@ -38,7 +37,7 @@ export const fetchUsers = () => async dispatch => {
     let response = await api.fetchUsers();
     if (!response.error) {
       response = normalize(response, arrayOfUsers);
-      dispatch(fetchUsersSuccess(response.response, response.entities.users));
+        dispatch(fetchUsersSuccess(response.result, response.entities.users));
     } else {
       dispatch(fetchUsersFailure(response.error));
     }
@@ -67,8 +66,8 @@ export const fetchUser = id => async dispatch => {
   try {
     let user = await api.fetchUser(id);
     if (!user.error) {
-        user = normalize([user], arrayOfUsers);
-        dispatch(fetchUserSuccess(user.result,user.entities.users));
+      user = normalize([user], arrayOfUsers);
+      dispatch(fetchUserSuccess(user.result, user.entities.users));
     } else {
       dispatch(fetchUserFailure(user.error));
     }

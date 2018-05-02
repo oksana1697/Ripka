@@ -8,7 +8,6 @@ import {getIsUserProcessing} from "../reducers";
 
 import "../../styles/add.less";
 import "../../styles/common.less";
-import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
 class AddUser extends Component {
@@ -143,11 +142,3 @@ export default connect(
     }),
     { addUser }
 )(AddUser);
-AddUser.propTypes = {
-    name: PropTypes.string,
-    interests: PropTypes.string,
-    organization: PropTypes.string,
-    contacts: PropTypes.string,
-    location:  PropTypes.string,
-    // formSubmitted: PropTypes.bool
-};
