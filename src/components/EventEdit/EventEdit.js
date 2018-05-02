@@ -4,6 +4,7 @@ import DateTimePicker from "react-datetime-picker";
 import {connect} from "react-redux";
 import {getIsEventProcessing} from "../../reducers";
 import {editEvent} from "../../actions/edit";
+import {getEventById} from "../../reducers/events";
 
 class EventEdit extends Component {
     static defaultProps = {
@@ -44,6 +45,16 @@ class EventEdit extends Component {
     };
 
     render() {
+        const initState =  {
+            name: "",
+            description: '',
+            organization: "",
+            contacts: "",
+            time: new Date(),
+            location: "",
+            photo: "",
+            formSubmitted: false
+        };
         const {
             name,
             description,
@@ -52,8 +63,8 @@ class EventEdit extends Component {
             time,
             location,
             formSubmitted
-        } = this.state;
-        const {event} = this.props;
+        } = this.props.event? this.props.event: initState;
+        // const {event} = this.props;
         return (
             <form className="add" onSubmit={this.handleSubmit}>
                 {formSubmitted && <div className="add__carpet"/>}
@@ -138,8 +149,9 @@ class EventEdit extends Component {
 
 
 export default connect(
-    state => ({
-        isEventProcessing: getIsEventProcessing(state)
+    (state, {id}) => ({
+        isEventProcessing: getIsEventProcessing(state),
+        event: getEventById(state, id)
     }),
     {editEvent}
 )(EventEdit);
