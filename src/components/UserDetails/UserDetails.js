@@ -48,7 +48,7 @@ class UserDetails extends Component {
           </div>
 
           <NavLink
-            to={'/edit/' + event.id}
+            to={'/users/edit/' + user.id}
             activeStyle={{
               textDecoration: 'none',
               color: 'black',

@@ -5,6 +5,7 @@ import AddEvent from "../containers/AddEvent";
 import VisibleEventList from "./VisibleEventList";
 import EventDetailsConnector from "./EventDetailsConnector";
 import EventEdit from "./EventEdit/EventEdit"
+import UserEdit from "./UserEdit/UserEdit";
 import UserDetailsConnector from "./UserDetailsConnector";
 import {HashRouter, Route, Switch} from "react-router-dom";
 import Navigation from "./Navigation/Navigation";
@@ -48,6 +49,9 @@ const App = () => (
 
             <Route exact path="/users/:id">
                 {props => <UserDetailsConnector id={props.match.params.id}  onSuccess={()=> props.history.push("/users")}/>}
+            </Route>
+            <Route exact path="/users/edit/:id">
+                {props => <UserEdit id={props.match.params.id} onSuccess={() => props.history.push("/users/"+props.match.params.id)}/>}
             </Route>
             {/*<Route exact path="/:userName" component={VisibleUserDetailList} />*/}
         </Switch>
