@@ -65,7 +65,6 @@ export const fetchUser = id => async dispatch => {
   dispatch(fetchUserStart(id));
   try {
     let users = await api.fetchUser(id);
-    console.log("from fetch user",users)
     if (!users.error) {
         users = normalize([users], arrayOfUsers);
       dispatch(fetchUserSuccess(users.result, users.entities.users));

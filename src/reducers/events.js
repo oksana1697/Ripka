@@ -18,10 +18,6 @@ export const byId = (state = {}, action) => {
   switch (action.type) {
     case FETCH_EVENT_SUCCESS:
     case ADD_EVENT_SUCCESS:
-      console.log(
-        state,
-        action.events,
-      );
       return {
         ...state,
         ...action.events,
