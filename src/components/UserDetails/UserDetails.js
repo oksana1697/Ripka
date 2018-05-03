@@ -70,7 +70,7 @@ class UserDetails extends Component {
                         {/*<p className="user-details__content">{currentEvent.date.toFormat("yyyy LLL dd")}</p>*/}
                         {/*<p className="user-details__content">{currentEvent.date.toFormat("HH:mm")}</p>*/}
                         <div className="user-details__subtitle_container">
-                            <img className="user-details__icon-contact"/>
+                            <img className="user-details__icon-categories"/>
                             <h1 className="user-details__subtitle">Interests</h1>
                         </div>
                         <p className="user-details__content">{user.interests}</p>
