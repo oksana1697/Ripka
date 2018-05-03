@@ -127,7 +127,7 @@ class UserEdit extends Component {
 
                 <label className="add__input_container">
                     <span className="add__field">DOWNLOAD PHOTO</span>
-                    <img src={photo} />
+                    <div className="add__photo-container"><img src={photo} className="add__photo-img" /></div>
                     <PhotoUpload photo={URL => this.setState({photo: URL})}/>
                 </label>
                 <div className="add__submit-container">
