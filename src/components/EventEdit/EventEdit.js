@@ -69,7 +69,7 @@ class EventEdit extends Component {
             <form className="add" onSubmit={this.handleSubmit}>
                 {formSubmitted && <div className="add__carpet"/>}
                 <div className="add__title_container">
-                    <h1 className="add__title">Add event details</h1>
+                    <h1 className="add__title">Edit event details</h1>
                 </div>
                 <div className="add__subtitle_container">
                     <img src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png"/>
@@ -85,38 +85,38 @@ class EventEdit extends Component {
                         onChange={this.changeHandler("name")}
                     />
                 </label>
-                <div className="add__input_container">
-                    <p className="add__field">ORGANIZATION NAME</p>
+                <label className="add__input_container">
+                    <span className="add__field">ORGANIZATION NAME</span>
                     <input
                         className="add__input"
                         placeholder="Organization Name"
                         value={organization}
                         onChange={this.changeHandler("organization")}
                     />
-                </div>
-                <div className="add__input_container">
-                    <p className="add__field">LOCATION</p>
+                </label>
+                <label className="add__input_container">
+                    <span className="add__field">LOCATION</span>
                     <input
                         className="add__input"
                         placeholder="Location"
                         value={location}
                         onChange={this.changeHandler("location")}
                     />
-                </div>
-                <div className="add__input_container">
-                    <p className="add__field">CONTACTS</p>
+                </label>
+                <label className="add__input_container">
+                    <span className="add__field">CONTACTS</span>
                     <input
                         className="add__input"
                         placeholder="Contacts"
                         value={contacts}
                         onChange={this.changeHandler("contacts")}
                     />
-                </div>
+                </label>
 
-                <div className="add__input_container">
-          <span className="add__field">
-            EVENT DESCRIPTION & REQUIREMENTS
-          </span>
+                <label className="add__input_container">
+                  <span className="add__field">
+                    EVENT DESCRIPTION & REQUIREMENTS
+                  </span>
                     <textarea
                         className="add__textarea"
                         placeholder="Description"
@@ -124,7 +124,7 @@ class EventEdit extends Component {
                         onChange={this.changeHandler("description")}
                         required
                     />
-                </div>
+                </label>
 
                 {/*<div className="add__input_container">*/}
                     {/*<span className="add__field">Time</span>*/}
@@ -134,11 +134,11 @@ class EventEdit extends Component {
                     {/*/>*/}
                 {/*</div>*/}
 
-                <div className="add__input_container">
-                    <p className="add__field">DOWNLOAD PHOTO</p>
+                <label className="add__input_container">
+                    <span className="add__field">DOWNLOAD PHOTO</span>
                     <img src={photo} />
                     <PhotoUpload photo={URL => this.setState({photo: URL})}/>
-                </div>
+                </label>
                 <div className="add__submit-container">
                     <button className="add__submit">Save changes</button>
                 </div>

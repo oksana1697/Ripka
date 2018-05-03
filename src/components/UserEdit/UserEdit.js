@@ -82,30 +82,30 @@ class UserEdit extends Component {
                         onChange={this.changeHandler("name")}
                     />
                 </label>
-                <div className="add__input_container">
-                    <p className="add__field">YOUR LOCATION</p>
+                <label className="add__input_container">
+                    <span className="add__field">YOUR LOCATION</span>
                     <input
                         className="add__input"
                         placeholder="Location"
                         value={location}
                         onChange={this.changeHandler("location")}
                     />
-                </div>
-                <div className="add__input_container">
-                    <p className="add__field">YOUR CONTACTS</p>
+                </label>
+                <label className="add__input_container">
+                    <span className="add__field">YOUR CONTACTS</span>
                     <input
                         className="add__input"
                         placeholder="Contacts"
                         value={contacts}
                         onChange={this.changeHandler("contacts")}
                     />
-                </div>
+                </label>
 
 
-                <div className="add__input_container">
-          <span className="add__field">
-           ABOUT YOU
-          </span>
+                <label className="add__input_container">
+                  <span className="add__field">
+                   ABOUT YOU
+                  </span>
                     <textarea
                         className="add__textarea"
                         placeholder="Description"
@@ -113,7 +113,7 @@ class UserEdit extends Component {
                         onChange={this.changeHandler("description")}
                         required
                     />
-                </div>
+                </label>
 
                 <label className="add__input_container">
                     <span className="add__field">YOUR INTERESTS & GOALS</span>
@@ -125,11 +125,11 @@ class UserEdit extends Component {
                     />
                 </label>
 
-                <div className="add__input_container">
-                    <p className="add__field">DOWNLOAD PHOTO</p>
+                <label className="add__input_container">
+                    <span className="add__field">DOWNLOAD PHOTO</span>
                     <img src={photo} />
                     <PhotoUpload photo={URL => this.setState({photo: URL})}/>
-                </div>
+                </label>
                 <div className="add__submit-container">
                     <button className="add__submit">Save changes</button>
                 </div>
