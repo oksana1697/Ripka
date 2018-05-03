@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux';
 import {
-  ADD_USER_START,
-  ADD_USER_FAILURE,
-  ADD_USER_SUCCESS,
-  FETCH_USER_SUCCESS,
-  FETCH_USER_START,
-  FETCH_USER_FAILURE,
+    ADD_USER_START,
+    ADD_USER_FAILURE,
+    ADD_USER_SUCCESS,
+    FETCH_USER_SUCCESS,
+    FETCH_USER_START,
+    FETCH_USER_FAILURE,
     FETCH_USERS_FAILURE,
-  FETCH_USERS_SUCCESS,
-  DELETE_USER_SUCCESS,
-  EDIT_USER_SUCCESS,
+    FETCH_USERS_SUCCESS,
+    DELETE_USER_SUCCESS,
+    EDIT_USER_SUCCESS, EDIT_USER_FAILURE, EDIT_USER_START,
 } from '../actions/actionTypes';
 
 export const byId = (state = {}, action) => {
@@ -63,11 +63,15 @@ export const allIds = (state = [], action) => {
 const isUserProcessing = (state = false, action) => {
   switch (action.type) {
     case ADD_USER_START:
+      case EDIT_USER_START:
       return true;
 
     case ADD_USER_FAILURE:
     case ADD_USER_SUCCESS:
-      return false;
+      case EDIT_USER_FAILURE:
+      case EDIT_USER_SUCCESS:
+        console.log('user processing end');
+        return false;
 
     default:
       return state;

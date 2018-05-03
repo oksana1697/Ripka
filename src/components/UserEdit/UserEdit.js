@@ -30,6 +30,7 @@ class UserEdit extends Component {
 
     static getDerivedStateFromProps({user, isUserProcessing, onSuccess },
                                     { formSubmitted }) {
+        console.log(formSubmitted, isUserProcessing);
         if (formSubmitted && !isUserProcessing) {
             onSuccess();
         }
