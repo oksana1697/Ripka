@@ -93,7 +93,7 @@
   ],
   "users": [
     {
-      "name": "не Віктор Франкл",
+      "name": "Віктор Франкл",
       "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
       "contacts": "+38098678594",
       "interests": "have a heart",
@@ -127,15 +127,6 @@
       "interests": "have a heart",
       "location": "Київська область, Київ",
       "photo": "http://res.cloudinary.com/drzw6h31n/image/upload/v1524735851/lubka_htnrt3.jpg"
-    },
-    {
-      "name": "",
-      "description": "fghj",
-      "contacts": "",
-      "location": "",
-      "photo": "https://res.cloudinary.com/ucu/image/upload/v1525305788/ifh5lfd6uh20lr1nso5g.jpg",
-      "interests": "hj",
-      "id": 6
     }
   ]
 }
