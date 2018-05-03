@@ -55,6 +55,7 @@ const App = () => (
             </Route>
             {/*<Route exact path="/:userName" component={VisibleUserDetailList} />*/}
         </Switch>
+
         <Footer/>
     </div>
 );
