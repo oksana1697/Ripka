@@ -2,26 +2,25 @@ import "../../../styles/add.less";
 import React, {Component} from "react";
 import DateTimePicker from "react-datetime-picker";
 import {connect} from "react-redux";
-import {getIsEventProcessing, getIsEventFetching} from "../../reducers";
-import {editEvent} from "../../actions/edit";
-import {getEventById} from "../../reducers/events";
+import {getIsUserProcessing, getIsUserFetching} from "../../reducers";
+import {editUser} from "../../actions/edit";
+import {getUserById} from "../../reducers/users";
 import PhotoUpload from "../PhotoUpload";
-import { fetchEvent } from '../../actions/fetch';
+import { fetchUser } from '../../actions/fetch';
 
-class EventEdit extends Component {
+class UserEdit extends Component {
     constructor(props) {
         super(props);
         const initState = {
             name: "",
-            description: '',
-            organization: "",
+            description: "",
             contacts: "",
-            time: new Date(),
+            interests: "",
             location: "",
             photo: "",
             formSubmitted: false
         };
-        this.state = this.props.event? this.props.event : initState;
+        this.state = this.props.user? this.props.user : initState;
     }
     static defaultProps = {
         onSuccess() {
@@ -29,21 +28,20 @@ class EventEdit extends Component {
     };
 
 
-    static getDerivedStateFromProps({event, isEventProcessing, onSuccess },
+    static getDerivedStateFromProps({user, isUserProcessing, onSuccess },
                                     { formSubmitted }) {
-        // console.log("f")
-        if (formSubmitted && !isEventProcessing) {
+        if (formSubmitted && !isUserProcessing) {
             onSuccess();
         }
-        return event;
+        return user;
     }
 
     handleSubmit = ev => {
         ev.preventDefault();
-        const {editEvent, id} = this.props;
-        const {formSubmitted, ...event} = this.state;
+        const {editUser, id} = this.props;
+        const {formSubmitted, ...user} = this.state;
 
-        editEvent(event, id);
+        editUser(user, id);
         this.setState({formSubmitted: true});
     };
 
@@ -57,9 +55,8 @@ class EventEdit extends Component {
         const {
             name,
             description,
-            organization,
             contacts,
-            time,
+            interests,
             location,
             photo,
             formSubmitted
@@ -69,33 +66,24 @@ class EventEdit extends Component {
             <form className="add" onSubmit={this.handleSubmit}>
                 {formSubmitted && <div className="add__carpet"/>}
                 <div className="add__title_container">
-                    <h1 className="add__title">Edit event details</h1>
+                    <h1 className="add__title">Edit your profile</h1>
                 </div>
                 <div className="add__subtitle_container">
                     <img src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png"/>
-                    <h1 className="add__subtitle">Event Overview</h1>
+                    <h1 className="add__subtitle">Profile Overview</h1>
                 </div>
 
                 <label className="add__input_container">
-                    <span className="add__field">Event name</span>
+                    <span className="add__field">YOUR NAME</span>
                     <input
                         className="add__input"
-                        placeholder="Event Name"
+                        placeholder="Name"
                         value={name}
                         onChange={this.changeHandler("name")}
                     />
                 </label>
                 <label className="add__input_container">
-                    <span className="add__field">ORGANIZATION NAME</span>
-                    <input
-                        className="add__input"
-                        placeholder="Organization Name"
-                        value={organization}
-                        onChange={this.changeHandler("organization")}
-                    />
-                </label>
-                <label className="add__input_container">
-                    <span className="add__field">LOCATION</span>
+                    <span className="add__field">YOUR LOCATION</span>
                     <input
                         className="add__input"
                         placeholder="Location"
@@ -104,7 +92,7 @@ class EventEdit extends Component {
                     />
                 </label>
                 <label className="add__input_container">
-                    <span className="add__field">CONTACTS</span>
+                    <span className="add__field">YOUR CONTACTS</span>
                     <input
                         className="add__input"
                         placeholder="Contacts"
@@ -113,9 +101,10 @@ class EventEdit extends Component {
                     />
                 </label>
 
+
                 <label className="add__input_container">
                   <span className="add__field">
-                    EVENT DESCRIPTION & REQUIREMENTS
+                   ABOUT YOU
                   </span>
                     <textarea
                         className="add__textarea"
@@ -126,17 +115,19 @@ class EventEdit extends Component {
                     />
                 </label>
 
-                {/*<div className="add__input_container">*/}
-                    {/*<span className="add__field">Time</span>*/}
-                    {/*<DateTimePicker*/}
-                        {/*value={time}*/}
-                        {/*onChange={time => this.setState({time})}*/}
-                    {/*/>*/}
-                {/*</div>*/}
+                <label className="add__input_container">
+                    <span className="add__field">YOUR INTERESTS & GOALS</span>
+                    <input
+                        className="add__input"
+                        placeholder="Interests & Goals"
+                        value={interests}
+                        onChange={this.changeHandler('interests')}
+                    />
+                </label>
 
                 <label className="add__input_container">
                     <span className="add__field">DOWNLOAD PHOTO</span>
-                    <img src={photo} />
+                    <div className="add__photo-container"><img src={photo} className="add__photo-img" /></div>
                     <PhotoUpload photo={URL => this.setState({photo: URL})}/>
                 </label>
                 <div className="add__submit-container">
@@ -150,21 +141,21 @@ class EventEdit extends Component {
 
 export default connect(
     (state, {id}) => ({
-        isFetching: getIsEventFetching(id, state),
-        isEventProcessing: getIsEventProcessing(state),
-        event: getEventById(state, id)
+        isUserFetching: getIsUserFetching(id, state),
+        isUserProcessing: getIsUserProcessing(state),
+        user: getUserById(state, id)
     }),
-    {editEvent, fetchEvent},
-    ({ event, isFetching, isEventProcessing}, { fetchEvent, editEvent }, { id, onSuccess}) => {
-        if (!event && !isFetching) {
-            fetchEvent(id);
+    {editUser, fetchUser},
+    ({ user, isUserFetching, isUserProcessing}, { fetchUser, editUser }, { id, onSuccess}) => {
+        if (!user && !isUserFetching) {
+            fetchUser(id);
         }
         return {
             id,
-            event,
-            editEvent,
+            user,
+            editUser,
             onSuccess,
-            isEventProcessing
+            isUserProcessing
         };
     },
-)(EventEdit);
+)(UserEdit);
