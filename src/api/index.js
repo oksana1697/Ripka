@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
-import { deleteData, getData, postData } from './api';
+import {deleteData, getData, postData, putData} from './api';
 
 const API_ENDPOINT = 'http://localhost:3000';
 
@@ -26,7 +26,7 @@ export const deleteUser = async id =>
   await deleteData(`${API_ENDPOINT}/users`, id);
 
 export const editEvent = updatedEvent =>
-  postData(`${API_ENDPOINT}/events`, updatedEvent);
+  putData(`${API_ENDPOINT}/events`, updatedEvent);
 
 export const editUser = updatedEvent =>
-  postData(`${API_ENDPOINT}/users`, updatedEvent);
+  putData(`${API_ENDPOINT}/users`, updatedEvent);
