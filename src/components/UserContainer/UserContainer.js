@@ -7,7 +7,7 @@ import "../../../styles/user-details.less";
 
 const UserContainer = ({ users, onUserClick }) => (
     <Fragment>
-        <h1 className="user-details__title"> USERS</h1>
+        <h1 className="user-details__title user-details__title_main"> USERS</h1>
         <div className="user__block">
             {users.map(user => (
                 <User
