@@ -125,7 +125,7 @@ class AddEvent extends Component {
           <span className="add__field">Time</span>
           <DateTimePicker
             value={time}
-            onChange={time => this.setState({ time })}
+            onChange={time =>  this.setState({ time })}
           />
         </div>
 
@@ -141,7 +141,9 @@ class AddEvent extends Component {
     );
   }
 }
-
+function formatDate(date) {
+    return date.toLocaleDateString();
+}
 export default connect(
   state => ({
     isEventProcessing: getIsEventProcessing(state),
