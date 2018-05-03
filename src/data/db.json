@@ -99,16 +99,6 @@
       "location": "",
       "photo": "",
       "id": 11
-    },
-    {
-      "name": "dfghj",
-      "description": "dfghj",
-      "organization": "fghjk",
-      "contacts": "dfghj",
-      "time": "2018-05-03T00:00:57.485Z",
-      "location": "dfghjk",
-      "photo": "https://res.cloudinary.com/ucu/image/upload/v1525305671/l6aac6rmcrez3yq8w2mp.jpg",
-      "id": 12
     }
   ],
   "users": [
@@ -149,15 +139,6 @@
       "photo": "http://res.cloudinary.com/drzw6h31n/image/upload/v1524735851/lubka_htnrt3.jpg"
     },
     {
-      "name": "koko",
-      "description": "lplp",
-      "contacts": "",
-      "location": "",
-      "photo": "",
-      "interests": "l,p[",
-      "id": 5
-    },
-    {
       "name": "",
       "description": "fghj",
       "contacts": "",
@@ -165,15 +146,6 @@
       "photo": "https://res.cloudinary.com/ucu/image/upload/v1525305788/ifh5lfd6uh20lr1nso5g.jpg",
       "interests": "hj",
       "id": 6
-    },
-    {
-      "name": "dfghjkl",
-      "description": "fghjkl",
-      "contacts": "fghjk",
-      "location": "fghjk",
-      "photo": "https://res.cloudinary.com/ucu/image/upload/v1525305835/l4bzap7q5mzm1cojzdnh.jpg",
-      "interests": "fghjkl",
-      "id": 7
     }
   ]
 }
