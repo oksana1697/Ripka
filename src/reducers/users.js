@@ -16,13 +16,11 @@ export const byId = (state = {}, action) => {
   switch (action.type) {
     case FETCH_USER_SUCCESS:
     case ADD_USER_SUCCESS:
-      console.log("from reducer:",state,action.users)
       return {
         ...state,
         ...action.users,
       };
     case FETCH_USERS_SUCCESS:
-      console.log("from reducer users:",state,action.users)
       return { ...state, ...action.users};
     case DELETE_USER_SUCCESS:
       const { id } = action;

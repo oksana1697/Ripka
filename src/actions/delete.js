@@ -18,7 +18,6 @@ export const deleteEvent = id => async dispatch => {
   }
 };
 export const deleteUser = id => async dispatch => {
-  console.log('111111111111');
   dispatch(deleteUserStart(id));
   try {
     await api.deleteUser(id);
