@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { deleteEvent } from "../../actions/delete";
+import {NavLink} from "react-router-dom";
 
 import "../../../styles/event-details.less";
-import {NavLink} from "react-router-dom";
 /**
  * Represents view of single Event Details
  */
@@ -68,7 +67,7 @@ class EventDetails extends Component {
                         <button
                             className="event-details__button-delete"
                             onClick={() => {
-                                props.deleteEvent(event.id)
+                                props.deleteEvent(event.id);
                                 this.props.onSuccess();
                             }}
                         >

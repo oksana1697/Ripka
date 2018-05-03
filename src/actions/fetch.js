@@ -64,12 +64,13 @@ export const fetchEvents = () => async dispatch => {
 export const fetchUser = id => async dispatch => {
   dispatch(fetchUserStart(id));
   try {
-    let user = await api.fetchUser(id);
-    if (!user.error) {
-      user = normalize([user], arrayOfUsers);
-      dispatch(fetchUserSuccess(user.result, user.entities.users));
+    let users = await api.fetchUser(id);
+    console.log("from fetch user",users)
+    if (!users.error) {
+        users = normalize([users], arrayOfUsers);
+      dispatch(fetchUserSuccess(users.result, users.entities.users));
     } else {
-      dispatch(fetchUserFailure(user.error));
+      dispatch(fetchUserFailure(users.error));
     }
   } catch (error) {
     fetchUserFailure(error);

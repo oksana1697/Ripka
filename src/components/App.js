@@ -46,7 +46,7 @@ const App = () => (
             </Route>
 
             <Route exact path="/users/:id">
-                {props => <UserDetailsConnector id={props.match.params.id}/>}
+                {props => <UserDetailsConnector id={props.match.params.id}  onSuccess={()=> props.history.push("/users")}/>}
             </Route>
             {/*<Route exact path="/:userName" component={VisibleUserDetailList} />*/}
         </Switch>

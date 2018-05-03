@@ -7,7 +7,7 @@ import {deleteUser} from "../actions/delete";
 
 export default connect(
     (state, { id ,onSuccess}) => ({
-        user: getUserById(id, state),
+        user: getUserById(state, id),
         isUserFetching: getIsUserFetching(id, state),
         onSuccess,
         deleteUser,
