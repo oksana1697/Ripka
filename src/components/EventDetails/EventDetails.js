@@ -47,18 +47,15 @@ class EventDetails extends Component {
               <div className="event-details__subtitle_container">
                 <img className="event-details__icon-calendar" />
                 <h1 className="event-details__subtitle">Date & time</h1>
-                <p className="event-details__content">{formatDate(event.time)}</p>
+                <p className="event-details__content">
+                  {formatDate(event.time)}
+                </p>
               </div>
-              {/*<p className="event-details__content">{currentEvent.date.toFormat("yyyy LLL dd")}</p>*/}
-              {/*<p className="event-details__content">{currentEvent.date.toFormat("HH:mm")}</p>*/}
-
               <div className="event-details__subtitle_container">
                 <img className="event-details__icon-contact" />
                 <h1 className="event-details__subtitle">Contacts</h1>
-                  <p className="event-details__content">{event.contacts}</p>
-
+                <p className="event-details__content">{event.contacts}</p>
               </div>
-              {/*<p className="event-details__content">{event.contacts}</p>*/}
             </div>
             <NavLink
               to={'/edit/' + event.id}
