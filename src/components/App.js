@@ -11,6 +11,7 @@ import {HashRouter, Route, Switch} from "react-router-dom";
 import Navigation from "./Navigation/Navigation";
 import AddUser from "../containers/AddUser";
 import VisibleUserList from "./VisibleUserList";
+import AddEventNavigation from "./Navigation/AddEventNavigation";
 
 /**
  * App js description
@@ -19,26 +20,34 @@ import VisibleUserList from "./VisibleUserList";
 // TODO: update routing - flag to json server
 const App = () => (
     <div>
-        <Navigation/>
         <Switch>
             <Route
                 exact path="/" render={() => (
                     <div>
+                        <Navigation/>
                         <VisibleEventList/>
 
                     </div>
                 )}
             />
             <Route exact path="/users">
+                <div>
+                <Navigation/>
                 <VisibleUserList/>
+                </div>
             </Route>
             <Route exact path="/addevent">
+                {/*<div>*/}
+                {/*<AddEventNavigation/>*/}
                 {props => <AddEvent onSuccess={() => {
                     return props.history.push("/")
                 }}/>}
+                {/*</div>*/}
             </Route>
             <Route exact path="/adduser">
-                {props => <AddUser onSuccess={() => props.history.push("users")}/>}
+                    {props => <AddUser onSuccess={() => props.history.push("users")}/>
+                    }
+
             </Route>
             <Route exact path="/:id">
                 {props => <EventDetailsConnector id={props.match.params.id} onSuccess={()=> props.history.push("/")}/>}

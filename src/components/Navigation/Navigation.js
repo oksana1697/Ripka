@@ -16,77 +16,33 @@ class Navigation extends Component {
           <Link style={{ textDecoration: 'none' }} to="/">
             <h1 className="navigation__logo-content">Ripka</h1>
           </Link>
-          {/*<form>*/}
-
-            <div className="navigation__subcontainer">
+            <div className="navigation__search-bar">
               <button
-                className="navigation__search"
-                value="Search event by keyword">
-                  All Categories
+                className="navigation__search-bar_filter"
+                ><span>All categories</span>
+
               </button>
-              <div class="navigation__search_content">
-                <a className="navigation__search_content_filter" href="#">Nonprofit</a>
-                <a className="navigation__search_content_filter" href="#">Children</a>
-                <a className="navigation__search_content_filter" href="#">Food&Drink</a>
+              <div className="navigation__search-bar_filter_content">
+                <a href="#">Nonprofit</a>
+                <a href="#">Children</a>
+                <a href="#">Food&Drink</a>
               </div>
             </div>
-              <button className="navigation__submit" type="submit">
-                 <i className="navigation__submit_icon"/>
+              <button className="navigation__search-bar_submit" type="submit">
+                 <i className="navigation__search-bar_submit-icon"/>
               </button>
-
-
-          {/*</form>*/}
-          {/*<div>*/}
-          {/*</div>*/}
-          {/*<Link to="/addevent">*/}
-                <button className="navigation__button">
-                    <span className="navigation__button_content">POST AN EVENT</span>
+          <Link className="navigation__button_right" to="/addevent">
+                <button className="navigation__button">POST AN EVENT
                 </button>
-            {/*</Link>*/}
-
-
+            </Link>
         </div>
-
-        <label for="show-menu" class="show-menu">
-          Show Menu
+        <label className="navigation_show-title">
+            <Link style={{ textDecoration: 'none' }} to="/">
+                <h1 className="navigation__logo-content">Ripka</h1>
+            </Link>
         </label>
         <input type="checkbox" id="show-menu" role="button" />
-        <ul id="menu">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About ￬</a>
-            <ul class="hidden">
-              <li>
-                <a href="#">Who We Are</a>
-              </li>
-              <li>
-                <a href="#">What We Do</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Portfolio ￬</a>
-            <ul class="hidden">
-              <li>
-                <a href="#">Photography</a>
-              </li>
-              <li>
-                <a href="#">Web & User Interface Design</a>
-              </li>
-              <li>
-                <a href="#">Illustration</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">News</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
+
       </div>
     );
   }

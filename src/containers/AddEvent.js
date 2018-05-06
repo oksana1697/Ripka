@@ -10,6 +10,7 @@ import { getIsEventProcessing } from '../reducers';
 import '../../styles/add.less';
 import '../../styles/common.less';
 import '../../styles/react-datetime-picker.less';
+import AddEventNavigation from "../components/Navigation/AddEventNavigation";
 
 class AddEvent extends Component {
   static defaultProps = {
@@ -63,6 +64,9 @@ class AddEvent extends Component {
     } = this.state;
 
     return (
+        <div>
+        <AddEventNavigation/>
+
       <form className="add" onSubmit={this.handleSubmit}>
         {formSubmitted && <div className="add-event__carpet" />}
         <div className="add__title_container">
@@ -138,6 +142,7 @@ class AddEvent extends Component {
               <button className="add__submit">Add Event</button>
         </div>
       </form>
+        </div>
     );
   }
 }
