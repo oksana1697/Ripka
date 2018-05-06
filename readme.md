@@ -34,6 +34,23 @@ Fake data
 npm run data:fake
 ```
 
+### Update API docs:
+
+Firstly go to directory with blueprint file
+```
+C:\ProjectDirectory\docs\styleguide
+```
+Run this command not in your Project Env Terminal
+```
+aglio -i input.apib -o output.html
+```
+Fake data
+```
+npm run data:fake
+```
+
+
+
 ## For updating API docs run:
 ```
 https://ksenyaoleniuk.github.io/Ripka/styleguide/output.html

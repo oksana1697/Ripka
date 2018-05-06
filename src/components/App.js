@@ -15,6 +15,8 @@ import VisibleUserList from "./VisibleUserList";
 /**
  * App js description
  */
+
+// TODO: update routing - flag to json server
 const App = () => (
     <div>
         <Navigation/>
