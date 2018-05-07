@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { addUser } from '../actions/add';
+import { addUser } from '../../actions/add';
 import { connect } from 'react-redux';
 
-import PhotoUpload from '../components/PhotoUpload';
+import PhotoUpload from '../PhotoUpload';
 
-import { getIsUserProcessing } from '../reducers';
+import { getIsUserProcessing } from '../../reducers/index';
 
-import '../../styles/add.less';
-import '../../styles/common.less';
-import { Link } from 'react-router-dom';
+import '../../../styles/common.less';
+import '../../../styles/add.less'
 
 class AddUser extends Component {
   static defaultProps = {

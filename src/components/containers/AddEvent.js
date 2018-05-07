@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import { addEvent } from '../actions/add';
+import { addEvent } from '../../actions/add';
 import { connect } from 'react-redux';
 //
 import DateTimePicker from 'react-datetime-picker';
-import PhotoUpload from '../components/PhotoUpload';
+import PhotoUpload from '../PhotoUpload';
 //
-import { getIsEventProcessing } from '../reducers';
+import { getIsEventProcessing } from '../../reducers/index';
 
-import '../../styles/add.less';
-import '../../styles/common.less';
-import '../../styles/react-datetime-picker.less';
-import AddEventNavigation from "../components/Navigation/AddEventNavigation";
+import '../../../styles/add.less';
+import '../../../styles/common.less';
+import '../../../styles/react-datetime-picker.less';
+
+import AddEventNavigation from "../Navigation/AddEventNavigation";
 /**
  * Component is described here.
  *
