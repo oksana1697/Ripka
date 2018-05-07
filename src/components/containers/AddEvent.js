@@ -11,6 +11,7 @@ import '../../../styles/add.less';
 import '../../../styles/common.less';
 import '../../../styles/react-datetime-picker.less';
 
+
 import AddEventNavigation from "../Navigation/AddEventNavigation";
 /**
  * Component is described here.
