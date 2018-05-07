@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "./Footer/Footer";
 import Event from "./App";
-import AddEvent from "./containers/AddEvent";
+import AddEvent from "./Add/AddEvent";
 import VisibleEventList from "./VisibleEventList";
 import EventDetailsConnector from "./EventDetailsConnector";
 import EventEdit from "./EventEdit/EventEdit"
@@ -9,7 +9,7 @@ import UserEdit from "./UserEdit/UserEdit";
 import UserDetailsConnector from "./UserDetailsConnector";
 import {HashRouter, Route, Switch} from "react-router-dom";
 import Navigation from "./Navigation/Navigation";
-import AddUser from "./containers/AddUser";
+import AddUser from "./Add/AddUser";
 import VisibleUserList from "./VisibleUserList";
 import AddEventNavigation from "./Navigation/AddEventNavigation";
 
