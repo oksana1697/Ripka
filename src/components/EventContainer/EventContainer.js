@@ -1,6 +1,6 @@
 import Event from "../Event/Event";
 import React, { Fragment } from "react";
-import Cover from "../Cover/Cover";
+import Cover from "../Landing/Landing";
 
 import "../../../styles/event.less";
 

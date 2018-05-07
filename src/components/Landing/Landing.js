@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
-import '../../../styles/cover.less';
 import '../../../styles/category.less';
-import { Link } from 'react-router-dom';
+import Navigation from "../Navigation/Navigation";
 /**
- * Represents view of Cover with static image.
+ * Represents view of Landing with static image.
  */
-class Cover extends Component {
+class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -14,11 +13,8 @@ class Cover extends Component {
   render() {
     return (
       <div>
-        <img
-          className="cover"
-          src="http://res.cloudinary.com/ucu/image/upload/v1525165396/communityservicework_nblrnc.png"
-          // src="http://res.cloudinary.com/ucu/image/upload/v1521105623/Volunteering_Hands_sugvjw.png"
-        />
+        <Navigation/>
+        <img className="category__image"/>
         <div className="category__container">
           <a className="category__item">
             <div className="category__item-icon">
@@ -86,4 +82,4 @@ class Cover extends Component {
   }
 }
 
-export default Cover;
+export default Landing;

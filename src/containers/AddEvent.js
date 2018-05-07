@@ -11,7 +11,11 @@ import '../../styles/add.less';
 import '../../styles/common.less';
 import '../../styles/react-datetime-picker.less';
 import AddEventNavigation from "../components/Navigation/AddEventNavigation";
-
+/**
+ * Component is described here.
+ *
+ * @example ./AddEvent.md
+ */
 class AddEvent extends Component {
   static defaultProps = {
     onSuccess() {},

@@ -24,7 +24,7 @@ const App = () => (
             <Route
                 exact path="/" render={() => (
                     <div>
-                        <Navigation/>
+                        {/*<Navigation/>*/}
                         <VisibleEventList/>
 
                     </div>
