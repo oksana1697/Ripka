@@ -1,6 +1,12 @@
 .add {
   position: relative;
   margin: 0;
+
+  &__user{
+    background: #8080801c;
+    padding: 45px 0;
+  }
+
   &__categories {
     margin-left: 10px;
     color: #3b5ace;
@@ -206,6 +212,7 @@
     margin-left: 10px;
     padding: 6.5px;
     outline: 0;
+    background: white;
   }
   &__photo-container {
     //width: 300px;
@@ -219,5 +226,50 @@
   }
   &__icon_legal-paper {
     content: url('icons/legal-paper.svg');
+  }
+  &__user {
+    &_block{
+      position: relative;
+      margin-top: 10px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+      border: 1px solid #80808030;
+      padding-right: 6px;
+      background: white;
+    }
+    &_button{
+      border-radius: 6px;
+      width: 100%;
+      margin-left: 10px;
+      height: 35px;
+      color: white;
+      border: 0;
+      background: #40c4cf;
+      font-weight: bold;
+      font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    &_container {
+      margin: auto;
+      display: block;
+      max-width: 200px;
+      //background: #5e5e5e;
+    }
+    &_title{
+      margin: 0;
+      padding: 15px;
+      color: black;
+      font-weight: 500;
+    }
+    &_input_container{
+
+      display: flex;
+        width: 350px;
+        margin: auto;
+        margin-bottom: 20px;
+
+    }
   }
 }

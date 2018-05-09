@@ -12,6 +12,7 @@ import '../../../styles/common.less';
 import '../../../styles/react-datetime-picker.less';
 
 import AddEventNavigation from '../Navigation/NavigationAddUser';
+import NavigationAddEvent from "../Navigation/NavigationAddEvent";
 
 class AddEvent extends Component {
   static defaultProps = {
@@ -66,8 +67,7 @@ class AddEvent extends Component {
 
     return (
       <div>
-        <AddEventNavigation />
-
+        <NavigationAddEvent/>
         <form className="add" onSubmit={this.handleSubmit}>
           {formSubmitted && <div className="add-event__carpet" />}
           <div className="add__title_container">

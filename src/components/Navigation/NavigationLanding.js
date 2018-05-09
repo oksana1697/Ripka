@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../../../styles/navigation.less';
 
-class Navigation extends Component {
+class NavigationLanding extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -53,4 +53,4 @@ class Navigation extends Component {
     }
 }
 
-export default Navigation;
+export default NavigationLanding;

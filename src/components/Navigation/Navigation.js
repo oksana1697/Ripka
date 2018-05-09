@@ -31,12 +31,12 @@ class Navigation extends Component {
               <button className="navigation__search-bar_submit" type="submit">
                  <i className="navigation__search-bar_submit-icon"/>
               </button>
-              <Link to="/events">
-              <button className="navigation__settings_name">EVENTS</button>
-              </Link>
-              <Link to="/users">
-              <button className="navigation__settings_name">USERS</button>
-              </Link>
+              {/*<Link to="/events">*/}
+              {/*<button className="navigation__settings_name">EVENTS</button>*/}
+              {/*</Link>*/}
+              {/*<Link to="/users">*/}
+              {/*<button className="navigation__settings_name">USERS</button>*/}
+              {/*</Link>*/}
               <Link className="navigation__button_right" to="/addevent">
                 <button className="navigation__button">POST AN EVENT
                 </button>
