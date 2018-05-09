@@ -7,7 +7,8 @@ import PhotoUpload from '../PhotoUpload';
 import { getIsUserProcessing } from '../../reducers/index';
 
 import '../../../styles/common.less';
-import '../../../styles/add.less'
+import '../../../styles/add.less';
+import NavigationAddUser from "../Navigation/NavigationAddUser";
 
 class AddUser extends Component {
   static defaultProps = {
@@ -58,7 +59,9 @@ class AddUser extends Component {
       formSubmitted,
     } = this.state;
     return (
-      <form className="add" onSubmit={this.handleSubmit}>
+        <div>
+        <NavigationAddUser/>
+        <form className="add" onSubmit={this.handleSubmit}>
         {formSubmitted && <div className="add-event__carpet" />}
         <div className="add__title_container">
           <h1 className="add__title">Create your profile</h1>
@@ -123,6 +126,7 @@ class AddUser extends Component {
             <button className="add__submit">Add User</button>
         </div>
       </form>
+        </div>
     );
   }
 }
@@ -133,3 +137,4 @@ export default connect(
   }),
   { addUser },
 )(AddUser);
+

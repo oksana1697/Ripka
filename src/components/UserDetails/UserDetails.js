@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 
 import '../../../styles/user-details.less';
+import Navigation from "../Navigation/Navigation";
 
 class UserDetails extends Component {
     render() {
@@ -11,7 +12,11 @@ class UserDetails extends Component {
             return 'Loading...';
         }
         return (
+            <div>
+            <Navigation/>
+
             <div className="user-details__main-container">
+
                 <div className="user-details__left-side">
                     <div className="user-details__photo">
                         <img src={user.photo}/>
@@ -82,6 +87,7 @@ class UserDetails extends Component {
                         <p className="user-details__content">{user.contacts}</p>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }

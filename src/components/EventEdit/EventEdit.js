@@ -7,6 +7,7 @@ import {editEvent} from "../../actions/edit";
 import {getEventById} from "../../reducers/events";
 import PhotoUpload from "../PhotoUpload";
 import { fetchEvent } from '../../actions/fetch';
+import Navigation from "../Navigation/Navigation";
 
 class EventEdit extends Component {
     constructor(props) {
@@ -66,7 +67,10 @@ class EventEdit extends Component {
         } = this.state;
         // const {event} = this.props;
         return (
-            <form className="add" onSubmit={this.handleSubmit}>
+            <div>
+                <Navigation/>
+
+                <form className="add" onSubmit={this.handleSubmit}>
                 {formSubmitted && <div className="add__carpet"/>}
                 <div className="add__title_container">
                     <h1 className="add__title">Edit event details</h1>
@@ -143,6 +147,7 @@ class EventEdit extends Component {
                     <button className="add__submit">Save changes</button>
                 </div>
             </form>
+            </div>
         );
     }
 }
