@@ -1,71 +1,141 @@
+@font-face {
+  font-family: Gotham;
+  src: url(font/GothamBook.ttf);
+}
+@font-face {
+  font-family: Gotham;
+  src: url(font/GothamBold.ttf);
+  font-weight: bold;
+}
+
 .user {
 
   &__block {
     display: flex;
     flex-wrap: wrap;
+    max-width: 700px;
   }
 
   &__info-container {
-    margin-top: 10px;
-    margin-left: 5px;
-    padding: 15px 10px 0 10px;
-    display: flex;
-    flex-direction: row;
-
+    margin-top: 25px;
   }
 
   &__photo {
-    height: 100px;
-    object-fit: scale-down;
-    margin-right: 15px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #e5e6e9;
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    //cursor: pointer;
   }
+  &__btn{
+    line-height: 2.4;
+    color: #40c4cf;
+    background: #fff;
+    border: 2px solid #40c4cf;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    width: 125px;
+    margin-top: 25px;
+    cursor: pointer;
 
-  &__container {
-    margin: 15px;
-    display: flex;
-    flex-direction: column;
-    width: 365px;
-    height: 200px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.04);
-  }
-
-  &__name {
-    font-family: "Gotham", "Helvetica", "Arial", sans-serif;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    color: #464646;
-    margin: 0 10px 0 10px;
-    padding: 15px 15px 3px 0;
-    border-bottom: 1px solid #b3b3b3;
-
-    &:hover {
-      color: #1e214a;
+    &:hover{
+      background: #d9f3f5;
     }
   }
 
+  &__container {
+    margin: 0 10px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #e5e6e9;
+    width: 209px;
+    background-color: #fff;
+    box-shadow: inset 0 1px 2px 0 #fafafa;
+    text-align: center;
+    box-sizing: border-box;
+
+    &:hover{
+      background-color: #fafafa;
+    }
+  }
+
+  &__name {
+    font-family: Gotham, Helvetica, Arial, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 17px;
+    line-height: 20px;
+    color: #626977;
+    //cursor: pointer;
+    font-weight: bold;
+    //&:hover {
+    //  color: #23367b;
+    //}
+  }
+
   &__location {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 300;
+    font-family: Gotham, Helvetica, Arial, sans-serif;
+    margin: 8px auto 12px;
     color: #9398a1;
-    font-family: "Gotham", "Helvetica", "Arial", sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 1;
+    text-align: center;
   }
 
-  &__contacts {
-    margin: 0 0 5px 0;
-    font-size: 15px;
-    font-weight: 300;
-    font-family: "Gotham", "Helvetica", "Arial", sans-serif;
+  &__subnav{
+    background-color: #89d8e0;
+    padding-left: 45px;
+    padding-right: 45px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__signUp{
+    font-family: Gotham, Helvetica, Arial, sans-serif;
+    color: #fafafb;
+    font-size: 12px;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    line-height: 35px;
+    cursor: pointer;
+
+  }
+  &__logIn{
+    font-family: Gotham, Helvetica, Arial, sans-serif;
+    color: #fafafb;
+    font-size: 12px;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    line-height: 35px;
+    cursor: pointer;
+  }
+  &__divider{
+    border-right: 1px solid #fafafb;
+    margin: 9px 10px 10px 10px;
+    height: 16px;
+  }
+  &__content{
+    max-width: 930px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-top: 30px;
   }
 
-  &__time {
-    text-align: right;
-    margin: 0;
-    font-size: 14px;
-    font-weight: 300;
-    color: #9398a1;
-    font-family: "Gotham", "Helvetica", "Arial", sans-serif;
+  &__cart{
+    width: 233px;
+    height: 400px;
+    background-color: #2e8ab8;
   }
 }
 

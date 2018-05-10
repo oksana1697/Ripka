@@ -13,22 +13,15 @@ const User = ({
   photo,
 }) => (
   <div className="user__container">
-    <NavLink
-      to={'users/' + id}
-      activeStyle={{
-        textDecoration: 'none',
-        color: 'black',
-      }}
-      className="user__name"
-    >
-      {name}
-    </NavLink>
     <div className="user__info-container">
       <img src={photo} className="user__photo" />
-      <div className="user__info">
-        <p className="user__contacts">{contacts}</p>
+        <p className="user__name">{name}</p>
         <p className="user__location">{location}</p>
-      </div>
+      <NavLink
+          to={'users/' + id}
+      >
+      <button className="user__btn">Show more</button>
+      </NavLink>
     </div>
   </div>
 );
