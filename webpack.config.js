@@ -50,7 +50,11 @@ module.exports = {
               loader: 'svg-url-loader',
               options: {}
           }
-      }
+      },
+        {
+            test: /\.(woff|woff2|eot|ttf|otf)$/,
+            loader: "file-loader"
+        }
     ]
   }
 };
