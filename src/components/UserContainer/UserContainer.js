@@ -12,7 +12,7 @@ const UserContainer = ({users, onUserClick}) => (
             <span className='user__divider'></span>
             <button className='user__logIn'>Log in</button>
         </div>
-        <h1 className="user-details__title user-details__title_main"> Users</h1>
+        <h1 className="user-details__title"> Users</h1>
         <div className="user__content">
             <div className="user__block">
                 {users.map(user => (
