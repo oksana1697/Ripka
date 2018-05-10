@@ -55,7 +55,7 @@ class UserDetails extends Component {
                                     <span className="user-details__button-descr">Bookmark</span>
                                 </button>
                                 <button className="user-details__button">
-                                    <img className="event-details__icon-flag"/>
+                                    <img className="user-details__icon-flag"/>
                                     <span className="user-details__button-descr">Report</span>
                                 </button>
                             </div>
