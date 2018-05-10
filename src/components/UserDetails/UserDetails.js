@@ -19,20 +19,26 @@ class UserDetails extends Component {
                 <div className="user-details__main-container">
                     <div className='user-details__subnav'>
                         <div className='user-details__left'>
-                            <NavLink
-                                to={'/users/edit/' + user.id}
-                            >
-                                <button className="user-details__btn">Edit user</button>
-                            </NavLink>
-                            <button
-                                className="user-details__btn"
-                                onClick={() => {
-                                    props.deleteUser(user.id);
-                                    this.props.onSuccess();
-                                }}
-                            >
-                                Delete user
-                            </button>
+                            <div className='user-details__edit'>
+                                <img className="event-details__icon-edit"/>
+                                <NavLink
+                                    to={'/users/edit/' + user.id}
+                                >
+                                    <button className="user-details__btn">Edit user</button>
+                                </NavLink>
+                            </div>
+                            <div className='user-details__delete'>
+                                <img className="event-details__icon-delete"/>
+                                <button
+                                    className="user-details__btn"
+                                    onClick={() => {
+                                        props.deleteUser(user.id);
+                                        this.props.onSuccess();
+                                    }}
+                                >
+                                    Delete user
+                                </button>
+                            </div>
                         </div>
                         <div className='user-details__right'>
                             <button className='user__signUp'>Sign up</button>

@@ -39,11 +39,6 @@
     border-top: 1px solid #eaebed;
     padding-top: 15px;
     margin-top: 15px;
-
-    //display: flex;
-    //flex-direction: row;
-    //width: 70%;
-    //margin: auto;
   }
 
   &__button-descr {
@@ -63,12 +58,27 @@
     height: 35px;
     color: #fafafb;
     text-transform: uppercase;
+  }
 
-    &:active {
-      color: #40c4cf;
-    }
+  &__edit{
+    display: inline-block;
     &:hover{
-      color: #40c4cf;
+      .event-details__btn{
+        color: #40c4cf;}
+        .event-details__icon-edit{
+          content: url("icons/edit-blue.svg");
+        }
+    }
+  }
+
+  &__delete{
+    display: inline-block;
+    &:hover{
+      .event-details__btn{
+      color: #40c4cf;}
+      .event-details__icon-delete{
+        content: url("icons/delete-blue.svg");
+      }
     }
   }
 
@@ -78,15 +88,8 @@
     font-size: 13px;
     cursor: pointer;
     margin-right:10px;
-    //height: 35px;
-    //width: 210px;
-    //text-transform: uppercase;
-    //color: #40c4cf;
-    //text-align: center;
-    //border-radius: 10px;
     background: transparent;
     border: none;
-    //margin: 10px;
     vertical-align: middle;
     color: #9398a1;
     display: inline-block;
@@ -111,15 +114,8 @@
     font-size: 13px;
     cursor: pointer;
     margin-right:10px;
-    //height: 35px;
-    //width: 210px;
-    //text-transform: uppercase;
-    //color: #40c4cf;
-    //text-align: center;
-    //border-radius: 10px;
     background: transparent;
     border: none;
-    //margin: 10px;
     vertical-align: middle;
     color: #9398a1;
     display: inline-block;
@@ -151,14 +147,6 @@
     min-height: 215px;
     border-radius: 10px;
     border: 1px solid #eaebed;
-    //z-index: 1;
-    //border: 1px solid #fff;
-    //border-radius: 10px;
-    //margin-bottom: 15px;
-    //width: 170px;
-    //height: 170px;
-    //width: 100%;
-    //box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.11);
 
   }
 
@@ -170,7 +158,7 @@
   }
   &__subnav{
     background-color: #89d8e0;
-    padding-left: 45px;
+    padding-left: 120px;
     padding-right: 45px;
     display: flex;
     justify-content: space-between;
@@ -269,11 +257,11 @@
     vertical-align: middle;
 
   }
-  &__left{
+  &__left-info{
     width: 56%;
     float: left;
   }
-  &__right{
+  &__right-info{
     margin-left: 10%;
     width: 32%;
     float: left;
@@ -344,6 +332,18 @@
   display: inline-block;
   vertical-align: middle;
   content: url("icons/legal-paper.svg");
+}
+.event-details__icon-edit{
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  content: url("icons/edit.svg");
+}
+.event-details__icon-delete{
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  content: url("icons/delete.svg");
 }
 
 .event-details__icon-calendar {
