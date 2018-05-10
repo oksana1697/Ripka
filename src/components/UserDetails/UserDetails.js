@@ -4,6 +4,7 @@ import {NavLink} from 'react-router-dom';
 import '../../../styles/user-details.less';
 import Navigation from "../Navigation/Navigation";
 import '../../../styles/user.less'
+import NavigationLanding from "../Navigation/NavigationLanding";
 
 class UserDetails extends Component {
     render() {
@@ -14,7 +15,7 @@ class UserDetails extends Component {
         }
         return (
             <div>
-            <Navigation/>
+            <NavigationLanding/>
 
             <div className="user-details__main-container">
                 <div className='user-details__subnav'>
