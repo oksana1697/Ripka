@@ -23,20 +23,26 @@ class EventDetails extends Component {
                 <div className="event-details__main-container">
                     <div className='event-details__subnav'>
                         <div className='event-details__left'>
-                            <NavLink
-                                to={'/edit/' + event.id}
-                            >
-                                <button className="event-details__btn">Edit event</button>
-                            </NavLink>
-                            <button
-                                className="event-details__btn"
-                                onClick={() => {
-                                    props.deleteEvent(event.id);
-                                    this.props.onSuccess();
-                                }}
-                            >
-                                Delete event
-                            </button>
+                            <div className='event-details__edit'>
+                                <img className="event-details__icon-edit"/>
+                                <NavLink
+                                    to={'/edit/' + event.id}
+                                >
+                                    <button className="event-details__btn">Edit event</button>
+                                </NavLink>
+                            </div>
+                            <div className='event-details__delete'>
+                                <img className="event-details__icon-delete"/>
+                                <button
+                                    className="event-details__btn"
+                                    onClick={() => {
+                                        props.deleteEvent(event.id);
+                                        this.props.onSuccess();
+                                    }}
+                                >
+                                    Delete event
+                                </button>
+                            </div>
                         </div>
                         <div className='event-details__right'>
                             <button className='event__signUp'>Sign up</button>
@@ -66,7 +72,7 @@ class EventDetails extends Component {
                         </div>
                     </div>
                     <div className="event-details__info">
-                        <div className="event-details__left">
+                        <div className="event-details__left-info">
                             <div className="event-details__in">
                                 <div className="event-details__title-info">
                                     <img className="event-details__icon-push-pin"/>
@@ -101,7 +107,7 @@ class EventDetails extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="event-details__right">
+                        <div className="event-details__right-info">
                             <img className="event-details__photo" src={event.photo}/>
                             <div className="event-details__in">
                                 <div className="event-details__title-info">
