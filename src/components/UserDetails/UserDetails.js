@@ -47,7 +47,6 @@ class UserDetails extends Component {
                         </div>
                     </div>
                     <div className="user-details__big">
-                        <div className="user-details__mn">
                             <img className="user-details__photo" src={user.photo}/>
                             <h1 className="user-details__name">{user.name}</h1>
                             <div className="user-details__block-row">
@@ -60,7 +59,6 @@ class UserDetails extends Component {
                                     <span className="user-details__button-descr">Report</span>
                                 </button>
                             </div>
-                        </div>
                     </div>
                     <div className="user-details__info">
                         <div className="user-details__in">
