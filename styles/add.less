@@ -239,10 +239,10 @@
       background: white;
     }
     &_button{
-      border-radius: 6px;
+      border-radius: 10px;
       width: 100%;
       margin-left: 10px;
-      height: 35px;
+      height: 38px;
       color: white;
       border: 0;
       background: #40c4cf;
@@ -250,6 +250,13 @@
       font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 16px;
       cursor: pointer;
+      &:hover {
+        background: rgba(62, 190, 201, 0.41);
+      }
+      &:focus {
+        outline: 0;
+      }
+
     }
     &_container {
       margin: auto;
@@ -259,7 +266,7 @@
     }
     &_title{
       margin: 0;
-      padding: 15px;
+      padding: 25px;
       color: black;
       font-weight: 500;
     }

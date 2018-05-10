@@ -8,11 +8,19 @@
     align-items: center;
   }
   &__subnavigation {
-    //width: 500px;
-    //margin-lef: auto;
+    margin-top: 30px;
+    margin-left: 20px;
     color: #504b4d;
-    padding: 2%;
-    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    &_span{
+      margin-left: 20px;
+      color: #504b4d;
+      margin-bottom: 35px;
+      display: block;
+      margin-right: 10px;
+
+    }
     &_inline{
       display: block;
     }
@@ -27,7 +35,6 @@
       border-radius: 10px;
       background: white;
       min-width: 150px;
-      //margin-right: 20px;
       color: #40c4cf;
       font-weight: bold;
       height: 45px;
@@ -35,6 +42,9 @@
       display: inline-block;
       &:hover{
         background: rgba(68, 220, 230, 0.12); ;
+      }
+      &:focus {
+        outline: 0;
       }
     }
   }
@@ -61,6 +71,13 @@
     border-radius: 50%;
     background: #d9f3f5;
     line-height: 80px;
+  }
+  &__item-icon-check {
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    vertical-align: middle;
+    content: url('icons/food.svg');
   }
   &__item-icon-food {
     width: 40px;

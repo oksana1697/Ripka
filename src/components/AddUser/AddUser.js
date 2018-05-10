@@ -75,13 +75,13 @@ class AddUser extends Component {
 
         <label className="add__user_input_container">
           {/*<span className="add__field">YOUR NAME</span>*/}
-          <input
+          <input required
             className="add__input"
             placeholder="First Name"
             value={name}
             onChange={this.changeHandler('name')}
         />
-            <input
+            <input required
                 className="add__input"
                 placeholder="Last Name"
                 value={name}
@@ -90,7 +90,7 @@ class AddUser extends Component {
         </label>
         <label className="add__user_input_container">
           {/*<span className="add__field">YOUR LOCATION</span>*/}
-          <input
+          <input required
             className="add__input"
             placeholder="Location"
             value={location}
@@ -99,7 +99,7 @@ class AddUser extends Component {
         </label>
         <label className="add__user_input_container">
           {/*<span className="add__field">YOUR CONTACTS</span>*/}
-          <input
+          <input required
             className="add__input"
             placeholder="Contacts"
             value={contacts}
@@ -133,6 +133,7 @@ class AddUser extends Component {
         <label className="add__user_input_container">
             <button className="add__user_button">Add User</button>
         </label>
+
         </div>
       </form>
 

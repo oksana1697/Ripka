@@ -85,7 +85,7 @@ class AddEvent extends Component {
 
           <label className="add__input_container">
             <span className="add__field">Event name</span>
-            <input
+            <input required
               className="add__input"
               placeholder="Event Name"
               value={name}
@@ -94,7 +94,7 @@ class AddEvent extends Component {
           </label>
           <div className="add__input_container">
             <p className="add__field">ORGANIZATION NAME</p>
-            <input
+            <input required
               className="add__input"
               placeholder="Organization Name"
               value={organization}
@@ -120,7 +120,7 @@ class AddEvent extends Component {
 
           <div className="add__input_container">
             <p className="add__field">LOCATION</p>
-            <input
+            <input required
               className="add__input"
               placeholder="Location"
               value={location}
@@ -129,7 +129,7 @@ class AddEvent extends Component {
           </div>
           <div className="add__input_container">
             <p className="add__field">CONTACTS</p>
-            <input
+            <input required
               className="add__input"
               placeholder="Contacts"
               value={contacts}
