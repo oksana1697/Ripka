@@ -100,6 +100,7 @@ class UserDetails extends Component {
                 {/*</div>*/}
                 {/*<p className="user-details__content">{user.interests}</p>*/}
             </div>
+            </div>
         );
     }
 }
