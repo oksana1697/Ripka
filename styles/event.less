@@ -1,47 +1,92 @@
+@font-face {
+  font-family: Gotham;
+  src: url(font/GothamBook.ttf);
+}
+@font-face {
+  font-family: Gotham;
+  src: url(font/GothamBold.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: GothamMedium;
+  src: url(font/GothamMedium.ttf);
+}
+
+
 .event {
   &__block {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column;
+    max-width: 700px;
+    //flex-wrap: wrap;
+    //justify-content: space-around;
+
   }
 
   &__photo {
-    object-fit: scale-down;
-    height: 200px;
-    width: 265px;
+    margin-right: 15px;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #f5f5f6;
+    border-radius: 10px;
+    display: inline-block;
+    //object-fit: scale-down;
+    //height: 200px;
+    //width: 265px;
+  }
+  &__info {
+    display: inline-block;
+    margin-left: -70px;
+    width: 40%;
   }
 
   &__container {
-    border: 1px solid #eeeeee;
-    border-radius: 4px;
-    padding: 0 20px 13px;
-    margin: 15px;
+    //border: 1px solid #eeeeee;
+    //border-radius: 4px;
+    //padding: 0 20px 13px;
+    //margin: 15px;
     display: flex;
-    flex-direction: column;
-    width: 265px;
-  }
-  &__container:hover {
-    transform: scale(1.1);}
-
-    &__name {
-      font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    color: #464646;
-    margin: 0;
+    //flex-direction: column;
+    //width: 265px;
+    padding: 40px 15px 39px 15px;
+    cursor: pointer;
+    justify-content: space-between;
+    border-bottom: 1px solid #f5f5f6;
+    //box-sizing: border-box;
 
     &:hover {
-      color: #1e214a;
+      background: #fafafa;
     }
   }
+  //&__container:hover {
+  //  transform: scale(1.1);}
 
+  &__name {
+    //  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    //text-decoration: none;
+    font-size: 16px;
+    font-family: GothamMedium, Helvetica, Arial, sans-serif;
+    //font-weight: 600;
+    //color: #464646;
+    //margin: 0;
+    color: #3b5ace;
+    margin: 1px 0 0 0;
+
+    //&:hover {
+    //  color: #1e214a;
+    //}
+  }
+&__location-block{
+  vertical-align: middle;
+}
   &__location {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 300;
+    margin: 5px 0 0 0;
+    font-size: 13px;
     color: #9398a1;
-    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Gotham, Helvetica, Arial, sans-serif;
+    display: inline-block;
+    vertical-align: middle;
+
   }
 
   &__time {
@@ -54,11 +99,97 @@
   }
 
   &__organization {
-    margin: 0;
-    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    //font-family: "Gotham", "Helvetica", "Arial", sans-serif;
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 15px;
+    font-family: Gotham, Helvetica, Arial, sans-serif;
     color: #9398a1;
+    margin: 10px 0 5px 0;
+  }
+
+  &__subnav {
+    background-color: #89d8e0;
+    padding-left: 45px;
+    padding-right: 45px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__signUp {
+    font-family: Gotham, Helvetica, Arial, sans-serif;
+    color: #fafafb;
+    font-size: 12px;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    line-height: 35px;
+    cursor: pointer;
+
+  }
+  &__logIn {
+    font-family: Gotham, Helvetica, Arial, sans-serif;
+    color: #fafafb;
+    font-size: 12px;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    line-height: 35px;
+    cursor: pointer;
+  }
+  &__divider {
+    border-right: 1px solid #fafafb;
+    margin: 9px 10px 10px 10px;
+    height: 16px;
+  }
+  &__title {
+    background-color: #fafafa;
+    color: #2c374a;
+    font-size: 22px;
+    padding: 30px 192px;
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.59091;
+    font-family: Gotham, Helvetica, Arial, sans-serif;
+  }
+  &__content {
+    max-width: 930px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-top: 30px;
+  }
+
+  &__btn {
+    line-height: 2.4;
+    color: #40c4cf;
+    background: #fff;
+    border: 2px solid #40c4cf;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    //position: absolute;
+    //top: 30px;
+    //right: 30px;
+    margin-top: initial;
+    width: 150px;
+
+    &:hover {
+      background: #d9f3f5;
+    }
+  }
+
+  &__icon-location {
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    content: url("icons/location-gray.svg");
+
+  }
+  &__main{
+    overflow: hidden;
   }
 }
+
