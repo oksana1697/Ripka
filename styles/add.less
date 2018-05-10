@@ -1,6 +1,21 @@
+@font-face {
+  font-family: Gotham;
+  src: url(font/GothamBook.ttf);
+}
+@font-face {
+  font-family: Gotham;
+  src: url(font/GothamBold.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: GothamMedium;
+  src: url(font/GothamMedium.ttf);
+}
+
 .add {
   position: relative;
   margin: 0;
+  font-family: Gotham, Helvetica, Arial, sans-serif;
 
   &__user{
     background: #8080801c;
@@ -56,6 +71,7 @@
     color: #504b4d;
     padding: 2%;
     margin-top: 0;
+
   }
   &__subtitle_overview-grey {
     width: 600px;
@@ -64,7 +80,7 @@
     padding-top: 30px;
     font-weight: 500;
     color: #626977;
-    font-family: 'Gotham', 'Helvetica', 'Arial', sans-serif;
+    font-family: Gotham, Helvetica, Arial, sans-serif;
     &:before {
       color: black;
       content: '1.Job details  ';
@@ -72,8 +88,7 @@
   }
 
   &__subtitle {
-    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial,
-      sans-serif;
+    font-family: Gotham, Helvetica, Arial, sans-serif;
     color: #626977;
     font-size: 1.125em;
     font-weight: 500;
@@ -141,7 +156,7 @@
   &__field {
     text-transform: uppercase;
     color: #626977;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Gotham, Helvetica, Arial, sans-serif;
     font-size: 12px;
     font-weight: bold;
     margin: 10px;
@@ -189,8 +204,7 @@
     border-radius: 6px;
     color: #40c4cf;
     font-weight: bold;
-    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial,
-      sans-serif;
+    font-family: Gotham, Helvetica, Arial, sans-serif;
     font-size: 12px;
     text-align: center;
     cursor: pointer;
@@ -247,7 +261,7 @@
       border: 0;
       background: #40c4cf;
       font-weight: bold;
-      font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: Gotham, Helvetica, Arial, sans-serif;
       font-size: 16px;
       cursor: pointer;
       &:hover {
