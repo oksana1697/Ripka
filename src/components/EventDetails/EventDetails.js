@@ -77,10 +77,6 @@ class EventDetails extends Component {
                                     <h6 className="event-details__story-title">Date & Time</h6>
                                     <p className="event-details__story">{formatDate(event.time)}</p>
                                 </div>
-                                {/*<div className="event-details__info-cont">*/}
-                                {/*<h6 className="event-details__story-title">Location</h6>*/}
-                                {/*<p className="event-details__story">{event.location}</p>*/}
-                                {/*</div>*/}
                                 <div className="event-details__info-cont">
                                     <h6 className="event-details__story-title">Categories</h6>
                                     <p className="event-details__story">Nonprofit</p>
@@ -128,47 +124,6 @@ class EventDetails extends Component {
                         </div>
                     </div>
                 </div>
-                {/*<div className="block">*/}
-                {/*<div className="event-details__title_container">*/}
-                {/*<div className="event-details__block-column">*/}
-                {/*<h1 className="event-details__title">{event.name}</h1>*/}
-                {/*<h2 className="event-details__subtitle">{event.organization}</h2>*/}
-                {/*<p className="event-details__location">{event.location}</p>*/}
-                {/*</div>*/}
-                {/*</div>*/}
-                {/*<div className="event-details__title_container">*/}
-                {/*<div className="event-details__block-row">*/}
-                {/*<button className="event-details__button">*/}
-                {/*<img className="event-details__icon-heard" />*/}
-                {/*<span className="event-details__button-descr">Bookmark</span>*/}
-                {/*</button>*/}
-                {/*<button className="event-details__button">*/}
-                {/*<img className="event-details__icon-flag" />*/}
-                {/*<span className="event-details__button-descr">Report</span>*/}
-                {/*</button>*/}
-                {/*</div>*/}
-                {/*</div>*/}
-                {/*</div>*/}
-                {/*<div className="block2">*/}
-                {/*<div className="event-details__block-column">*/}
-                {/*<div className="event-details__subtitle_container">*/}
-                {/*<img className="event-details__icon-paper" />*/}
-                {/*<h1 className="event-details__subtitle">Event Overview</h1>*/}
-                {/*</div>*/}
-                {/*<div className="event-details__container">*/}
-                {/*<p className="event-details__content">{event.description}</p>*/}
-                {/*<div className="event-details__subtitle_container">*/}
-                {/*<img className="event-details__icon-calendar" />*/}
-                {/*<h1 className="event-details__subtitle">Date & time</h1>*/}
-                {/*</div>*/}
-                {/*<div className="event-details__subtitle_container">*/}
-                {/*<img className="event-details__icon-contact" />*/}
-                {/*<h1 className="event-details__subtitle">Contacts</h1>*/}
-                {/*<p className="event-details__content">{event.contacts}</p>*/}
-                {/*</div>*/}
-                {/*</div>*/}
-                {/*</div>*/}
-                {/*</div>*/}
             </div>
         );
     }

@@ -1,13 +1,14 @@
-import "../../../styles/add.less";
 import React, {Component} from "react";
-import DateTimePicker from "react-datetime-picker";
+
 import {connect} from "react-redux";
 import {getIsEventProcessing, getIsEventFetching} from "../../reducers";
 import {editEvent} from "../../actions/edit";
 import {getEventById} from "../../reducers/events";
-import PhotoUpload from "../PhotoUpload";
 import { fetchEvent } from '../../actions/fetch';
 import Navigation from "../Navigation/Navigation";
+import PhotoUpload from "../PhotoUpload";
+
+import "../../../styles/add.less";
 
 class EventEdit extends Component {
     constructor(props) {

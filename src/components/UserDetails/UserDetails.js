@@ -49,7 +49,6 @@ class UserDetails extends Component {
                                     <img className="user-details__icon-heard"/>
                                     <span className="user-details__button-descr">Bookmark</span>
                                 </button>
-
                                 <button className="user-details__button">
                                     <img className="event-details__icon-flag"/>
                                     <span className="user-details__button-descr">Report</span>

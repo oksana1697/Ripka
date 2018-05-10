@@ -1,14 +1,15 @@
-import '../../../styles/add.less';
 import React, { Component } from 'react';
-import DateTimePicker from 'react-datetime-picker';
 import { connect } from 'react-redux';
+
 import { getIsUserProcessing, getIsUserFetching } from '../../reducers';
 import { editUser } from '../../actions/edit';
 import { getUserById } from '../../reducers/users';
-import PhotoUpload from '../PhotoUpload';
 import { fetchUser } from '../../actions/fetch';
-import Navigation from '../Navigation/Navigation';
+
 import AddEventNavigation from "../Navigation/NavigationAddUser";
+import PhotoUpload from '../PhotoUpload';
+
+import '../../../styles/add.less';
 
 class UserEdit extends Component {
   constructor(props) {

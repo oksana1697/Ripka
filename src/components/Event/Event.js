@@ -34,19 +34,7 @@ const Event = ({
                 <button className="event__btn">Show more</button>
             </NavLink>
         </div>
-        {/*<p className="event__location">{location}</p>*/}
-        {/*<p className="event__time">{date.toFormat("HH:mm")}</p>*/}
-        {/*<NavLink*/}
-        {/*to={"/" + id}*/}
-        {/*activeStyle={{*/}
-        {/*textDecoration: "none",*/}
-        {/*color: "black"*/}
-        {/*}}*/}
-        {/*className="event__name"*/}
-        {/*>*/}
-        {/*{name}*/}
-        {/*</NavLink>*/}
-        {/*<p className="event__organization">{organization}</p>*/}
+
     </div>
 );
 
