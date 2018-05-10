@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { addUser } from '../actions/add';
+import { addUser } from '../../actions/add';
 import { connect } from 'react-redux';
 
-import PhotoUpload from '../components/PhotoUpload';
+import PhotoUpload from '../PhotoUpload';
 
-import { getIsUserProcessing } from '../reducers';
+import { getIsUserProcessing } from '../../reducers/index';
 
-import '../../styles/add.less';
-import '../../styles/common.less';
-import { Link } from 'react-router-dom';
+import '../../../styles/common.less';
+import '../../../styles/add.less';
+import NavigationAddUser from "../Navigation/NavigationAddUser";
 
 class AddUser extends Component {
   static defaultProps = {
@@ -59,27 +59,37 @@ class AddUser extends Component {
       formSubmitted,
     } = this.state;
     return (
-      <form className="add" onSubmit={this.handleSubmit}>
+        <div>
+        <NavigationAddUser/>
+        <form className="add__user" onSubmit={this.handleSubmit}>
         {formSubmitted && <div className="add-event__carpet" />}
-        <div className="add__title_container">
-          <h1 className="add__title">Create your profile</h1>
-        </div>
-        <div className="add__subtitle_container">
-          <img src="http://res.cloudinary.com/drzw6h31n/image/upload/c_scale,h_50,w_50/v1522888001/resume_1_zvj4fa.png" />
-          <h1 className="add__subtitle">Profile Overview</h1>
-        </div>
+        <div className="add__user_block">
+        <div className="add__user_container">
 
-        <label className="add__input_container">
-          <span className="add__field">YOUR NAME</span>
+          <h1 className="add__user_title">Join Ripka</h1>
+        </div>
+        {/*<div className="add__subtitle_container">*/}
+          {/*<img src="http://res.cloudinary.com/drzw6h31n/image/upload/c_scale,h_50,w_50/v1522888001/resume_1_zvj4fa.png" />*/}
+          {/*<h1 className="add__subtitle">Profile Overview</h1>*/}
+        {/*</div>*/}
+
+        <label className="add__user_input_container">
+          {/*<span className="add__field">YOUR NAME</span>*/}
           <input
             className="add__input"
-            placeholder="Name"
+            placeholder="First Name"
             value={name}
             onChange={this.changeHandler('name')}
-          />
+        />
+            <input
+                className="add__input"
+                placeholder="Last Name"
+                value={name}
+                onChange={this.changeHandler('name')}
+            />
         </label>
-        <label className="add__input_container">
-          <span className="add__field">YOUR LOCATION</span>
+        <label className="add__user_input_container">
+          {/*<span className="add__field">YOUR LOCATION</span>*/}
           <input
             className="add__input"
             placeholder="Location"
@@ -87,8 +97,8 @@ class AddUser extends Component {
             onChange={this.changeHandler('location')}
           />
         </label>
-        <label className="add__input_container">
-          <span className="add__field">YOUR CONTACTS</span>
+        <label className="add__user_input_container">
+          {/*<span className="add__field">YOUR CONTACTS</span>*/}
           <input
             className="add__input"
             placeholder="Contacts"
@@ -96,8 +106,8 @@ class AddUser extends Component {
             onChange={this.changeHandler('contacts')}
           />
         </label>
-        <label className="add__input_container">
-          <span className="add__field">ABOUT YOU</span>
+        <label className="add__user_input_container">
+          {/*<span className="add__field">ABOUT YOU</span>*/}
           <textarea
             className="add__textarea"
             placeholder="About"
@@ -106,8 +116,8 @@ class AddUser extends Component {
             required
           />
         </label>
-        <label className="add__input_container">
-          <span className="add__field">YOUR INTERESTS & GOALS</span>
+        <label className="add__user_input_container">
+          {/*<span className="add__field">YOUR INTERESTS & GOALS</span>*/}
           <input
             className="add__input"
             placeholder="Interests & Goals"
@@ -116,14 +126,17 @@ class AddUser extends Component {
             required
           />
         </label>
-        <label className="add__input_container">
-          <span className="add__field">DOWNLOAD PHOTO</span>
+        <label className="add__user_input_container">
+          {/*<span className="add__field">DOWNLOAD PHOTO</span>*/}
           <PhotoUpload photo={URL => this.setState({ photo: URL })} />
         </label>
-        <div className="add__submit-container">
-            <button className="add__submit">Add User</button>
+        <label className="add__user_input_container">
+            <button className="add__user_button">Add User</button>
+        </label>
         </div>
       </form>
+
+        </div>
     );
   }
 }
@@ -134,3 +147,4 @@ export default connect(
   }),
   { addUser },
 )(AddUser);
+

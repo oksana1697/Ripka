@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "./Footer/Footer";
 import Event from "./App";
-import AddEvent from "../containers/AddEvent";
+import AddEvent from "./AddEvent/AddEvent";
 import VisibleEventList from "./VisibleEventList";
 import EventDetailsConnector from "./EventDetailsConnector";
 import EventEdit from "./EventEdit/EventEdit"
@@ -9,9 +9,11 @@ import UserEdit from "./UserEdit/UserEdit";
 import UserDetailsConnector from "./UserDetailsConnector";
 import {HashRouter, Route, Switch} from "react-router-dom";
 import Navigation from "./Navigation/Navigation";
-import AddUser from "../containers/AddUser";
+import AddUser from "./AddUser/AddUser";
 import VisibleUserList from "./VisibleUserList";
-import AddEventNavigation from "./Navigation/AddEventNavigation";
+import AddEventNavigation from "./Navigation/NavigationAddUser";
+import NavigationLanding from "./Navigation/NavigationLanding";
+import Landing from "./Landing/Landing";
 
 /**
  * App js description
@@ -24,9 +26,8 @@ const App = () => (
             <Route
                 exact path="/" render={() => (
                     <div>
-                        <Navigation/>
-                        <VisibleEventList/>
-
+                        <NavigationLanding/>
+                        <Landing/>
                     </div>
                 )}
             />
@@ -36,13 +37,16 @@ const App = () => (
                 <VisibleUserList/>
                 </div>
             </Route>
+            <Route exact path="/events">
+                <div>
+                    <Navigation/>
+                    <VisibleEventList/>
+                </div>
+            </Route>
             <Route exact path="/addevent">
-                {/*<div>*/}
-                {/*<AddEventNavigation/>*/}
                 {props => <AddEvent onSuccess={() => {
                     return props.history.push("/")
                 }}/>}
-                {/*</div>*/}
             </Route>
             <Route exact path="/adduser">
                     {props => <AddUser onSuccess={() => props.history.push("users")}/>

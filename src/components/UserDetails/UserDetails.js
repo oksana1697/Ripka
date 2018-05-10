@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 
 import '../../../styles/user-details.less';
+import Navigation from "../Navigation/Navigation";
 import '../../../styles/user.less'
 
 class UserDetails extends Component {
@@ -12,6 +13,9 @@ class UserDetails extends Component {
             return 'Loading...';
         }
         return (
+            <div>
+            <Navigation/>
+
             <div className="user-details__main-container">
                 <div className='user-details__subnav'>
                     <div className='user-details__left'>

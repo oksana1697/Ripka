@@ -39,6 +39,26 @@
       "time": "2018-05-03T08:11:18.439Z",
       "location": "Київська область, Київ",
       "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+    },
+    {
+      "name": "",
+      "description": "a",
+      "organization": "",
+      "contacts": "",
+      "time": "2018-05-07T19:58:08.745Z",
+      "location": "",
+      "photo": "",
+      "id": 10
+    },
+    {
+      "name": "",
+      "description": "ws",
+      "organization": "",
+      "contacts": "",
+      "time": "2018-05-08T12:27:19.280Z",
+      "location": "",
+      "photo": "",
+      "id": 11
     }
   ],
   "users": [
