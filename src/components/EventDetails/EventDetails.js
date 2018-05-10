@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 import '../../../styles/event-details.less';
 import moment from 'moment';
-import Navigation from "../Navigation/Navigation";
+import Navigation from '../Navigation/Navigation';
+import NavigationLanding from '../Navigation/NavigationLanding';
 /**
  * Represents view of single Event Details
  */
@@ -15,10 +16,8 @@ class EventDetails extends Component {
       return 'Loading...';
     }
     return (
-
       <div className="cont">
-          <Navigation/>
-
+        <NavigationLanding />
         <div className="block">
           <div className="event-details__title_container">
             <div className="event-details__block-column">

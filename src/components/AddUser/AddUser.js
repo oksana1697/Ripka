@@ -8,7 +8,7 @@ import { getIsUserProcessing } from '../../reducers/index';
 
 import '../../../styles/common.less';
 import '../../../styles/add.less';
-import NavigationAddUser from "../Navigation/NavigationAddUser";
+import NavigationAddUser from '../Navigation/NavigationAddUser';
 
 class AddUser extends Component {
   static defaultProps = {
@@ -41,7 +41,7 @@ class AddUser extends Component {
     const { formSubmitted, ...user } = this.state;
     addUser(user);
     this.setState({ formSubmitted: true });
-      this.props.onSuccess()
+    this.props.onSuccess();
   };
 
   changeHandler = property => ev => {
@@ -59,85 +59,76 @@ class AddUser extends Component {
       formSubmitted,
     } = this.state;
     return (
-        <div>
-        <NavigationAddUser/>
+      <div>
+        <NavigationAddUser />
         <form className="add__user" onSubmit={this.handleSubmit}>
-        {formSubmitted && <div className="add-event__carpet" />}
-        <div className="add__user_block">
-        <div className="add__user_container">
+          {formSubmitted && <div className="add-event__carpet" />}
+          <div className="add__user_block">
+            <div className="add__user_container">
+              <h1 className="add__user_title">Join Ripka</h1>
+            </div>
 
-          <h1 className="add__user_title">Join Ripka</h1>
-        </div>
-        {/*<div className="add__subtitle_container">*/}
-          {/*<img src="http://res.cloudinary.com/drzw6h31n/image/upload/c_scale,h_50,w_50/v1522888001/resume_1_zvj4fa.png" />*/}
-          {/*<h1 className="add__subtitle">Profile Overview</h1>*/}
-        {/*</div>*/}
-
-        <label className="add__user_input_container">
-          {/*<span className="add__field">YOUR NAME</span>*/}
-          <input required
-            className="add__input"
-            placeholder="First Name"
-            value={name}
-            onChange={this.changeHandler('name')}
-        />
-            <input required
+            <label className="add__user_input_container">
+              <input
+                required
+                className="add__input"
+                placeholder="First Name"
+                value={name}
+                onChange={this.changeHandler('name')}
+              />
+              <input
+                required
                 className="add__input"
                 placeholder="Last Name"
                 value={name}
                 onChange={this.changeHandler('name')}
-            />
-        </label>
-        <label className="add__user_input_container">
-          {/*<span className="add__field">YOUR LOCATION</span>*/}
-          <input required
-            className="add__input"
-            placeholder="Location"
-            value={location}
-            onChange={this.changeHandler('location')}
-          />
-        </label>
-        <label className="add__user_input_container">
-          {/*<span className="add__field">YOUR CONTACTS</span>*/}
-          <input required
-            className="add__input"
-            placeholder="Contacts"
-            value={contacts}
-            onChange={this.changeHandler('contacts')}
-          />
-        </label>
-        <label className="add__user_input_container">
-          {/*<span className="add__field">ABOUT YOU</span>*/}
-          <textarea
-            className="add__textarea"
-            placeholder="About"
-            value={description}
-            onChange={this.changeHandler('description')}
-            required
-          />
-        </label>
-        <label className="add__user_input_container">
-          {/*<span className="add__field">YOUR INTERESTS & GOALS</span>*/}
-          <input
-            className="add__input"
-            placeholder="Interests & Goals"
-            value={interests}
-            onChange={this.changeHandler('interests')}
-            required
-          />
-        </label>
-        <label className="add__user_input_container">
-          {/*<span className="add__field">DOWNLOAD PHOTO</span>*/}
-          <PhotoUpload photo={URL => this.setState({ photo: URL })} />
-        </label>
-        <label className="add__user_input_container">
-            <button className="add__user_button">Add User</button>
-        </label>
-
-        </div>
-      </form>
-
-        </div>
+              />
+            </label>
+            <label className="add__user_input_container">
+              <input
+                required
+                className="add__input"
+                placeholder="Location"
+                value={location}
+                onChange={this.changeHandler('location')}
+              />
+            </label>
+            <label className="add__user_input_container">
+              <input
+                required
+                className="add__input"
+                placeholder="Contacts"
+                value={contacts}
+                onChange={this.changeHandler('contacts')}
+              />
+            </label>
+            <label className="add__user_input_container">
+              <textarea
+                className="add__textarea"
+                placeholder="About Me"
+                value={description}
+                onChange={this.changeHandler('description')}
+                required
+              />
+            </label>
+            <label className="add__user_input_container">
+              <input
+                className="add__input"
+                placeholder="Interests & Goals"
+                value={interests}
+                onChange={this.changeHandler('interests')}
+                required
+              />
+            </label>
+            <label className="add__user_input_container">
+              <PhotoUpload photo={URL => this.setState({ photo: URL })} />
+            </label>
+            <label className="add__user_input_container">
+              <button className="add__user_button">Add User</button>
+            </label>
+          </div>
+        </form>
+      </div>
     );
   }
 }
@@ -148,4 +139,3 @@ export default connect(
   }),
   { addUser },
 )(AddUser);
-
