@@ -57,3 +57,11 @@ export const editEventFailure = id => ({ type: EDIT_EVENT_FAILURE, id });
 export const editUserStart = id => ({ type: EDIT_USER_START, id });
 export const editUserSuccess = id => ({ type: EDIT_USER_SUCCESS, id });
 export const editUserFailure = id => ({ type: EDIT_USER_FAILURE, id });
+
+export const searchUsersSuccess = id => ({ type: SEARCH_USERS_SUCCESS, id });
+export const searchUsersStart = id => ({ type: SEARCH_USERS_START, id });
+export const searchUsersFailure = id => ({ type: SEARCH_USERS_FAILURE, id });
+
+export const searchEventsSuccess = id => ({ type: SEARCH_EVENTS_SUCCESS, id });
+export const searchEventsStart = id => ({ type: SEARCH_EVENTS_START, id });
+export const searchEventsFailure = id => ({ type: SEARCH_EVENTS_FAILURE, id });

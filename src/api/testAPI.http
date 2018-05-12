@@ -26,9 +26,9 @@ Content-type: application/json
 ###
 
 ###
-GET http://localhost:3000/users
+GET http://localhost:3000/users?q=sleeping
 
 Content-type: application/json
 
-{id:1}
+{"id":1}
 ###

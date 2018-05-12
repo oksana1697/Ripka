@@ -4,19 +4,6 @@ React component example:
 <div className="user-details__main-container">
   <div className="user-details__big">
     <div className="user-details__mn">
-
-      <h1 className="user-details__name">Maksik Chervonenko</h1>
-      <div className="user-details__block-row">
-        <button className="user-details__button">
-          <img className="user-details__icon-heard" />
-          <span className="user-details__button-descr">Bookmark</span>
-        </button>
-
-        <button className="user-details__button">
-          <img className="event-details__icon-flag" />
-          <span className="user-details__button-descr">Report</span>
-        </button>
-      </div>
     </div>
   </div>
   <div className="user-details__info">

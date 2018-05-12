@@ -14,6 +14,9 @@ import VisibleUserList from "./VisibleUserList";
 import AddEventNavigation from "./Navigation/NavigationAddUser";
 import NavigationLanding from "./Navigation/NavigationLanding";
 import Landing from "./Landing/Landing";
+// TODO: form validation
+// TODO: fix rediraction
+// TODO: realise search function(ask family tree)
 
 /**
  * App js description
@@ -33,13 +36,13 @@ const App = () => (
             />
             <Route exact path="/users">
                 <div>
-                <Navigation/>
+                <NavigationLanding/>
                 <VisibleUserList/>
                 </div>
             </Route>
             <Route exact path="/events">
                 <div>
-                    <Navigation/>
+                    <NavigationLanding/>
                     <VisibleEventList/>
                 </div>
             </Route>
