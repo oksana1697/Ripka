@@ -10,9 +10,12 @@ import {
   FETCH_EVENTS_FAILURE,
   FETCH_EVENTS_START,
   DELETE_EVENT_SUCCESS,
-  EDIT_EVENT_SUCCESS, EDIT_EVENT_FAILURE, EDIT_EVENT_START
+  EDIT_EVENT_SUCCESS,
+  EDIT_EVENT_FAILURE,
+  EDIT_EVENT_START,
+  SEARCH_EVENTS_SUCCESS,
+  SEARCH_EVENTS_FAILURE,
 } from '../actions/actionTypes';
-
 
 export const byId = (state = {}, action) => {
   switch (action.type) {
@@ -23,6 +26,7 @@ export const byId = (state = {}, action) => {
         ...action.events,
       };
     case FETCH_EVENTS_SUCCESS:
+    case SEARCH_EVENTS_SUCCESS:
       return { ...state, ...action.events };
     case DELETE_EVENT_SUCCESS:
       const { id } = action;
@@ -47,6 +51,7 @@ export const byId = (state = {}, action) => {
 export const allIds = (state = [], action) => {
   switch (action.type) {
     case FETCH_EVENT_SUCCESS:
+    case SEARCH_EVENTS_SUCCESS:
     case FETCH_EVENTS_SUCCESS:
     case ADD_EVENT_SUCCESS:
       return [...state, ...action.ids].filter(
@@ -57,6 +62,7 @@ export const allIds = (state = [], action) => {
     }
     case FETCH_EVENT_FAILURE:
     case FETCH_EVENTS_FAILURE:
+    case SEARCH_EVENTS_FAILURE:
     case ADD_EVENT_FAILURE:
       return action;
     default:
@@ -65,16 +71,16 @@ export const allIds = (state = [], action) => {
 };
 
 const isEventProcessing = (state = false, action) => {
-    switch (action.type) {
-        case ADD_EVENT_START:
-        case EDIT_EVENT_START:
-            return true;
+  switch (action.type) {
+    case ADD_EVENT_START:
+    case EDIT_EVENT_START:
+      return true;
 
-        case ADD_EVENT_FAILURE:
-        case ADD_EVENT_SUCCESS:
-        case EDIT_EVENT_FAILURE:
-        case EDIT_EVENT_SUCCESS:
-            return false;
+    case ADD_EVENT_FAILURE:
+    case ADD_EVENT_SUCCESS:
+    case EDIT_EVENT_FAILURE:
+    case EDIT_EVENT_SUCCESS:
+      return false;
 
     default:
       return state;

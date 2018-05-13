@@ -1,4 +1,3 @@
-import { arrayOfEvents } from './schema';
 import {
   fetchEventFailure,
   fetchUsersFailure,
@@ -9,7 +8,8 @@ import {
   searchUsersStart,
   searchUsersSuccess,
 } from './index';
-import { normalize } from 'normalizr/index';
+import { arrayOfEvents} from './schema';
+import { normalize } from 'normalizr';
 import * as api from '../api';
 
 export const searchEvents = filter => async dispatch => {
