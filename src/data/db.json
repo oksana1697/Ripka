@@ -2,22 +2,22 @@
   "events": [
     {
       "id": 1,
-      "name": "Фестивалю 'Добрі справи 2018' потрібен логотип",
-      "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",
-      "organization": "Добрі справи 2018",
+      "name": "2018 Cities Summer Fellowship",
+      "description": "CDP is an international non-profit that drives companies and governments to reduce their greenhouse gas emissions, safeguard water resources and protect forests. Voted number one climate research provider by investors and working with institutional investors with assets of US$100 trillion, we leverage investor and buyer power to motivate companies to disclose and manage their environmental impacts. ",
+      "organization": "CDP",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
+      "location": "New York, United States",
       "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
     },
     {
       "id": 2,
-      "name": "Фестивалю 'Добрі справи 2018' потрібен логотип",
-      "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",
-      "organization": "Добрі справи 2018",
-      "contacts": "+38098678594",
+      "name": "Horticulture and environmental volunteering in Iceland",
+      "description": "CADIP offers a volunteer program where participants can engage in Forestry and Gardening activities in the small town of Hveragerdi in Iceland. Located east of Reykjavik, the program places participants at a rehabilitation and health clinic, where they work in the horticultural and environmental department (forestry, gardening, and work in greenhouses). The volunteers will also maintain the green areas around the clinic, collect herbs for making tea and assist with other environmental tasks as needed.",
+      "organization": "CADIP",
+      "contacts": "646-657-2900",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
+      "location": "Hveragerdi, SouthIceland",
       "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
     },
     {
@@ -109,16 +109,13 @@
       "interests": "2018-05-03T08:06:52.005Z",
       "location": "Київська область, Київ",
       "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
-    },
-    {
-      "id": 12
     }
   ],
   "users": [
     {
       "id": 1,
       "name": "Віктор Франкл",
-      "description": "I like cats",
+      "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
       "contacts": "+38098678594",
       "interests": "1222-12-22T12:12:00.000+02:00",
       "location": "Київська область, Київ",
@@ -127,7 +124,7 @@
     {
       "id": 2,
       "name": "Вітольд Гомбрович",
-      "description": "I like dogs",
+      "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
       "contacts": "+38098678594",
       "interests": "1222-12-22T12:12:00.000+02:00",
       "location": "Тернопільска область, Тернопіль",
@@ -136,7 +133,7 @@
     {
       "id": 3,
       "name": "Анатолій Сидоренко",
-      "description": "I like sleeping",
+      "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
       "contacts": "+38098678594",
       "interests": "1222-12-22T12:12:00.000+02:00",
       "location": "Львівська область, Львів",

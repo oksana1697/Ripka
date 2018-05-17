@@ -7,20 +7,23 @@ import {getAllAvailableEvents, getEventById} from "../../reducers";
 import EventContainer from "../EventContainer/EventContainer";
 
 class SearchEvents extends Component {
-  componentDidMount(filter) {
-    this.searchEvents(filter);
-  }
-
-    searchEvents() {
-    const { searchEvents } = this.props;
-        searchEvents();
-  }
     state = {
-        filter: ''
+        filter: '',
     };
+
+    handleSubmit = ev => {
+        ev.preventDefault();
+        const { searchEvents } = this.props;
+        const { filter } = this.state;
+        console.log("this.state",this.state)
+        searchEvents(filter);
+        this.setState({ formSubmitted: true });
+    };
+
     changeHandler = property => ev => {
         const { value } = ev.target;
         this.setState({ [property]: value });
+
     };
 
 
@@ -29,7 +32,7 @@ class SearchEvents extends Component {
     const {filter, formSubmitted} = this.state;
     return (
       <div>
-          <form onChange={this.handleChange}>
+          <form onChange={this.handleSubmit}>
               {formSubmitted && <div className="add-event__carpet" />}
               <div className="navigation__search-bar">
           <input
