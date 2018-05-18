@@ -9,7 +9,7 @@ import {
     FETCH_USERS_FAILURE,
     FETCH_USERS_SUCCESS,
     DELETE_USER_SUCCESS,
-    EDIT_USER_SUCCESS, EDIT_USER_FAILURE, EDIT_USER_START,
+    EDIT_USER_SUCCESS, EDIT_USER_FAILURE, EDIT_USER_START, SEARCH_USERS_SUCCESS, SEARCH_USERS_FAILURE,
 } from '../actions/actionTypes';
 
 export const byId = (state = {}, action) => {
@@ -60,6 +60,18 @@ export const allIds = (state = [], action) => {
       return state;
   }
 };
+
+const searchUsers = (state = [], action) => {
+    switch (action.type){
+        case SEARCH_USERS_SUCCESS:
+            return Object.keys(action.foundUsers).map(key => action.foundUsers[key]);
+        case SEARCH_USERS_FAILURE:
+            return [];
+        default:
+            return state;
+    }
+};
+
 const isUserProcessing = (state = false, action) => {
   switch (action.type) {
     case ADD_USER_START:
@@ -102,6 +114,7 @@ export default combineReducers({
   allIds,
   isUserFetching,
   isUserProcessing,
+    searchUsers
 });
 
 export const getIsUserProcessing = state => state.isUserProcessing;

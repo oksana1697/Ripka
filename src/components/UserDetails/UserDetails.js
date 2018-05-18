@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 import '../../../styles/user-details.less';
 import Navigation from "../Navigation/Navigation";
 import '../../../styles/user.less'
-import NavigationLanding from "../Navigation/NavigationLanding";
+import NavigationLanding from "../Navigation/NavigationSearchEvents";
 
 class UserDetails extends Component {
     render() {

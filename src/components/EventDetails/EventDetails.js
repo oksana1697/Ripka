@@ -5,7 +5,7 @@ import '../../../styles/event-details.less';
 import "../../../styles/event.less";
 import moment from 'moment';
 import Navigation from '../Navigation/Navigation';
-import NavigationLanding from '../Navigation/NavigationLanding';
+import NavigationLanding from '../Navigation/NavigationSearchEvents';
 
 /**
  * Represents view of single Event Details
