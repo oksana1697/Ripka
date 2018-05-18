@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 import '../../../styles/navigation.less';
+import "../../../styles/common.less"
 
 class NavigationLanding extends Component {
   constructor(props) {

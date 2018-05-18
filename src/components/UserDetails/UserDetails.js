@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 
 import '../../../styles/user-details.less';
-import Navigation from "../Navigation/Navigation";
 import '../../../styles/user.less'
+import "../../../styles/common.less"
+
 import NavigationLanding from "../Navigation/NavigationLanding";
 
 class UserDetails extends Component {

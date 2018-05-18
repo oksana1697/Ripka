@@ -3,6 +3,9 @@ import {NavLink} from 'react-router-dom';
 
 import '../../../styles/event-details.less';
 import "../../../styles/event.less";
+import "../../../styles/common.less"
+
+
 import moment from 'moment';
 import Navigation from '../Navigation/Navigation';
 import NavigationLanding from '../Navigation/NavigationLanding';
@@ -85,7 +88,7 @@ class EventDetails extends Component {
                                 </div>
                                 <div className="event-details__info-cont">
                                     <h6 className="event-details__story-title">Categories</h6>
-                                    <p className="event-details__story">Nonprofit</p>
+                                    <p className="event-details__story">{event.category}</p>
                                 </div>
                                 <div className="event-details__info-cont">
                                     <h6 className="event-details__story-title">Organization</h6>

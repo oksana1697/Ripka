@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import '../../../styles/navigation.less';
+import "../../../styles/common.less"
 
 class NavigationAddEvent extends Component {
     constructor(props) {

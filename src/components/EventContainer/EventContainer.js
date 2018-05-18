@@ -1,8 +1,10 @@
 import Event from "../Event/Event";
 import React, {Fragment} from "react";
 import Cover from "../Landing/Landing";
+import MapContainer from '../MapContainer/MapContainer'
 
 import "../../../styles/event.less";
+import "../../../styles/common.less"
 
 const EventContainer = ({events, onEventClick}) => (
     <Fragment>
@@ -23,6 +25,8 @@ const EventContainer = ({events, onEventClick}) => (
                 ))}
             </div>
         </div>
+        <MapContainer events={events}/>
+        {/*[event]*/}
     </Fragment>
 );
 

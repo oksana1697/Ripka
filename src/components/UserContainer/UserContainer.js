@@ -4,6 +4,7 @@ import React, {Fragment} from "react";
 
 import "../../../styles/user.less";
 import "../../../styles/user-details.less";
+import "../../../styles/common.less";
 
 const UserContainer = ({users, onUserClick}) => (
     <Fragment>
