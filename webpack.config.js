@@ -2,9 +2,13 @@
 module.exports = {
   entry: ["babel-polyfill", "./index.js"],
   output: {
-    filename: "build/bundle.js"
+    filename: "build/bundle.js",
+      publicPath: '/'
   },
-  devtool: "source-map",
+    devServer: {
+        historyApiFallback: true,
+    },
+    devtool: "source-map",
   node: {
     fs: "empty"
   },

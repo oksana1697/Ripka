@@ -57,12 +57,6 @@ class NavigationSearchUsers extends Component {
                     <Link to="/users">
                         <button className="navigation__settings_name">USERS</button>
                     </Link>
-                    <Link to="/search-events">
-                        <button className="navigation__settings_name">BETA-SEARCH</button>
-                    </Link>
-                    <Link className="navigation__button_right" to="/addevent">
-                        <button className="navigation__button">POST AN EVENT</button>
-                    </Link>
                 </div>
                 <label className="navigation_show-title">
                     <Link style={{ textDecoration: 'none' }} to="/">
