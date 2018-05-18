@@ -63,6 +63,6 @@ export const searchUsersSuccess = id => ({ type: SEARCH_USERS_SUCCESS, id });
 export const searchUsersStart = id => ({ type: SEARCH_USERS_START, id });
 export const searchUsersFailure = id => ({ type: SEARCH_USERS_FAILURE, id });
 
-export const searchEventsSuccess = id => ({ type: SEARCH_EVENTS_SUCCESS, id });
+export const searchEventsSuccess = foundEvents => ({ type: SEARCH_EVENTS_SUCCESS, foundEvents });
 export const searchEventsStart = id => ({ type: SEARCH_EVENTS_START, id });
 export const searchEventsFailure = id => ({ type: SEARCH_EVENTS_FAILURE, id });

@@ -26,7 +26,7 @@ export const byId = (state = {}, action) => {
         ...action.events,
       };
     case FETCH_EVENTS_SUCCESS:
-    case SEARCH_EVENTS_SUCCESS:
+    // case SEARCH_EVENTS_SUCCESS:
       return { ...state, ...action.events };
     case DELETE_EVENT_SUCCESS:
       const { id } = action;
@@ -51,7 +51,7 @@ export const byId = (state = {}, action) => {
 export const allIds = (state = [], action) => {
   switch (action.type) {
     case FETCH_EVENT_SUCCESS:
-    case SEARCH_EVENTS_SUCCESS:
+    // case SEARCH_EVENTS_SUCCESS:
     case FETCH_EVENTS_SUCCESS:
     case ADD_EVENT_SUCCESS:
       return [...state, ...action.ids].filter(
@@ -62,14 +62,23 @@ export const allIds = (state = [], action) => {
     }
     case FETCH_EVENT_FAILURE:
     case FETCH_EVENTS_FAILURE:
-    case SEARCH_EVENTS_FAILURE:
     case ADD_EVENT_FAILURE:
       return action;
     default:
       return state;
   }
 };
-
+const searchEvents = (state = [], action) => {
+  console.log("action", action);
+  switch (action.type){
+  case SEARCH_EVENTS_SUCCESS:
+    return Object.keys(action.foundEvents).map(key => action.foundEvents[key]);
+      case SEARCH_EVENTS_FAILURE:
+        return [];
+      default:
+  return state;
+  }
+};
 const isEventProcessing = (state = false, action) => {
   switch (action.type) {
     case ADD_EVENT_START:
@@ -111,6 +120,7 @@ export default combineReducers({
   allIds,
   isFetching,
   isEventProcessing,
+    searchEvents
 });
 export const getIsEventProcessing = state => state.isEventProcessing;
 export const getAllAvailableEvents = state => state.events.allIds;

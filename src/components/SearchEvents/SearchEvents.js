@@ -15,24 +15,29 @@ class SearchEvents extends Component {
         ev.preventDefault();
         const { searchEvents } = this.props;
         const { filter } = this.state;
-        console.log("this.state",this.state)
-        searchEvents(filter);
-        this.setState({ formSubmitted: true });
+        console.log("this.state",this.state);
+        //searchEvents(filter);
+        // this.setState({ formSubmitted: true });
     };
 
     changeHandler = property => ev => {
         const { value } = ev.target;
+        const { searchEvents } = this.props;
+        console.log("change Handler:", property, ev.target.value);
+        const { eventsTest } = searchEvents(ev.target.value);
         this.setState({ [property]: value });
-
     };
 
 
   render() {
-    const { ...events } = this.props;
+    const { foundEvents } = this.props;
+    console.log("foundEvents:",foundEvents);
     const {filter, formSubmitted} = this.state;
+
+    const getPopupItems = () => foundEvents.map(event => (<a href="#">{event.name}</a>));
     return (
       <div>
-          <form onChange={this.handleSubmit}>
+          <form>
               {formSubmitted && <div className="add-event__carpet" />}
               <div className="navigation__search-bar">
           <input
@@ -41,17 +46,18 @@ class SearchEvents extends Component {
               placeholder="Search by key word"
             className="navigation__search-bar_filter"
           />
-          {/*<div className="navigation__search-bar_filter_content">*/}
+          <div className="navigation__search-bar_filter_content">
+              {getPopupItems()}
             {/*<a href="#">Nonprofit</a>*/}
             {/*<a href="#">Children</a>*/}
             {/*<a href="#">Food&Drink</a>*/}
-          {/*</div>*/}
+          </div>
         </div>
-        <button className="navigation__search-bar_submit" type="submit">
+        <button onChange={this.handleSubmit} className="navigation__search-bar_submit" type="submit">
           <i className="navigation__search-bar_submit-icon" />
         </button>
           </form>
-        <EventContainer {...events} />;
+        {/*<EventContainer {...searchEvents} />;*/}
       </div>
     );
   }
@@ -60,9 +66,12 @@ class SearchEvents extends Component {
 SearchEvents = withRouter(
   connect(
     store => {
-      const ids = getAllAvailableEvents(store);
+      // const ids = getAllAvailableEvents(store);
+      const foundEvents = store.events.searchEvents;
+      console.log("Store", store);
       return {
-        events: ids.map(id => getEventById(store, id)),
+        // events: ids.map(id => getEventById(store, id)),
+          foundEvents
       };
     },
     { searchEvents },
