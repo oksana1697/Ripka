@@ -26,7 +26,8 @@ Content-type: application/json
 ###
 
 ###
-GET http://localhost:3000/users?q=sleeping
+GET http://localhost:3000/events?q=Hveragerdi
+
 
 Content-type: application/json
 

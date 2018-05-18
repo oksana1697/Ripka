@@ -3,9 +3,10 @@ import { deleteData, getData, postData, putData } from './api';
 
 const API_ENDPOINT = 'http://localhost:3000';
 
-export const findEvents = filter => getData(`${API_ENDPOINT}/events&q=${filter}`);
-
-export const findUsers = filter => getData(`${API_ENDPOINT}/users&q=${filter}`);
+export const findEvents = filter =>
+{console.log("in APi", getData(`${API_ENDPOINT}/events?q=${filter}`).then(console.log("s")));
+return (getData(`${API_ENDPOINT}/events?q=${filter}`))};
+export const findUsers = filter => getData(`${API_ENDPOINT}/users?q=${filter}`);
 
 export const fetchSliceEvents = num => getData(`${API_ENDPOINT}/events?_start=` + num + '&_limit=4');
 

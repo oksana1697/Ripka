@@ -12,13 +12,17 @@ import { arrayOfEvents} from './schema';
 import { normalize } from 'normalizr';
 import * as api from '../api';
 
-export const searchEvents = filter => async dispatch => {
+export const searchEvents = filter =>async dispatch => {
   dispatch(searchEventsStart(filter));
   try {
     let events = await api.findEvents(filter);
+    console.log("events befor", events)
+    // console.log(filter, events);
     if (!events.error) {
-      events = normalize([events], arrayOfEvents);
-      dispatch(searchEventsSuccess(events.result, events.entities.events));
+      events = normalize(events, arrayOfEvents);
+      console
+          .log(events);
+      dispatch(searchEventsSuccess(events.entities.events));
     } else {
       dispatch(searchEventsFailure(events.error));
     }
