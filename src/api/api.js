@@ -17,6 +17,7 @@ async function makeRequest(url, method, data) {
 }
 
 export const getData = async url => await makeRequest(url, 'GET');
+export const getLocation = async url => await makeRequest(url, 'GET');
 
 export const postData = async (url, data) =>
   await makeRequest(url, 'POST', data);
@@ -28,3 +29,4 @@ export const putData = async (url, data) => {
 export const deleteData = async (url, id) => {
   await makeRequest(url + '/' + id, 'DELETE');
 };
+

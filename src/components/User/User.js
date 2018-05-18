@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import '../../../styles/user.less';
+import "../../../styles/common.less";
 
 const User = ({
   id,
