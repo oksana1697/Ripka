@@ -13,6 +13,7 @@ module.exports = {
     fs: "empty"
   },
   module: {
+    
     rules: [
       {
         test: /\.js$/,
