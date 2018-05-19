@@ -24,9 +24,8 @@ const EventContainer = ({events, onEventClick}) => (
                     />
                 ))}
             </div>
+            <MapContainer events={events}/>
         </div>
-        <MapContainer events={events}/>
-        {/*[event]*/}
     </Fragment>
 );
 

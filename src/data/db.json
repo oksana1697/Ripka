@@ -27,7 +27,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
+      "location": "Полтавська область, Полтава",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -37,7 +37,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
+      "location": "Чернігівська область, Чернігів",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -47,7 +47,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
+      "location": "Харківська область, Харків",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -57,7 +57,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
+      "location": "Миколаївська область, Миколаїв",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -67,7 +67,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
+      "location": "Одеська область, Одеса",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -77,7 +77,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
+      "location": "Тернопільска область, Бучач",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -87,7 +87,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
+      "location": "Тернопільска область, Тернопіль",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -97,7 +97,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
+      "location": "Львівська область, Львів",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -109,61 +109,6 @@
       "interests": "2018-05-03T08:06:52.005Z",
       "location": "Київська область, Київ",
       "photo": "photo-event_vwr3vn"
-    },
-    {
-      "name": "h",
-      "description": "fghjk",
-      "organization": "g",
-      "category": "foot&drink",
-      "contacts": "b",
-      "time": "2018-05-18T16:53:41.047Z",
-      "location": "Lviv",
-      "photo": "",
-      "id": 12
-    },
-    {
-      "name": "fgh",
-      "description": "vbn",
-      "organization": "bhj",
-      "category": "",
-      "contacts": "bn",
-      "time": "2018-05-18T18:07:35.001Z",
-      "location": "bn",
-      "photo": "stgldzw7jrj6thlwoxf1",
-      "id": 13
-    },
-    {
-      "name": "aa",
-      "description": "aaa",
-      "organization": "a",
-      "category": "foot&drink",
-      "contacts": "a",
-      "time": "2018-05-18T18:09:41.409Z",
-      "location": "a",
-      "photo": "ghkuuog5nzqd0npre5xz",
-      "id": 14
-    },
-    {
-      "name": "a",
-      "description": "a",
-      "organization": "a",
-      "category": "",
-      "contacts": "a",
-      "time": "2018-05-18T18:10:58.307Z",
-      "location": "a",
-      "photo": "tk2f5z3pmt78wvpds1kj",
-      "id": 15
-    },
-    {
-      "name": "d",
-      "description": "d",
-      "organization": "f",
-      "category": "",
-      "contacts": "c",
-      "time": "2018-05-18T18:12:22.060Z",
-      "location": "d",
-      "photo": "pac6g3nlm4gw2hgcoll7",
-      "id": 16
     }
   ],
   "users": [
@@ -171,7 +116,7 @@
       "name": "Віктор Франкл",
       "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
       "contacts": "+38098678594",
-      "location": "Київська область, Київ",
+      "location": "Харківська область, Харків",
       "photo": "njhniezzny9ja9xmlfun",
       "interests": "Murders",
       "id": 1
