@@ -140,12 +140,12 @@ class AddUser extends Component {
                                 required
                             />
                         </label>
-                        <label className="add__user_input_container">
+                        <div className="add__user_input_container">
                             <PhotoUpload photo={URL => this.setState({photo: URL})}/>
-                        </label>
-                        <label className="add__user_input_container">
+                        </div>
+                        <div className="add__user_input_container">
                             <button disabled={isDisabled} className="add__user_button">Add User</button>
-                        </label>
+                        </div>
                     </div>
                 </form>
             </div>

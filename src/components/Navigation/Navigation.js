@@ -24,7 +24,7 @@ class Navigation extends Component {
               <button className="navigation__settings_name">USERS</button>
               </Link>
               <Link className="navigation__button_right" to="/addevent">
-                <button className="navigation__button">POST AN EVENT
+                <button className="navigation__button">CREATE AN EVENT
                 </button>
             </Link>
         </div>

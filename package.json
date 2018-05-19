@@ -6,7 +6,7 @@
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill",
     "build": "webpack",
     "start:server": "webpack-dev-server || serve --single",
-    "data:local": "json-server --routes routes.json --watch ./src/data/db.json",
+    "data:local": "json-server --watch ./src/data/db.json",
     "data:fake": "json-server --watch ./src/data/generateFakeData.js",
     "styleguidist": "styleguidist server"
   },

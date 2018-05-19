@@ -120,7 +120,7 @@ class AddEvent extends Component {
 
                     <label className="add__input_container">
                         <span className="add__field">EVENT CATEGORIES</span>
-                        <select value={category} onChange={this.changeHandler('category')}>
+                        <select className="add__categories" value={category} onChange={this.changeHandler('category')}>
                             <option className="add__categories" value='nonprofit'>Nonprofit</option>
                             <option className="add__categories" value='foot&drink'>Food&Drink</option>
                             <option className="add__categories" value='children'>Children</option>
