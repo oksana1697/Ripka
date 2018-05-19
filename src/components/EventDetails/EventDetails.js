@@ -87,6 +87,7 @@ class EventDetails extends Component {
                                 </div>
                                 <div className="event-details__info-cont">
                                     <h6 className="event-details__story-title">Date & Time</h6>
+
                                     <p className="event-details__story">{formatDate(event.time)}</p>
                                 </div>
                                 <div className="event-details__info-cont">
