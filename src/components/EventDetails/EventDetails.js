@@ -108,6 +108,7 @@ class EventDetails extends Component {
                             </div>
                         </div>
                         <div className="event-details__right-info">
+                            
                             <img className="event-details__photo" src={CLOUDINARY_URL+'c_scale,r_5,w_265/' + event.photo + '.jpg'} />
                             <div className="event-details__in">
                                 <div className="event-details__title-info">
