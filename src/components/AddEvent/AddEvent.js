@@ -14,6 +14,8 @@ import '../../../styles/react-datetime-picker.less';
 import AddEventNavigation from '../Navigation/NavigationAddUser';
 import NavigationAddEvent from "../Navigation/NavigationAddEvent";
 
+
+
 class AddEvent extends Component {
     static defaultProps = {
         onSuccess() {
@@ -41,6 +43,10 @@ class AddEvent extends Component {
     };
 
     handleSubmit = ev => {
+        if (!this.canBeSubmitted()) {
+            ev.preventDefault();
+            return;
+        }
         ev.preventDefault();
         const {addEvent} = this.props;
         const {formSubmitted, ...event} = this.state;
@@ -54,6 +60,12 @@ class AddEvent extends Component {
         this.setState({[property]: value});
     };
 
+    canBeSubmitted() {
+        const errors = validate(this.state.name, this.state.contacts);
+        const isDisabled = Object.keys(errors).some(x => errors[x]);
+        return !isDisabled;
+    }
+
     render() {
         const {
             name,
@@ -65,6 +77,9 @@ class AddEvent extends Component {
             location,
             formSubmitted,
         } = this.state;
+
+        const errors = validate(this.state.name, this.state.contacts);
+        const isDisabled = Object.keys(errors).some(x => errors[x]);
 
         return (
             <div>
@@ -161,7 +176,7 @@ class AddEvent extends Component {
                     </div>
 
                     <div className="add__submit-container">
-                        <button className="add__submit">Add Event</button>
+                        <button disabled={isDisabled} className="add__submit">Add Event</button>
                     </div>
                 </form>
             </div>
@@ -171,6 +186,14 @@ class AddEvent extends Component {
 
 function formatDate(date) {
     return date.toLocaleDateString();
+}
+
+function validate(name, contacts) {
+    return {
+        name: name.length === 0,
+        contacts: contacts.length === 0,
+        // contacts.type === Number
+    };
 }
 
 export default connect(

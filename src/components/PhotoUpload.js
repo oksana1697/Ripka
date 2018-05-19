@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Dropzone from "react-dropzone";
 import axios from "axios";
+import {CLOUDINARY_URL} from "../api/index";
+
+
 
 class PhotoUpload extends Component {
   constructor(props) {
@@ -28,11 +31,12 @@ class PhotoUpload extends Component {
         )
         .then(response => {
           const data = response.data;
-          const fileURL = data.secure_url; // You should store this URL for future references in your app
-          this.setState({ imageURL: fileURL });
-          console.log("this.state.file: ", fileURL);
-          this.props.photo(fileURL);
-          return fileURL;
+          console.log(data);
+          const imageURL = CLOUDINARY_URL+ "/" + data.public_id; // You should store this URL for future references in your app
+          this.setState({ imageURL });
+          console.log("this.state.file: ", imageURL);
+          this.props.photo(data.public_id);
+          return imageURL;
         });
     });
     axios.all(uploaders).then(() => {});
