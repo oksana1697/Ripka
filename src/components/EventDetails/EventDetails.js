@@ -23,7 +23,7 @@ class EventDetails extends Component {
         }
         return (
             <div className="event-details__main">
-                <NavigationLanding/>
+                <Navigation/>
                 <div className="event-details__main-container">
                     <div className='event-details__subnav'>
                         <div className='event-details__left'>
@@ -108,8 +108,7 @@ class EventDetails extends Component {
                             </div>
                         </div>
                         <div className="event-details__right-info">
-                            
-                            <img className="event-details__photo" src={CLOUDINARY_URL+'c_scale,r_5,w_265/' + event.photo + '.jpg'} />
+                            <img className="event-details__photo"  src={CLOUDINARY_URL+'c_scale,r_5,w_265/' + event.photo + '.jpg'} />
                             <div className="event-details__in">
                                 <div className="event-details__title-info">
                                     <img className="event-details__icon-location"/>

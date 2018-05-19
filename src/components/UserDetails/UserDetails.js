@@ -9,6 +9,7 @@ import '../../../styles/map.less'
 import NavigationLanding from "../Navigation/NavigationSearchEvents";
 import {CLOUDINARY_URL} from "../../api/index";
 import MapContainerUsers from "../MapContainer/MapContainerUsers";
+import Navigation from "../Navigation/Navigation";
 
 class UserDetails extends Component {
     render() {
@@ -19,7 +20,8 @@ class UserDetails extends Component {
         }
         return (
             <div>
-                <NavigationLanding/>
+                
+                <Navigation/>
                 <div className="user-details__main-container">
                     <div className='user-details__subnav'>
                         <div className='user-details__left'>
