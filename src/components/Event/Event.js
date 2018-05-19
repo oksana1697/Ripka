@@ -25,7 +25,7 @@ const Event = ({
         <div className="event__info">
             <p className="event__name">{name}</p>
             <p className="event__organization">{organization}</p>
-            <div className="event__location-block">
+            <div className="event__location-container">
                 <img className="event__icon-location"/>
                 <p className="event__location">{location}</p>
             </div>
@@ -34,7 +34,7 @@ const Event = ({
             <NavLink
                 to={'/events/' + id}
             >
-                <button className="event__btn">Show more</button>
+                <button className="event__btn-details">Show more</button>
             </NavLink>
         </div>
 

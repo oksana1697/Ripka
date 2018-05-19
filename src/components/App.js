@@ -13,10 +13,7 @@ import VisibleUserList from './VisibleUserList';
 import NavigationSearchEvents from './Navigation/NavigationSearchEvents';
 import Landing from './Landing/Landing';
 import NavigationSearchUsers from "./Navigation/NavigationSearchUsers";
-// TODO: form validation
-// TODO: fix rediraction
-// TODO: realise search function(ask family tree)
-// TODO: update routing - flag to json server
+
 
 /**
  * App js description

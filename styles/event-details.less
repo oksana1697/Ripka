@@ -1,4 +1,6 @@
 .event-details {
+  padding-bottom: 120px;
+
   &__title {
     background-color: #fafafa;
     color: #2c374a;
@@ -29,7 +31,7 @@
     margin-top: 15px;
   }
 
-  &__button-descr {
+  &__button-name {
     display: inline-block;
     vertical-align: middle;
     margin-top: 5px;
@@ -47,7 +49,7 @@
     text-transform: uppercase;
   }
 
-  &__edit{
+  &__edit-container{
     display: inline-block;
     &:hover{
       .event-details__btn{
@@ -58,7 +60,7 @@
     }
   }
 
-  &__delete{
+  &__delete-container{
     display: inline-block;
     &:hover{
       .event-details__btn{
@@ -120,7 +122,7 @@
     }
 
   }
-  &__mn{
+  &__main-info{
     margin-left: auto;
     margin-right: auto;
     max-width: 930px;
@@ -135,12 +137,6 @@
 
   }
 
-
-  &__main-container{
-    //display: flex;
-    //padding: 20px;
-    padding-bottom: 120px;
-  }
   &__subnav{
     background-color: #89d8e0;
     padding-left: 120px;
@@ -148,19 +144,19 @@
     display: flex;
     justify-content: space-between;
   }
-  &__big{
+  &__container{
     background: #f5f5f6;
     padding: 30px 1.5em;
     //position: relative;
   }
 
-  &__info{
+  &__additional-info{
     max-width: 930px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 60px;
   }
-  &__subt{
+  &__name-info-block{
     display: inline-block;
     margin-left: 14px;
     color: #626977;
@@ -171,10 +167,10 @@
     margin-top: 2px;
     margin-bottom: 0;
   }
-  &__in{
+  &__info-block{
     margin-bottom: 60px;
   }
-  &__hr{
+  &__divider{
     margin: 20px 0 0 0;
     border: 0;
     border-top: 1px solid #eff0f2;
@@ -213,16 +209,9 @@
   &__category{
     margin: 0;
     display: inline-block;
-    //width: 69%;
-    //color: #626977;
     line-height: 25px;
     font-size: 15px;
     color: #3b5ace;
-    //background: #fff;
-    //border-radius: 5px;
-    //box-shadow: 0 1px 2px 0 rgba(234, 235, 237, 0.5);
-    //border: 1px solid #3b5ace;
-    //padding: 5px 20px;
   }
 
 
@@ -243,9 +232,6 @@
     content: url("icons/location-gray.svg");
 
   }
-  &__location-block{
-    vertical-align: middle;
-  }
   &__location {
     margin: 5px 0 0 0;
     font-size: 15px;
@@ -263,12 +249,6 @@
     width: 32%;
     float: left;
   }
-
-  &__main{
-    padding-bottom: 120px;
-  }
-
-
 }
 
 .event-details__icon-flag {
