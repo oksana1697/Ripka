@@ -20,6 +20,7 @@ class UserDetails extends Component {
         }
         return (
             <div>
+                
                 <Navigation/>
                 <div className="user-details__main-container">
                     <div className='user-details__subnav'>
