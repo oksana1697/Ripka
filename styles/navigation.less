@@ -62,11 +62,14 @@
 
   &__search-bar {
     margin-left: 15px;
+    //margin-right: 15px;
     display: inline-block;
     position: relative;
     &:hover .navigation__search-bar_filter_content {
       display: block;
     }
+    //&:after{
+    //content:  url('icons/search.svg');}
     &_filter {
       cursor: pointer;
       padding-left: 25px;
@@ -75,16 +78,17 @@
       color: #626977;
       height: 40px;
       width: 275px;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
+      border-radius: 5px;
       border: 0;
       background: white;
       text-align: left;
        &:focus {
       outline: 0;
     }
-
       &_content {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 200px;
         display: none;
         position: absolute;
         background-color: white;

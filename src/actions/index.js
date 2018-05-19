@@ -59,7 +59,7 @@ export const editUserStart = id => ({ type: EDIT_USER_START, id });
 export const editUserSuccess = id => ({ type: EDIT_USER_SUCCESS, id });
 export const editUserFailure = id => ({ type: EDIT_USER_FAILURE, id });
 
-export const searchUsersSuccess = id => ({ type: SEARCH_USERS_SUCCESS, id });
+export const searchUsersSuccess = foundUsers => ({ type: SEARCH_USERS_SUCCESS, foundUsers });
 export const searchUsersStart = id => ({ type: SEARCH_USERS_START, id });
 export const searchUsersFailure = id => ({ type: SEARCH_USERS_FAILURE, id });
 

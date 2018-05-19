@@ -1,6 +1,5 @@
 import React from 'react';
 import Footer from './Footer/Footer';
-import Event from './App';
 import AddEvent from './AddEvent/AddEvent';
 import VisibleEventList from './VisibleEventList';
 import EventDetailsConnector from './EventDetailsConnector';
@@ -11,19 +10,18 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import Navigation from './Navigation/Navigation';
 import AddUser from './AddUser/AddUser';
 import VisibleUserList from './VisibleUserList';
-import AddEventNavigation from './Navigation/NavigationAddUser';
-import NavigationLanding from './Navigation/NavigationLanding';
+import NavigationSearchEvents from './Navigation/NavigationSearchEvents';
 import Landing from './Landing/Landing';
-import SearchEvents from './SearchEvents/SearchEvents';
+import NavigationSearchUsers from "./Navigation/NavigationSearchUsers";
 // TODO: form validation
 // TODO: fix rediraction
 // TODO: realise search function(ask family tree)
+// TODO: update routing - flag to json server
 
 /**
  * App js description
  */
 
-// TODO: update routing - flag to json server
 const App = () => (
   <div>
     <Switch>
@@ -32,27 +30,24 @@ const App = () => (
         path="/"
         render={() => (
           <div>
-            <NavigationLanding />
-            <Landing />
+            <Navigation/>
+            <Landing/>
           </div>
         )}
       />
       <Route exact path="/users">
         <div>
-          <NavigationLanding />
+          <NavigationSearchUsers />
           <VisibleUserList />
         </div>
       </Route>
       <Route exact path="/events">
         <div>
-          <NavigationLanding />
+          <NavigationSearchEvents />
           <VisibleEventList />
         </div>
       </Route>
 
-      <Route exact path="/search-events">
-        <SearchEvents/>
-      </Route>
 
       <Route exact path="/addevent">
         {props => (
