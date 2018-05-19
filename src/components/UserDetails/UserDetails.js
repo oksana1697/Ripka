@@ -20,7 +20,7 @@ class UserDetails extends Component {
         }
         return (
             <div>
-                
+
                 <Navigation/>
                 <div className="user-details__main-container">
                     <div className='user-details__subnav'>
@@ -54,20 +54,21 @@ class UserDetails extends Component {
                     </div>
                     <div className="user-details__big">
 
-                            <img className="user-details__photo" src={CLOUDINARY_URL+'w_170,h_170,c_thumb,g_faces/' + user.photo + '.jpg'}/>
+                        <img className="user-details__photo"
+                             src={CLOUDINARY_URL + 'w_170,h_170,c_thumb,g_faces/' + user.photo + '.jpg'}/>
 
                         <h1 className="user-details__name">{user.name}</h1>
 
                         <div className="user-details__block-row">
-                                <button className="user-details__button">
-                                    <img className="user-details__icon-heard"/>
-                                    <span className="user-details__button-descr">Bookmark</span>
-                                </button>
-                                <button className="user-details__button">
-                                    <img className="user-details__icon-flag"/>
-                                    <span className="user-details__button-descr">Report</span>
-                                </button>
-                            </div>
+                            <button className="user-details__button">
+                                <img className="user-details__icon-heard"/>
+                                <span className="user-details__button-descr">Bookmark</span>
+                            </button>
+                            <button className="user-details__button">
+                                <img className="user-details__icon-flag"/>
+                                <span className="user-details__button-descr">Report</span>
+                            </button>
+                        </div>
                     </div>
                     <div className="user-details__info">
                         <div className="user-details__in">
@@ -99,10 +100,11 @@ class UserDetails extends Component {
                                 <hr className="user-details__hr"/>
                             </div>
                             <div className="user-details__info-cont">
-                                <h6 className="user-details__story-title user-details__story-title_location">Region, city</h6>
+                                <h6 className="user-details__story-title user-details__story-title_location">City,
+                                    country</h6>
                                 <p className="user-details__story user-details__story_location">{user.location}</p>
                                 <div className='map__container'>
-                                <MapContainerUsers users={[user]}/>
+                                    <MapContainerUsers users={[user]}/>
                                 </div>
                             </div>
                         </div>

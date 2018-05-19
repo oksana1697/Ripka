@@ -4,12 +4,14 @@ import {NavLink} from 'react-router-dom';
 import '../../../styles/event-details.less';
 import "../../../styles/event.less";
 import "../../../styles/common.less"
+import '../../../styles/map.less'
 
 
 import moment from 'moment';
 import Navigation from '../Navigation/Navigation';
 // import NavigationLanding from '../Navigation/NavigationLanding';
 import {CLOUDINARY_URL} from "../../api/index";
+import MapContainer from "../MapContainer/MapContainer";
 
 /**
  * Represents view of single Event Details
@@ -108,18 +110,8 @@ class EventDetails extends Component {
                             </div>
                         </div>
                         <div className="event-details__right-info">
-                            <img className="event-details__photo"  src={CLOUDINARY_URL+'c_scale,r_5,w_265/' + event.photo + '.jpg'} />
-                            <div className="event-details__in">
-                                <div className="event-details__title-info">
-                                    <img className="event-details__icon-location"/>
-                                    <h4 className="event-details__subt">Location</h4>
-                                    <hr className="event-details__hr"/>
-                                </div>
-                                <div className="event-details__info-cont">
-                                    <h6 className="event-details__story-title">Region, city</h6>
-                                    <p className="event-details__story">{event.location}</p>
-                                </div>
-                            </div>
+                            <img className="event-details__photo"
+                                 src={CLOUDINARY_URL + 'c_scale,r_5,w_265/' + event.photo + '.jpg'}/>
                             <div className="event-details__in">
                                 <div className="event-details__title-info">
                                     <img className="event-details__icon-contact"/>
@@ -129,6 +121,20 @@ class EventDetails extends Component {
                                 <div className="event-details__info-cont">
                                     <h6 className="event-details__story-title">Phone number</h6>
                                     <p className="event-details__story">{event.contacts}</p>
+                                </div>
+                            </div>
+                            <div className="event-details__in">
+                                <div className="event-details__title-info">
+                                    <img className="event-details__icon-location"/>
+                                    <h4 className="event-details__subt">Location</h4>
+                                    <hr className="event-details__hr"/>
+                                </div>
+                                <div className="event-details__info-cont">
+                                    <h6 className="event-details__story-title">City, country</h6>
+                                    <p className="event-details__story">{event.location}</p>
+                                </div>
+                                <div className='map__container-for-event'>
+                                    <MapContainer events={[event]}/>
                                 </div>
                             </div>
                         </div>
