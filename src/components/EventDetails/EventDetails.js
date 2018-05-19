@@ -8,7 +8,7 @@ import "../../../styles/common.less"
 
 import moment from 'moment';
 import Navigation from '../Navigation/Navigation';
-import NavigationLanding from '../Navigation/NavigationLanding';
+// import NavigationLanding from '../Navigation/NavigationLanding';
 import {CLOUDINARY_URL} from "../../api/index";
 
 /**

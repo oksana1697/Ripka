@@ -5,6 +5,7 @@ import '../../../styles/user-details.less';
 import '../../../styles/user.less'
 import "../../../styles/common.less"
 import NavigationLanding from "../Navigation/NavigationSearchEvents";
+import {CLOUDINARY_URL} from "../../api/index";
 
 class UserDetails extends Component {
     render() {
@@ -47,7 +48,7 @@ class UserDetails extends Component {
                         </div>
                     </div>
                     <div className="user-details__big">
-                            <img className="user-details__photo" src={user.photo}/>
+                            <img className="user-details__photo" src={CLOUDINARY_URL+'w_170,h_170,c_thumb,g_faces/' + user.photo + '.jpg'}/>
                             <h1 className="user-details__name">{user.name}</h1>
                             <div className="user-details__block-row">
                                 <button className="user-details__button">

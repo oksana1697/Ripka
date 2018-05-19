@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import '../../../styles/user.less';
 import "../../../styles/common.less";
+import {CLOUDINARY_URL} from "../../api/index";
 
 const User = ({
   id,
@@ -15,7 +16,7 @@ const User = ({
 }) => (
   <div className="user__container">
     <div className="user__info-container">
-      <img src={photo} className="user__photo" />
+      <img src={CLOUDINARY_URL+'w_170,h_170,c_thumb,g_faces/' + photo + '.jpg'} className="user__photo" />
         <p className="user__name">{name}</p>
         <p className="user__location">{location}</p>
       <NavLink
