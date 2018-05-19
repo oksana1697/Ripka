@@ -5,6 +5,9 @@ import React, {Fragment} from "react";
 import "../../../styles/user.less";
 import "../../../styles/user-details.less";
 import "../../../styles/common.less";
+import "../../../styles/map.less"
+
+import MapContainerUsers from "../MapContainer/MapContainerUsers";
 
 const UserContainer = ({users, onUserClick}) => (
     <Fragment>
@@ -24,8 +27,9 @@ const UserContainer = ({users, onUserClick}) => (
                     />
                 ))}
             </div>
-
+            <MapContainerUsers users={users}/>
         </div>
+
     </Fragment>
 );
 

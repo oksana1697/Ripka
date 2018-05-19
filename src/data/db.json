@@ -8,7 +8,7 @@
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
       "location": "New York, United States",
-      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+      "photo": "photo-event_vwr3vn"
     },
     {
       "id": 2,
@@ -18,7 +18,7 @@
       "contacts": "646-657-2900",
       "interests": "2018-05-03T08:06:52.005Z",
       "location": "Hveragerdi, SouthIceland",
-      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+      "photo": "photo-event_vwr3vn"
     },
     {
       "id": 3,
@@ -27,8 +27,8 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
-      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+      "location": "Полтавська область, Полтава",
+      "photo": "photo-event_vwr3vn"
     },
     {
       "id": 4,
@@ -37,8 +37,8 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
-      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+      "location": "Чернігівська область, Чернігів",
+      "photo": "photo-event_vwr3vn"
     },
     {
       "id": 5,
@@ -47,8 +47,8 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
-      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+      "location": "Харківська область, Харків",
+      "photo": "photo-event_vwr3vn"
     },
     {
       "id": 6,
@@ -57,8 +57,8 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
-      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+      "location": "Миколаївська область, Миколаїв",
+      "photo": "photo-event_vwr3vn"
     },
     {
       "id": 7,
@@ -67,8 +67,8 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
-      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+      "location": "Одеська область, Одеса",
+      "photo": "photo-event_vwr3vn"
     },
     {
       "id": 8,
@@ -77,8 +77,8 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
-      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+      "location": "Тернопільска область, Бучач",
+      "photo": "photo-event_vwr3vn"
     },
     {
       "id": 9,
@@ -87,8 +87,8 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
-      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+      "location": "Тернопільска область, Тернопіль",
+      "photo": "photo-event_vwr3vn"
     },
     {
       "id": 10,
@@ -97,8 +97,8 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
-      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+      "location": "Львівська область, Львів",
+      "photo": "photo-event_vwr3vn"
     },
     {
       "id": 11,
@@ -108,36 +108,45 @@
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
       "location": "Київська область, Київ",
-      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+      "photo": "photo-event_vwr3vn"
     }
   ],
   "users": [
     {
-      "id": 2,
+      "name": "Віктор Франкл",
+      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
+      "contacts": "+38098678594",
+      "location": "Харківська область, Харків",
+      "photo": "njhniezzny9ja9xmlfun",
+      "interests": "Murders",
+      "id": 1
+    },
+    {
       "name": "Вітольд Гомбрович",
-      "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
+      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n      ",
       "contacts": "+38098678594",
-      "interests": "1222-12-22T12:12:00.000+02:00",
       "location": "Тернопільска область, Тернопіль",
-      "photo": "http://res.cloudinary.com/drzw6h31n/image/upload/w_170,h_170,c_thumb,g_faces/v1524735771/images_gd3aht.jpg"
+      "photo": "pioih8qrevagdrriltwn",
+      "interests": "Murders",
+      "id": 2
     },
     {
-      "id": 3,
       "name": "Анатолій Сидоренко",
-      "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
+      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n      ",
       "contacts": "+38098678594",
-      "interests": "1222-12-22T12:12:00.000+02:00",
       "location": "Львівська область, Львів",
-      "photo": "http://res.cloudinary.com/drzw6h31n/image/upload/w_170,h_170,c_thumb,g_faces/v1524735898/pesona2_nhp4xv.jpg"
+      "photo": "gor88wv5sp9kpkmwbu91",
+      "interests": "Murders",
+      "id": 3
     },
     {
-      "id": 4,
       "name": "Андрій Любка",
-      "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
+      "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n     ",
       "contacts": "+38098678594",
-      "interests": "1222-12-22T12:12:00.000+02:00",
       "location": "Київська область, Київ",
-      "photo": "http://res.cloudinary.com/drzw6h31n/image/upload/w_170,h_170,c_thumb,g_faces/v1524735851/lubka_htnrt3.jpg"
+      "photo": "tnbzxqaizumhvwfjbzcb",
+      "interests": "Murders",
+      "id": 4
     }
   ]
 }

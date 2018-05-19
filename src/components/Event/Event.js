@@ -3,6 +3,7 @@ import {NavLink} from "react-router-dom";
 
 import "../../../styles/event.less";
 import "../../../styles/common.less";
+import {CLOUDINARY_URL} from "../../api/index";
 
 
 /**
@@ -19,7 +20,7 @@ const Event = ({
                }) => (
     <div className="event__container ">
         <div>
-            <img src={photo} className="event__photo"/>
+            <img src={CLOUDINARY_URL+'c_scale,r_5,w_265/' + photo + '.jpg'} className="event__photo"/>
         </div>
         <div className="event__info">
             <p className="event__name">{name}</p>

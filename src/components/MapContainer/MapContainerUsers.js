@@ -4,36 +4,38 @@ import React, {Component} from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import {getLocation} from "../../api/api";
 
+import "../../../styles/map.less"
+
 const API_KEY = 'AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo';
 
-class MapContainer extends Component {
+class MapContainerUsers extends Component {
     constructor(props) {
         super(props);
 
-        const {events} = this.props;
+        const {users} = this.props;
 
         this.state = {
             activeMarker: {},
             selectedPlace: {},
             showingInfoWindow: false,
-            events: [],
+            users: [],
         };
 
         const getUrl = ({location}) => `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${API_KEY}`
 
-        Promise.all(events.map(event => getLocation(getUrl(event)))) //makes request and wait until last res
+        Promise.all(users.map(user => getLocation(getUrl(user)))) //makes request and wait until last res
             .then(values => {
                 // console.log(values);
                 this.setState({
                     ...this.state,
-                    events: values
+                    users: values
                         .filter(({status}) => status === 'OK')
                         .map((res, index) => {
                                 console.log(res);
                                 return {
                                     location: res.results[0].geometry.location,
-                                    name: events[index].name,
-                                    id: events[index].id
+                                    name: users[index].name,
+                                    id: users[index].id
                                 }
                             }
                         )
@@ -64,7 +66,7 @@ class MapContainer extends Component {
     };
 
     addMarkers() {
-        return this.state.events.map(({id, name, location}) => (
+        return this.state.users.map(({id, name, location}) => (
             <Marker
                 key={id}
                 name={name}
@@ -75,27 +77,25 @@ class MapContainer extends Component {
     }
 
     render() {
-        // if (!this.props.loaded) return <div>Loading...</div>;
-        console.log('render');
-        return (
-            <Map
-                className="map"
-                google={this.props.google}
-                onClick={this.onMapClicked}
-                zoom={3}
-                initialCenter={{lat: 50.4501, lng: 30.5234}}
-            >
 
-                {this.addMarkers()}
-                <InfoWindow
-                    marker={this.state.activeMarker}
-                    onClose={this.onInfoWindowClose}
-                    visible={this.state.showingInfoWindow}>
-                    <div>
-                        <h1 className='map__location-name'>{this.state.selectedPlace.name}</h1>
-                    </div>
-                </InfoWindow>
-            </Map>
+        return (
+                <Map
+                    className='map'
+                    google={this.props.google}
+                    onClick={this.onMapClicked}
+                    zoom={3}
+                    initialCenter={{lat: 50.4501, lng: 30.5234}}
+                >
+                    {this.addMarkers()}
+                    <InfoWindow
+                        marker={this.state.activeMarker}
+                        onClose={this.onInfoWindowClose}
+                        visible={this.state.showingInfoWindow}>
+                        <div>
+                            <h1 className='map__location-name'>{this.state.selectedPlace.name}</h1>
+                        </div>
+                    </InfoWindow>
+                </Map>
         );
     }
 }
@@ -103,4 +103,4 @@ class MapContainer extends Component {
 
 export default GoogleApiWrapper({
     apiKey: ('AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo')
-})(MapContainer)
+})(MapContainerUsers)

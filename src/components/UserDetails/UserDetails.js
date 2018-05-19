@@ -4,7 +4,11 @@ import {NavLink} from 'react-router-dom';
 import '../../../styles/user-details.less';
 import '../../../styles/user.less'
 import "../../../styles/common.less"
+import '../../../styles/map.less'
+
 import NavigationLanding from "../Navigation/NavigationSearchEvents";
+import {CLOUDINARY_URL} from "../../api/index";
+import MapContainerUsers from "../MapContainer/MapContainerUsers";
 import Navigation from "../Navigation/Navigation";
 
 class UserDetails extends Component {
@@ -48,9 +52,12 @@ class UserDetails extends Component {
                         </div>
                     </div>
                     <div className="user-details__big">
-                            <img className="user-details__photo" src={user.photo}/>
-                            <h1 className="user-details__name">{user.name}</h1>
-                            <div className="user-details__block-row">
+
+                            <img className="user-details__photo" src={CLOUDINARY_URL+'w_170,h_170,c_thumb,g_faces/' + user.photo + '.jpg'}/>
+
+                        <h1 className="user-details__name">{user.name}</h1>
+
+                        <div className="user-details__block-row">
                                 <button className="user-details__button">
                                     <img className="user-details__icon-heard"/>
                                     <span className="user-details__button-descr">Bookmark</span>
@@ -91,8 +98,11 @@ class UserDetails extends Component {
                                 <hr className="user-details__hr"/>
                             </div>
                             <div className="user-details__info-cont">
-                                <h6 className="user-details__story-title">Region, city</h6>
-                                <p className="user-details__story">{user.location}</p>
+                                <h6 className="user-details__story-title user-details__story-title_location">Region, city</h6>
+                                <p className="user-details__story user-details__story_location">{user.location}</p>
+                                <div className='map__container'>
+                                <MapContainerUsers users={[user]}/>
+                                </div>
                             </div>
                         </div>
                     </div>

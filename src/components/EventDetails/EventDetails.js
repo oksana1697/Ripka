@@ -8,6 +8,8 @@ import "../../../styles/common.less"
 
 import moment from 'moment';
 import Navigation from '../Navigation/Navigation';
+// import NavigationLanding from '../Navigation/NavigationLanding';
+import {CLOUDINARY_URL} from "../../api/index";
 
 /**
  * Represents view of single Event Details
@@ -106,7 +108,7 @@ class EventDetails extends Component {
                             </div>
                         </div>
                         <div className="event-details__right-info">
-                            <img className="event-details__photo" src={event.photo}/>
+                            <img className="event-details__photo"  src={CLOUDINARY_URL+'c_scale,r_5,w_265/' + event.photo + '.jpg'} />
                             <div className="event-details__in">
                                 <div className="event-details__title-info">
                                     <img className="event-details__icon-location"/>

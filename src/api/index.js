@@ -2,6 +2,7 @@ import { v4 } from 'uuid';
 import { deleteData, getData, postData, putData } from './api';
 
 const API_ENDPOINT = 'http://localhost:3000';
+export const CLOUDINARY_URL = "https://res.cloudinary.com/ucu/image/upload/"
 
 export const findEvents = filter =>
 {console.log("in APi", getData(`${API_ENDPOINT}/events?q=${filter}`).then(console.log("s")));
