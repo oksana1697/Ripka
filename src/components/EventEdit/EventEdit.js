@@ -9,6 +9,7 @@ import Navigation from "../Navigation/Navigation";
 import PhotoUpload from "../PhotoUpload";
 
 import "../../../styles/add.less";
+import {CLOUDINARY_URL} from "../../api/index";
 
 class EventEdit extends Component {
     constructor(props) {
@@ -33,7 +34,7 @@ class EventEdit extends Component {
 
     static getDerivedStateFromProps({event, isEventProcessing, onSuccess },
                                     { formSubmitted }) {
-        // console.log("f")
+        console.log(formSubmitted, isEventProcessing,"f")
         if (formSubmitted && !isEventProcessing) {
             onSuccess();
         }
@@ -141,7 +142,7 @@ class EventEdit extends Component {
 
                 <label className="add__input_container">
                     <span className="add__field">DOWNLOAD PHOTO</span>
-                    <img src={photo} />
+                    <img  src={CLOUDINARY_URL + 'c_scale,r_5,w_265/' + photo + '.jpg'} />
                     <PhotoUpload photo={URL => this.setState({photo: URL})}/>
                 </label>
                 <div className="add__submit-container">

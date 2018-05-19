@@ -29,7 +29,6 @@ const UserContainer = ({users, onUserClick}) => (
             </div>
             <MapContainerUsers users={users}/>
         </div>
-
     </Fragment>
 );
 

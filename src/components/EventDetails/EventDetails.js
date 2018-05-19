@@ -32,7 +32,7 @@ class EventDetails extends Component {
                             <div className='event-details__edit'>
                                 <img className="event-details__icon-edit"/>
                                 <NavLink
-                                    to={'/edit/' + event.id}
+                                    to={'/events/edit/' + event.id}
                                 >
                                     <button className="event-details__btn">Edit event</button>
                                 </NavLink>

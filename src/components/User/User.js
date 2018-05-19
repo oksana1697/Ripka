@@ -20,7 +20,7 @@ const User = ({
         <p className="user__name">{name}</p>
         <p className="user__location">{location}</p>
       <NavLink
-          to={'users/' + id}
+          to={'/users/' + id}
       >
       <button className="user__btn">Show more</button>
       </NavLink>

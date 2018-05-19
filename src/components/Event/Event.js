@@ -32,7 +32,7 @@ const Event = ({
         </div>
         <div>
             <NavLink
-                to={'/' + id}
+                to={'/events/' + id}
             >
                 <button className="event__btn">Show more</button>
             </NavLink>

@@ -10,6 +10,7 @@ import AddEventNavigation from "../Navigation/NavigationAddUser";
 import PhotoUpload from '../PhotoUpload';
 
 import '../../../styles/add.less';
+import {CLOUDINARY_URL} from "../../api/index";
 
 class UserEdit extends Component {
   constructor(props) {
@@ -31,9 +32,8 @@ class UserEdit extends Component {
 
   static getDerivedStateFromProps(
     { user, isUserProcessing, onSuccess },
-    { formSubmitted },
-  ) {
-    console.log(formSubmitted, isUserProcessing);
+    { formSubmitted }) {
+    console.log(formSubmitted, isUserProcessing,"f");
     if (formSubmitted && !isUserProcessing) {
       onSuccess();
     }
@@ -131,7 +131,7 @@ class UserEdit extends Component {
             <label className="add__input_container">
               <span className="add__field">DOWNLOAD PHOTO</span>
               <div className="add__photo-container">
-                <img src={photo} className="add__photo-img" />
+                <img  src={CLOUDINARY_URL + 'c_scale,r_5,w_265/' + photo + '.jpg'} className="add__photo-img" />
               </div>
               <PhotoUpload photo={URL => this.setState({ photo: URL })} />
             </label>
@@ -169,3 +169,4 @@ export default connect(
     };
   },
 )(UserEdit);
+

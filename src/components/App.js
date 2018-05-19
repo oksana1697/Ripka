@@ -61,20 +61,20 @@ const App = () => (
       <Route exact path="/adduser">
         {props => <AddUser onSuccess={() => props.history.push('users')} />}
       </Route>
-      <Route exact path="/:id">
+      <Route exact path="/events/:id">
         {props => (
           <EventDetailsConnector
             id={props.match.params.id}
-            onSuccess={() => props.history.push('/')}
+            onSuccess={() => props.history.push('/events')}
           />
         )}
       </Route>
 
-      <Route exact path="/edit/:id">
+      <Route exact path="/events/edit/:id">
         {props => (
           <EventEdit
             id={props.match.params.id}
-            onSuccess={() => props.history.push('/')}
+            onSuccess={() => props.history.push('/events')}
           />
         )}
       </Route>

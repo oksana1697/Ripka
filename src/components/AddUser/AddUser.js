@@ -10,13 +10,13 @@ import '../../../styles/common.less';
 import '../../../styles/add.less';
 import NavigationAddUser from '../Navigation/NavigationAddUser';
 
-function validate(name, contacts) {
-    // true means invalid, so our conditions got reversed
-    return {
-        name: name.length === 0,
-        contacts: contacts.length === 0,
-    };
-}
+// function validate(name, contacts) {
+//     // true means invalid, so our conditions got reversed
+//     return {
+//         name: name.length === 0,
+//         contacts: contacts.length === 0,
+//     };
+// }
 
 class AddUser extends Component {
     static defaultProps = {
@@ -43,10 +43,10 @@ class AddUser extends Component {
     };
 
     handleSubmit = ev => {
-        if (!this.canBeSubmitted()) {
-            ev.preventDefault();
-            return;
-        }
+        // if (!this.canBeSubmitted()) {
+        //     ev.preventDefault();
+        //     return;
+        // }
         ev.preventDefault();
         const {addUser} = this.props;
         const {formSubmitted, ...user} = this.state;
@@ -60,11 +60,11 @@ class AddUser extends Component {
         this.setState({[property]: value});
     };
 
-    canBeSubmitted() {
-        const errors = validate(this.state.name, this.state.contacts);
-        const isDisabled = Object.keys(errors).some(x => errors[x]);
-        return !isDisabled;
-    }
+    // canBeSubmitted() {
+    //     const errors = validate(this.state.name, this.state.contacts);
+    //     const isDisabled = Object.keys(errors).some(x => errors[x]);
+    //     return !isDisabled;
+    // }
 
     render() {
         const {
@@ -75,8 +75,8 @@ class AddUser extends Component {
             interests,
             formSubmitted,
         } = this.state;
-        const errors = validate(this.state.name, this.state.contacts);
-        const isDisabled = Object.keys(errors).some(x => errors[x]);
+        // const errors = validate(this.state.name, this.state.contacts);
+        // const isDisabled = Object.keys(errors).some(x => errors[x]);
 
         return (
             <div>
@@ -144,7 +144,7 @@ class AddUser extends Component {
                             <PhotoUpload photo={URL => this.setState({photo: URL})}/>
                         </div>
                         <div className="add__user_input_container">
-                            <button disabled={isDisabled} className="add__user_button">Add User</button>
+                            <button className="add__user_button">Add User</button>
                         </div>
                     </div>
                 </form>

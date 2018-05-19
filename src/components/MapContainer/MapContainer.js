@@ -76,7 +76,6 @@ class MapContainer extends Component {
     }
 
     render() {
-        // if (!this.props.loaded) return <div>Loading...</div>;
         console.log('render');
         return (
             <Map
