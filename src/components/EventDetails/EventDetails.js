@@ -8,7 +8,6 @@ import "../../../styles/common.less"
 
 import moment from 'moment';
 import Navigation from '../Navigation/Navigation';
-import NavigationLanding from '../Navigation/NavigationSearchEvents';
 
 /**
  * Represents view of single Event Details
@@ -22,7 +21,7 @@ class EventDetails extends Component {
         }
         return (
             <div className="event-details__main">
-                <NavigationLanding/>
+                <Navigation/>
                 <div className="event-details__main-container">
                     <div className='event-details__subnav'>
                         <div className='event-details__left'>

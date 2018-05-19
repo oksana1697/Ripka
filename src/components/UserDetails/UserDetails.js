@@ -5,6 +5,7 @@ import '../../../styles/user-details.less';
 import '../../../styles/user.less'
 import "../../../styles/common.less"
 import NavigationLanding from "../Navigation/NavigationSearchEvents";
+import Navigation from "../Navigation/Navigation";
 
 class UserDetails extends Component {
     render() {
@@ -15,7 +16,7 @@ class UserDetails extends Component {
         }
         return (
             <div>
-                <NavigationLanding/>
+                <Navigation/>
                 <div className="user-details__main-container">
                     <div className='user-details__subnav'>
                         <div className='user-details__left'>
