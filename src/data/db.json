@@ -2,12 +2,12 @@
   "events": [
     {
       "id": 1,
-      "name": "2018 Cities Summer Fellowship",
+      "name": "2020 Cities Summer Fellow",
       "description": "CDP is an international non-profit that drives companies and governments to reduce their greenhouse gas emissions, safeguard water resources and protect forests. Voted number one climate research provider by investors and working with institutional investors with assets of US$100 trillion, we leverage investor and buyer power to motivate companies to disclose and manage their environmental impacts. ",
       "organization": "CDP",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "New York, United States",
+      "location": "Ivano-Frankivsk, Ukraine",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -17,7 +17,7 @@
       "organization": "CADIP",
       "contacts": "646-657-2900",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Hveragerdi, SouthIceland",
+      "location": "Dnipro, Ukraine",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -27,7 +27,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Полтавська область, Полтава",
+      "location": "Полтава, Україна",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -37,7 +37,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Чернігівська область, Чернігів",
+      "location": "Чернігів, Україна",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -47,7 +47,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Харківська область, Харків",
+      "location": "Харків, Україна",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -57,7 +57,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Миколаївська область, Миколаїв",
+      "location": "Миколаїв, Україна",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -67,7 +67,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Одеська область, Одеса",
+      "location": "Одеса, Україна",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -77,7 +77,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Тернопільска область, Бучач",
+      "location": "Бучач, Україна",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -87,7 +87,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Тернопільска область, Тернопіль",
+      "location": "Тернопіль, Україна",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -97,7 +97,7 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Львівська область, Львів",
+      "location": "Львів, Україна",
       "photo": "photo-event_vwr3vn"
     },
     {
@@ -107,19 +107,8 @@
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
       "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Київська область, Київ",
+      "location": "Київ, Україна",
       "photo": "photo-event_vwr3vn"
-    },
-    {
-      "name": "Test",
-      "description": "dc",
-      "organization": "Test Test",
-      "category": "",
-      "contacts": "+38092230635",
-      "time": "2018-05-19T08:14:12.984Z",
-      "location": "Kyiv Ukraine",
-      "photo": "",
-      "id": 12
     }
   ],
   "users": [
@@ -127,7 +116,7 @@
       "name": "Віктор Франкл",
       "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
       "contacts": "+38098678594",
-      "location": "Харківська область, Харків",
+      "location": "Харків, Україна",
       "photo": "njhniezzny9ja9xmlfun",
       "interests": "Murders",
       "id": 1
@@ -136,7 +125,7 @@
       "name": "Вітольд Гомбрович",
       "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n      ",
       "contacts": "+38098678594",
-      "location": "Тернопільска область, Тернопіль",
+      "location": "Тернопіль, Україна",
       "photo": "pioih8qrevagdrriltwn",
       "interests": "Murders",
       "id": 2
@@ -145,7 +134,7 @@
       "name": "Анатолій Сидоренко",
       "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n      ",
       "contacts": "+38098678594",
-      "location": "Львівська область, Львів",
+      "location": "Львів, Україна",
       "photo": "gor88wv5sp9kpkmwbu91",
       "interests": "Murders",
       "id": 3
@@ -154,7 +143,7 @@
       "name": "Андрій Любка",
       "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n     ",
       "contacts": "+38098678594",
-      "location": "Київська область, Київ",
+      "location": "Київ, Україна",
       "photo": "tnbzxqaizumhvwfjbzcb",
       "interests": "Murders",
       "id": 4
