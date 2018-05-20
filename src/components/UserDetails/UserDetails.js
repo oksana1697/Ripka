@@ -55,8 +55,7 @@ class UserDetails extends Component {
                     <div className="user-details__big">
 
                         <img className="user-details__photo"
-                             src={CLOUDINARY_URL + 'w_170,h_170,c_thumb,g_faces/' + user.photo + '.jpg'}/>
-
+                             src={CLOUDINARY_URL + 'w_170,h_170,q_90,c_fill,g_faces/' + user.photo + '.jpg'}/>
                         <h1 className="user-details__name">{user.name}</h1>
 
                         <div className="user-details__block-row">

@@ -16,7 +16,7 @@ const User = ({
 }) => (
   <div className="user__container">
     <div className="user__info-container">
-      <img src={CLOUDINARY_URL+'w_170,h_170,c_thumb,g_faces/' + photo + '.jpg'} className="user__photo" />
+      <img src={CLOUDINARY_URL+'w_80,h_80,q_90,c_thumb,g_faces/' + photo + '.jpg'} className="user__photo" />
         <p className="user__name">{name}</p>
         <p className="user__location">{location}</p>
       <NavLink
