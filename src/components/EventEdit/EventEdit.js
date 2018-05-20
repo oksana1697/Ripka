@@ -45,9 +45,9 @@ class EventEdit extends Component {
         ev.preventDefault();
         const {editEvent, id} = this.props;
         const {formSubmitted, ...event} = this.state;
-
         editEvent(event, id);
         this.setState({formSubmitted: true});
+        console.log("props:", this.state)
     };
 
     changeHandler = property => ev => {
@@ -143,7 +143,9 @@ class EventEdit extends Component {
                 <label className="add__input_container">
                     <span className="add__field">DOWNLOAD PHOTO</span>
                     <img  src={CLOUDINARY_URL + 'c_scale,r_5,w_265/' + photo + '.jpg'} />
-                    <PhotoUpload photo={URL => this.setState({photo: URL})}/>
+                    <PhotoUpload
+                        // photo={URL => this.setState({photo: URL})}
+                    />
                 </label>
                 <div className="add__submit-container">
                     <button className="add__submit">Save changes</button>

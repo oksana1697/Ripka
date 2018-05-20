@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+import PhotoUpload from '../PhotoUpload';
+
+import { Field, reduxForm } from 'redux-form'
 import {addUser} from '../../actions/add';
 import {connect} from 'react-redux';
 
-import PhotoUpload from '../PhotoUpload';
 
 import {getIsUserProcessing} from '../../reducers/index';
 
@@ -43,10 +45,6 @@ class AddUser extends Component {
     };
 
     handleSubmit = ev => {
-        // if (!this.canBeSubmitted()) {
-        //     ev.preventDefault();
-        //     return;
-        // }
         ev.preventDefault();
         const {addUser} = this.props;
         const {formSubmitted, ...user} = this.state;
@@ -89,6 +87,12 @@ class AddUser extends Component {
                         </div>
 
                         <label className="add__user_input_container">
+                            <Field
+                                name="FirstName"
+                                component="input"
+                                type="text"
+                                placeholder="First Name"
+                            />
                             <input
                                 required
                                 className="add__input"
