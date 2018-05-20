@@ -13,8 +13,6 @@ import VisibleUserList from './VisibleUserList';
 import NavigationSearchEvents from './Navigation/NavigationSearchEvents';
 import Landing from './Landing/Landing';
 import NavigationSearchUsers from "./Navigation/NavigationSearchUsers";
-
-
 /**
  * App js description
  */
