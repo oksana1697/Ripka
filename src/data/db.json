@@ -2,7 +2,7 @@
   "events": [
     {
       "id": 1,
-      "name": "Cities Summer Fellow",
+      "name": "Ccities Summer Fellow",
       "description": "CDP is an international non-profit that drives companies and governments to reduce their greenhouse gas emissions, safeguard water resources and protect forests. Voted number one climate research provider by investors and working with institutional investors with assets of US$100 trillion, we leverage investor and buyer power to motivate companies to disclose and manage their environmental impacts. ",
       "organization": "CDP",
       "contacts": "+38098678594",
@@ -120,14 +120,25 @@
       "location": "Київ, Україна",
       "photo": "photo-event_vwr3vn",
       "category": "Nonprofit"
+    },
+    {
+      "name": "Dfghj",
+      "description": "dfghjk",
+      "organization": "fghj",
+      "category": "",
+      "contacts": "fghj",
+      "time": "2018-05-19T12:30:26.689Z",
+      "location": "Georgia",
+      "photo": "shk8ragqmni50aiz9bvf",
+      "id": 12
     }
   ],
   "users": [
     {
-      "name": "Віктор Фра",
+      "name": "",
       "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
       "contacts": "+38098678594",
-      "location": "Харків, Україна",
+      "location": "",
       "photo": "njhniezzny9ja9xmlfun",
       "interests": "Murders",
       "id": 1

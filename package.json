@@ -5,6 +5,8 @@
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill",
     "build": "webpack",
+    "build:APIDoc": " node_modules/.bin/aglio -i ./docs/API/input.apib -o ./docs/API/output.html",
+    "build:ComponentDoc":"npx styleguidist build",
     "start:server": "webpack-dev-server || serve --single",
     "data:local": "json-server --watch ./src/data/db.json",
     "data:fake": "json-server --watch ./src/data/generateFakeData.js",

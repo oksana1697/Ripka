@@ -24,7 +24,7 @@ class MapContainerUsers extends Component {
 
         Promise.all(users.map(user => getLocation(getUrl(user)))) //makes request and wait until last res
             .then(values => {
-                // console.log(values);
+                console.log(values, "user");
                 this.setState({
                     ...this.state,
                     users: values

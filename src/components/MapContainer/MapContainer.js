@@ -24,7 +24,7 @@ class MapContainer extends Component {
 
         Promise.all(events.map(event => getLocation(getUrl(event)))) //makes request and wait until last res
             .then(values => {
-                // console.log(values);
+                console.log(values, "event");
                 this.setState({
                     ...this.state,
                     events: values

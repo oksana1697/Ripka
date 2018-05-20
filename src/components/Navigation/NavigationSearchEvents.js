@@ -24,7 +24,7 @@ class NavigationSearchEvents extends Component {
 
       const getPopupItems = () =>
           foundEvents.map(event => (
-              <NavLink to={'/' + event.id}>
+              <NavLink to={'/events/' + event.id}>
                   <a key={event.id} href="#">
                       {event.name}
                   </a>
