@@ -20,7 +20,7 @@ const Event = ({
                }) => (
     <div className="event__container ">
         <div>
-            <img src={CLOUDINARY_URL+'c_scale,r_5,w_265/' + photo + '.jpg'} className="event__photo"/>
+            <img src={CLOUDINARY_URL+'w_80,h_80,c_fill,q_90/' + photo + '.jpg'} className="event__photo"/>
         </div>
         <div className="event__info">
             <p className="event__name">{name}</p>
