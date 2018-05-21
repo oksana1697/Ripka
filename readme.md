@@ -58,4 +58,4 @@ npm run build:ComponentDoc
 
 For Components documentation consider [Docs](https://ksenyaoleniuk.github.io/Ripka/styleguide/index.html)
 
-For API documentation consider [API Docs](https://ksenyaoleniuk.github.io/Ripka/styleguide/output.html)
+For API documentation consider [API Docs](https://ksenyaoleniuk.github.io/Ripka/API/output.html)

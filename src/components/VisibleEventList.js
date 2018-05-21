@@ -8,6 +8,9 @@ import EventContainer from './EventContainer/EventContainer';
 import { getEventById } from '../reducers';
 
 class VisibleEventList extends Component {
+    state = {
+        page: 0,
+    };
   componentDidMount() {
     this.fetchData();
   }

@@ -33,3 +33,13 @@ Content-type: application/json
 
 {"id":1}
 ###
+
+
+###
+GET http://localhost:3000/events?_page=2&_limit=5
+
+
+Content-type: application/json
+
+{"id":1}
+###

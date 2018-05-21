@@ -5,9 +5,13 @@ const API_ENDPOINT = 'http://localhost:3000';
 export const CLOUDINARY_URL = "https://res.cloudinary.com/ucu/image/upload/";
 export const API_KEY = 'AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo';
 
-export const findEvents = filter =>
-{console.log("in APi", getData(`${API_ENDPOINT}/events?q=${filter}`).then(console.log("s")));
-return (getData(`${API_ENDPOINT}/events?q=${filter}`))};
+
+export const fetchPaginateUsers = page => getData(`${API_ENDPOINT}/users?_page=${page}&_limit=5`);
+
+export const fetchPaginateEvents = page => getData(`${API_ENDPOINT}/events?_page=${page}&_limit=5`);
+
+export const findEvents = filter => getData(`${API_ENDPOINT}/events?q=${filter}`);
+
 export const findUsers = filter => getData(`${API_ENDPOINT}/users?q=${filter}`);
 
 export const fetchSliceEvents = num => getData(`${API_ENDPOINT}/events?_start=` + num + '&_limit=4');
