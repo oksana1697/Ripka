@@ -2,11 +2,15 @@ FORMAT: 1A
 
 # Manage with Users&Events
 
-Simple API allowing to manage this users.
+Simple API allowing to manage this users/events.
 
-## Users Collection [/users]
+# Group Users
 
-### List All Users [GET]
+Resources related to Users in the API.
+
+## Users  [/users]
+
+### Get all Users [GET]
 
 + Request
 
@@ -18,7 +22,7 @@ Simple API allowing to manage this users.
 
      + Body
 
-             {
+             [{
                  "id": 321,
                  "name": "Віктор Франкл",
                  "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
@@ -26,7 +30,7 @@ Simple API allowing to manage this users.
                  "interests": "1222-12-22T12:12:00.000+02:00",
                  "location": "Київська область, Київ",
                  "photo": "http://res.cloudinary.com/drzw6h31n/image/upload/v1524735692/frankl_min_sgmbex.jpg"
-               }, ...
+               }, ...]
 
 ## User [/user/id]
 
@@ -90,7 +94,7 @@ Simple API allowing to manage this users.
 
 ## User [/user]
 
-### Delete new user [DELETE]
+### Delete user [DELETE]
 
 + Request
 
@@ -110,9 +114,70 @@ Simple API allowing to manage this users.
 + Response 200 (application/json)
 
 
-## Events Collection [/events]
+## User [/user]
 
-### List All Events [GET]
+### Edit user [POST]
+
++ Request
+
+    + Body  body: {"id": 321,
+                   "name": "Віктор Франкл",
+                   "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
+                   "contacts": "+38098678594",
+                   "date": "1222-12-22T12:12:00.000+02:00",
+                   "location": "Київська область, Київ",
+                   "photo": "http://res.cloudinary.com/drzw6h31n/image/upload/v1524735692/frankl_min_sgmbex.jpg"
+                   },
+            headers: {'content-type': 'application/json',
+            method: POST
+
+    + URl (`http://localhost:3000/users`)
+
++ Response 200 (application/json)
+
+    + Body
+
+        {
+            "id": 321,
+            "name": "Віктор Франкл",
+            "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
+            "contacts": "+38098678594",
+            "interests": "1222-12-22T12:12:00.000+02:00",
+            "location": "Київська область, Київ",
+            "photo": "http://res.cloudinary.com/drzw6h31n/image/upload/v1524735692/frankl_min_sgmbex.jpg"
+          }
+
+## User [/user]
+
+### Find users [GET]
+
++ Request
+
+        + Body (method: 'GET')
+
+        + URl (`http://localhost:3000/users?q=${filter}`)
+
++ Response 200 (application/json)
+
+    + Body
+[{
+             "id": 321,
+             "name": "Віктор Франкл",
+             "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
+             "contacts": "+38098678594",
+             "interests": "1222-12-22T12:12:00.000+02:00",
+             "location": "Київська область, Київ",
+             "photo": "http://res.cloudinary.com/drzw6h31n/image/upload/v1524735692/frankl_min_sgmbex.jpg"
+           },..]
+
+
+# Group Events
+
+Resources related to Events in the API.
+
+## Events  [/events]
+
+### Get All Events [GET]
 
 + Request
 
@@ -134,7 +199,7 @@ Simple API allowing to manage this users.
                  "photo": "http://res.cloudinary.com/drzw6h31n/image/upload/v1524735692/frankl_min_sgmbex.jpg"
                }, ...
 
-## User [/event/id]
+## Event [/event/id]
 
 ### Returns current event [GET]
 
@@ -197,9 +262,9 @@ Simple API allowing to manage this users.
       "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
     }
 
-## User [/event]
+## Event [/event]
 
-### Delete new event [DELETE]
+### Delete event [DELETE]
 
 + Request
 
@@ -219,5 +284,64 @@ Simple API allowing to manage this users.
     + URl (`http://localhost:3000/events/${id}`
 
 + Response 200 (application/json)
+
+## Event [/event]
+
+### Edit event [POST]
+
++ Request
+
+    + Body  body: {
+                   "id": 11,
+                   "name": "Фестивалю 'Добрі справи 2018' потрібен логотип",
+                   "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",
+                   "organization": "Добрі справи 2018",
+                   "contacts": "+38098678594",
+                   "interests": "1222-12-22T12:12:00.000+02:00",
+                   "location": "Київська область, Київ",
+                   "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+                   }
+            headers: {'content-type': 'application/json',
+            method: POST
+
+    + URl (`http://localhost:3000/events`)
+
++ Response 200 (application/json)
+
+    + Body
+{
+      "id": 11,
+      "name": "Фестивалю 'Добрі справи 2018' потрібен логотип",
+      "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",
+      "organization": "Добрі справи 2018",
+      "contacts": "+38098678594",
+      "interests": "1222-12-22T12:12:00.000+02:00",
+      "location": "Київська область, Київ",
+      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+    }
+
+## Event [/event]
+
+### Find events [GET]
+
++ Request
+
+        + Body (method: 'GET')
+
+        + URl (`http://localhost:3000/events?q=${filter}`)
+
++ Response 200 (application/json)
+
+    + Body
+[{
+      "id": 11,
+      "name": "Фестивалю 'Добрі справи 2018' потрібен логотип",
+      "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",
+      "organization": "Добрі справи 2018",
+      "contacts": "+38098678594",
+      "interests": "1222-12-22T12:12:00.000+02:00",
+      "location": "Київська область, Київ",
+      "photo": "http://res.cloudinary.com/ucu/image/upload/c_scale,r_5,w_265/v1520958024/photo-event_vwr3vn.jpg"
+    },..]
 
 

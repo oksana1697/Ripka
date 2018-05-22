@@ -31,6 +31,21 @@ export const fetchEvent = id => async dispatch => {
   }
 };
 
+export const fetchEvents = () => async dispatch => {
+    dispatch(fetchEventsStart());
+    try {
+        let response = await api.fetchEvents();
+        if (!response.error) {
+            response = normalize(response, arrayOfEvents);
+            dispatch(fetchEventsSuccess(response.result, response.entities.events));
+        } else {
+            dispatch(fetchEventsFailure(response.error));
+        }
+    } catch (error) {
+        fetchEventsFailure(error);
+    }
+};
+
 export const fetchUsers = () => async dispatch => {
   dispatch(fetchUsersStart());
   try {
@@ -43,21 +58,6 @@ export const fetchUsers = () => async dispatch => {
     }
   } catch (error) {
     fetchUsersFailure(error);
-  }
-};
-
-export const fetchEvents = () => async dispatch => {
-  dispatch(fetchEventsStart());
-  try {
-    let response = await api.fetchEvents();
-    if (!response.error) {
-      response = normalize(response, arrayOfEvents);
-      dispatch(fetchEventsSuccess(response.result, response.entities.events));
-    } else {
-      dispatch(fetchEventsFailure(response.error));
-    }
-  } catch (error) {
-    fetchEventsFailure(error);
   }
 };
 
@@ -74,4 +74,34 @@ export const fetchUser = id => async dispatch => {
   } catch (error) {
     fetchUserFailure(error);
   }
+};
+
+export const fetchPaginateEvents = page => async dispatch => {
+    dispatch(fetchEventsStart());
+    try {
+        let response = await api.fetchPaginateEvents(page);
+        if (!response.error) {
+            response = normalize(response, arrayOfEvents);
+            dispatch(fetchEventsSuccess(response.result, response.entities.events));
+        } else {
+            dispatch(fetchEventsFailure(response.error));
+        }
+    } catch (error) {
+        fetchEventsFailure(error);
+    }
+};
+
+export const fetchPaginateUsers = page => async dispatch => {
+    dispatch(fetchUsersStart());
+    try {
+        let response = await api.fetchPaginateUsers(page);
+        if (!response.error) {
+            response = normalize(response, arrayOfUsers);
+            dispatch(fetchUsersSuccess(response.result, response.entities.users));
+        } else {
+            dispatch(fetchUsersFailure(response.error));
+        }
+    } catch (error) {
+        fetchUsersFailure(error);
+    }
 };
