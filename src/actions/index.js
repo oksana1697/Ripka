@@ -31,6 +31,7 @@ export const fetchUsersSuccess = (ids,users) => ({type: FETCH_USERS_SUCCESS, ids
 export const fetchUsersFailure = error => ({type: FETCH_USERS_FAILURE, error});
 
 export const fetchEventsStart = () => ({type: FETCH_EVENTS_START});
+// export const fetchEventsSuccess = (ids, events, currentPage) => ({type: FETCH_EVENTS_SUCCESS, ids, events, currentPage});
 export const fetchEventsSuccess = (ids, events) => ({type: FETCH_EVENTS_SUCCESS, ids, events});
 export const fetchEventsFailure = error => ({type: FETCH_EVENTS_FAILURE, error});
 

@@ -94,15 +94,19 @@
   }
 
   &__input {
+    display: flex;
     border-radius: 4px;
     border: 1px solid #b3b3b3;
     height: 31px;
-    width: 100%;
+    width: 80%;
     font-size: 16px;
-    margin-left: 10px;
-    padding: 6.5px;
+    margin-left: 20px;
+    padding: 3.5px;
     outline: 0;
-
+    &_warning{
+      margin-left: 20px;
+      color: darkred;
+    }
     &:hover {
       border: 1px solid #6d7ce7;
     }
@@ -114,7 +118,8 @@
     }
 
     &_container {
-      display: flex;
+      //display: flex;
+      display: inline-flex;
       width: 600px;
       margin: auto auto 20px auto;
     }
@@ -196,9 +201,10 @@
     border-radius: 4px;
     border: 1px solid #b3b3b3;
     height: 110px;
-    width: 100%;
+    //width: 100%;
     font-size: 16px;
-    margin-left: 10px;
+    margin-right: 16px;
+    margin-left: 20px;
     padding: 6.5px;
     outline: 0;
     background: white;
@@ -211,6 +217,13 @@
   }
   &__icon_legal-paper {
     content: url('icons/legal-paper.svg');
+  }
+  &__event{
+    &_block{
+      position: relative;
+      max-width: 800px;
+      margin: 10px auto auto auto;
+    }
   }
   &__user {
     background: #8080801c;
@@ -262,10 +275,7 @@
     }
     &_input {
       &_container {
-
-        display: flex;
-        width: 350px;
-        margin: auto auto 20px auto;
+        margin: auto auto 30px auto;
 
         &.error {
           border-color: red;

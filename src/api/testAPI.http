@@ -36,7 +36,7 @@ Content-type: application/json
 
 
 ###
-GET http://localhost:3000/events?_page=2&_limit=5
+GET http://localhost:3000/events?_page=1&_limit=5
 
 
 Content-type: application/json

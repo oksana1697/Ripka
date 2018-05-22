@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
 import events, * as fromEvents from "./events";
 import users, * as fromUsers from "./users";
+import { reducer as formReducer } from 'redux-form';
 
 const eventApp = combineReducers({
     events,
-    users
+    users,
+    form: formReducer
 });
 export default eventApp;
 

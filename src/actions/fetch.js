@@ -32,18 +32,18 @@ export const fetchEvent = id => async dispatch => {
 };
 
 export const fetchEvents = () => async dispatch => {
-    dispatch(fetchEventsStart());
-    try {
-        let response = await api.fetchEvents();
-        if (!response.error) {
-            response = normalize(response, arrayOfEvents);
-            dispatch(fetchEventsSuccess(response.result, response.entities.events));
-        } else {
-            dispatch(fetchEventsFailure(response.error));
-        }
-    } catch (error) {
-        fetchEventsFailure(error);
-    }
+    // dispatch(fetchEventsStart());
+    // try {
+    //     let response = await api.fetchEvents();
+    //     if (!response.error) {
+    //         response = normalize(response, arrayOfEvents);
+    //         dispatch(fetchEventsSuccess(response.result, response.entities.events));
+    //     } else {
+    //         dispatch(fetchEventsFailure(response.error));
+    //     }
+    // } catch (error) {
+    //     fetchEventsFailure(error);
+    // }
 };
 
 export const fetchUsers = () => async dispatch => {
@@ -82,7 +82,7 @@ export const fetchPaginateEvents = page => async dispatch => {
         let response = await api.fetchPaginateEvents(page);
         if (!response.error) {
             response = normalize(response, arrayOfEvents);
-            dispatch(fetchEventsSuccess(response.result, response.entities.events));
+            dispatch(fetchEventsSuccess(response.result, response.entities.events, page));
         } else {
             dispatch(fetchEventsFailure(response.error));
         }

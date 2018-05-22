@@ -1,165 +1,204 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PhotoUpload from '../PhotoUpload';
 
-import { Field, reduxForm } from 'redux-form'
-import {addUser} from '../../actions/add';
-import {connect} from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
+import { addUser } from '../../actions/add';
+import { connect } from 'react-redux';
 
-
-import {getIsUserProcessing} from '../../reducers/index';
+import {
+  alphaNumeric,
+  aol,
+  maxLength20,
+  maxLength15,
+  minLength2,
+  required,
+  email_check,
+  phoneNumber,
+} from '../../helpers/FieldLevelValidationForm';
+import { getIsUserProcessing } from '../../reducers/index';
 
 import '../../../styles/common.less';
 import '../../../styles/add.less';
 import NavigationAddUser from '../Navigation/NavigationAddUser';
 
-// function validate(name, contacts) {
-//     // true means invalid, so our conditions got reversed
-//     return {
-//         name: name.length === 0,
-//         contacts: contacts.length === 0,
-//     };
-// }
-
 class AddUser extends Component {
-    static defaultProps = {
-        onSuccess() {
-        },
-    };
+  static defaultProps = {
+    onSuccess() {},
+  };
 
-    static getDerivedStateFromProps({isUserProcessing, onSuccess},
-                                    {formSubmitted},) {
-        if (formSubmitted && !isUserProcessing) {
-            onSuccess();
-        }
-        return {};
+  static getDerivedStateFromProps(
+    { isUserProcessing, onSuccess },
+    { formSubmitted },
+  ) {
+    if (formSubmitted && !isUserProcessing) {
+      onSuccess();
     }
+    return {};
+  }
 
-    state = {
-        name: '',
-        description: '',
-        contacts: '',
-        location: '',
-        photo: '',
-        interests: '',
-        formSubmitted: false,
-    };
+  state = {
+    name: '',
+    description: '',
+    contacts: '',
+    location: '',
+    photo: '',
+    interests: '',
+    formSubmitted: false,
+  };
 
-    handleSubmit = ev => {
-        ev.preventDefault();
-        const {addUser} = this.props;
-        const {formSubmitted, ...user} = this.state;
-        addUser(user);
-        this.setState({formSubmitted: true});
-        this.props.onSuccess();
-    };
+  handleSubmit = ev => {
+    ev.preventDefault();
+    const {...user} = this.props.addUserForm.values;
+    const { addUser } = this.props;
+    // const { formSubmitted, ...user } = this.state;
+    addUser(user);
+    this.setState({ formSubmitted: true });
+    this.props.onSuccess();
+  };
 
-    changeHandler = property => ev => {
-        const {value} = ev.target;
-        this.setState({[property]: value});
-    };
+  changeHandler = property => ev => {
+    const { value } = ev.target;
+    this.setState({ [property]: value });
+    console.log('STATE', this.state);
+  };
 
-    // canBeSubmitted() {
-    //     const errors = validate(this.state.name, this.state.contacts);
-    //     const isDisabled = Object.keys(errors).some(x => errors[x]);
-    //     return !isDisabled;
-    // }
+  renderPhotoUpload = () =>
+      (<PhotoUpload photo={URL => this.props.change( "photo", URL )} />);
 
-    render() {
-        const {
-            name,
-            description,
-            contacts,
-            location,
-            interests,
-            formSubmitted,
-        } = this.state;
-        // const errors = validate(this.state.name, this.state.contacts);
-        // const isDisabled = Object.keys(errors).some(x => errors[x]);
+  renderInput = ({ input, label, type, meta: { touched, error, warning } }) => (
+    <div className="add__user_input_container">
+      <input
+        required
+        {...input}
+        placeholder={label}
+        type={type}
+        className="add__input"
+      />
+      {touched &&
+        ((error && <span className="add__input_warning">{error}</span>) ||
+          (warning && <span className="add__input_warning">{warning}</span>))}
+    </div>
+  );
 
-        return (
-            <div>
-                <NavigationAddUser/>
-                <form className="add__user" onSubmit={this.handleSubmit}>
-                    {formSubmitted && <div className="add-event__carpet"/>}
-                    <div className="add__user_block">
-                        <div className="add__user_container">
-                            <h1 className="add__user_title">Join Ripka</h1>
-                        </div>
+  renderTextArea = ({
+    input,
+    label,
+    type,
+    meta: { touched, error, warning },
+  }) => (
+    <div className="add__user_input_container">
+      <textarea {...input} placeholder={label} className="add__input" />
+      {touched &&
+        ((error && <span className="add__input_warning">{error}</span>) ||
+          (warning && <span className="add__input_warning">{warning}</span>))}
+    </div>
+  );
 
-                        <label className="add__user_input_container">
-                            <Field
-                                name="FirstName"
-                                component="input"
-                                type="text"
-                                placeholder="First Name"
-                            />
-                            <input
-                                required
-                                className="add__input"
-                                placeholder="First Name"
-                                value={name}
-                                onChange={this.changeHandler('name')}
-                            />
-                            <input
-                                required
-                                className="add__input"
-                                placeholder="Last Name"
-                                value={name}
-                                onChange={this.changeHandler('name')}
-                            />
-                        </label>
-                        <label className="add__user_input_container">
-                            <input
-                                required
-                                className="add__input"
-                                placeholder="Location"
-                                value={location}
-                                onChange={this.changeHandler('location')}
-                            />
-                        </label>
-                        <label className="add__user_input_container">
-                            <input
-                                required
-                                className="add__input"
-                                placeholder="Contacts"
-                                value={contacts}
-                                onChange={this.changeHandler('contacts')}
-                            />
-                        </label>
-                        <label className="add__user_input_container">
-              <textarea
-                  className="add__textarea"
-                  placeholder="About Me"
-                  value={description}
-                  onChange={this.changeHandler('description')}
-                  required
-              />
-                        </label>
-                        <label className="add__user_input_container">
-                            <input
-                                className="add__input"
-                                placeholder="Interests & Goals"
-                                value={interests}
-                                onChange={this.changeHandler('interests')}
-                                required
-                            />
-                        </label>
-                        <div className="add__user_input_container">
-                            <PhotoUpload photo={URL => this.setState({photo: URL})}/>
-                        </div>
-                        <div className="add__user_input_container">
-                            <button className="add__user_button">Add User</button>
-                        </div>
-                    </div>
-                </form>
+  render() {
+    const {
+      name,
+      description,
+      contacts,
+      location,
+      interests,
+      email,
+      formSubmitted,
+    } = this.state;
+    console.log('THIS.PROPS:      ', this.props);
+
+    // const errors = validate(this.state.name, this.state.contacts);
+    // const isDisabled = Object.keys(errors).some(x => errors[x]);
+
+    return (
+      <div>
+        <NavigationAddUser />
+        <form className="add__user" onSubmit={this.handleSubmit}>
+          {formSubmitted && <div className="add-event__carpet" />}
+          <div className="add__user_block">
+            <div className="add__user_container">
+              <h1 className="add__user_title">Join Ripka</h1>
             </div>
-        );
-    }
+            <Field
+              name="name"
+              type="text"
+              label="Name and Surname"
+              component={this.renderInput}
+              warn={alphaNumeric}
+              validate={[required, maxLength20, minLength2]}
+
+              // onChange={this.changeHandler('name')}
+            />
+            <Field
+              name="location"
+              type="text"
+              label="Location"
+              component={this.renderInput}
+              validate={[required, maxLength15, minLength2]}
+              // onChange={this.changeHandler('location')}
+            />
+            <Field
+              name="email"
+              type="text"
+              label="Email"
+              component={this.renderInput}
+              validate={email_check}
+              // onChange={this.changeHandler('email')}
+            />
+            <Field
+              name="contacts"
+              type="text"
+              label="Contacts"
+              component={this.renderInput}
+              // warn={alphaNumeric}
+              validate={[required, phoneNumber, maxLength20]}
+              // onChange={this.changeHandler('contacts')}
+            />
+            <Field
+              name="description"
+              type="text"
+              label="Description"
+              component={this.renderTextArea}
+              warn={alphaNumeric}
+              // onChange={this.changeHandler('description')}
+              validate={[required, minLength2]}
+            />
+            <Field
+              name="interests"
+              type="text"
+              label="Interests"
+              component={this.renderTextArea}
+              warn={alphaNumeric}
+              // onChange={this.changeHandler('interests')}
+              validate={[required, maxLength20, minLength2]}
+            />
+            <Field
+                name="photo"
+                component={this.renderPhotoUpload}
+            >
+            <div className="add__user_input_container">
+              {/*<PhotoUpload photo={URL => this.setState({ photo: URL })} />*/}
+            </div>
+            </Field>
+            <div className="add__user_input_container">
+              <button type="submit" className="add__user_button">
+                Add User
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    );
+  }
 }
 
+AddUser = reduxForm({
+  form: 'addUserForm',
+})(AddUser);
+
 export default connect(
-    state => ({
-        isUserProcessing: getIsUserProcessing(state),
-    }),
-    {addUser},
+  state => ({
+    addUserForm: state.form.addUserForm,
+    isUserProcessing: getIsUserProcessing(state),
+  }),
+  { addUser },
 )(AddUser);
