@@ -55,7 +55,8 @@ const App = () => (
         )}
       </Route>
       <Route exact path="/adduser">
-        {props => <AddUser onSuccess={() => props.history.push('users')} />}
+        {props => <AddUser onSuccess={() => props.history.push('users')} />
+        }
       </Route>
       <Route exact path="/events/:id">
         {props => (
@@ -65,7 +66,6 @@ const App = () => (
           />
         )}
       </Route>
-
       <Route exact path="/events/edit/:id">
         {props => (
           <EventEdit

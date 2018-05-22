@@ -2,27 +2,51 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { fetchEvents } from '../actions/fetch';
-import { getAllAvailableEvents } from '../reducers';
+import {fetchEvents, fetchPaginateEvents} from '../actions/fetch';
+import { getAllAvailableEvents,getEventById } from '../reducers';
 import EventContainer from './EventContainer/EventContainer';
-import { getEventById } from '../reducers';
 
 class VisibleEventList extends Component {
     state = {
         page: 0,
     };
   componentDidMount() {
-    this.fetchData();
+      let {currentPage} = this.props;
+    this.fetchData(currentPage);
   }
 
-  fetchData() {
-    const { fetchEvents } = this.props;
-    fetchEvents();
+  fetchData(currentPage) {
+    const {fetchPaginateEvents } = this.props;
+    if (!currentPage) {
+        currentPage = 1;
+    }
+      fetchPaginateEvents(currentPage);
+
   }
+
+    moveForward() {
+
+        let {currentPage} = this.props;
+        this.fetchData(currentPage + 1);
+    }
+
+    moveBack() {
+
+        let {currentPage} = this.props;
+        this.fetchData(currentPage - 1);
+    }
 
   render() {
     const { ...events } = this.props;
-    return <EventContainer {...events} />;
+    return (
+        <div>
+        <EventContainer {...events} />
+            <div className="event__pagination">
+            <button className="event__pagination_nav" onClick={() => this.moveBack()}>&laquo;</button>
+            <button className="event__pagination_nav" onClick={() => this.moveForward()}>&raquo;</button>
+            </div>
+        </div>
+    );
   }
 }
 
@@ -32,9 +56,13 @@ VisibleEventList = withRouter(
       const ids = getAllAvailableEvents(store);
       return {
         events: ids.map(id => getEventById(store, id)),
+        currentPage: store.events.currentPage
       };
     },
-    { fetchEvents },
+    {
+
+        fetchPaginateEvents
+    },
   )(VisibleEventList),
 );
 

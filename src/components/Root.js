@@ -1,13 +1,13 @@
 import React from "react";
 import App from "./App";
-import { BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route} from "react-router-dom";
 
 const { Provider } = require("react-redux");
 const Root = ({ store }) => (
   <Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
       <Route path="/" component={App} />
-    </BrowserRouter>
+    </HashRouter>
   </Provider>
 );
 

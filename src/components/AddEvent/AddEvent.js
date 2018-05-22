@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {addEvent} from '../../actions/add';
+import {addEvent, addUser} from '../../actions/add';
 import {connect} from 'react-redux';
 //
 import DateTimePicker from 'react-datetime-picker';
@@ -13,6 +13,12 @@ import '../../../styles/react-datetime-picker.less';
 
 import AddEventNavigation from '../Navigation/NavigationAddUser';
 import NavigationAddEvent from "../Navigation/NavigationAddEvent";
+import {
+    alphaNumeric, maxLength15, maxLength20, minLength2, phoneNumber,
+    required
+} from "../../helpers/FieldLevelValidationForm";
+import {Field, reduxForm} from "redux-form";
+import {getIsUserProcessing} from "../../reducers";
 
 
 
@@ -60,11 +66,11 @@ class AddEvent extends Component {
         this.setState({[property]: value});
     };
 
-    canBeSubmitted() {
-        const errors = validate(this.state.name, this.state.contacts);
-        const isDisabled = Object.keys(errors).some(x => errors[x]);
-        return !isDisabled;
-    }
+    // canBeSubmitted() {
+    //     const errors = validate(this.state.name, this.state.contacts);
+    //     const isDisabled = Object.keys(errors).some(x => errors[x]);
+    //     return !isDisabled;
+    // }
 
     render() {
         const {
@@ -78,45 +84,82 @@ class AddEvent extends Component {
             formSubmitted,
         } = this.state;
 
-        const errors = validate(this.state.name, this.state.contacts);
-        const isDisabled = Object.keys(errors).some(x => errors[x]);
+        // const errors = validate(this.state.name, this.state.contacts);
+        // const isDisabled = Object.keys(errors).some(x => errors[x]);
+        const renderInput = ({
+                                 input,
+                                 label,
+                                 type,
+                                 meta: { touched, error, warning },
+                             }) => (
+            <div className="add__input_container">
+                <label className="add__field">{label}</label>
+                <input
+                    required
+                    {...input}
+                    placeholder={label}
+                    type={type}
+                    className="add__input"
+                />
+                {touched &&
+                ((error && <span className="add__input_warning">{error}</span>) ||
+                    (warning && <span className="add__input_warning">{warning}</span>))}
+            </div>
+        );
+
+        const renderTextArea = ({
+                                    input,
+                                    label,
+                                    type,
+                                    meta: { touched, error, warning },
+                                }) => (
+            <div className="add__input_container">
+                <label className="add__field">{label}</label>
+                <textarea {...input} placeholder={label} className="add__input" />
+                {touched &&
+                ((error && <span className="add__input_warning">{error}</span>) ||
+                    (warning && <span className="add__input_warning">{warning}</span>))}
+            </div>
+        );
+
 
         return (
             <div>
                 <NavigationAddEvent/>
                 <form className="add" onSubmit={this.handleSubmit}>
                     {formSubmitted && <div className="add-event__carpet"/>}
+
                     <div className="add__title_container">
                         <div className="add__subtitle_overview">
                             <h5 className="add__subtitle_overview-grey">
-                                2.Business Profile 3.Promote Job
+                                2.Event Details
                             </h5>
                         </div>
                         <h1 className="add__title">Add event details</h1>
                     </div>
+                    <div className="add__event_block">
                     <div className="add__subtitle_container">
                         <img className="add__icon_push-pin"/>
                         <h1 className="add__subtitle">Event Overview</h1>
                     </div>
-
-                    <label className="add__input_container">
-                        <span className="add__field">Event name</span>
-                        <input required
-                               className="add__input"
-                               placeholder="Event Name"
-                               value={name}
-                               onChange={this.changeHandler('name')}
+                        <Field
+                               name="name"
+                               type="text"
+                               label="Event Name"
+                               component={renderInput}
+                               warn={alphaNumeric}
+                               validate={[required, maxLength20, minLength2]}
+                               // onChange={this.changeHandler('name')}
                         />
-                    </label>
-                    <label className="add__input_container">
-                        <span className="add__field">ORGANIZATION NAME</span>
-                        <input required
-                               className="add__input"
-                               placeholder="Organization Name"
-                               value={organization}
-                               onChange={this.changeHandler('organization')}
+                        <Field
+                               name="organization"
+                               type="text"
+                               label="Organization Name"
+                               component={renderInput}
+                               warn={alphaNumeric}
+                               validate={[required, maxLength15, minLength2]}
+                               // onChange={this.changeHandler('organization')}
                         />
-                    </label>
 
                     <label className="add__input_container">
                         <span className="add__field">EVENT CATEGORIES</span>
@@ -128,25 +171,22 @@ class AddEvent extends Component {
                         </select>
                     </label>
 
-                    <div className="add__input_container">
-                        <p className="add__field">LOCATION</p>
-                        <input required
-                               className="add__input"
-                               placeholder="Location"
-                               value={location}
-                               onChange={this.changeHandler('location')}
+                        <Field
+                            name="location"
+                            type="text"
+                            label="Location"
+                            component={renderInput}
+                            validate={[required, maxLength15, minLength2]}
+                            onChange={this.changeHandler('location')}
                         />
-                    </div>
-                    <div className="add__input_container">
-                        <p className="add__field">CONTACTS</p>
-                        <input required
-                               className="add__input"
-                               placeholder="Contacts"
-                               value={contacts}
-                               onChange={this.changeHandler('contacts')}
+                        <Field
+                            name="contacts"
+                            type="text"
+                            label="Contacts"
+                            component={renderInput}
+                            validate={[required, phoneNumber, maxLength20]}
+                            // onChange={this.changeHandler('contacts')}
                         />
-                    </div>
-
                     <div className="add__input_container">
                         <span className="add__field">Time</span>
                         <DateTimePicker
@@ -159,24 +199,23 @@ class AddEvent extends Component {
                         <img className="add__icon_legal-paper"/>
                         <h1 className="add__subtitle">Event Details</h1>
                     </div>
-                    <div className="add__input_container">
-                        <span className="add__field">EVENT DESCRIPTION</span>
-                        <textarea
-                            className="add__textarea"
-                            placeholder="Description"
-                            value={description}
-                            onChange={this.changeHandler('description')}
-                            required
+                        <Field
+                            name="description"
+                            type="text"
+                            label="Event Description"
+                            component={renderTextArea}
+                            warn={alphaNumeric}
+                            // onChange={this.changeHandler('description')}
+                            validate={[required,  minLength2]}
                         />
-                    </div>
-
                     <div className="add__input_container">
                         <p className="add__field">DOWNLOAD PHOTO</p>
                         <PhotoUpload photo={URL => this.setState({photo: URL})}/>
                     </div>
 
                     <div className="add__submit-container">
-                        <button disabled={isDisabled} className="add__submit">Add Event</button>
+                        <button className="add__submit">Add Event</button>
+                    </div>
                     </div>
                 </form>
             </div>
@@ -187,18 +226,26 @@ class AddEvent extends Component {
 function formatDate(date) {
     return date.toLocaleDateString();
 }
-
-function validate(name, contacts) {
-    return {
-        name: name.length === 0,
-        contacts: contacts.length === 0,
-        // contacts.type === Number
-    };
-}
-
+//
+// function validate(name, contacts) {
+//     return {
+//         name: name.length === 0,
+//         contacts: contacts.length === 0,
+//         // contacts.type === Number
+//     };
+// }
+AddEvent = reduxForm({
+    form: 'fieldLevelValidation',
+})(AddEvent);
 export default connect(
     state => ({
         isEventProcessing: getIsEventProcessing(state),
     }),
     {addEvent},
 )(AddEvent);
+
+
+
+
+
+

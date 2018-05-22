@@ -27,10 +27,6 @@ const EventContainer = ({events, onEventClick}) => (
             </div>
             <MapContainer events={events}/>
         </div>
-        <div className="event__pagination">
-            <a className="event__pagination_nav" href="#">&laquo;</a>
-            <a className="event__pagination_nav" href="#">&raquo;</a>
-        </div>
     </Fragment>
 );
 

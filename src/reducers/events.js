@@ -26,7 +26,7 @@ export const byId = (state = {}, action) => {
         ...action.events,
       };
     case FETCH_EVENTS_SUCCESS:
-      return { ...state, ...action.events };
+      return { ...action.events };
     case DELETE_EVENT_SUCCESS:
       const { id } = action;
       let keys = Object.keys(state).filter(el => el !== id);
@@ -49,8 +49,11 @@ export const byId = (state = {}, action) => {
 };
 export const allIds = (state = [], action) => {
   switch (action.type) {
-    case FETCH_EVENT_SUCCESS:
     case FETCH_EVENTS_SUCCESS:
+        return [...action.ids].filter(
+            (el, i, arr) => arr.indexOf(el) === i,
+        );
+    case FETCH_EVENT_SUCCESS:
     case ADD_EVENT_SUCCESS:
       return [...state, ...action.ids].filter(
         (el, i, arr) => arr.indexOf(el) === i,
@@ -92,6 +95,8 @@ const isEventProcessing = (state = false, action) => {
       return state;
   }
 };
+
+
 const isFetching = (state = {}, action) => {
   switch (action.type) {
     case FETCH_EVENT_START:
@@ -112,12 +117,23 @@ const isFetching = (state = {}, action) => {
       return state;
   }
 };
+
+const currentPage = (state = 0, action) => {
+    switch (action.type) {
+
+        case FETCH_EVENTS_SUCCESS:
+          return ++state;
+        default:
+            return state;
+    }
+};
 export default combineReducers({
   byId,
   allIds,
   isFetching,
   isEventProcessing,
-    searchEvents
+    searchEvents,
+    currentPage
 });
 export const getIsEventProcessing = state => state.isEventProcessing;
 export const getAllAvailableEvents = state => state.events.allIds;
