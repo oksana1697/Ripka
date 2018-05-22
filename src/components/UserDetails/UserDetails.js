@@ -10,13 +10,14 @@ import NavigationLanding from "../Navigation/NavigationSearchEvents";
 import {CLOUDINARY_URL} from "../../api/index";
 import MapContainerUsers from "../MapContainer/MapContainerUsers";
 import Navigation from "../Navigation/Navigation";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 class UserDetails extends Component {
     render() {
         let props = this.props;
         const {user} = this.props;
         if (!user) {
-            return 'Loading...';
+            return <PageNotFound/>;
         }
         return (
             <div>

@@ -12,6 +12,7 @@ import Navigation from '../Navigation/Navigation';
 // import NavigationLanding from '../Navigation/NavigationLanding';
 import {CLOUDINARY_URL} from "../../api/index";
 import MapContainer from "../MapContainer/MapContainer";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 /**
  * Represents view of single Event Details
@@ -21,7 +22,7 @@ class EventDetails extends Component {
         let props = this.props;
         const {event} = this.props;
         if (!event) {
-            return 'Loading...';
+            return <PageNotFound/>;
         }
         return (
             <div className="event-details">
