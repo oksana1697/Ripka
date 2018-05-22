@@ -11,6 +11,7 @@ class PageNotFound extends Component {
                     <button>
                         Back to Home
                     </button>
+                    
                 </NavLink>
             </div>
         )
