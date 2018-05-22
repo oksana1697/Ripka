@@ -68,7 +68,7 @@ class AddUser extends Component {
   renderInput = ({ input, label, type, meta: { touched, error, warning } }) => (
     <div className="add__user_input_container">
       <input
-        required
+        // required
         {...input}
         placeholder={label}
         type={type}
@@ -95,6 +95,7 @@ class AddUser extends Component {
   );
 
   render() {
+      const { handleSubmit,invalid, pristine, reset, submitting } = this.props;
     const {
       name,
       description,
@@ -180,11 +181,15 @@ class AddUser extends Component {
             </div>
             </Field>
             <div className="add__user_input_container">
-              <button type="submit" className="add__user_button">
+              <button type="submit" disabled={invalid|| pristine || submitting}
+                      className="add__user_button"
+              >
                 Add User
               </button>
+                <button className="add__user_button" type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
             </div>
           </div>
+
         </form>
       </div>
     );
