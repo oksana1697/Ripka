@@ -13,6 +13,7 @@ import VisibleUserList from './VisibleUserList';
 import NavigationSearchEvents from './Navigation/NavigationSearchEvents';
 import Landing from './Landing/Landing';
 import NavigationSearchUsers from "./Navigation/NavigationSearchUsers";
+import PageNotFound from "./PageNotFound/PageNotFound";
 /**
  * App js description
  */
@@ -90,7 +91,10 @@ const App = () => (
           />
         )}
       </Route>
+      <Route path="*" component={PageNotFound}/>
     </Switch>
+
+
 
     <Footer />
   </div>
