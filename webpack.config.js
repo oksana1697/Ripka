@@ -1,6 +1,9 @@
 "use strict";
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const MODE = process.env.MODE || 'development';
 
 module.exports = {
@@ -71,14 +74,24 @@ module.exports = {
 
 if (MODE === 'production') {
     module.exports.plugins.push(
-        new UglifyJsPlugin({
-            uglifyOptions: {
-                // compress: {
-                //     // don't show unreachable variables etc
-                //     warnings: false,
-                //     drop_console: true,
-                //     unsafe: true
-                // }
+
+        // Clear out `build` directory between builds
+        new CleanWebpackPlugin(['build/*.*'], {
+            root: process.cwd(),
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                // don't show unreachable variables etc
+                warnings: false,
+                screw_ie8: true,
+                conditionals: true,
+                unused: true,
+                comparisons: true,
+                sequences: true,
+                dead_code: true,
+                evaluate: true,
+                if_return: true,
+                join_vars: true
             }
         }),
         new CompressionPlugin({
@@ -87,6 +100,22 @@ if (MODE === 'production') {
             test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
             threshold: 10240,
             minRatio: 0.8
-        })
+        }),
+
+        // Minify CSS
+        new webpack.LoaderOptionsPlugin({
+            minimize: true,
+        }),
+
+       //for compiling .html
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            minify: {
+                collapseWhitespace: true,
+                collapseInlineTagWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true
+            }
+        }),
     );
 }
