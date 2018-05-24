@@ -4,7 +4,6 @@ import Geosuggest from 'react-geosuggest';
 import '../../../styles/geosuggest.less'
 
 class GeoSuggest extends Component{
-
     onFocus() {
         console.log('onFocus'); // eslint-disable-line
     }
@@ -19,7 +18,8 @@ class GeoSuggest extends Component{
 
 
     onSuggestSelect(suggest){
-        console.log(suggest);
+        // console.log(suggest);
+        this.props.onChange(suggest.description);
     }
     onSuggestNoResults(userInput) {
         console.log('onSuggestNoResults for :' + userInput); // eslint-disable-line
@@ -39,7 +39,7 @@ class GeoSuggest extends Component{
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
                     // onChange={this.onChange}
-                    onSuggestSelect={this.onSuggestSelect}
+                    onSuggestSelect={(suggest)=>this.onSuggestSelect(suggest)}
                     onSuggestNoResults={this.onSuggestNoResults}
                     location={new google.maps.LatLng(53.558572, 9.9278215)}
                     radius="20" />

@@ -49,15 +49,19 @@ class AddUser extends Component {
     handleSubmit = ev => {
         ev.preventDefault();
         const {...user} = this.props.addUserForm.values;
+        const {location} = this.state;
         const {addUser} = this.props;
         // const { formSubmitted, ...user } = this.state;
-        addUser(user);
+        const fullUser = {...user,location};
+        console.log('fullUser', fullUser);
+        addUser(fullUser);
         this.setState({formSubmitted: true});
         this.props.onSuccess();
     };
 
-    changeHandler = property => ev => {
-        const {value} = ev.target;
+    changeHandler = (property, value) =>   {
+            // ev => {
+        // const {value} = ev.target;
         this.setState({[property]: value});
         console.log('STATE', this.state);
     };
@@ -136,7 +140,7 @@ class AddUser extends Component {
                             {/*validate={[required, maxLength15, minLength2]}*/}
                             {/*// onChange={this.changeHandler('location')}*/}
                         {/*>*/}
-                            <GeoSuggest onChange={this.changeHandler('location')}/>
+                            <GeoSuggest onChange={(val)=>this.changeHandler('location', val)}/>
                         {/*</Field>*/}
                         <Field
                             name="email"
