@@ -11,6 +11,7 @@ import {CLOUDINARY_URL} from "../../api/index";
 import MapContainerUsers from "../MapContainer/MapContainerUsers";
 import Navigation from "../Navigation/Navigation";
 import PageNotFound from "../PageNotFound/PageNotFound";
+import Footer from "../Footer/Footer";
 
 class UserDetails extends Component {
     render() {
@@ -117,6 +118,7 @@ class UserDetails extends Component {
                     {/*</div>*/}
                     {/*<p className="user-details__content">{user.interests}</p>*/}
                 </div>
+                <Footer />
             </div>
         );
     }

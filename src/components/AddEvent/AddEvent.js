@@ -21,6 +21,7 @@ import {
   required,
 } from '../../helpers/FieldLevelValidationForm';
 import { Field, reduxForm } from 'redux-form';
+import Footer from "../Footer/Footer";
 
 class AddEvent extends Component {
   static defaultProps = {
@@ -203,6 +204,7 @@ class AddEvent extends Component {
             </div>
           </div>
         </form>
+        <Footer />
       </div>
     );
   }

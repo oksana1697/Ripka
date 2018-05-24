@@ -1,17 +1,17 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import { getIsUserProcessing, getIsUserFetching } from '../../reducers';
-import { editUser } from '../../actions/edit';
-import { getUserById } from '../../reducers/users';
-import { fetchUser } from '../../actions/fetch';
+import {getIsUserProcessing, getIsUserFetching} from '../../reducers';
+import {editUser} from '../../actions/edit';
+import {getUserById} from '../../reducers/users';
+import {fetchUser} from '../../actions/fetch';
 
 import AddEventNavigation from "../Navigation/NavigationAddUser";
 import PhotoUpload from '../PhotoUpload';
 
 import '../../../styles/add.less';
 import {CLOUDINARY_URL} from "../../api/index";
+import Footer from "../Footer/Footer";
 
 class UserEdit extends Component {
     constructor(props) {
@@ -27,14 +27,15 @@ class UserEdit extends Component {
         };
         this.state = this.props.user ? this.props.user : initState;
     }
+
     static defaultProps = {
-        onSuccess() {},
+        onSuccess() {
+        },
     };
 
-    static getDerivedStateFromProps(
-        { user, isUserProcessing, onSuccess },
-        { formSubmitted }) {
-        console.log(formSubmitted, isUserProcessing,"f");
+    static getDerivedStateFromProps({user, isUserProcessing, onSuccess},
+                                    {formSubmitted}) {
+        console.log(formSubmitted, isUserProcessing, "f");
         if (formSubmitted && !isUserProcessing) {
             onSuccess();
         }
@@ -43,16 +44,16 @@ class UserEdit extends Component {
 
     handleSubmit = ev => {
         ev.preventDefault();
-        const { editUser, id } = this.props;
-        const { formSubmitted, ...user } = this.state;
+        const {editUser, id} = this.props;
+        const {formSubmitted, ...user} = this.state;
 
         editUser(user, id);
-        this.setState({ formSubmitted: true });
+        this.setState({formSubmitted: true});
     };
 
     changeHandler = property => ev => {
-        const { value } = ev.target;
-        this.setState({ [property]: value });
+        const {value} = ev.target;
+        this.setState({[property]: value});
     };
 
     render() {
@@ -71,12 +72,12 @@ class UserEdit extends Component {
                 <AddEventNavigation/>
                 <div>
                     <form className="add" onSubmit={this.handleSubmit}>
-                        {formSubmitted && <div className="add__carpet" />}
+                        {formSubmitted && <div className="add__carpet"/>}
                         <div className="add__title_container">
                             <h1 className="add__title">Edit your profile</h1>
                         </div>
                         <div className="add__subtitle_container">
-                            <img src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png" />
+                            <img src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png"/>
                             <h1 className="add__subtitle">Profile Overview</h1>
                         </div>
 
@@ -132,32 +133,32 @@ class UserEdit extends Component {
                         <label className="add__input_container">
                             <span className="add__field">DOWNLOAD PHOTO</span>
                             <div className="add__photo-container">
-                                <img  src={CLOUDINARY_URL + 'c_scale,r_5,w_265/' + photo + '.jpg'} className="add__photo-img" />
+                                <img src={CLOUDINARY_URL + 'c_scale,r_5,w_265/' + photo + '.jpg'}
+                                     className="add__photo-img"/>
                             </div>
-                            <PhotoUpload photo={URL => this.setState({ photo: URL })} />
+                            <PhotoUpload photo={URL => this.setState({photo: URL})}/>
                         </label>
                         <div className="add__submit-container">
                             <button className="add__submit">Save changes</button>
                         </div>
                     </form>
                 </div>
+                <Footer />
             </div>
         );
     }
 }
 
 export default connect(
-    (state, { id }) => ({
+    (state, {id}) => ({
         isUserFetching: getIsUserFetching(id, state),
         isUserProcessing: getIsUserProcessing(state),
         user: getUserById(state, id),
     }),
-    { editUser, fetchUser },
-    (
-        { user, isUserFetching, isUserProcessing },
-        { fetchUser, editUser },
-        { id, onSuccess },
-    ) => {
+    {editUser, fetchUser},
+    ({user, isUserFetching, isUserProcessing},
+     {fetchUser, editUser},
+     {id, onSuccess},) => {
         if (!user && !isUserFetching) {
             fetchUser(id);
         }

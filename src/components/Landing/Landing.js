@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import '../../../styles/category.less';
 import {Link} from "react-router-dom";
+import Footer from "../Footer/Footer";
 /**
  * Represents view of Landing with static image.
  */
@@ -89,7 +90,7 @@ class Landing extends Component {
           </a>
 
         </div>
-
+        <Footer />
       </div>
     );
   }

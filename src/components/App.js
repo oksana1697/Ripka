@@ -94,7 +94,6 @@ const App = () => (
       <Route path="*" component={PageNotFound}/>
     </Switch>
 
-    <Footer />
   </div>
 );
 

@@ -20,6 +20,7 @@ import '../../../styles/common.less';
 import '../../../styles/add.less';
 import NavigationAddUser from '../Navigation/NavigationAddUser';
 import GeoSuggest from "../GeoSuggest/GeoSuggest";
+import Footer from "../Footer/Footer";
 
 class AddUser extends Component {
     static defaultProps = {
@@ -196,6 +197,7 @@ class AddUser extends Component {
                         </div>
                     </div>
                 </form>
+                <Footer />
             </div>
         );
     }

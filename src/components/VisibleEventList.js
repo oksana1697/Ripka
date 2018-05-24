@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { fetchEvents, fetchPaginateEvents } from '../actions/fetch';
 import { getAllAvailableEvents, getEventById } from '../reducers';
 import EventContainer from './EventContainer/EventContainer';
+import Footer from "./Footer/Footer";
 
 class VisibleEventList extends Component {
   state = {
@@ -66,6 +67,7 @@ class VisibleEventList extends Component {
             &raquo;
           </button>
         </div>
+        <Footer />
       </div>
     );
   }
