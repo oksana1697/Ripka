@@ -54,16 +54,20 @@ class AddEvent extends Component {
     handleSubmit = ev => {
         ev.preventDefault();
         const {...event} = this.props.addEventForm.values;
+        const {location} = this.state;
         const {addEvent} = this.props;
         // const {formSubmitted, ...event} = this.state;
-        addEvent(event);
+        const fullEvent = {...event, location};
+        addEvent(fullEvent);
         this.setState({formSubmitted: true});
         this.props.onSuccess();
     };
 
-    changeHandler = property => ev => {
-        const {value} = ev.target;
+    changeHandler = (property, value) => {
+        // ev => {
+        // const {value} = ev.target;
         this.setState({[property]: value});
+        console.log('STATE', this.state);
     };
     renderInput = ({input, label, type, meta: {touched, error, warning}}) => (
         <div className="add__input_container">
