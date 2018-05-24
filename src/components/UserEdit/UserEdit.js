@@ -33,14 +33,28 @@ class UserEdit extends Component {
         },
     };
 
-    static getDerivedStateFromProps({user, isUserProcessing, onSuccess},
-                                    {formSubmitted}) {
+    static getDerivedStateFromProps(nextProps,
+                                    prevState) {
+        const {user, isUserProcessing, onSuccess} = nextProps;
+        const {formSubmitted} = prevState;
         console.log(formSubmitted, isUserProcessing, "f");
         if (formSubmitted && !isUserProcessing) {
             onSuccess();
         }
-        return user;
+        console.log('getDerivedStateFromProps');
+        // console.log(nextProps, prevState);
+        const nextPropsStr = JSON.stringify(nextProps);
+        const prevNextPropsStr = JSON.stringify(prevState.nextProps);
+        console.log(nextPropsStr);
+        console.log(prevNextPropsStr);
+        if(nextPropsStr !== prevNextPropsStr){
+            console.log('not equal');
+            return {...user, nextProps};
+        }else{
+            return {...prevState.user, nextProps};
+        }
     }
+
 
     handleSubmit = ev => {
         ev.preventDefault();
@@ -51,12 +65,14 @@ class UserEdit extends Component {
         this.setState({formSubmitted: true});
     };
 
-    changeHandler = property => ev => {
+    changeHandler = (property,  ev) => {
         const {value} = ev.target;
+        console.log('chnge', value);
         this.setState({[property]: value});
     };
 
     render() {
+        console.log('render', this.state);
         const {
             name,
             description,
@@ -87,7 +103,7 @@ class UserEdit extends Component {
                                 className="add__input"
                                 placeholder="Name"
                                 value={name}
-                                onChange={this.changeHandler('name')}
+                                onChange={ev=>this.changeHandler('name', ev)}
                             />
                         </label>
                         <label className="add__input_container">
@@ -96,7 +112,7 @@ class UserEdit extends Component {
                                 className="add__input"
                                 placeholder="Location"
                                 value={location}
-                                onChange={this.changeHandler('location')}
+                                onChange={ev=>this.changeHandler('location', ev)}
                             />
                         </label>
                         <label className="add__input_container">
@@ -105,7 +121,7 @@ class UserEdit extends Component {
                                 className="add__input"
                                 placeholder="Contacts"
                                 value={contacts}
-                                onChange={this.changeHandler('contacts')}
+                                onChange={ev => this.changeHandler('contacts', ev)}
                             />
                         </label>
 
@@ -115,7 +131,7 @@ class UserEdit extends Component {
                                 className="add__textarea"
                                 placeholder="Description"
                                 value={description}
-                                onChange={this.changeHandler('description')}
+                                onChange={ev => this.changeHandler('description', ev)}
                                 required
                             />
                         </label>
@@ -126,7 +142,7 @@ class UserEdit extends Component {
                                 className="add__input"
                                 placeholder="Interests & Goals"
                                 value={interests}
-                                onChange={this.changeHandler('interests')}
+                                onChange={ev => this.changeHandler('interests', ev)}
                             />
                         </label>
 

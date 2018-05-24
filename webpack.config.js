@@ -1,4 +1,8 @@
 "use strict";
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
+const MODE = process.env.MODE || 'development';
+
 module.exports = {
     entry: ["babel-polyfill", "./index.js"],
     output: {
@@ -8,7 +12,7 @@ module.exports = {
     devServer: {
         // historyApiFallback: true,
     },
-    devtool: "source-map",
+    devtool: MODE === "development" ? "source-map" : false,
     node: {
         fs: "empty"
     },
@@ -61,5 +65,28 @@ module.exports = {
                 loader: "file-loader"
             }
         ]
-    }
+    },
+    plugins: []
 };
+
+if (MODE === 'production') {
+    module.exports.plugins.push(
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                // compress: {
+                //     // don't show unreachable variables etc
+                //     warnings: false,
+                //     drop_console: true,
+                //     unsafe: true
+                // }
+            }
+        }),
+        new CompressionPlugin({
+            asset: '[path].gz[query]',
+            algorithm: 'gzip',
+            test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
+            threshold: 10240,
+            minRatio: 0.8
+        })
+    );
+}

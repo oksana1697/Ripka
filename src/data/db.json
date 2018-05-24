@@ -132,13 +132,27 @@
   ],
   "users": [
     {
-      "name": "Rick Black",
+      "name": "",
       "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
       "contacts": "+38098678594",
-      "email": "test@gmail.com",
+      "interests": "Murders",
       "location": "",
       "photo": "njhniezzny9ja9xmlfun",
-      "interests": "Murders",
+      "nextProps": {
+        "id": "1",
+        "user": {
+          "name": "Rick Black",
+          "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
+          "contacts": "+38098678594",
+          "email": "test@gmail.com",
+          "location": "",
+          "photo": "njhniezzny9ja9xmlfun",
+          "interests": "Murders",
+          "id": 1
+        },
+        "isUserProcessing": false
+      },
+      "email": "test@gmail.com",
       "id": 1
     },
     {
