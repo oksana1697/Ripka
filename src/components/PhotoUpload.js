@@ -44,7 +44,7 @@ class PhotoUpload extends Component {
 
   render() {
     return (
-      <div className="add__input_event-photo">
+      <div className="add__input-photo">
         <Dropzone
           className="add__photo"
           onDrop={this.handleDrop}
