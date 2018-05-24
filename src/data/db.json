@@ -120,6 +120,14 @@
       "location": "Київ, Україна",
       "photo": "photo-event_vwr3vn",
       "category": "Nonprofit"
+    },
+    {
+      "category": "nonprofit",
+      "name": "fghjk",
+      "organization": "ghjkl",
+      "location": "vbnm,",
+      "contacts": "cvbnm",
+      "id": 12
     }
   ],
   "users": [
@@ -162,6 +170,50 @@
       "photo": "tnbzxqaizumhvwfjbzcb",
       "interests": "Murders",
       "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "name": "GHJK",
+      "email": "dfgh@gh.com",
+      "contacts": "1234567890",
+      "description": "sdfghjk",
+      "interests": "fghjk",
+      "id": 6,
+      "location": ""
+    },
+    {
+      "name": "dfghj",
+      "email": "dfgh@gh.com",
+      "contacts": "1234567890",
+      "description": "fghj",
+      "interests": "fghjk",
+      "id": 7
+    },
+    {
+      "name": "dfghjkl",
+      "email": "dfgh@gh.com",
+      "contacts": "1234567890",
+      "description": "fghjk",
+      "interests": "fghjk",
+      "id": 8
+    },
+    {
+      "name": "Name",
+      "email": "dfgh@gh.com",
+      "contacts": "1234567890",
+      "description": "fghjk",
+      "interests": "fghjk",
+      "id": 9
+    },
+    {
+      "name": "Syre",
+      "email": "dfgh@gh.com",
+      "contacts": "1234567890",
+      "description": "sdfghj",
+      "interests": "fghjkl",
+      "id": 10
     }
   ]
 }

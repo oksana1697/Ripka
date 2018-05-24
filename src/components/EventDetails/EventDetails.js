@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 
+import Geosuggest from 'react-geosuggest';
+
 import '../../../styles/event-details.less';
 import "../../../styles/common.less";
 import '../../../styles/navigation.less';
