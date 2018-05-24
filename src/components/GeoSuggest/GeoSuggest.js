@@ -25,11 +25,11 @@ class GeoSuggest extends Component{
         console.log('onSuggestNoResults for :' + userInput); // eslint-disable-line
     }
     render(){
-        var fixtures = [
-            {label: 'Old Elbe Tunnel, Hamburg', location: {lat: 53.5459, lng: 9.966576}},
-            {label: 'Reeperbahn, Hamburg', location: {lat: 53.5495629, lng: 9.9625838}},
-            {label: 'Alster, Hamburg', location: {lat: 53.5610398, lng: 10.0259135}}
-        ];
+        // var fixtures = [
+        //     {label: 'Old Elbe Tunnel, Hamburg', location: {lat: 53.5459, lng: 9.966576}},
+        //     {label: 'Reeperbahn, Hamburg', location: {lat: 53.5495629, lng: 9.9625838}},
+        //     {label: 'Alster, Hamburg', location: {lat: 53.5610398, lng: 10.0259135}}
+        // ];
 
         return(
             <div>

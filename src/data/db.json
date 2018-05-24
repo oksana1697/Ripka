@@ -132,22 +132,36 @@
   ],
   "users": [
     {
-      "name": "",
+      "name": "Victor Frankl",
       "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
       "contacts": "+38098678594",
       "interests": "Murders",
-      "location": "",
+      "location": "Odesa, Ukraine",
       "photo": "njhniezzny9ja9xmlfun",
       "nextProps": {
         "id": "1",
         "user": {
-          "name": "Rick Black",
+          "name": "",
           "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
           "contacts": "+38098678594",
-          "email": "test@gmail.com",
+          "interests": "Murders",
           "location": "",
           "photo": "njhniezzny9ja9xmlfun",
-          "interests": "Murders",
+          "nextProps": {
+            "id": "1",
+            "user": {
+              "name": "Rick Black",
+              "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
+              "contacts": "+38098678594",
+              "email": "test@gmail.com",
+              "location": "",
+              "photo": "njhniezzny9ja9xmlfun",
+              "interests": "Murders",
+              "id": 1
+            },
+            "isUserProcessing": false
+          },
+          "email": "test@gmail.com",
           "id": 1
         },
         "isUserProcessing": false
@@ -186,93 +200,14 @@
       "id": 4
     },
     {
+      "name": "Ivan Prokop",
+      "email": "ivan@gmail.com",
+      "contacts": "0501360805",
+      "description": "I like JS",
+      "interests": "Murders",
+      "photo": "it3abc7o2ivwj9c3pzou",
+      "location": "Dnipro, Dnipropetrovsk Oblast, Ukraine",
       "id": 5
-    },
-    {
-      "name": "GHJK",
-      "email": "dfgh@gh.com",
-      "contacts": "1234567890",
-      "description": "sdfghjk",
-      "interests": "fghjk",
-      "id": 6,
-      "location": ""
-    },
-    {
-      "name": "dfghj",
-      "email": "dfgh@gh.com",
-      "contacts": "1234567890",
-      "description": "fghj",
-      "interests": "fghjk",
-      "id": 7
-    },
-    {
-      "name": "dfghjkl",
-      "email": "dfgh@gh.com",
-      "contacts": "1234567890",
-      "description": "fghjk",
-      "interests": "fghjk",
-      "id": 8
-    },
-    {
-      "name": "Name",
-      "email": "dfgh@gh.com",
-      "contacts": "1234567890",
-      "description": "fghjk",
-      "interests": "fghjk",
-      "id": 9
-    },
-    {
-      "name": "Syre",
-      "email": "dfgh@gh.com",
-      "contacts": "1234567890",
-      "description": "sdfghj",
-      "interests": "fghjkl",
-      "id": 10
-    },
-    {
-      "name": "QWER",
-      "email": "dfgh@gh.com",
-      "contacts": "1234567890",
-      "description": "dfghj",
-      "interests": "fghj",
-      "location": "",
-      "id": 11
-    },
-    {
-      "name": "Kiev",
-      "email": "dfgh@gh.com",
-      "contacts": "1234567890",
-      "description": "fghj",
-      "interests": "fghj",
-      "location": "",
-      "id": 12
-    },
-    {
-      "name": "POIUYT",
-      "email": "dfgh@gh.com",
-      "contacts": "1234567890",
-      "interests": "fghj",
-      "description": "fgh",
-      "location": "",
-      "id": 13
-    },
-    {
-      "name": "ty",
-      "email": "dfgh@gh.com",
-      "contacts": "1234567890",
-      "description": "ttttt",
-      "interests": "tttt",
-      "location": "",
-      "id": 14
-    },
-    {
-      "name": "TESTS",
-      "email": "dfgh@gh.com",
-      "contacts": "1234567890",
-      "description": "dfghj",
-      "interests": "fghjkl",
-      "location": "Keplerstraße, Hamburg, Germany",
-      "id": 15
     }
   ]
 }

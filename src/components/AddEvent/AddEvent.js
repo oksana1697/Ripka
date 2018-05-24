@@ -22,6 +22,7 @@ import {
 } from '../../helpers/FieldLevelValidationForm';
 import { Field, reduxForm } from 'redux-form';
 import Footer from "../Footer/Footer";
+import GeoSuggest from "../GeoSuggest/GeoSuggest";
 
 class AddEvent extends Component {
   static defaultProps = {
@@ -166,13 +167,17 @@ class AddEvent extends Component {
               component={this.renderSelect}
             />
             <Field name="time" label="Time" component={this.renderTime} />
-            <Field
-              name="location"
-              type="text"
-              label="Location"
-              component={this.renderInput}
-              validate={[required, maxLength15, minLength2]}
-            />
+            {/*<Field*/}
+              {/*name="location"*/}
+              {/*type="text"*/}
+              {/*label="Location"*/}
+              {/*component={this.renderInput}*/}
+              {/*validate={[required, maxLength15, minLength2]}*/}
+            {/*/>*/}
+            <label className="add__input_container">
+              <span className="add__field">LOCATION</span>
+            <GeoSuggest onChange={(val)=>this.changeHandler('location', val)}/>
+            </label>
             <Field
               name="contacts"
               type="text"

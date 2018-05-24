@@ -60,7 +60,7 @@ class AddUser extends Component {
     };
 
     changeHandler = (property, value) =>   {
-            // ev => {
+        // ev => {
         // const {value} = ev.target;
         this.setState({[property]: value});
         console.log('STATE', this.state);
@@ -133,15 +133,14 @@ class AddUser extends Component {
                             validate={[required, maxLength20, minLength2]}
                         />
                         {/*<Field*/}
-                            {/*name="location"*/}
-                            {/*type="text"*/}
-                            {/*label="Location"*/}
-                            {/*component={this.renderInput}*/}
-                            {/*validate={[required, maxLength15, minLength2]}*/}
-                            {/*// onChange={this.changeHandler('location')}*/}
+                        {/*name="location"*/}
+                        {/*type="text"*/}
+                        {/*label="Location"*/}
+                        {/*component={this.renderInput}*/}
+                        {/*validate={[required, maxLength15, minLength2]}*/}
+                        {/*// onChange={this.changeHandler('location')}*/}
                         {/*>*/}
-                            <GeoSuggest onChange={(val)=>this.changeHandler('location', val)}/>
-                        {/*</Field>*/}
+                        <GeoSuggest onChange={(val)=>this.changeHandler('location', val)}/>
                         <Field
                             name="email"
                             type="text"
