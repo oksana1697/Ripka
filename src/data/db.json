@@ -120,6 +120,31 @@
       "location": "Київ, Україна",
       "photo": "photo-event_vwr3vn",
       "category": "Nonprofit"
+    },
+    {
+      "category": "nonprofit",
+      "name": "fghjk",
+      "organization": "ghjkl",
+      "location": "vbnm,",
+      "contacts": "cvbnm",
+      "id": 12
+    },
+    {
+      "name": "icnslidcso",
+      "organization": "cnhsildicosd",
+      "contacts": "+380932230726",
+      "description": "cdsjkncjd",
+      "id": 13
+    },
+    {
+      "name": "Test",
+      "organization": "Test",
+      "category": "children",
+      "time": "2018-05-01T21:00:00.000Z",
+      "description": "sdnocisdoci",
+      "contacts": "+380932230726",
+      "location": "Gorgia - გორგია, Акаки-Тзеретели-авеню, Тбилиси, Грузия",
+      "id": 14
     }
   ],
   "users": [
@@ -162,7 +187,7 @@
       "id": 1
     },
     {
-      "name": "Вітольд Гомбрович",
+      "name": "Вітольд Гомброви",
       "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n      ",
       "contacts": "+38098678594",
       "email": "test@gmail.com",
@@ -200,6 +225,16 @@
       "photo": "it3abc7o2ivwj9c3pzou",
       "location": "Dnipro, Dnipropetrovsk Oblast, Ukraine",
       "id": 5
+    },
+    {
+      "photo": "nosayjm3j6zk9ub2rzi6",
+      "name": "Oksana Oleniuk",
+      "email": "olenyuk@ucu.edu.ua",
+      "contacts": "+380932230726",
+      "description": "Hello",
+      "interests": "Love animals",
+      "location": "Kyiv, Украина",
+      "id": 7
     }
   ]
 }

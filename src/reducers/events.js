@@ -50,9 +50,7 @@ export const byId = (state = {}, action) => {
 export const allIds = (state = [], action) => {
   switch (action.type) {
     case FETCH_EVENTS_SUCCESS:
-        return [...action.ids].filter(
-            (el, i, arr) => arr.indexOf(el) === i,
-        );
+      return [...action.ids].filter((el, i, arr) => arr.indexOf(el) === i);
     case FETCH_EVENT_SUCCESS:
     case ADD_EVENT_SUCCESS:
       return [...state, ...action.ids].filter(
@@ -70,13 +68,15 @@ export const allIds = (state = [], action) => {
   }
 };
 const searchEvents = (state = [], action) => {
-  switch (action.type){
-  case SEARCH_EVENTS_SUCCESS:
-    return Object.keys(action.foundEvents).map(key => action.foundEvents[key]);
-      case SEARCH_EVENTS_FAILURE:
-        return [];
-      default:
-  return state;
+  switch (action.type) {
+    case SEARCH_EVENTS_SUCCESS:
+      return Object.keys(action.foundEvents).map(
+        key => action.foundEvents[key],
+      );
+    case SEARCH_EVENTS_FAILURE:
+      return [];
+    default:
+      return state;
   }
 };
 const isEventProcessing = (state = false, action) => {
@@ -95,7 +95,6 @@ const isEventProcessing = (state = false, action) => {
       return state;
   }
 };
-
 
 const isFetching = (state = {}, action) => {
   switch (action.type) {
@@ -119,21 +118,24 @@ const isFetching = (state = {}, action) => {
 };
 
 const currentPage = (state = 0, action) => {
-    switch (action.type) {
-
-        case FETCH_EVENTS_SUCCESS:
+  switch (action.type) {
+      case FETCH_EVENTS_SUCCESS:
+      console.log("from reducer -- DIRECTION:", action.direction, "STATE:",  state)
+      if (action.direction) {
           return ++state;
-        default:
-            return state;
-    }
+      }
+      return --state;
+    default:
+      return state;
+  }
 };
 export default combineReducers({
   byId,
   allIds,
   isFetching,
   isEventProcessing,
-    searchEvents,
-    currentPage
+  searchEvents,
+  currentPage,
 });
 export const getIsEventProcessing = state => state.isEventProcessing;
 export const getAllAvailableEvents = state => state.events.allIds;

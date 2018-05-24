@@ -2,15 +2,15 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 const MODE = process.env.MODE || 'development';
-
+//TODO; latest update
 module.exports = {
     entry: ["babel-polyfill", "./index.js"],
     output: {
         filename: "build/bundle.js",
-        // publicPath: '/'
+        publicPath: '/'
     },
     devServer: {
-        // historyApiFallback: true,
+        historyApiFallback: true,
     },
     devtool: MODE === "development" ? "source-map" : false,
     node: {
