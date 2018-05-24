@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 
 import {
   alphaNumeric,
-  aol,
   maxLength20,
   maxLength15,
   minLength2,
@@ -48,7 +47,7 @@ class AddUser extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    const {...user} = this.props.addUserForm.values;
+    const { ...user } = this.props.addUserForm.values;
     const { addUser } = this.props;
     // const { formSubmitted, ...user } = this.state;
     addUser(user);
@@ -62,8 +61,9 @@ class AddUser extends Component {
     console.log('STATE', this.state);
   };
 
-  renderPhotoUpload = () =>
-      (<PhotoUpload photo={URL => this.props.change( "photo", URL )} />);
+  renderPhotoUpload = () => (
+    <PhotoUpload photo={URL => this.props.change('photo', URL)} />
+  );
 
   renderInput = ({ input, label, type, meta: { touched, error, warning } }) => (
     <div className="add__user_input_container">
@@ -95,14 +95,14 @@ class AddUser extends Component {
   );
 
   render() {
-      const { handleSubmit,invalid, pristine, reset, submitting } = this.props;
+    const { handleSubmit, invalid, pristine, reset, submitting } = this.props;
     const {
-      name,
-      description,
-      contacts,
-      location,
-      interests,
-      email,
+      // name,
+      // description,
+      // contacts,
+      // location,
+      // interests,
+      // email,
       formSubmitted,
     } = this.state;
     console.log('THIS.PROPS:      ', this.props);
@@ -126,8 +126,6 @@ class AddUser extends Component {
               component={this.renderInput}
               warn={alphaNumeric}
               validate={[required, maxLength20, minLength2]}
-
-              // onChange={this.changeHandler('name')}
             />
             <Field
               name="location"
@@ -172,24 +170,29 @@ class AddUser extends Component {
               // onChange={this.changeHandler('interests')}
               validate={[required, maxLength20, minLength2]}
             />
-            <Field
-                name="photo"
-                component={this.renderPhotoUpload}
-            >
-            <div className="add__user_input_container">
-              {/*<PhotoUpload photo={URL => this.setState({ photo: URL })} />*/}
-            </div>
+            <Field name="photo" component={this.renderPhotoUpload}>
+              <div className="add__user_input_container">
+                {/*<PhotoUpload photo={URL => this.setState({ photo: URL })} />*/}
+              </div>
             </Field>
             <div className="add__user_input_container">
-              <button type="submit" disabled={invalid|| pristine || submitting}
-                      className="add__user_button"
+              <button
+                type="submit"
+                disabled={invalid || pristine || submitting}
+                className="add__user_button"
               >
-                Add User
+                Register
               </button>
-                <button className="add__user_button" type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
+              {/*<button*/}
+                {/*className="add__user_button"*/}
+                {/*type="button"*/}
+                {/*disabled={pristine || submitting}*/}
+                {/*onClick={reset}*/}
+              {/*>*/}
+                {/*Clear Values*/}
+              {/*</button>*/}
             </div>
           </div>
-
         </form>
       </div>
     );

@@ -20,17 +20,31 @@ class VisibleEventList extends Component {
     if (!currentPage) {
       currentPage = 1;
     }
+    console.log('currentPage:  ', currentPage);
     fetchPaginateEvents(currentPage);
   }
 
   moveForward() {
     let { currentPage } = this.props;
-    this.fetchData(currentPage + 1);
+    // console.log('currentPage:  ', currentPage);
+    // const { ...events } = this.props;
+    // console.log('EVENTS', events);
+    // if (events.events.length === 0){
+    //   this.fetchData(currentPage)
+    // }
+      console.log('more forward')
+
+      this.fetchData(currentPage + 1);
   }
 
   moveBack() {
     let { currentPage } = this.props;
-    this.fetchData(currentPage - 1);
+
+    // if (currentPage <= 0) {
+    //   --currentPage;
+    // }
+      console.log('more Back')
+      this.fetchData(currentPage - 1);
   }
 
   render() {

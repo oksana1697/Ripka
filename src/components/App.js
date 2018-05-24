@@ -55,7 +55,7 @@ const App = () => (
         )}
       </Route>
       <Route exact path="/adduser">
-        {props => <AddUser onSuccess={() => props.history.push('users')} />
+        {props => <AddUser onSuccess={() => props.history.push('/')} />
         }
       </Route>
       <Route exact path="/events/:id">
