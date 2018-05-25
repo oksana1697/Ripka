@@ -29,6 +29,7 @@ module.exports = {
                 ]
             },
             {
+                
                 test: /\.css/,
                 use: [
                     {
