@@ -4,14 +4,13 @@ import {connect} from 'react-redux';
 //
 import DateTimePicker from 'react-datetime-picker';
 import PhotoUpload from '../PhotoUpload';
-
-import '../../../styles/geosuggest.less';
 //
 import {getIsEventProcessing} from '../../reducers/index';
 
 import '../../../styles/add.less';
 import '../../../styles/common.less';
 import '../../../styles/react-datetime-picker.less';
+import '../../../styles/geosuggest.less';
 
 import NavigationAddEvent from '../Navigation/NavigationAddEvent';
 import {
@@ -23,8 +22,8 @@ import {
     required,
 } from '../../helpers/FieldLevelValidationForm';
 import {Field, reduxForm} from 'redux-form';
-import Footer from '../Footer/Footer';
-import GeoSuggest from '../GeoSuggest/GeoSuggest';
+import Footer from "../Footer/Footer";
+import GeoSuggest from "../GeoSuggest/GeoSuggest";
 
 class AddEvent extends Component {
     static defaultProps = {
@@ -53,25 +52,23 @@ class AddEvent extends Component {
     };
 
     handleSubmit = ev => {
-
-
         ev.preventDefault();
-        console.log("PROPS", this.props)
-        const {location} = this.state;
         const {...event} = this.props.addEventForm.values;
+        const {location} = this.state;
         const {addEvent} = this.props;
+        // const {formSubmitted, ...event} = this.state;
         const fullEvent = {...event, location};
         addEvent(fullEvent);
         this.setState({formSubmitted: true});
         this.props.onSuccess();
     };
 
-    changeHandler = (property, value) =>   {
+    changeHandler = (property, value) => {
         // ev => {
         // const {value} = ev.target;
         this.setState({[property]: value});
+        console.log('STATE', this.state);
     };
-
     renderInput = ({input, label, type, meta: {touched, error, warning}}) => (
         <div className="add__input_container">
             <label className="add__field">{label}</label>
@@ -202,7 +199,7 @@ class AddEvent extends Component {
                             name="description"
                             type="text"
                             label="Event Description"
-                            component={this.renderInput}
+                            component={this.renderTextArea}
                             warn={alphaNumeric}
                             validate={[required, minLength2]}
                         />
@@ -210,9 +207,10 @@ class AddEvent extends Component {
                             name="photo"
                             label="Upload Photo"
                             component={this.renderPhotoUpload}
-                        />
+                        >
+                        </Field>
 
-                        <div className="add__input_container">
+                        <div className="add__submit-container">
                             <button className="add__submit">Add Event</button>
                         </div>
                     </div>

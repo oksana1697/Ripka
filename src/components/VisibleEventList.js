@@ -8,19 +8,21 @@ import EventContainer from './EventContainer/EventContainer';
 import Footer from "./Footer/Footer";
 
 class VisibleEventList extends Component {
+  state = {
+    page: 0,
+  };
   componentDidMount() {
-    let { currentPage, direction } = this.props;
-    this.fetchData(currentPage, direction);
+    let { currentPage } = this.props;
+    this.fetchData(currentPage);
   }
 
-  fetchData(currentPage, direction) {
+  fetchData(currentPage) {
     const { fetchPaginateEvents } = this.props;
     if (!currentPage) {
       currentPage = 1;
-      direction = true;
     }
     console.log('currentPage:  ', currentPage);
-    fetchPaginateEvents(currentPage, direction);
+    fetchPaginateEvents(currentPage);
   }
 
   moveForward() {
@@ -33,7 +35,7 @@ class VisibleEventList extends Component {
     // }
       console.log('more forward')
 
-      this.fetchData(currentPage + 1, true);
+      this.fetchData(currentPage + 1);
   }
 
   moveBack() {
@@ -42,13 +44,12 @@ class VisibleEventList extends Component {
     // if (currentPage <= 0) {
     //   --currentPage;
     // }
-      console.log('more Back');
-      this.fetchData(currentPage - 1, false);
+      console.log('more Back')
+      this.fetchData(currentPage - 1);
   }
 
   render() {
     const { ...events } = this.props;
-    console.log("events", events)
     return (
       <div>
         <EventContainer {...events} />

@@ -18,6 +18,8 @@ import {getIsUserProcessing} from '../../reducers/index';
 
 import '../../../styles/common.less';
 import '../../../styles/add.less';
+import '../../../styles/geosuggest.less'
+
 import NavigationAddUser from '../Navigation/NavigationAddUser';
 import GeoSuggest from "../GeoSuggest/GeoSuggest";
 import Footer from "../Footer/Footer";
@@ -52,20 +54,24 @@ class AddUser extends Component {
         const {location} = this.state;
         const {addUser} = this.props;
         // const { formSubmitted, ...user } = this.state;
-        const fullUser = {...user,location};
+        const fullUser = {...user, location};
+        console.log('fullUser', fullUser);
         addUser(fullUser);
         this.setState({formSubmitted: true});
         this.props.onSuccess();
     };
 
-    changeHandler = (property, value) =>   {
+    changeHandler = (property, value) => {
         // ev => {
         // const {value} = ev.target;
         this.setState({[property]: value});
+        console.log('STATE', this.state);
     };
 
     renderPhotoUpload = () => (
-        <PhotoUpload photo={URL => this.props.change('photo', URL)}/>
+        <div className="add__input_container-photo">
+            <PhotoUpload photo={URL => this.props.change('photo', URL)}/>
+        </div>
     );
 
     renderInput = ({input, label, type, meta: {touched, error, warning}}) => (
@@ -138,11 +144,10 @@ class AddUser extends Component {
                         {/*validate={[required, maxLength15, minLength2]}*/}
                         {/*// onChange={this.changeHandler('location')}*/}
                         {/*>*/}
-
-
                         <div className='geosuggest__container'>
                             <GeoSuggest onChange={(val) => this.changeHandler('location', val)}/>
-                        </div>                            <Field
+                        </div>
+                        <Field
                             name="email"
                             type="text"
                             label="Email"
@@ -177,10 +182,12 @@ class AddUser extends Component {
                             // onChange={this.changeHandler('interests')}
                             validate={[required, maxLength20, minLength2]}
                         />
-                        <Field name="photo" component={this.renderPhotoUpload}>
-                            <div className="add__user_input_container">
-                                {/*<PhotoUpload photo={URL => this.setState({ photo: URL })} />*/}
-                            </div>
+                        <Field
+                            name="photo"
+                            component={this.renderPhotoUpload}>
+                            {/*<div className="add__user_input_container">*/}
+                            {/*<PhotoUpload photo={URL => this.setState({ photo: URL })} />*/}
+                            {/*</div>*/}
                         </Field>
                         <div className="add__user_input_container">
                             <button
@@ -201,7 +208,7 @@ class AddUser extends Component {
                         </div>
                     </div>
                 </form>
-                <Footer />
+                <Footer/>
             </div>
         );
     }

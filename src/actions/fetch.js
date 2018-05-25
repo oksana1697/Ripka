@@ -76,14 +76,13 @@ export const fetchUser = id => async dispatch => {
   }
 };
 
-export const fetchPaginateEvents = (page, direction) => async dispatch => {
-    console.log(page, direction)
+export const fetchPaginateEvents = page => async dispatch => {
     dispatch(fetchEventsStart());
     try {
         let response = await api.fetchPaginateEvents(page);
         if (!response.error) {
             response = normalize(response, arrayOfEvents);
-            dispatch(fetchEventsSuccess(response.result, response.entities.events, page, direction));
+            dispatch(fetchEventsSuccess(response.result, response.entities.events, page));
         } else {
             dispatch(fetchEventsFailure(response.error));
         }
