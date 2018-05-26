@@ -11,6 +11,8 @@ import "../../styles/add.scss"
 import "../../styles/react-datetime-picker.scss"
 
 import NavigationAddEvent from "../Navigation/NavigationAddEvent"
+import Geocoder from "../Geocoder"
+
 import {
   alphaNumeric,
   maxLength15,
@@ -21,7 +23,6 @@ import {
 } from "../../helpers/FieldLevelValidationForm"
 import { Field, reduxForm } from "redux-form"
 import Footer from "../Footer/Footer"
-import GeoSuggest from "../GeoSuggest/GeoSuggest"
 
 class AddEvent extends Component {
   static defaultProps = {
@@ -103,14 +104,6 @@ class AddEvent extends Component {
     </div>
   )
 
-  renderLocation = ({ label, input }) => (
-    <div className="add__input_container">
-      <label className="add__field">{label}</label>
-      <div className="geosuggest__container-event">
-        <GeoSuggest {...input} />
-      </div>
-    </div>
-  )
   renderTextArea = ({ input, label, type, meta: { touched, error, warning } }) => (
     <div className="add__input_container">
       <label className="add__field">{label}</label>
@@ -157,17 +150,10 @@ class AddEvent extends Component {
             />
             <Field name="category" type="select" label="Category" component={this.renderSelect} />
             <Field name="time" label="Time" component={this.renderTime} />
-            {/*<Field*/}
-            {/*name="location"*/}
-            {/*label="Location"*/}
-            {/*component={this.renderLocation}*/}
-            {/*/>*/}
-            <label className="add__input_container">
-              <span className="add__field">LOCATION</span>
-              <div className="geosuggest__container-event">
-                <GeoSuggest onChange={val => this.changeHandler("location", val)} />
-              </div>
-            </label>
+
+            <Geocoder/>
+
+
             <Field
               name="contacts"
               type="text"
