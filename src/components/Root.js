@@ -5,9 +5,9 @@ import {BrowserRouter, HashRouter, Route} from "react-router-dom";
 const { Provider } = require("react-redux");
 const Root = ({ store }) => (
   <Provider store={store}>
-    <HashRouter>
+    <BrowserRouter>
       <Route path="/" component={App} />
-    </HashRouter>
+    </BrowserRouter>
   </Provider>
 );
 

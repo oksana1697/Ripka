@@ -21,7 +21,9 @@ export const minValue = min => value =>
   value && value < min ? `Must be at least ${min}` : undefined;
 export const minValue13 = minValue(13);
 export const email_check = value =>
-  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
+  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,10}$/i.test(value)
+    // value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]/i.test(value)
+
     ? 'Invalid email address'
     : undefined;
 
