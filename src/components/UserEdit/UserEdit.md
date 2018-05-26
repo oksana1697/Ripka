@@ -73,5 +73,5 @@ import React, { Component } from 'react';
 Following custom styles used
 
 ```jsx static
-import '../../../styles/add.less';
+import '../../styles/add.less';
 ```

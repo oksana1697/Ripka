@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import '../../../styles/navigation.less';
-import "../../../styles/common.less"
+import '../../styles/navigation.scss';
+import "../../styles/common.scss"
 
 class NavigationAddUser extends Component {
   constructor(props) {

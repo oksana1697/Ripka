@@ -16,12 +16,12 @@ import {
 } from "../../helpers/FieldLevelValidationForm"
 import { getIsUserProcessing } from "../../reducers/index"
 
-import "../../../styles/common.less"
-import "../../../styles/add.less"
-import "../../../styles/geosuggest.less"
+import "../../styles/common.scss"
+import "../../styles/add.scss"
+// import "../../styles/geosuggest.scss"
 
 import NavigationAddUser from "../Navigation/NavigationAddUser"
-import GeoSuggest from "../GeoSuggest/GeoSuggest"
+// import GeoSuggest from "../GeoSuggest/GeoSuggest"
 import Footer from "../Footer/Footer"
 
 class AddUser extends Component {
@@ -61,11 +61,7 @@ class AddUser extends Component {
     this.setState({ [property]: value })
   }
 
-  renderLocation = ({ input }) => (
-    <div className="geosuggest__container">
-      <GeoSuggest {...input} />
-    </div>
-  )
+
   renderPhotoUpload = () => (
     <div className="add__input_container-photo">
       <PhotoUpload photo={URL => this.props.change("photo", URL)} />
@@ -114,7 +110,7 @@ class AddUser extends Component {
             />
 
             <div className="geosuggest__container">
-              <GeoSuggest onChange={val => this.changeHandler("location", val)} />
+              {/*<GeoSuggest onChange={val => this.changeHandler("location", val)} />*/}
             </div>
             <Field
               name="email"

@@ -65,6 +65,6 @@ import { connect } from 'react-redux';
 Following custom styles used
 
 ```jsx static
-import '../../../styles/common.less';
-import '../../../styles/add.less';
+import '../../styles/common.less';
+import '../../styles/add.less';
 ```

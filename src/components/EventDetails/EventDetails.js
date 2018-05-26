@@ -3,10 +3,10 @@ import {NavLink} from 'react-router-dom';
 
 import Geosuggest from 'react-geosuggest';
 
-import '../../../styles/event-details.less';
-import "../../../styles/common.less";
-import '../../../styles/navigation.less';
-import '../../../styles/map.less'
+import '../../styles/event-details.scss';
+import "../../styles/common.scss";
+import '../../styles/navigation.scss';
+import '../../styles/map.scss'
 
 
 import moment from 'moment';

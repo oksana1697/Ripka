@@ -55,7 +55,7 @@
       .event-details__btn{
         color: #40c4cf;}
         .event-details__icon-edit{
-          content: url("icons/edit-blue.svg");
+          content: url("/public/icons/edit-blue.svg");
         }
     }
   }
@@ -66,7 +66,7 @@
       .event-details__btn{
       color: #40c4cf;}
       .event-details__icon-delete{
-        content: url("icons/delete-blue.svg");
+        content: url("/public/icons/delete-blue.svg");
       }
     }
   }
@@ -85,14 +85,14 @@
       color: #89d8e0;
 
       .event-details__icon-flag {
-        content: url("icons/flag.svg");
+        content: url("/public/icons/flag.svg");
       }
     }
     &:hover{
       color: #89d8e0;
 
       .event-details__icon-flag {
-        content: url("icons/flag.svg");
+        content: url("/public/icons/flag.svg");
       }
     }
   }
@@ -110,14 +110,14 @@
       color: #89d8e0;
 
       .event-details__icon-heard {
-        content: url("icons/heart.svg");
+        content: url("/public/icons/heart.svg");
       }
     }
     &:hover{
       color: #89d8e0;
 
       .event-details__icon-heard{
-        content: url("icons/heart.svg");
+        content: url("/public/icons/heart.svg");
       }
     }
 
@@ -229,7 +229,7 @@
     height: 25px;
     display: inline-block;
     vertical-align: middle;
-    content: url("icons/location-gray.svg");
+    content: url("/public/icons/location-gray.svg");
 
   }
   &__location {
@@ -257,7 +257,7 @@
   margin-right: 5px;
   display: inline-block;
   vertical-align: middle;
-  content: url("icons/flag-event.svg");
+  content: url("/public/icons/flag-event.svg");
 }
 
 .event-details__icon-heard {
@@ -266,7 +266,7 @@
   margin-right: 5px;
   display: inline-block;
   vertical-align: middle;
-  content: url("icons/heart-event.svg");
+  content: url("/public/icons/heart-event.svg");
 }
 
 .event-details__icon-contact {
@@ -274,10 +274,10 @@
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-  content: url("icons/contact.svg");
+  content: url("/public/icons/contact.svg");
 }
 .event-details__icon-categories {
-  content: url("icons/categories.svg");
+  content: url("/public/icons/categories.svg");
 }
 
 
@@ -286,14 +286,14 @@
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-  content: url("icons/paper.svg");
+  content: url("/public/icons/paper.svg");
 }
 .event-details__icon-location {
   width: 23px;
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-  content: url("icons/location.svg");
+  content: url("/public/icons/location.svg");
 }
 
 .event-details__icon-push-pin {
@@ -301,28 +301,28 @@
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-  content: url("icons/push-pin.svg");
+  content: url("/public/icons/push-pin.svg");
 }
 .event-details__icon-legal-paper {
   width: 23px;
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-  content: url("icons/legal-paper.svg");
+  content: url("/public/icons/legal-paper.svg");
 }
 .event-details__icon-edit{
   width: 18px;
   height: 18px;
   vertical-align: middle;
-  content: url("icons/edit.svg");
+  content: url("/public/icons/edit.svg");
 }
 .event-details__icon-delete{
   width: 18px;
   height: 18px;
   vertical-align: middle;
-  content: url("icons/delete.svg");
+  content: url("/public/icons/delete.svg");
 }
 
 .event-details__icon-calendar {
-  content: url("icons/calendar.svg");
+  content: url("/public/icons/calendar.svg");
 }

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 
-import '../../../styles/user-details.less';
-import '../../../styles/user.less'
-import "../../../styles/common.less"
-import '../../../styles/map.less'
+import '../../styles/user-details.scss';
+import '../../styles/user.scss'
+import "../../styles/common.scss"
+import '../../styles/map.scss'
 
 import NavigationLanding from "../Navigation/NavigationSearchEvents";
 import {CLOUDINARY_URL} from "../../api/index";

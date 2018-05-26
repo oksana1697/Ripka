@@ -10,7 +10,7 @@ import {
 } from './index';
 import {arrayOfEvents, arrayOfUsers} from './schema';
 import { normalize } from 'normalizr';
-import * as api from '../api';
+import * as api from '../api/index';
 
 export const searchEvents = filter =>async dispatch => {
   dispatch(searchEventsStart(filter));

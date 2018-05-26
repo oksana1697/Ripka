@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {getIsUserProcessing, getIsUserFetching} from '../../reducers';
+import {getIsUserProcessing, getIsUserFetching} from '../../reducers/index';
 import {editUser} from '../../actions/edit';
 import {getUserById} from '../../reducers/users';
 import {fetchUser} from '../../actions/fetch';
@@ -9,7 +9,7 @@ import {fetchUser} from '../../actions/fetch';
 import AddEventNavigation from "../Navigation/NavigationAddUser";
 import PhotoUpload from '../PhotoUpload';
 
-import '../../../styles/add.less';
+import '../../styles/add.scss';
 import {CLOUDINARY_URL} from "../../api/index";
 import Footer from "../Footer/Footer";
 
@@ -199,7 +199,7 @@ export default connect(
 // import AddEventNavigation from '../Navigation/NavigationAddUser';
 // import PhotoUpload from '../PhotoUpload';
 //
-// import '../../../styles/add.less';
+// import '../../styles/add.scss';
 // import { CLOUDINARY_URL } from '../../api/index';
 // import {
 //   alphaNumeric,

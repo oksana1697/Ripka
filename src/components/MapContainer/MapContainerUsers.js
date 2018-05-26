@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import {getLocation} from "../../api/api";
 
-import "../../../styles/map.less"
+import "../../styles/map.scss"
 import {API_KEY} from "../../api/index";
 
 class MapContainerUsers extends Component {

@@ -81,6 +81,6 @@ import { Link } from "react-router-dom";
 Following custom styles used
 
 ```jsx static
-import "../../../styles/category.less";
+import "../../styles/category.less";
 ```
 

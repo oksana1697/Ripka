@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-import '../../../styles/page-not-found.less'
-import '../../../styles/common.less'
+import '../../styles/page-not-found.scss'
+import '../../styles/common.scss'
 
 class PageNotFound extends Component {
     render() {

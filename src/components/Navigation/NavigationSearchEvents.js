@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { NavLink, withRouter } from 'react-router-dom';
 import { searchEvents } from '../../actions/search';
 
-import '../../../styles/navigation.less';
+import '../../styles/navigation.scss';
 import {connect} from "react-redux";
 
 class NavigationSearchEvents extends Component {

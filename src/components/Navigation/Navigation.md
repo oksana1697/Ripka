@@ -43,6 +43,6 @@ import { Link } from "react-router-dom";
 Following custom styles used
 
 ```jsx static
-import "../../../styles/navigation.less";
+import "../../styles/navigation.less";
 ```
 

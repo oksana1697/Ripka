@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import { fetchEvents, fetchPaginateEvents } from '../actions/fetch';
-import { getAllAvailableEvents, getEventById } from '../reducers';
+import { getAllAvailableEvents, getEventById } from '../reducers/index';
 import EventContainer from './EventContainer/EventContainer';
 import Footer from "./Footer/Footer";
 

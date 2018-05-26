@@ -2,10 +2,10 @@ import User from "../User/User";
 import {users} from "../../reducers/users";
 import React, {Fragment} from "react";
 
-import "../../../styles/user.less";
-import "../../../styles/user-details.less";
-import "../../../styles/common.less";
-import "../../../styles/map.less"
+import "../../styles/user.scss";
+import "../../styles/user-details.scss";
+import "../../styles/common.scss";
+import "../../styles/map.scss"
 
 import MapContainerUsers from "../MapContainer/MapContainerUsers";
 

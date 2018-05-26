@@ -7,10 +7,10 @@ import PhotoUpload from '../PhotoUpload';
 //
 import { getIsEventProcessing } from '../../reducers/index';
 
-import '../../../styles/add.less';
-import '../../../styles/common.less';
-import '../../../styles/react-datetime-picker.less';
-import '../../../styles/geosuggest.less';
+import '../../styles/add.scss';
+import '../../styles/common.scss';
+import '../../styles/react-datetime-picker.scss';
+import '../../styles/geosuggest.scss';
 
 import NavigationAddEvent from '../Navigation/NavigationAddEvent';
 import {

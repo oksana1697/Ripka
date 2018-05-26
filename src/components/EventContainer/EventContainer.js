@@ -3,9 +3,9 @@ import React, {Fragment} from "react";
 import Cover from "../Landing/Landing";
 import MapContainer from '../MapContainer/MapContainer'
 
-import "../../../styles/event.less";
-import "../../../styles/common.less";
-import "../../../styles/navigation.less"
+import "../../styles/event.scss";
+import "../../styles/common.scss";
+import "../../styles/navigation.scss"
 
 const EventContainer = ({events, onEventClick}) => (
     <Fragment>

@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import UserDetails from "./UserDetails/UserDetails";
 
-import { getUserById, getIsUserFetching } from "../reducers";
+import { getUserById, getIsUserFetching } from "../reducers/index";
 import { fetchUser } from "../actions/fetch";
 import {deleteUser} from "../actions/delete";
 

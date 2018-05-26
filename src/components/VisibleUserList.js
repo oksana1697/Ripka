@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 
 import UserContainer from './UserContainer/UserContainer';
 import {fetchUsers} from '../actions/fetch';
-import {getAllAvailableUsers, getUserById} from '../reducers';
+import {getAllAvailableUsers, getUserById} from '../reducers/index';
 import Footer from "./Footer/Footer";
 
 class VisibleUserList extends Component {

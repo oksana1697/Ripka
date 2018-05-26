@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import EventDetails from './EventDetails/EventDetails';
 
-import { getEventById, getIsEventFetching } from '../reducers';
+import { getEventById, getIsEventFetching } from '../reducers/index';
 import { fetchEvent } from '../actions/fetch';
 import { deleteEvent } from '../actions/delete';
 

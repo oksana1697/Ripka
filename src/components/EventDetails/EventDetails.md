@@ -90,6 +90,6 @@ import React, { Component } from "react";
 Following custom styles used
 
 ```jsx static
-import "../../styles/event-details.less";
+import "../../../styles/event-details.less";
 ```
 

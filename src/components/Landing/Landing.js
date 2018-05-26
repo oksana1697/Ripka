@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../../../styles/category.less';
+import '../../styles/category.scss';
 import {Link} from "react-router-dom";
 import Footer from "../Footer/Footer";
 /**
