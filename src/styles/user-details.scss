@@ -172,7 +172,7 @@
       .event-details__btn{
         color: #40c4cf;}
       .event-details__icon-edit{
-        content: url("/public/icons/edit-blue.svg");
+        background: url("/icons/edit-blue.svg");
       }
     }
   }
@@ -183,7 +183,7 @@
       .event-details__btn{
         color: #40c4cf;}
       .event-details__icon-delete{
-        content: url("/public/icons/delete-blue.svg");
+        background: url("/icons/delete-blue.svg");
       }
     }
   }
@@ -195,14 +195,14 @@
     margin-right: 5px;
     display: inline-block;
     vertical-align: middle;
-    content: url("/public/icons/flag.svg");
+    background: url("/icons/flag.svg");
 }
 
 .user-details__icon-heard {
     margin-right: 5px;
     display: inline-block;
     vertical-align: middle;
-    content: url("/public/icons/heart.svg");
+    background: url("/icons/heart.svg");
 }
 
 .user-details__icon-contact {
@@ -210,10 +210,10 @@
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-    content: url("/public/icons/contact.svg");
+    content: url("/icons/contact.svg");
 }
 .user-details__icon-categories {
-  content: url("/public/icons/categories.svg");
+  content: url("/icons/categories.svg");
 }
 
 
@@ -222,29 +222,29 @@
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-    content: url("/public/icons/paper.svg");
+    content: url("/icons/paper.svg");
 }
 .user-details__icon-location {
   width: 23px;
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-  content: url("/public/icons/location.svg");
+  content: url("/icons/location.svg");
 }
 
 .user-details__icon-edit{
   width: 18px;
   height: 18px;
   vertical-align: middle;
-  content: url("/public/icons/edit.svg");
+  content: url("/icons/edit.svg");
 }
 .user-details__icon-delete{
   width: 18px;
   height: 18px;
   vertical-align: middle;
-  content: url("/public/icons/delete.svg");
+  content: url("/icons/delete.svg");
 }
 
 .user-details__icon-calendar {
-    content: url("/public/icons/calendar.svg");
+    content: url("/icons/calendar.svg");
 }

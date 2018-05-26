@@ -86,7 +86,7 @@ class Landing extends Component {
           </div>
           <div className="category__item">
             <div className="category__item-icon">
-              <soan className="category__item-icon-education" />
+              <span className="category__item-icon-education" />
             </div>
             <h5 className="category__item-title">Education</h5>
           </div>

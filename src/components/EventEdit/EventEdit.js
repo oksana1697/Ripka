@@ -33,7 +33,6 @@ class EventEdit extends Component {
   }
 
   static getDerivedStateFromProps({ event, isEventProcessing, onSuccess }, { formSubmitted }) {
-    console.log(formSubmitted, isEventProcessing, "f")
     if (formSubmitted && !isEventProcessing) {
       onSuccess()
     }
@@ -46,7 +45,6 @@ class EventEdit extends Component {
     const { formSubmitted, ...event } = this.state
     editEvent(event, id)
     this.setState({ formSubmitted: true })
-    console.log("props:", this.state)
   }
 
   changeHandler = property => ev => {

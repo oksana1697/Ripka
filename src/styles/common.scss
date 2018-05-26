@@ -1,23 +1,4 @@
-@font-face {
-  font-family: Gotham;
-  src: url(/public/font/GothamBook.ttf);
-}
-@font-face {
-  font-family: Gotham;
-  src: url(/public/font/GothamBold.ttf);
-  font-weight: bold;
-}
-@font-face {
-  font-family: GothamMedium;
-  src: url(/public/font/GothamMedium.ttf);
-}
-
-body{
+body {
   margin: 0;
-  font-family: Gotham, Helvetica, Arial, sans-serif;
-
-  & button{
-    font-family: Gotham, Helvetica, Arial, sans-serif !important;
-
-  }
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }

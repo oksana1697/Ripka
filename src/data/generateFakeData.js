@@ -1,9 +1,8 @@
-const faker = require('faker');
-const _ = require('lodash');
-const { v4 } = require('uuid');
+const faker = require("faker")
+const _ = require("lodash")
+const { v4 } = require("uuid")
 
 module.exports = function() {
-  console.log(faker);
   return {
     events: _.times(100, function(n) {
       return {
@@ -14,8 +13,8 @@ module.exports = function() {
         organization: faker.company.companySuffix(),
         contacts: faker.phone.phoneNumber(),
         location: faker.address.streetAddress(),
-        photo: faker.image.cats(),
-      };
+        photo: faker.image.cats()
+      }
     }),
     users: _.times(2, function(n) {
       return {
@@ -25,8 +24,8 @@ module.exports = function() {
         // organization:faker.Company.companySuffix(),
         user_contacts: faker.phone.phoneNumber(),
         user_location: faker.address.streetAddress(),
-        user_photo: faker.image.cats(),
-      };
-    }),
-  };
-};
+        user_photo: faker.image.cats()
+      }
+    })
+  }
+}

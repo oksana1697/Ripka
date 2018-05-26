@@ -146,10 +146,10 @@
   }
   &__icon {
     &_push-pin {
-      content: url('/public/icons/push-pin.svg');
+      background: url('/icons/push-pin.svg');
     }
     &_legal-paper {
-      content: url('/public/icons/legal-paper.svg');
+      background: url('/icons/legal-paper.svg');
     }
   }
   &__input {

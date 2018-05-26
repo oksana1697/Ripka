@@ -1,0 +1,38 @@
+.EventContainer {
+  &__content {
+    width: 60rem;
+    margin: 2rem auto;
+    display: flex;
+  }
+
+  &__map {
+    width: 20rem;
+  }
+
+  &__block {
+    width: 39rem;
+    margin-right: 1rem;
+  }
+
+  &__title {
+    background-color: #fafafa;
+    color: #2c374a;
+    font-size: 22px;
+    padding: 30px 192px;
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.59091;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    &_nav {
+      border: 1px solid #8080809c;
+      padding: 10px;
+      line-height: 0.5;
+      border-radius: 1px;
+      color: grey;
+    }
+  }
+}

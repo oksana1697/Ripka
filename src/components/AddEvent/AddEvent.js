@@ -8,9 +8,7 @@ import PhotoUpload from "../PhotoUpload"
 import { getIsEventProcessing } from "../../reducers/index"
 
 import "../../styles/add.scss"
-import "../../styles/common.scss"
 import "../../styles/react-datetime-picker.scss"
-import "../../styles/geosuggest.scss"
 
 import NavigationAddEvent from "../Navigation/NavigationAddEvent"
 import {
@@ -62,10 +60,7 @@ class AddEvent extends Component {
   }
 
   changeHandler = (property, value) => {
-    // ev => {
-    // const {value} = ev.target;
     this.setState({ [property]: value })
-    console.log("STATE", this.state)
   }
   renderInput = ({ input, label, type, meta: { touched, error, warning } }) => (
     <div className="add__input_container">

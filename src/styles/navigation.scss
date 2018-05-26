@@ -68,8 +68,7 @@
     &:hover .navigation__search-bar_filter_content {
       display: block;
     }
-    //&:after{
-    //content:  url('/public/icons/search.svg');}
+
     &_filter {
       cursor: pointer;
       padding-left: 25px;
@@ -122,7 +121,7 @@
       }
 
       &-icon {
-        content: url('/public/icons/search.svg');
+        background: url('/icons/search.svg');
       }
     }
   }

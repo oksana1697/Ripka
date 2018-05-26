@@ -82,7 +82,6 @@ const isUserProcessing = (state = false, action) => {
     case ADD_USER_SUCCESS:
       case EDIT_USER_FAILURE:
       case EDIT_USER_SUCCESS:
-        console.log('user processing end');
         return false;
 
     default:

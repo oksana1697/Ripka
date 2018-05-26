@@ -18,8 +18,6 @@ export const searchEvents = filter =>async dispatch => {
     let events = await api.findEvents(filter);
     if (!events.error) {
       events = normalize(events, arrayOfEvents);
-      console
-          .log(events);
       dispatch(searchEventsSuccess(events.entities.events));
     } else {
       dispatch(searchEventsFailure(events.error));

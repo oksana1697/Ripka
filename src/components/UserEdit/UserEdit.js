@@ -35,18 +35,13 @@ class UserEdit extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     const { user, isUserProcessing, onSuccess } = nextProps
     const { formSubmitted } = prevState
-    console.log(formSubmitted, isUserProcessing, "f")
     if (formSubmitted && !isUserProcessing) {
       onSuccess()
     }
-    console.log("getDerivedStateFromProps")
-    // console.log(nextProps, prevState);
+
     const nextPropsStr = JSON.stringify(nextProps)
     const prevNextPropsStr = JSON.stringify(prevState.nextProps)
-    console.log(nextPropsStr)
-    console.log(prevNextPropsStr)
     if (nextPropsStr !== prevNextPropsStr) {
-      console.log("not equal")
       return { ...user, nextProps }
     } else {
       return { ...prevState.user, nextProps }
@@ -64,14 +59,11 @@ class UserEdit extends Component {
 
   changeHandler = (property, ev) => {
     const { value } = ev.target
-    console.log("chnge", value)
     this.setState({ [property]: value })
   }
 
   render() {
-    console.log("render", this.state)
     const { name, description, contacts, interests, location, photo, formSubmitted } = this.state
-    // const {event} = this.props;
     return (
       <div>
         <AddEventNavigation />

@@ -1,0 +1,63 @@
+.Event {
+  display: flex;
+  padding: 1rem;
+  border-bottom: 1px solid #f5f5f6;
+
+  &:hover {
+    background: #fafafa;
+  }
+
+  &__photo {
+    margin: 0.7rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 10px;
+  }
+
+  &__description {
+    margin: 0;
+    position: relative;
+    z-index: 99;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    color: #3b5ace;
+    margin: 0.7rem 0;
+    line-height: 1.2rem;
+
+    a {
+      text-decoration: inherit;
+      color: inherit;
+    }
+  }
+
+  &__location-container {
+    margin: 0;
+    vertical-align: middle;
+  }
+
+  &__location {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #9398a1;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__organization {
+    font-size: 15px;
+    color: #9398a1;
+    margin: 10px 0 5px 0;
+  }
+
+  &__icon-location {
+    margin-right: 0.3rem;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    background: url("/icons/location-gray.svg");
+    background-size: contain;
+  }
+}
