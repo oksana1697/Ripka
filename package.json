@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "/index.js",
   "scripts": {
+    
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill",
     "build:prod": "MODE=production webpack",
     "build:dev": "webpack",
@@ -30,8 +31,6 @@
     "babel-runtime": "^6.26.0",
     "compression-webpack-plugin": "^1.1.11",
     "css-loader": "^0.28.9",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "html-webpack-plugin": "^3.2.0",
     "less": "^3.0.2",
     "less-loader": "^4.0.5",
     "mocha": "^5.0.5",
@@ -39,7 +38,6 @@
     "prop-types": "^15.6.1",
     "ramda": "^0.25.0",
     "react-styleguidist": "^7.0.8",
-    "style-ext-html-webpack-plugin": "^3.4.7",
     "style-loader": "^0.20.2",
     "svg-url-loader": "^2.3.2",
     "swagger": "^0.7.5",
@@ -51,7 +49,6 @@
     "appendjson": "^0.1.2",
     "axios": "^0.18.0",
     "brfs": "^1.5.0",
-    "clean-webpack-plugin": "^0.1.19",
     "cloudinary-react": "^1.0.6",
     "faker": "^4.1.0",
     "file-system": "^2.2.2",
