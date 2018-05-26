@@ -1,5 +1,5 @@
-import Root from "./src/components/Root";
-import configureStore from "./src/configureStore";
+import Root from "./components/Root";
+import configureStore from "./configureStore";
 import React from "react";
 import ReactDOM from "react-dom";
 

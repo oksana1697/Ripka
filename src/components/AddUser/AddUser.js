@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import PhotoUpload from '../PhotoUpload';
+import React, { Component } from "react"
+import PhotoUpload from "../PhotoUpload"
 
-import { Field, reduxForm } from 'redux-form';
-import { addUser } from '../../actions/add';
-import { connect } from 'react-redux';
+import { Field, reduxForm } from "redux-form"
+import { addUser } from "../../actions/add"
+import { connect } from "react-redux"
 
 import {
   alphaNumeric,
@@ -12,101 +12,88 @@ import {
   minLength2,
   required,
   email_check,
-  phoneNumber,
-} from '../../helpers/FieldLevelValidationForm';
-import { getIsUserProcessing } from '../../reducers/index';
+  phoneNumber
+} from "../../helpers/FieldLevelValidationForm"
+import { getIsUserProcessing } from "../../reducers/index"
 
-import '../../../styles/common.less';
-import '../../../styles/add.less';
-import '../../../styles/geosuggest.less';
+import "../../../styles/common.less"
+import "../../../styles/add.less"
+import "../../../styles/geosuggest.less"
 
-import NavigationAddUser from '../Navigation/NavigationAddUser';
-import GeoSuggest from '../GeoSuggest/GeoSuggest';
-import Footer from '../Footer/Footer';
+import NavigationAddUser from "../Navigation/NavigationAddUser"
+import GeoSuggest from "../GeoSuggest/GeoSuggest"
+import Footer from "../Footer/Footer"
 
 class AddUser extends Component {
   static defaultProps = {
-    onSuccess() {},
-  };
+    onSuccess() {}
+  }
 
-  static getDerivedStateFromProps(
-    { isUserProcessing, onSuccess },
-    { formSubmitted },
-  ) {
+  static getDerivedStateFromProps({ isUserProcessing, onSuccess }, { formSubmitted }) {
     if (formSubmitted && !isUserProcessing) {
-      onSuccess();
+      onSuccess()
     }
-    return {};
+    return {}
   }
 
   state = {
-    name: '',
-    description: '',
-    contacts: '',
-    location: '',
-    photo: '',
-    interests: '',
-    formSubmitted: false,
-  };
+    name: "",
+    description: "",
+    contacts: "",
+    location: "",
+    photo: "",
+    interests: "",
+    formSubmitted: false
+  }
 
   handleSubmit = ev => {
-    ev.preventDefault();
-    const { ...user } = this.props.addUserForm.values;
-    const { location } = this.state;
-    const { addUser } = this.props;
-    const fullUser = { ...user, location };
-    addUser(fullUser);
-    this.setState({ formSubmitted: true });
-    this.props.onSuccess();
-  };
+    ev.preventDefault()
+    const { ...user } = this.props.addUserForm.values
+    const { location } = this.state
+    const { addUser } = this.props
+    const fullUser = { ...user, location }
+    addUser(fullUser)
+    this.setState({ formSubmitted: true })
+    this.props.onSuccess()
+  }
 
   changeHandler = (property, value) => {
-    this.setState({ [property]: value });
-  };
+    this.setState({ [property]: value })
+  }
 
   renderLocation = ({ input }) => (
     <div className="geosuggest__container">
       <GeoSuggest {...input} />
     </div>
-  );
+  )
   renderPhotoUpload = () => (
     <div className="add__input_container-photo">
-      <PhotoUpload photo={URL => this.props.change('photo', URL)} />
+      <PhotoUpload photo={URL => this.props.change("photo", URL)} />
     </div>
-  );
+  )
 
   renderInput = ({ input, label, type, meta: { touched, error, warning } }) => (
     <div className="add__user_input_container">
-      <input
-        {...input}
-        placeholder={label}
-        type={type}
-        className="add__input"
-      />
+      <input {...input} placeholder={label} type={type} className="add__input" />
       {touched &&
         ((error && <span className="add__input_warning">{error}</span>) ||
           (warning && <span className="add__input_warning">{warning}</span>))}
     </div>
-  );
+  )
 
-  renderTextArea = ({
-    input,
-    label,
-    type,
-    meta: { touched, error, warning },
-  }) => (
+  renderTextArea = ({ input, label, type, meta: { touched, error, warning } }) => (
     <div className="add__user_input_container">
       <textarea {...input} placeholder={label} className="add__input" />
       {touched &&
         ((error && <span className="add__input_warning">{error}</span>) ||
           (warning && <span className="add__input_warning">{warning}</span>))}
     </div>
-  );
+  )
 
   render() {
-    const { handleSubmit, invalid, pristine, reset, submitting } = this.props;
-    const { formSubmitted } = this.state;
-    console.log('THIS.PROPS:      ', this.props);
+    const { handleSubmit, invalid, pristine, reset, submitting } = this.props
+    const { formSubmitted } = this.state
+    console.log("THIS.PROPS:      ", this.props)
 
     return (
       <div>
@@ -127,9 +114,7 @@ class AddUser extends Component {
             />
 
             <div className="geosuggest__container">
-              <GeoSuggest
-                onChange={val => this.changeHandler('location', val)}
-              />
+              <GeoSuggest onChange={val => this.changeHandler("location", val)} />
             </div>
             <Field
               name="email"
@@ -180,18 +165,18 @@ class AddUser extends Component {
         </form>
         <Footer />
       </div>
-    );
+    )
   }
 }
 
 AddUser = reduxForm({
-  form: 'addUserForm',
-})(AddUser);
+  form: "addUserForm"
+})(AddUser)
 
 export default connect(
   state => ({
     addUserForm: state.form.addUserForm,
-    isUserProcessing: getIsUserProcessing(state),
+    isUserProcessing: getIsUserProcessing(state)
   }),
-  { addUser },
-)(AddUser);
+  { addUser }
+)(AddUser)
