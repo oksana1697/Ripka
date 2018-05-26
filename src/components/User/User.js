@@ -9,7 +9,8 @@ const User = ({ id, name, description, contacts, interests, location, photo }) =
   <div className="user__container">
     <div className="user__info-container">
       <img
-        src={CLOUDINARY_URL + "w_80,h_80,q_90,c_thumb,g_faces/" + photo + ".jpg"}
+        alt=""
+        src={`${CLOUDINARY_URL}w_80,h_80,q_90,c_thumb,g_faces/${photo}.jpg`}
         className="user__photo"
       />
       <p className="user__name">{name}</p>

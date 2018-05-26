@@ -6,7 +6,6 @@ import '../../styles/user.scss'
 import "../../styles/common.scss"
 import '../../styles/map.scss'
 
-import NavigationLanding from "../Navigation/NavigationSearchEvents";
 import {CLOUDINARY_URL} from "../../api/index";
 import MapContainerUsers from "../MapContainer/MapContainerUsers";
 import Navigation from "../Navigation/Navigation";
@@ -28,7 +27,7 @@ class UserDetails extends Component {
                     <div className='user-details__subnav'>
                         <div className='user-details__left'>
                             <div className='user-details__edit'>
-                                <img className="event-details__icon-edit"/>
+                                <img alt="" className="event-details__icon-edit"/>
                                 <NavLink
                                     to={'/users/edit/' + user.id}
                                 >
@@ -36,7 +35,7 @@ class UserDetails extends Component {
                                 </NavLink>
                             </div>
                             <div className='user-details__delete'>
-                                <img className="event-details__icon-delete"/>
+                                <img alt="" className="event-details__icon-delete"/>
                                 <button
                                     className="user-details__btn"
                                     onClick={() => {
@@ -56,17 +55,17 @@ class UserDetails extends Component {
                     </div>
                     <div className="user-details__big">
 
-                        <img className="user-details__photo"
-                             src={CLOUDINARY_URL + 'w_170,h_170,q_90,c_fill,g_faces/' + user.photo + '.jpg'}/>
+                        <img alt="" className="user-details__photo"
+                             src={ `${CLOUDINARY_URL}w_170,h_170,q_90,c_fill,g_faces/${user.photo}.jpg`}/>
                         <h1 className="user-details__name">{user.name}</h1>
 
                         <div className="user-details__block-row">
                             <button className="user-details__button">
-                                <img className="user-details__icon-heard"/>
+                                <img alt="" className="user-details__icon-heard"/>
                                 <span className="user-details__button-descr">Bookmark</span>
                             </button>
                             <button className="user-details__button">
-                                <img className="user-details__icon-flag"/>
+                                <img alt="" className="user-details__icon-flag"/>
                                 <span className="user-details__button-descr">Report</span>
                             </button>
                         </div>
@@ -74,7 +73,7 @@ class UserDetails extends Component {
                     <div className="user-details__info">
                         <div className="user-details__in">
                             <div className="user-details__title-info">
-                                <img className="user-details__icon-paper"/>
+                                <img alt="" className="user-details__icon-paper"/>
                                 <h4 className="user-details__subt">About {user.name}</h4>
                                 <hr className="user-details__hr"/>
                             </div>
@@ -85,7 +84,7 @@ class UserDetails extends Component {
                         </div>
                         <div className="user-details__in">
                             <div className="user-details__title-info">
-                                <img className="user-details__icon-contact"/>
+                                <img alt="" className="user-details__icon-contact"/>
                                 <h4 className="user-details__subt">Contacts</h4>
                                 <hr className="user-details__hr"/>
                             </div>
@@ -96,7 +95,7 @@ class UserDetails extends Component {
                         </div>
                         <div className="user-details__in">
                             <div className="user-details__title-info">
-                                <img className="user-details__icon-location"/>
+                                <img alt="" className="user-details__icon-location"/>
                                 <h4 className="user-details__subt">Location</h4>
                                 <hr className="user-details__hr"/>
                             </div>
@@ -110,13 +109,6 @@ class UserDetails extends Component {
                             </div>
                         </div>
                     </div>
-                    {/*/!*<p className="user-details__content">{currentEvent.date.toFormat("yyyy LLL dd")}</p>*!/*/}
-                    {/*/!*<p className="user-details__content">{currentEvent.date.toFormat("HH:mm")}</p>*!/*/}
-                    {/*<div className="user-details__subtitle_container">*/}
-                    {/*<img className="user-details__icon-categories"/>*/}
-                    {/*<h1 className="user-details__subtitle">Interests</h1>*/}
-                    {/*</div>*/}
-                    {/*<p className="user-details__content">{user.interests}</p>*/}
                 </div>
                 <Footer />
             </div>

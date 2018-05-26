@@ -8,7 +8,6 @@ import { connect } from "react-redux"
 import {
   alphaNumeric,
   maxLength20,
-  maxLength15,
   minLength2,
   required,
   email_check,
@@ -18,10 +17,9 @@ import { getIsUserProcessing } from "../../reducers/index"
 
 import "../../styles/common.scss"
 import "../../styles/add.scss"
-// import "../../styles/geosuggest.scss"
 
 import NavigationAddUser from "../Navigation/NavigationAddUser"
-// import GeoSuggest from "../GeoSuggest/GeoSuggest"
+
 import Footer from "../Footer/Footer"
 
 class AddUser extends Component {
@@ -61,7 +59,6 @@ class AddUser extends Component {
     this.setState({ [property]: value })
   }
 
-
   renderPhotoUpload = () => (
     <div className="add__input_container-photo">
       <PhotoUpload photo={URL => this.props.change("photo", URL)} />
@@ -87,7 +84,7 @@ class AddUser extends Component {
   )
 
   render() {
-    const { handleSubmit, invalid, pristine, reset, submitting } = this.props
+    const { invalid, pristine, submitting } = this.props
     const { formSubmitted } = this.state
     console.log("THIS.PROPS:      ", this.props)
 

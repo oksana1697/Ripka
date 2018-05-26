@@ -1,6 +1,3 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-
 // TODO: https://redux-form.com/7.3.0/examples/fieldlevelvalidation/
 
 export const required = value => (value ? undefined : '* Required field');
@@ -33,6 +30,6 @@ export const alphaNumeric = value =>
     : undefined;
 export const phoneNumber = value =>
   value &&
-  !/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/i.test(value)
+  !/^(\+\d)?\(?\d{3}\)?[-\s]?\d{3}[-\s]?\d{4,6}$/i.test(value)
     ? 'Invalid phone number'
     : undefined;

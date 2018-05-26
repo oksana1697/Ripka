@@ -1,192 +1,185 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from "react"
+import { connect } from "react-redux"
 
-import {getIsUserProcessing, getIsUserFetching} from '../../reducers/index';
-import {editUser} from '../../actions/edit';
-import {getUserById} from '../../reducers/users';
-import {fetchUser} from '../../actions/fetch';
+import { getIsUserProcessing, getIsUserFetching } from "../../reducers/index"
+import { editUser } from "../../actions/edit"
+import { getUserById } from "../../reducers/users"
+import { fetchUser } from "../../actions/fetch"
 
-import AddEventNavigation from "../Navigation/NavigationAddUser";
-import PhotoUpload from '../PhotoUpload';
+import AddEventNavigation from "../Navigation/NavigationAddUser"
+import PhotoUpload from "../PhotoUpload"
 
-import '../../styles/add.scss';
-import {CLOUDINARY_URL} from "../../api/index";
-import Footer from "../Footer/Footer";
+import "../../styles/add.scss"
+import { CLOUDINARY_URL } from "../../api/index"
+import Footer from "../Footer/Footer"
 
 class UserEdit extends Component {
-    constructor(props) {
-        super(props);
-        const initState = {
-            name: '',
-            description: '',
-            contacts: '',
-            interests: '',
-            location: '',
-            photo: '',
-            formSubmitted: false,
-        };
-        this.state = this.props.user ? this.props.user : initState;
+  constructor(props) {
+    super(props)
+    const initState = {
+      name: "",
+      description: "",
+      contacts: "",
+      interests: "",
+      location: "",
+      photo: "",
+      formSubmitted: false
     }
+    this.state = this.props.user ? this.props.user : initState
+  }
 
-    static defaultProps = {
-        onSuccess() {
-        },
-    };
+  static defaultProps = {
+    onSuccess() {}
+  }
 
-    static getDerivedStateFromProps(nextProps,
-                                    prevState) {
-        const {user, isUserProcessing, onSuccess} = nextProps;
-        const {formSubmitted} = prevState;
-        console.log(formSubmitted, isUserProcessing, "f");
-        if (formSubmitted && !isUserProcessing) {
-            onSuccess();
-        }
-        console.log('getDerivedStateFromProps');
-        // console.log(nextProps, prevState);
-        const nextPropsStr = JSON.stringify(nextProps);
-        const prevNextPropsStr = JSON.stringify(prevState.nextProps);
-        console.log(nextPropsStr);
-        console.log(prevNextPropsStr);
-        if(nextPropsStr !== prevNextPropsStr){
-            console.log('not equal');
-            return {...user, nextProps};
-        }else{
-            return {...prevState.user, nextProps};
-        }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const { user, isUserProcessing, onSuccess } = nextProps
+    const { formSubmitted } = prevState
+    console.log(formSubmitted, isUserProcessing, "f")
+    if (formSubmitted && !isUserProcessing) {
+      onSuccess()
     }
+    console.log("getDerivedStateFromProps")
+    // console.log(nextProps, prevState);
+    const nextPropsStr = JSON.stringify(nextProps)
+    const prevNextPropsStr = JSON.stringify(prevState.nextProps)
+    console.log(nextPropsStr)
+    console.log(prevNextPropsStr)
+    if (nextPropsStr !== prevNextPropsStr) {
+      console.log("not equal")
+      return { ...user, nextProps }
+    } else {
+      return { ...prevState.user, nextProps }
+    }
+  }
 
+  handleSubmit = ev => {
+    ev.preventDefault()
+    const { editUser, id } = this.props
+    const { formSubmitted, ...user } = this.state
 
-    handleSubmit = ev => {
-        ev.preventDefault();
-        const {editUser, id} = this.props;
-        const {formSubmitted, ...user} = this.state;
+    editUser(user, id)
+    this.setState({ formSubmitted: true })
+  }
 
-        editUser(user, id);
-        this.setState({formSubmitted: true});
-    };
+  changeHandler = (property, ev) => {
+    const { value } = ev.target
+    console.log("chnge", value)
+    this.setState({ [property]: value })
+  }
 
-    changeHandler = (property,  ev) => {
-        const {value} = ev.target;
-        console.log('chnge', value);
-        this.setState({[property]: value});
-    };
-
-    render() {
-        console.log('render', this.state);
-        const {
-            name,
-            description,
-            contacts,
-            interests,
-            location,
-            photo,
-            formSubmitted,
-        } = this.state;
-        // const {event} = this.props;
-        return (
-            <div>
-                <AddEventNavigation/>
-                <div>
-                    <form className="add" onSubmit={this.handleSubmit}>
-                        {formSubmitted && <div className="add__carpet"/>}
-                        <div className="add__title_container">
-                            <h1 className="add__title">Edit your profile</h1>
-                        </div>
-                        <div className="add__subtitle_container">
-                            <img src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png"/>
-                            <h1 className="add__subtitle">Profile Overview</h1>
-                        </div>
-
-                        <label className="add__input_container">
-                            <span className="add__field">YOUR NAME</span>
-                            <input
-                                className="add__input"
-                                placeholder="Name"
-                                value={name}
-                                onChange={ev=>this.changeHandler('name', ev)}
-                            />
-                        </label>
-                        <label className="add__input_container">
-                            <span className="add__field">YOUR LOCATION</span>
-                            <input
-                                className="add__input"
-                                placeholder="Location"
-                                value={location}
-                                onChange={ev=>this.changeHandler('location', ev)}
-                            />
-                        </label>
-                        <label className="add__input_container">
-                            <span className="add__field">YOUR CONTACTS</span>
-                            <input
-                                className="add__input"
-                                placeholder="Contacts"
-                                value={contacts}
-                                onChange={ev => this.changeHandler('contacts', ev)}
-                            />
-                        </label>
-
-                        <label className="add__input_container">
-                            <span className="add__field">ABOUT YOU</span>
-                            <textarea
-                                className="add__textarea"
-                                placeholder="Description"
-                                value={description}
-                                onChange={ev => this.changeHandler('description', ev)}
-                                required
-                            />
-                        </label>
-
-                        <label className="add__input_container">
-                            <span className="add__field">YOUR INTERESTS & GOALS</span>
-                            <input
-                                className="add__input"
-                                placeholder="Interests & Goals"
-                                value={interests}
-                                onChange={ev => this.changeHandler('interests', ev)}
-                            />
-                        </label>
-
-                        <label className="add__input_container">
-                            <span className="add__field">DOWNLOAD PHOTO</span>
-                            <div className="add__photo-container">
-                                <img src={CLOUDINARY_URL + 'c_scale,r_5,w_265/' + photo + '.jpg'}
-                                     className="add__photo-img"/>
-                            </div>
-                            <PhotoUpload photo={URL => this.setState({photo: URL})}/>
-                        </label>
-                        <div className="add__submit-container">
-                            <button className="add__submit">Save changes</button>
-                        </div>
-                    </form>
-                </div>
-                <Footer />
+  render() {
+    console.log("render", this.state)
+    const { name, description, contacts, interests, location, photo, formSubmitted } = this.state
+    // const {event} = this.props;
+    return (
+      <div>
+        <AddEventNavigation />
+        <div>
+          <form className="add" onSubmit={this.handleSubmit}>
+            {formSubmitted && <div className="add__carpet" />}
+            <div className="add__title_container">
+              <h1 className="add__title">Edit your profile</h1>
             </div>
-        );
-    }
+            <div className="add__subtitle_container">
+              <img
+                alt="icon"
+                src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png"
+              />
+              <h1 className="add__subtitle">Profile Overview</h1>
+            </div>
+
+            <label className="add__input_container">
+              <span className="add__field">YOUR NAME</span>
+              <input
+                className="add__input"
+                placeholder="Name"
+                value={name}
+                onChange={ev => this.changeHandler("name", ev)}
+              />
+            </label>
+            <label className="add__input_container">
+              <span className="add__field">YOUR LOCATION</span>
+              <input
+                className="add__input"
+                placeholder="Location"
+                value={location}
+                onChange={ev => this.changeHandler("location", ev)}
+              />
+            </label>
+            <label className="add__input_container">
+              <span className="add__field">YOUR CONTACTS</span>
+              <input
+                className="add__input"
+                placeholder="Contacts"
+                value={contacts}
+                onChange={ev => this.changeHandler("contacts", ev)}
+              />
+            </label>
+
+            <label className="add__input_container">
+              <span className="add__field">ABOUT YOU</span>
+              <textarea
+                className="add__textarea"
+                placeholder="Description"
+                value={description}
+                onChange={ev => this.changeHandler("description", ev)}
+                required
+              />
+            </label>
+
+            <label className="add__input_container">
+              <span className="add__field">YOUR INTERESTS & GOALS</span>
+              <input
+                className="add__input"
+                placeholder="Interests & Goals"
+                value={interests}
+                onChange={ev => this.changeHandler("interests", ev)}
+              />
+            </label>
+
+            <label className="add__input_container">
+              <span className="add__field">DOWNLOAD PHOTO</span>
+              <div className="add__photo-container">
+                <img
+                  alt=""
+                  src={`${CLOUDINARY_URL}c_scale,r_5,w_265/${photo}.jpg"`}
+                  className="add__photo-img"
+                />
+              </div>
+              <PhotoUpload photo={URL => this.setState({ photo: URL })} />
+            </label>
+            <div className="add__submit-container">
+              <button className="add__submit">Save changes</button>
+            </div>
+          </form>
+        </div>
+        <Footer />
+      </div>
+    )
+  }
 }
 
 export default connect(
-    (state, {id}) => ({
-        isUserFetching: getIsUserFetching(id, state),
-        isUserProcessing: getIsUserProcessing(state),
-        user: getUserById(state, id),
-    }),
-    {editUser, fetchUser},
-    ({user, isUserFetching, isUserProcessing},
-     {fetchUser, editUser},
-     {id, onSuccess},) => {
-        if (!user && !isUserFetching) {
-            fetchUser(id);
-        }
-        return {
-            id,
-            user,
-            editUser,
-            onSuccess,
-            isUserProcessing,
-        };
-    },
-)(UserEdit);
+  (state, { id }) => ({
+    isUserFetching: getIsUserFetching(id, state),
+    isUserProcessing: getIsUserProcessing(state),
+    user: getUserById(state, id)
+  }),
+  { editUser, fetchUser },
+  ({ user, isUserFetching, isUserProcessing }, { fetchUser, editUser }, { id, onSuccess }) => {
+    if (!user && !isUserFetching) {
+      fetchUser(id)
+    }
+    return {
+      id,
+      user,
+      editUser,
+      onSuccess,
+      isUserProcessing
+    }
+  }
+)(UserEdit)
 
 // import React, { Component } from 'react';
 // import { connect } from 'react-redux';

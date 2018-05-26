@@ -54,6 +54,7 @@ class PhotoUpload extends Component {
           <p className="add__photo_text"> Upload a photo</p>
           {this.state.imageURL ? (
             <img
+              alt=""
               src={this.state.imageURL}
               className="add__photo_upload"
             />

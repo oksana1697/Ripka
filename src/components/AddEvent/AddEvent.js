@@ -1,102 +1,93 @@
-import React, { Component } from 'react';
-import { addEvent, addUser } from '../../actions/add';
-import { connect } from 'react-redux';
+import React, { Component } from "react"
+import { addEvent } from "../../actions/add"
+import { connect } from "react-redux"
 //
-import DateTimePicker from 'react-datetime-picker';
-import PhotoUpload from '../PhotoUpload';
+import DateTimePicker from "react-datetime-picker"
+import PhotoUpload from "../PhotoUpload"
 //
-import { getIsEventProcessing } from '../../reducers/index';
+import { getIsEventProcessing } from "../../reducers/index"
 
-import '../../styles/add.scss';
-import '../../styles/common.scss';
-import '../../styles/react-datetime-picker.scss';
-import '../../styles/geosuggest.scss';
+import "../../styles/add.scss"
+import "../../styles/common.scss"
+import "../../styles/react-datetime-picker.scss"
+import "../../styles/geosuggest.scss"
 
-import NavigationAddEvent from '../Navigation/NavigationAddEvent';
+import NavigationAddEvent from "../Navigation/NavigationAddEvent"
 import {
   alphaNumeric,
   maxLength15,
   maxLength20,
   minLength2,
   phoneNumber,
-  required,
-} from '../../helpers/FieldLevelValidationForm';
-import { Field, reduxForm } from 'redux-form';
-import Footer from '../Footer/Footer';
-import GeoSuggest from '../GeoSuggest/GeoSuggest';
+  required
+} from "../../helpers/FieldLevelValidationForm"
+import { Field, reduxForm } from "redux-form"
+import Footer from "../Footer/Footer"
+import GeoSuggest from "../GeoSuggest/GeoSuggest"
 
 class AddEvent extends Component {
   static defaultProps = {
-    onSuccess() {},
-  };
+    onSuccess() {}
+  }
 
-  static getDerivedStateFromProps(
-    { isEventProcessing, onSuccess },
-    { formSubmitted },
-  ) {
+  static getDerivedStateFromProps({ isEventProcessing, onSuccess }, { formSubmitted }) {
     if (formSubmitted && !isEventProcessing) {
-      onSuccess();
+      onSuccess()
     }
-    return {};
+    return {}
   }
 
   state = {
-    name: '',
-    description: '',
-    organization: '',
-    category: '',
-    contacts: '',
+    name: "",
+    description: "",
+    organization: "",
+    category: "",
+    contacts: "",
     time: new Date(),
-    location: '',
-    photo: '',
-    formSubmitted: false,
-  };
+    location: "",
+    photo: "",
+    formSubmitted: false
+  }
 
   handleSubmit = ev => {
-    ev.preventDefault();
-    const { ...event } = this.props.addEventForm.values;
-    const { location } = this.state;
-    const { addEvent } = this.props;
+    ev.preventDefault()
+    const { ...event } = this.props.addEventForm.values
+    const { location } = this.state
+    const { addEvent } = this.props
     // const {formSubmitted, ...event} = this.state;
-    const fullEvent = { ...event, location };
-    addEvent(fullEvent);
-    this.setState({ formSubmitted: true });
-    this.props.onSuccess();
-  };
+    const fullEvent = { ...event, location }
+    addEvent(fullEvent)
+    this.setState({ formSubmitted: true })
+    this.props.onSuccess()
+  }
 
   changeHandler = (property, value) => {
     // ev => {
     // const {value} = ev.target;
-    this.setState({ [property]: value });
-    console.log('STATE', this.state);
-  };
+    this.setState({ [property]: value })
+    console.log("STATE", this.state)
+  }
   renderInput = ({ input, label, type, meta: { touched, error, warning } }) => (
     <div className="add__input_container">
       <label className="add__field">{label}</label>
-      <input
-        required
-        {...input}
-        placeholder={label}
-        type={type}
-        className="add__input"
-      />
+      <input required {...input} placeholder={label} type={type} className="add__input" />
       {touched &&
         ((error && <span className="add__input_warning">{error}</span>) ||
           (warning && <span className="add__input_warning">{warning}</span>))}
     </div>
-  );
+  )
   renderTime = ({ label, input }) => (
     <div className="add__input_container">
       <label className="add__field">{label}</label>
       <DateTimePicker className="add__input-time" {...input} />
     </div>
-  );
+  )
   renderPhotoUpload = ({ label }) => (
     <div className="add__input_container">
       <label className="add__field">{label}</label>
-      <PhotoUpload photo={URL => this.props.change('photo', URL)} />
+      <PhotoUpload photo={URL => this.props.change("photo", URL)} />
     </div>
-  );
+  )
   renderSelect = ({ label, input }) => (
     <div className="add__input_container">
       <label className="add__field">{label}</label>
@@ -115,7 +106,7 @@ class AddEvent extends Component {
         </option>
       </select>
     </div>
-  );
+  )
 
   renderLocation = ({ label, input }) => (
     <div className="add__input_container">
@@ -124,13 +115,8 @@ class AddEvent extends Component {
         <GeoSuggest {...input} />
       </div>
     </div>
-  );
-  renderTextArea = ({
-    input,
-    label,
-    type,
-    meta: { touched, error, warning },
-  }) => (
+  )
+  renderTextArea = ({ input, label, type, meta: { touched, error, warning } }) => (
     <div className="add__input_container">
       <label className="add__field">{label}</label>
       <textarea {...input} placeholder={label} className="add__input" />
@@ -138,10 +124,10 @@ class AddEvent extends Component {
         ((error && <span className="add__input_warning">{error}</span>) ||
           (warning && <span className="add__input_warning">{warning}</span>))}
     </div>
-  );
+  )
 
   render() {
-    const { formSubmitted } = this.state;
+    const { formSubmitted } = this.state
     return (
       <div>
         <NavigationAddEvent />
@@ -155,7 +141,7 @@ class AddEvent extends Component {
           </div>
           <div className="add__event_block">
             <div className="add__subtitle_container">
-              <img className="add__icon_push-pin" />
+              <span className="add__icon_push-pin" />
               <h1 className="add__subtitle">Event Overview</h1>
             </div>
             <Field
@@ -174,12 +160,7 @@ class AddEvent extends Component {
               warn={alphaNumeric}
               validate={[required, maxLength15, minLength2]}
             />
-            <Field
-              name="category"
-              type="select"
-              label="Category"
-              component={this.renderSelect}
-            />
+            <Field name="category" type="select" label="Category" component={this.renderSelect} />
             <Field name="time" label="Time" component={this.renderTime} />
             {/*<Field*/}
             {/*name="location"*/}
@@ -189,9 +170,7 @@ class AddEvent extends Component {
             <label className="add__input_container">
               <span className="add__field">LOCATION</span>
               <div className="geosuggest__container-event">
-                <GeoSuggest
-                  onChange={val => this.changeHandler('location', val)}
-                />
+                <GeoSuggest onChange={val => this.changeHandler("location", val)} />
               </div>
             </label>
             <Field
@@ -202,7 +181,7 @@ class AddEvent extends Component {
               validate={[required, phoneNumber, maxLength20]}
             />
             <div className="add__subtitle_container">
-              <img className="add__icon_legal-paper" />
+              <span className="add__icon_legal-paper" />
               <h1 className="add__subtitle">Event Details</h1>
             </div>
             <Field
@@ -213,11 +192,7 @@ class AddEvent extends Component {
               warn={alphaNumeric}
               validate={[required, minLength2]}
             />
-            <Field
-              name="photo"
-              label="Upload Photo"
-              component={this.renderPhotoUpload}
-            />
+            <Field name="photo" label="Upload Photo" component={this.renderPhotoUpload} />
 
             <div className="add__submit-container">
               <button className="add__submit">Add Event</button>
@@ -226,22 +201,18 @@ class AddEvent extends Component {
         </form>
         <Footer />
       </div>
-    );
+    )
   }
 }
 
-function formatDate(date) {
-  return date.toLocaleDateString();
-}
-
 AddEvent = reduxForm({
-  form: 'addEventForm',
-})(AddEvent);
+  form: "addEventForm"
+})(AddEvent)
 
 export default connect(
   state => ({
     addEventForm: state.form.addEventForm,
-    isEventProcessing: getIsEventProcessing(state),
+    isEventProcessing: getIsEventProcessing(state)
   }),
-  { addEvent },
-)(AddEvent);
+  { addEvent }
+)(AddEvent)
