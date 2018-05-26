@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "/index.js",
   "scripts": {
-    
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill",
     "build:prod": "MODE=production webpack",
     "build:dev": "webpack",

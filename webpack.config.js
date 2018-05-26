@@ -2,7 +2,6 @@
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const MODE = process.env.MODE || 'development';
 
@@ -98,22 +97,6 @@ if (MODE === 'production') {
       test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
       threshold: 10240,
       minRatio: 0.8,
-    }),
-
-    // Minify CSS
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-    }),
-
-    //for compiling .html
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      minify: {
-        collapseWhitespace: true,
-        collapseInlineTagWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-      },
-    }),
+    })
   );
 }
