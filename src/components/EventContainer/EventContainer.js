@@ -1,6 +1,6 @@
-import Event from "../Event"
 import React from "react"
 
+import Event from "../Event"
 import MapContainer from "../MapContainer/MapContainer"
 
 import "./EventContainer.scss"

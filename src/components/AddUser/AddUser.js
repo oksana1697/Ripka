@@ -98,9 +98,8 @@ class AddUser extends Component {
             validate={[required, maxLength20, minLength2]}
           />
 
-          <div className="geosuggest__container">
-            {/*<GeoSuggest onChange={val => this.changeHandler("location", val)} />*/}
-          </div>
+          <div className="geosuggest__container">{/*TODO*/}</div>
+
           <Field
             name="email"
             type="text"

@@ -7,7 +7,6 @@ import "../../styles/navigation.scss"
 import "../../styles/map.scss"
 
 import moment from "moment"
-import Navigation from "../Navigation/Navigation"
 
 import { CLOUDINARY_URL } from "../../api/index"
 import MapContainer from "../MapContainer/MapContainer"
@@ -25,7 +24,6 @@ class EventDetails extends Component {
     }
     return (
       <div className="event-details">
-        <Navigation />
         <div>
           <div className="event-details__subnav">
             <div className="event-details__left">
@@ -47,11 +45,6 @@ class EventDetails extends Component {
                   Delete event
                 </button>
               </div>
-            </div>
-            <div className="event-details__right">
-              <button className="navigation__signUp">Sign up</button>
-              <span className="navigation__divider" />
-              <button className="navigation__logIn">Log in</button>
             </div>
           </div>
           <div className="event-details__container">

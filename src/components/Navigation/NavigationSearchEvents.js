@@ -21,27 +21,25 @@ class NavigationSearchEvents extends Component {
     const { foundEvents } = this.props
     const { filter, formSubmitted } = this.state
 
-    const getPopupItems = () =>
-      foundEvents.map(({ id, name }) => (
-        <NavLink key={id} to={"/events/" + id}>
-          {name}
-        </NavLink>
-      ))
     return (
-      <>
-        <form>
-          {formSubmitted && <div className="add-event__carpet" />}
-          <div className="navigation__search-bar">
-            <input
-              value={filter}
-              onChange={this.changeHandler("filter")}
-              placeholder="Search by key word"
-              className="navigation__search-bar_filter"
-            />
-            <div className="navigation__search-bar_filter_content">{getPopupItems()}</div>
+      <form>
+        {formSubmitted && <div className="add-event__carpet" />}
+        <div className="navigation__search-bar">
+          <input
+            value={filter}
+            onChange={this.changeHandler("filter")}
+            placeholder="Search by key word"
+            className="navigation__search-bar_filter"
+          />
+          <div className="navigation__search-bar_filter_content">
+            {foundEvents.map(({ id, name }) => (
+              <NavLink key={id} to={"/events/" + id}>
+                {name}
+              </NavLink>
+            ))}
           </div>
-        </form>
-      </>
+        </div>
+      </form>
     )
   }
 }

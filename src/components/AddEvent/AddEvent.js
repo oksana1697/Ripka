@@ -10,7 +10,6 @@ import { getIsEventProcessing } from "../../reducers/index"
 import "../../styles/add.scss"
 import "../../styles/react-datetime-picker.scss"
 
-import NavigationAddEvent from "../Navigation/NavigationAddEvent"
 import Geocoder from "../Geocoder"
 
 import {
@@ -52,8 +51,9 @@ class AddEvent extends Component {
     const { ...event } = this.props.addEventForm.values
     const { location } = this.state
     const { addEvent } = this.props
-    // const {formSubmitted, ...event} = this.state;
+
     const fullEvent = { ...event, location }
+
     addEvent(fullEvent)
     this.setState({ formSubmitted: true })
     this.props.onSuccess()

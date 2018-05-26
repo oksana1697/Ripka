@@ -22,8 +22,8 @@ class Navigation extends Component {
           <Link to="/">Ripka</Link>
         </h1>
 
-        <Route exact path="/users" component={NavigationSearchEvents} />
-        <Route exact path="/events" component={NavigationSearchUsers} />
+        <Route exact path="/users" component={NavigationSearchUsers} />
+        <Route exact path="/events" component={NavigationSearchEvents} />
 
         <NavLink className={b("link")} activeClassName={b("link", ["active"])} to="/events">
           Events

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { NavLink, withRouter } from "react-router-dom"
+import { Link, withRouter } from "react-router-dom"
 import { searchUsers } from "../../actions/search"
 
 import "../../styles/navigation.scss"
@@ -21,12 +21,6 @@ class NavigationSearchUsers extends Component {
     const { foundUsers } = this.props
     const { filter, formSubmitted } = this.state
 
-    const getPopupItems = () =>
-      foundUsers.map(user => (
-        <NavLink key={user.id} to={"users/" + user.id}>
-          {user.name}
-        </NavLink>
-      ))
     return (
       <form className="navigation__search-bar">
         {formSubmitted && <div className="add-event__carpet" />}
@@ -37,13 +31,20 @@ class NavigationSearchUsers extends Component {
           placeholder="Search by key word"
           className="navigation__search-bar_filter"
         />
-        <div className="navigation__search-bar_filter_content">{getPopupItems()}</div>
+
+        <div className="navigation__search-bar_filter_content">
+          {foundUsers.map(user => (
+            <Link key={user.id} to={"users/" + user.id}>
+              {user.name}
+            </Link>
+          ))}
+        </div>
       </form>
     )
   }
 }
 
-NavigationSearchUsers = withRouter(
+export default withRouter(
   connect(
     store => {
       const foundUsers = store.users.searchUsers
@@ -54,5 +55,3 @@ NavigationSearchUsers = withRouter(
     { searchUsers }
   )(NavigationSearchUsers)
 )
-
-export default NavigationSearchUsers
