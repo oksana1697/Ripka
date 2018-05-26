@@ -1,0 +1,59 @@
+.UserContainer {
+  &__block {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 700px;
+  }
+
+  &__signUp {
+    color: #fafafb;
+    font-size: 12px;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    line-height: 35px;
+    cursor: pointer;
+
+    &:hover {
+      color: #40c4cf;
+    }
+  }
+
+  &__logIn {
+    color: #fafafb;
+    font-size: 12px;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    line-height: 35px;
+    cursor: pointer;
+
+    &:hover {
+      color: #40c4cf;
+    }
+  }
+
+  &__subnav {
+    background-color: #89d8e0;
+    padding-left: 45px;
+    padding-right: 45px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__divider {
+    border-right: 1px solid #fafafb;
+    margin: 9px 10px 10px 10px;
+    height: 16px;
+  }
+
+  &__content {
+    max-width: 930px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-top: 30px;
+  }
+}

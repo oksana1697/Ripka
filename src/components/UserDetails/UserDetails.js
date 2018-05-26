@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 
 import '../../styles/user-details.scss';
-import '../../styles/user.scss'
+import '../User/User.scss'
 import "../../styles/common.scss"
 import '../../styles/map.scss'
 
@@ -10,7 +10,6 @@ import {CLOUDINARY_URL} from "../../api/index";
 import MapContainerUsers from "../MapContainer/MapContainerUsers";
 import Navigation from "../Navigation/Navigation";
 import PageNotFound from "../PageNotFound/PageNotFound";
-import Footer from "../Footer/Footer";
 
 class UserDetails extends Component {
     render() {
@@ -110,7 +109,6 @@ class UserDetails extends Component {
                         </div>
                     </div>
                 </div>
-                <Footer />
             </div>
         );
     }

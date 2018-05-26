@@ -12,7 +12,6 @@ import Navigation from "../Navigation/Navigation"
 import { CLOUDINARY_URL } from "../../api/index"
 import MapContainer from "../MapContainer/MapContainer"
 import PageNotFound from "../PageNotFound/PageNotFound"
-import Footer from "../Footer/Footer"
 
 /**
  * Represents view of single Event Details
@@ -141,7 +140,6 @@ class EventDetails extends Component {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
     )
   }

@@ -1,0 +1,46 @@
+.User {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 10px;
+  width: 13rem;
+
+  text-align: center;
+  box-sizing: border-box;
+
+  &__photo {
+    display: block;
+    margin: 1rem auto;
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    //cursor: pointer;
+  }
+
+  &__name {
+    margin: 0;
+    color: #626977;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    font-family: "PT Serif";
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+  }
+
+  &__location {
+    color: #9398a1;
+    font-size: 0.7rem;
+    line-height: 1rem;
+    text-align: center;
+  }
+
+  &__cart {
+    width: 233px;
+    height: 400px;
+    background-color: #2e8ab8;
+  }
+}

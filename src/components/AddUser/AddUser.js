@@ -15,12 +15,7 @@ import {
 } from "../../helpers/FieldLevelValidationForm"
 import { getIsUserProcessing } from "../../reducers/index"
 
-import "../../styles/common.scss"
 import "../../styles/add.scss"
-
-import NavigationAddUser from "../Navigation/NavigationAddUser"
-
-import Footer from "../Footer/Footer"
 
 class AddUser extends Component {
   static defaultProps = {
@@ -88,75 +83,71 @@ class AddUser extends Component {
     const { formSubmitted } = this.state
 
     return (
-      <div>
-        <NavigationAddUser />
-        <form className="add__user" onSubmit={this.handleSubmit}>
-          {formSubmitted && <div className="add-event__carpet" />}
-          <div className="add__user_block">
-            <div className="add__user_container">
-              <h1 className="add__user_title">Join Ripka</h1>
-            </div>
-            <Field
-              name="name"
-              type="text"
-              label="Name and Surname"
-              component={this.renderInput}
-              warn={alphaNumeric}
-              validate={[required, maxLength20, minLength2]}
-            />
-
-            <div className="geosuggest__container">
-              {/*<GeoSuggest onChange={val => this.changeHandler("location", val)} />*/}
-            </div>
-            <Field
-              name="email"
-              type="text"
-              label="Email"
-              component={this.renderInput}
-              validate={email_check}
-            />
-            <Field
-              name="contacts"
-              type="text"
-              label="Contacts"
-              component={this.renderInput}
-              validate={[required, phoneNumber, maxLength20]}
-            />
-            <Field
-              name="description"
-              type="text"
-              label="Description"
-              component={this.renderTextArea}
-              warn={alphaNumeric}
-              validate={[required, minLength2]}
-            />
-            <Field
-              name="interests"
-              type="text"
-              label="Interests"
-              component={this.renderTextArea}
-              warn={alphaNumeric}
-              validate={[required, maxLength20, minLength2]}
-            />
-            <Field name="photo" component={this.renderPhotoUpload} />
-
-            {/*<Field*/}
-            {/*name="location"*/}
-            {/*component={this.renderLocation}*/}
-            {/*>*/}
-            <div className="add__user_input_container">
-              <button
-                type="submit"
-                disabled={invalid || pristine || submitting}
-                className="add__user_button"
-              >
-                Register
-              </button>
-            </div>
+      <form className="add__user" onSubmit={this.handleSubmit}>
+        {formSubmitted && <div className="add-event__carpet" />}
+        <div className="add__user_block">
+          <div className="add__user_container">
+            <h1 className="add__user_title">Join Ripka</h1>
           </div>
-        </form>
-        <Footer />
-      </div>
+          <Field
+            name="name"
+            type="text"
+            label="Name and Surname"
+            component={this.renderInput}
+            warn={alphaNumeric}
+            validate={[required, maxLength20, minLength2]}
+          />
+
+          <div className="geosuggest__container">
+            {/*<GeoSuggest onChange={val => this.changeHandler("location", val)} />*/}
+          </div>
+          <Field
+            name="email"
+            type="text"
+            label="Email"
+            component={this.renderInput}
+            validate={email_check}
+          />
+          <Field
+            name="contacts"
+            type="text"
+            label="Contacts"
+            component={this.renderInput}
+            validate={[required, phoneNumber, maxLength20]}
+          />
+          <Field
+            name="description"
+            type="text"
+            label="Description"
+            component={this.renderTextArea}
+            warn={alphaNumeric}
+            validate={[required, minLength2]}
+          />
+          <Field
+            name="interests"
+            type="text"
+            label="Interests"
+            component={this.renderTextArea}
+            warn={alphaNumeric}
+            validate={[required, maxLength20, minLength2]}
+          />
+          <Field name="photo" component={this.renderPhotoUpload} />
+
+          {/*<Field*/}
+          {/*name="location"*/}
+          {/*component={this.renderLocation}*/}
+          {/*>*/}
+          <div className="add__user_input_container">
+            <button
+              type="submit"
+              disabled={invalid || pristine || submitting}
+              className="add__user_button"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </form>
     )
   }
 }

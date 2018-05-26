@@ -11,7 +11,6 @@ import PhotoUpload from "../PhotoUpload"
 
 import "../../styles/add.scss"
 import { CLOUDINARY_URL } from "../../api/index"
-import Footer from "../Footer/Footer"
 
 class UserEdit extends Component {
   constructor(props) {
@@ -146,7 +145,6 @@ class UserEdit extends Component {
             </div>
           </form>
         </div>
-        <Footer />
       </div>
     )
   }

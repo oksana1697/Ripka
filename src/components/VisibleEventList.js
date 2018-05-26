@@ -5,7 +5,6 @@ import { withRouter } from "react-router-dom"
 import { fetchPaginateEvents } from "../actions/fetch"
 import { getAllAvailableEvents, getEventById } from "../reducers/index"
 import EventContainer from "./EventContainer/EventContainer"
-import Footer from "./Footer/Footer"
 
 class VisibleEventList extends Component {
   state = {
@@ -48,7 +47,6 @@ class VisibleEventList extends Component {
             &raquo;
           </button>
         </div>
-        <Footer />
       </div>
     )
   }

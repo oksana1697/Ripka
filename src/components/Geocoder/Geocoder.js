@@ -13,9 +13,7 @@ class Geocoder extends Component {
     accessToken: API_KEY,
     endpoint: "https://api.tiles.mapbox.com",
     inputClass: "",
-    resultClass: "",
-    resultsClass: "",
-    resultFocusClass: "strong",
+
     inputPlaceholder: "Search",
     showLoader: false,
     source: "mapbox.places",
@@ -97,6 +95,8 @@ class Geocoder extends Component {
         }
         this.acceptFocus()
         break
+      default:
+        return
     }
   }
 
@@ -124,7 +124,7 @@ class Geocoder extends Component {
   }
 
   render() {
-    const { inputPlaceholder, showLoader, resultsClass, resultClass, resultFocusClass } = this.props
+    const { inputPlaceholder, showLoader } = this.props
     const { results, loading, focus } = this.state
 
     return (

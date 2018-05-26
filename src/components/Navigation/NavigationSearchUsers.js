@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
 import { NavLink, withRouter } from "react-router-dom"
 import { searchUsers } from "../../actions/search"
 
@@ -29,42 +28,17 @@ class NavigationSearchUsers extends Component {
         </NavLink>
       ))
     return (
-      <div>
-        <div className="navigation__container">
-          <Link style={{ textDecoration: "none" }} to="/">
-            <h1 className="navigation__logo-content">Ripka</h1>
-          </Link>
+      <form className="navigation__search-bar">
+        {formSubmitted && <div className="add-event__carpet" />}
 
-          <form>
-            {formSubmitted && <div className="add-event__carpet" />}
-            <div className="navigation__search-bar">
-              <input
-                value={filter}
-                onChange={this.changeHandler("filter")}
-                placeholder="Search by key word"
-                className="navigation__search-bar_filter"
-              />
-              <div className="navigation__search-bar_filter_content">{getPopupItems()}</div>
-            </div>
-          </form>
-          <Link to="/events">
-            <button className="navigation__settings_name">EVENTS</button>
-          </Link>
-          <Link to="/users">
-            <button className="navigation__settings_name">USERS</button>
-          </Link>
-          <Link className="navigation__button_right" to="/addevent">
-            <button className="navigation__button">CREATE AN EVENT</button>
-          </Link>
-        </div>
-
-        <label className="navigation_show-title">
-          <Link style={{ textDecoration: "none" }} to="/">
-            <h1 className="navigation__logo-content">Ripka</h1>
-          </Link>
-        </label>
-        <input type="checkbox" id="show-menu" role="button" />
-      </div>
+        <input
+          value={filter}
+          onChange={this.changeHandler("filter")}
+          placeholder="Search by key word"
+          className="navigation__search-bar_filter"
+        />
+        <div className="navigation__search-bar_filter_content">{getPopupItems()}</div>
+      </form>
     )
   }
 }

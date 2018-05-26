@@ -22,7 +22,6 @@ import {
   required
 } from "../../helpers/FieldLevelValidationForm"
 import { Field, reduxForm } from "redux-form"
-import Footer from "../Footer/Footer"
 
 class AddEvent extends Component {
   static defaultProps = {
@@ -117,8 +116,7 @@ class AddEvent extends Component {
   render() {
     const { formSubmitted } = this.state
     return (
-      <div>
-        <NavigationAddEvent />
+      <>
         <form className="add" onSubmit={this.handleSubmit}>
           {formSubmitted && <div className="add-event__carpet" />}
           <div className="add__title_container">
@@ -151,8 +149,7 @@ class AddEvent extends Component {
             <Field name="category" type="select" label="Category" component={this.renderSelect} />
             <Field name="time" label="Time" component={this.renderTime} />
 
-            <Geocoder/>
-
+            <Geocoder />
 
             <Field
               name="contacts"
@@ -180,8 +177,7 @@ class AddEvent extends Component {
             </div>
           </div>
         </form>
-        <Footer />
-      </div>
+      </>
     )
   }
 }

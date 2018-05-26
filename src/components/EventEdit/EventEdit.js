@@ -10,7 +10,6 @@ import PhotoUpload from "../PhotoUpload"
 
 import "../../styles/add.scss"
 import { CLOUDINARY_URL } from "../../api/index"
-import Footer from "../Footer/Footer"
 
 class EventEdit extends Component {
   constructor(props) {
@@ -127,7 +126,6 @@ class EventEdit extends Component {
             <button className="add__submit">Save changes</button>
           </div>
         </form>
-        <Footer />
       </div>
     )
   }

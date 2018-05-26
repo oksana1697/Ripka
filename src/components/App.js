@@ -1,7 +1,10 @@
 import React from "react"
 
 import AddEvent from "./AddEvent/AddEvent"
+
 import VisibleEventList from "./VisibleEventList"
+import VisibleUserList from "./VisibleUserList"
+
 import EventDetailsConnector from "./EventDetailsConnector"
 import EventEdit from "./EventEdit/EventEdit"
 import UserEdit from "./UserEdit/UserEdit"
@@ -9,50 +12,27 @@ import UserDetailsConnector from "./UserDetailsConnector"
 import { Route, Switch } from "react-router-dom"
 import Navigation from "./Navigation/Navigation"
 import AddUser from "./AddUser/AddUser"
-import VisibleUserList from "./VisibleUserList"
-import NavigationSearchEvents from "./Navigation/NavigationSearchEvents"
-import Landing from "./Landing/Landing"
-import NavigationSearchUsers from "./Navigation/NavigationSearchUsers"
+import Landing from "./Landing"
+
 import PageNotFound from "./PageNotFound/PageNotFound"
 
 const App = () => (
-  <div>
+  <>
+    <Navigation />
+
     <Switch>
-      <Route
-        exact
-        path="/"
-        render={() => (
-          <div>
-            <Navigation />
-            <Landing />
-          </div>
-        )}
-      />
-      <Route exact path="/users">
-        <div>
-          <NavigationSearchUsers />
-          <VisibleUserList />
-        </div>
-      </Route>
-      <Route exact path="/events">
-        <div>
-          <NavigationSearchEvents />
-          <VisibleEventList />
-        </div>
-      </Route>
+      <Route exact path="/" component={Landing} />
+      <Route exact path="/users" component={VisibleUserList} />
+      <Route exact path="/events" component={VisibleEventList} />
 
       <Route exact path="/addevent">
-        {props => (
-          <AddEvent
-            onSuccess={() => {
-              return props.history.push("/")
-            }}
-          />
-        )}
+        {props => <AddEvent onSuccess={() => props.history.push("/")} />}
       </Route>
+
       <Route exact path="/adduser">
-        {props => <AddUser onSuccess={() => props.history.push("/")} />}
+        {({ history }) => <AddUser onSuccess={() => history.push("/")} />}
       </Route>
+
       <Route exact path="/events/:id">
         {props => (
           <EventDetailsConnector
@@ -61,6 +41,7 @@ const App = () => (
           />
         )}
       </Route>
+
       <Route exact path="/events/edit/:id">
         {props => (
           <EventEdit id={props.match.params.id} onSuccess={() => props.history.push("/events")} />
@@ -82,7 +63,7 @@ const App = () => (
       </Route>
       <Route path="*" component={PageNotFound} />
     </Switch>
-  </div>
+  </>
 )
 
 export default App

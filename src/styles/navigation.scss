@@ -1,25 +1,31 @@
 .navigation {
-  &__container {
-    background: rgb(64, 196, 207);
-    display: flex;
-    align-items: center;
-    &_transperent{
-      background:url("http://res.cloudinary.com/ucu/image/upload/v1521105623/Volunteering_Hands_sugvjw.png");
-      margin: auto;
-      width: 100%;
-      height: 500px;
-      display: flex;
-      align-items: center;
+  display: flex;
+  align-items: center;
+
+  &__link {
+    font-family: "PT Serif";
+    font-size: 1rem;
+    text-transform: uppercase;
+    display: inline;
+    margin: 1rem;
+    text-decoration: none;
+    color: #363636;
+    &:hover {
+      color: #1f1f1f;
+    }
+
+    &__active {
+      border-bottom: 1px dashed;
     }
   }
 
-  &__settings{
+  &__settings {
     margin-left: auto;
     margin-right: 30px;
     &:hover .navigation__settings_name_content {
       display: block;
     }
-    &_name{
+    &_name {
       cursor: pointer;
       font-size: 14px;
       color: white;
@@ -30,8 +36,12 @@
       background: transparent;
       text-transform: uppercase;
       font-weight: bold;
-      &:focus {outline:0;}
-      &:hover{color: #5d89d0;}
+      &:focus {
+        outline: 0;
+      }
+      &:hover {
+        color: #5d89d0;
+      }
 
       &_content {
         display: none;
@@ -47,18 +57,15 @@
           display: block;
           color: white;
           text-align: center;
-
         }
 
         & a:hover {
           cursor: pointer;
           color: #5d89d0;
-
         }
       }
     }
   }
-
 
   &__search-bar {
     margin-left: 15px;
@@ -71,19 +78,16 @@
 
     &_filter {
       cursor: pointer;
-      padding-left: 25px;
-      font-size: 15px;
+      padding-left: 0.7rem;
+      font-size: 1rem;
       font-weight: 500;
       color: #626977;
-      height: 40px;
-      width: 275px;
-      border-radius: 5px;
-      border: 0;
-      background: white;
-      text-align: left;
-       &:focus {
-      outline: 0;
-    }
+      height: 2.6rem;
+      width: 18rem;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      line-height: 2.6rem;
+
       &_content {
         overflow-y: auto;
         overflow-x: hidden;
@@ -116,26 +120,26 @@
       border-bottom-right-radius: 5px;
       border: 0;
       background: #1696a8;
-      &:focus{
+      &:focus {
         outline: none;
       }
 
       &-icon {
-        background: url('/icons/search.svg');
+        background: url("/icons/search.svg");
       }
     }
   }
 
   &__button {
-      border: 2px solid #f5f5f6;
-      border-radius: 10px;
-      background: #40c4cf;
-      min-width: 150px;
-      margin-right: 20px;
-      color: #f5f5f6;
-      font-weight: bold;
-      height: 40px;
-      cursor: pointer;
+    border: 2px solid #f5f5f6;
+    border-radius: 10px;
+    background: #40c4cf;
+    min-width: 150px;
+    margin-right: 20px;
+    color: #f5f5f6;
+    font-weight: bold;
+    height: 40px;
+    cursor: pointer;
     &_right {
       margin-left: auto;
     }
@@ -143,21 +147,24 @@
       border: 2px solid #5d89d0;
       color: #5d89d0;
     }
-    &:focus {outline:0;}
-
+    &:focus {
+      outline: 0;
+    }
   }
   &__logo-content {
-    color: #f5f5f6;
-    cursor: pointer;
-    margin-left: 30px;
-    text-decoration: none !important;
+    color: #262627;
+    margin-left: 2rem;
     text-transform: uppercase;
+    a {
+      text-decoration: inherit;
+      color: inherit;
+    }
   }
-  &__profile-photo {;
+  &__profile-photo {
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    vertical-align:middle;
+    vertical-align: middle;
     border: 1.5px solid white;
     &:hover {
       border: 1.5px solid #5d89d0;
@@ -203,7 +210,6 @@
     margin: 9px 10px 10px 10px;
     height: 16px;
   }
-
 }
 /*Strip the ul of padding and list styling*/
 ul {
@@ -223,11 +229,11 @@ ul {
   display: none;
 }
 /*Hide checkbox*/
-input[type='checkbox'] {
+input[type="checkbox"] {
   display: none;
 }
 /*Show menu when invisible checkbox is checked*/
-input[type='checkbox']:checked ~ #navigation_container {
+input[type="checkbox"]:checked ~ #navigation_container {
   display: block;
 }
 /*Responsive Styles*/

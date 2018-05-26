@@ -2,7 +2,6 @@ import React, { Component } from "react"
 
 import "../../styles/category.scss"
 import { Link } from "react-router-dom"
-import Footer from "../Footer/Footer"
 /**
  * Represents view of Landing with static image.
  */
@@ -91,7 +90,6 @@ class Landing extends Component {
             <h5 className="category__item-title">Education</h5>
           </div>
         </div>
-        <Footer />
       </div>
     )
   }

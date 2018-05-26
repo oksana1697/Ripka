@@ -1,8 +1,13 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
+import { Link, NavLink, Route } from "react-router-dom"
 
 import "../../styles/navigation.scss"
-import "../../styles/common.scss"
+import block from "../../helpers/BEM"
+
+import NavigationSearchEvents from "./NavigationSearchEvents"
+import NavigationSearchUsers from "./NavigationSearchUsers"
+
+const b = block("navigation")
 
 class Navigation extends Component {
   constructor(props) {
@@ -12,27 +17,24 @@ class Navigation extends Component {
 
   render() {
     return (
-      <div>
-        <div className="navigation__container">
-          <Link style={{ textDecoration: "none" }} to="/">
-            <h1 className="navigation__logo-content">Ripka</h1>
-          </Link>
-          <Link to="/events">
-            <button className="navigation__settings_name">EVENTS</button>
-          </Link>
-          <Link to="/users">
-            <button className="navigation__settings_name">USERS</button>
-          </Link>
-          <Link className="navigation__button_right" to="/addevent">
-            <button className="navigation__button">CREATE AN EVENT</button>
-          </Link>
-        </div>
-        <label className="navigation_show-title">
-          <Link style={{ textDecoration: "none" }} to="/">
-            <h1 className="navigation__logo-content">Ripka</h1>
-          </Link>
-        </label>
-        <input type="checkbox" id="show-menu" role="button" />
+      <div className={b()}>
+        <h1 className={b("logo-content")}>
+          <Link to="/">Ripka</Link>
+        </h1>
+
+        <Route exact path="/users" component={NavigationSearchEvents} />
+        <Route exact path="/events" component={NavigationSearchUsers} />
+
+        <NavLink className={b("link")} activeClassName={b("link", ["active"])} to="/events">
+          Events
+        </NavLink>
+        <NavLink className={b("link")} activeClassName={b("link", ["active"])} to="/users">
+          Users
+        </NavLink>
+
+        <Link className="navigation__button_right" to="/addevent">
+          <button className="navigation__button">CREATE AN EVENT</button>
+        </Link>
       </div>
     )
   }
