@@ -2,9 +2,12 @@ import React, { Component } from "react"
 import { Link, withRouter } from "react-router-dom"
 import { searchUsers } from "../../actions/search"
 
-import "../../styles/navigation.scss"
+import "./Navigation.scss"
 import { connect } from "react-redux"
 
+import block from '../../helpers/BEM'
+
+const b = block('Navigation')
 class NavigationSearchUsers extends Component {
   state = {
     filter: ""
@@ -22,19 +25,19 @@ class NavigationSearchUsers extends Component {
     const { filter, formSubmitted } = this.state
 
     return (
-      <form className="navigation__search-bar">
-        {formSubmitted && <div className="add-event__carpet" />}
+      <form className={b('search-bar')}>
+        {formSubmitted && <div className={b('carpet')} />}
 
         <input
           value={filter}
           onChange={this.changeHandler("filter")}
           placeholder="Search by key word"
-          className="navigation__search-bar_filter"
+          className={b('search-bar_filter')}
         />
 
-        <div className="navigation__search-bar_filter_content">
+        <div className={b('search-bar_filter_content')}>
           {foundUsers.map(user => (
-            <Link key={user.id} to={"users/" + user.id}>
+            <Link className={b('search-bar_filter_content_item')} key={user.id} to={"users/" + user.id}>
               {user.name}
             </Link>
           ))}

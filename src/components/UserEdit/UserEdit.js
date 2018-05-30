@@ -6,7 +6,6 @@ import { editUser } from "../../actions/edit"
 import { getUserById } from "../../reducers/users"
 import { fetchUser } from "../../actions/fetch"
 
-import AddEventNavigation from "../Navigation/NavigationAddUser"
 import PhotoUpload from "../PhotoUpload"
 
 import "../../styles/add.scss"
@@ -65,7 +64,6 @@ class UserEdit extends Component {
     const { name, description, contacts, interests, location, photo, formSubmitted } = this.state
     return (
       <div>
-        <AddEventNavigation />
         <div>
           <form className="add" onSubmit={this.handleSubmit}>
             {formSubmitted && <div className="add__carpet" />}

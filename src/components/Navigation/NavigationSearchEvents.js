@@ -1,10 +1,13 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
 import { NavLink, withRouter } from "react-router-dom"
+
 import { searchEvents } from "../../actions/search"
 
-import "../../styles/navigation.scss"
-import { connect } from "react-redux"
+import "./Navigation.scss"
+import block from "../../helpers/BEM";
 
+const b = block('Navigation')
 class NavigationSearchEvents extends Component {
   state = {
     filter: ""
@@ -23,17 +26,17 @@ class NavigationSearchEvents extends Component {
 
     return (
       <form>
-        {formSubmitted && <div className="add-event__carpet" />}
-        <div className="navigation__search-bar">
+        {formSubmitted && <div className={b('carpet')} />}
+        <div className={b('search-bar')}>
           <input
             value={filter}
             onChange={this.changeHandler("filter")}
             placeholder="Search by key word"
-            className="navigation__search-bar_filter"
+            className={b('search-bar_filter')}
           />
-          <div className="navigation__search-bar_filter_content">
+          <div className={b('search-bar_filter_content')}>
             {foundEvents.map(({ id, name }) => (
-              <NavLink key={id} to={"/events/" + id}>
+              <NavLink className={b('search-bar_filter_content_item')} key={id} to={"/events/" + id}>
                 {name}
               </NavLink>
             ))}

@@ -5,7 +5,6 @@ import { getIsEventProcessing, getIsEventFetching } from "../../reducers/index"
 import { editEvent } from "../../actions/edit"
 import { getEventById } from "../../reducers/events"
 import { fetchEvent } from "../../actions/fetch"
-import Navigation from "../Navigation/Navigation"
 import PhotoUpload from "../PhotoUpload"
 
 import "../../styles/add.scss"
@@ -55,7 +54,6 @@ class EventEdit extends Component {
     const { name, description, organization, contacts, location, photo, formSubmitted } = this.state
     return (
       <div>
-        <Navigation />
 
         <form className="add" onSubmit={this.handleSubmit}>
           {formSubmitted && <div className="add__carpet" />}

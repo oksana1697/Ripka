@@ -10,7 +10,7 @@ import EventEdit from "./EventEdit/EventEdit"
 import UserEdit from "./UserEdit/UserEdit"
 import UserDetailsConnector from "./UserDetailsConnector"
 import { Route, Switch } from "react-router-dom"
-import Navigation from "./Navigation/Navigation"
+import Navigation from "./Navigation"
 import AddUser from "./AddUser/AddUser"
 import Landing from "./Landing"
 

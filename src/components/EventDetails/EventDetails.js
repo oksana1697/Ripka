@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 
 import "../../styles/event-details.scss"
 import "../../styles/common.scss"
-import "../../styles/navigation.scss"
+import "../Navigation/Navigation.scss"
 import "../../styles/map.scss"
 
 import moment from "moment"
