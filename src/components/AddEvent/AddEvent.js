@@ -7,7 +7,7 @@ import PhotoUpload from "../PhotoUpload"
 //
 import { getIsEventProcessing } from "../../reducers/index"
 
-import "../../styles/add.scss"
+import "./AddEvent.scss"
 import "../../styles/react-datetime-picker.scss"
 
 import Geocoder from "../Geocoder"
@@ -21,6 +21,10 @@ import {
   required
 } from "../../helpers/FieldLevelValidationForm"
 import { Field, reduxForm } from "redux-form"
+
+import block from '../../helpers/BEM'
+
+const b = block('AddEvent')
 
 class AddEvent extends Component {
   static defaultProps = {
@@ -63,40 +67,40 @@ class AddEvent extends Component {
     this.setState({ [property]: value })
   }
   renderInput = ({ input, label, type, meta: { touched, error, warning } }) => (
-    <div className="add__input_container">
-      <label className="add__field">{label}</label>
-      <input required {...input} placeholder={label} type={type} className="add__input" />
+    <div className={b('input')}>
+      <label className={b('field')}>{label}</label>
+      <input required {...input} placeholder={label} type={type} className={b('input_text')} />
       {touched &&
-        ((error && <span className="add__input_warning">{error}</span>) ||
-          (warning && <span className="add__input_warning">{warning}</span>))}
+        ((error && <span className={b('input_warning')}>{error}</span>) ||
+          (warning && <span className={b('input_warning')}>{warning}</span>))}
     </div>
   )
   renderTime = ({ label, input }) => (
-    <div className="add__input_container">
-      <label className="add__field">{label}</label>
-      <DateTimePicker className="add__input-time" {...input} />
+      <div className={b('input')}>
+          <label className={b('field')}>{label}</label>
+        <DateTimePicker className={b('input_time')} {...input} />
     </div>
   )
   renderPhotoUpload = ({ label }) => (
-    <div className="add__input_container">
-      <label className="add__field">{label}</label>
-      <PhotoUpload photo={URL => this.props.change("photo", URL)} />
+      <div className={b('input')}>
+          <label className={b('field')}>{label}</label>
+        <PhotoUpload photo={URL => this.props.change("photo", URL)} />
     </div>
   )
   renderSelect = ({ label, input }) => (
-    <div className="add__input_container">
-      <label className="add__field">{label}</label>
-      <select {...input} className="add__categories">
-        <option className="add__categories" value="nonprofit">
+      <div className={b('input')}>
+          <label className={b('field')}>{label}</label>
+        <select {...input} className={b('categories')}>
+        <option className={b('categories')} value="nonprofit">
           Nonprofit
         </option>
-        <option className="add__categories" value="foot&drink">
+        <option className={b('categories')} value="foot&drink">
           Food&Drink
         </option>
-        <option className="add__categories" value="children">
+        <option className={b('categories')} value="children">
           Children
         </option>
-        <option className="add__categories" value="medicine">
+        <option className={b('categories')} value="medicine">
           Medicine
         </option>
       </select>
@@ -104,12 +108,12 @@ class AddEvent extends Component {
   )
 
   renderTextArea = ({ input, label, type, meta: { touched, error, warning } }) => (
-    <div className="add__input_container">
-      <label className="add__field">{label}</label>
-      <textarea {...input} placeholder={label} className="add__input" />
+      <div className={b('input')}>
+      <label className={b('field')}>{label}</label>
+      <textarea {...input} placeholder={label} className={b('input_text')}/>
       {touched &&
-        ((error && <span className="add__input_warning">{error}</span>) ||
-          (warning && <span className="add__input_warning">{warning}</span>))}
+      ((error && <span className={b('input_warning')}>{error}</span>) ||
+          (warning && <span className={b('input_warning')}>{warning}</span>))}
     </div>
   )
 
@@ -118,17 +122,16 @@ class AddEvent extends Component {
     return (
       <>
         <form className="add" onSubmit={this.handleSubmit}>
-          {formSubmitted && <div className="add-event__carpet" />}
-          <div className="add__title_container">
-            <div className="add__subtitle_overview">
-              <h5 className="add__subtitle_overview-grey">2.Event Details</h5>
+          {formSubmitted && <div className={b('carpet')} />}
+          <div className={b('title')}>
+            <div className={b('title_chapter')}>
+              <h5 className={b('title_chapter_text')}>2.Event Details</h5>
             </div>
-            <h1 className="add__title">Add event details</h1>
+            <h1 className={b('title_text')}>Add event details</h1>
           </div>
-          <div className="add__event_block">
-            <div className="add__subtitle_container">
-              <span className="add__icon_push-pin" />
-              <h1 className="add__subtitle">Event Overview</h1>
+            <div className={b('title_sub-navigation')}>
+              <span className={b('title_sub-navigation_icon-push-pin')} />
+              <h1 className={b('title_chapter')}>Event Overview</h1>
             </div>
             <Field
               name="name"
@@ -158,10 +161,11 @@ class AddEvent extends Component {
               component={this.renderInput}
               validate={[required, phoneNumber, maxLength20]}
             />
-            <div className="add__subtitle_container">
-              <span className="add__icon_legal-paper" />
-              <h1 className="add__subtitle">Event Details</h1>
-            </div>
+
+              <div className={b('title_sub-navigation')}>
+                  <span className={b('title_sub-navigation_icon-legal-paper')} />
+                  <h1 className={b('title_chapter')}>Event Details</h1>
+              </div>
             <Field
               name="description"
               type="text"
@@ -172,10 +176,10 @@ class AddEvent extends Component {
             />
             <Field name="photo" label="Upload Photo" component={this.renderPhotoUpload} />
 
-            <div className="add__submit-container">
-              <button className="add__submit">Add Event</button>
+            <div className={b('submit')}>
+              <button className={b('submit_button')}>Add Event</button>
             </div>
-          </div>
+          {/*</div>*/}
         </form>
       </>
     )

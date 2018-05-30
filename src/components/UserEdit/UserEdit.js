@@ -8,7 +8,7 @@ import { fetchUser } from "../../actions/fetch"
 
 import PhotoUpload from "../PhotoUpload"
 
-import "../../styles/add.scss"
+import "../AddEvent/AddEvent.scss"
 import { CLOUDINARY_URL } from "../../api/index"
 
 class UserEdit extends Component {
@@ -180,7 +180,7 @@ export default connect(
 // import AddEventNavigation from '../Navigation/NavigationAddUser';
 // import PhotoUpload from '../PhotoUpload';
 //
-// import '../../styles/add.scss';
+// import '../../styles/AddEvent.scss';
 // import { CLOUDINARY_URL } from '../../api/index';
 // import {
 //   alphaNumeric,

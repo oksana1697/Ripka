@@ -15,7 +15,7 @@ import {
 } from "../../helpers/FieldLevelValidationForm"
 import { getIsUserProcessing } from "../../reducers/index"
 
-import "../../styles/add.scss"
+import "../AddEvent/AddEvent.scss"
 
 class AddUser extends Component {
   static defaultProps = {

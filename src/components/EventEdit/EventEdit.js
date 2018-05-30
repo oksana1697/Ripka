@@ -7,7 +7,7 @@ import { getEventById } from "../../reducers/events"
 import { fetchEvent } from "../../actions/fetch"
 import PhotoUpload from "../PhotoUpload"
 
-import "../../styles/add.scss"
+import "../AddEvent/AddEvent.scss"
 import { CLOUDINARY_URL } from "../../api/index"
 
 class EventEdit extends Component {
