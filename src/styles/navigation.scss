@@ -1,5 +1,6 @@
 .navigation {
   display: flex;
+  background: rgb(64, 196, 207);
   align-items: center;
 
   &__link {
@@ -9,7 +10,7 @@
     display: inline;
     margin: 1rem;
     text-decoration: none;
-    color: #363636;
+    color: white;
     &:hover {
       color: #1f1f1f;
     }
@@ -151,8 +152,8 @@
       outline: 0;
     }
   }
-  &__logo-content {
-    color: #262627;
+  &__logo {
+    color: #ffffff;
     margin-left: 2rem;
     text-transform: uppercase;
     a {

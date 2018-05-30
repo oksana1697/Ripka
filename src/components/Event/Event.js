@@ -26,6 +26,6 @@ const Event = ({ id, name, description, date, location, organization, photo }) =
       </p>
     </div>
   </div>
-)
+);
 
 export default Event

@@ -97,9 +97,7 @@ class AddUser extends Component {
             warn={alphaNumeric}
             validate={[required, maxLength20, minLength2]}
           />
-
           <div className="geosuggest__container">{/*TODO*/}</div>
-
           <Field
             name="email"
             type="text"

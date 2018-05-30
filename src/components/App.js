@@ -18,8 +18,7 @@ import PageNotFound from "./PageNotFound/PageNotFound"
 
 const App = () => (
   <>
-    <Navigation />
-
+    <Navigation/>
     <Switch>
       <Route exact path="/" component={Landing} />
       <Route exact path="/users" component={VisibleUserList} />

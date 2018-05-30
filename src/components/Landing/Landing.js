@@ -2,6 +2,7 @@ import React, { Component } from "react"
 
 import "../../styles/category.scss"
 import { Link } from "react-router-dom"
+import Footer from "../Footer/Footer";
 /**
  * Represents view of Landing with static image.
  */
@@ -13,7 +14,7 @@ class Landing extends Component {
   render() {
     return (
       <div>
-        <span className="category__image" />
+        <span className="category__image"/>
         <div className="category__subnavigation_container">
           <span className="category__item-icon-check" />
           <div className="category__subnavigation_inline">
@@ -90,7 +91,9 @@ class Landing extends Component {
             <h5 className="category__item-title">Education</h5>
           </div>
         </div>
+        <Footer/>
       </div>
+
     )
   }
 }
