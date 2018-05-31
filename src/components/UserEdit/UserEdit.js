@@ -1,33 +1,37 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import { getIsUserProcessing, getIsUserFetching } from "../../reducers/index"
-import { editUser } from "../../actions/edit"
-import { getUserById } from "../../reducers/users"
-import { fetchUser } from "../../actions/fetch"
+import { getIsUserProcessing, getIsUserFetching } from '../../reducers/index'
+import { editUser } from '../../actions/edit'
+import { getUserById } from '../../reducers/users'
+import { fetchUser } from '../../actions/fetch'
 
-import PhotoUpload from "../PhotoUpload/PhotoUpload"
+import PhotoUpload from '../PhotoUpload/PhotoUpload'
 
-import "../AddEvent/AddEvent.scss"
-import { CLOUDINARY_URL } from "../../api/index"
+import '../UserEdit/UserEdit.scss'
+import { CLOUDINARY_URL } from '../../api/index'
+
+import block from '../../helpers/BEM'
+
+const b = block('UserEdit')
 
 class UserEdit extends Component {
   constructor(props) {
     super(props)
     const initState = {
-      name: "",
-      description: "",
-      contacts: "",
-      interests: "",
-      location: "",
-      photo: "",
-      formSubmitted: false
+      name: '',
+      description: '',
+      contacts: '',
+      interests: '',
+      location: '',
+      photo: '',
+      formSubmitted: false,
     }
     this.state = this.props.user ? this.props.user : initState
   }
 
   static defaultProps = {
-    onSuccess() {}
+    onSuccess() {},
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -63,86 +67,81 @@ class UserEdit extends Component {
   render() {
     const { name, description, contacts, interests, location, photo, formSubmitted } = this.state
     return (
-      <div>
+
         <div>
-          <form className="add" onSubmit={this.handleSubmit}>
-            {formSubmitted && <div className="add__carpet" />}
-            <div className="add__title_container">
-              <h1 className="add__title">Edit your profile</h1>
+          <form onSubmit={this.handleSubmit}>
+            {formSubmitted && <div className={b('carpet')} />}
+            <div className={b('title')}>
+              <h1 className={b('title_text')}>Edit your profile</h1>
             </div>
-            <div className="add__subtitle_container">
+            <div className={b('title_sub-navigation')}>
               <img
                 alt="icon"
                 src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png"
               />
-              <h1 className="add__subtitle">Profile Overview</h1>
+              <h1 className={b('title_chapter')}>Profile Overview</h1>
             </div>
-
-            <label className="add__input_container">
-              <span className="add__field">YOUR NAME</span>
+            <div className={b('input')}>
+              <label className={b('field')}>YOUR NAME</label>
               <input
-                className="add__input"
+                className={b('input_text')}
                 placeholder="Name"
                 value={name}
-                onChange={ev => this.changeHandler("name", ev)}
+                onChange={ev => this.changeHandler('name', ev)}
               />
-            </label>
-            <label className="add__input_container">
-              <span className="add__field">YOUR LOCATION</span>
+            </div>
+            <div className={b('input')}>
+              <label className={b('field')}>YOUR LOCATION</label>
               <input
-                className="add__input"
+                className={b('input_text')}
                 placeholder="Location"
                 value={location}
-                onChange={ev => this.changeHandler("location", ev)}
+                onChange={ev => this.changeHandler('location', ev)}
               />
-            </label>
-            <label className="add__input_container">
-              <span className="add__field">YOUR CONTACTS</span>
+            </div>
+              <div className={b('input')}>
+                  <label className={b('field')}>YOUR CONTACTS</label>
               <input
-                className="add__input"
+                className={b('input_text')}
                 placeholder="Contacts"
                 value={contacts}
-                onChange={ev => this.changeHandler("contacts", ev)}
+                onChange={ev => this.changeHandler('contacts', ev)}
               />
-            </label>
-
-            <label className="add__input_container">
-              <span className="add__field">ABOUT YOU</span>
+              </div>
+              <div className={b('input')}>
+                  <label className={b('field')}>
+                      ABOUT YOU</label>
               <textarea
-                className="add__textarea"
+                className={b('input_text')}
                 placeholder="Description"
                 value={description}
-                onChange={ev => this.changeHandler("description", ev)}
+                onChange={ev => this.changeHandler('description', ev)}
                 required
               />
-            </label>
-
-            <label className="add__input_container">
-              <span className="add__field">YOUR INTERESTS & GOALS</span>
+              </div>
+              <div className={b('input')}>
+                  <label className={b('field')}>YOUR INTERESTS & GOALS</label>
               <input
-                className="add__input"
+                className={b('input_text')}
                 placeholder="Interests & Goals"
                 value={interests}
-                onChange={ev => this.changeHandler("interests", ev)}
+                onChange={ev => this.changeHandler('interests', ev)}
               />
-            </label>
-
-            <label className="add__input_container">
-              <span className="add__field">DOWNLOAD PHOTO</span>
-              <div className="add__photo-container">
+              </div>
+              <div className={b('input')}>
+                  <label className={b('field')}>DOWNLOAD PHOTO</label>
                 <img
                   alt=""
-                  src={`${CLOUDINARY_URL}c_scale,r_5,w_265/${photo}.jpg"`}
-                  className="add__photo-img"
+                  src={`${CLOUDINARY_URL}c_scale,r_5,w_265/${photo}.jpg`}
                 />
+              <PhotoUpload
+                  // photo={URL => this.setState({ photo: URL })}
+              />
               </div>
-              <PhotoUpload photo={URL => this.setState({ photo: URL })} />
-            </label>
-            <div className="add__submit-container">
-              <button className="add__submit">Save changes</button>
-            </div>
+              <div className={b('submit')}>
+                  <button className={b('submit_button')}>Save changes</button>
+              </div>
           </form>
-        </div>
       </div>
     )
   }
@@ -152,7 +151,7 @@ export default connect(
   (state, { id }) => ({
     isUserFetching: getIsUserFetching(id, state),
     isUserProcessing: getIsUserProcessing(state),
-    user: getUserById(state, id)
+    user: getUserById(state, id),
   }),
   { editUser, fetchUser },
   ({ user, isUserFetching, isUserProcessing }, { fetchUser, editUser }, { id, onSuccess }) => {
@@ -164,9 +163,9 @@ export default connect(
       user,
       editUser,
       onSuccess,
-      isUserProcessing
+      isUserProcessing,
     }
-  }
+  },
 )(UserEdit)
 
 // import React, { Component } from 'react';

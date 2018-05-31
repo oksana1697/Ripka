@@ -127,7 +127,8 @@ class AddEvent extends Component {
             <div className={b('title_chapter')}>
               <h5 className={b('title_chapter_text')}>2.Event Details</h5>
             </div>
-            <h1 className={b('title_text')}>Add event details</h1>
+            <h1
+>Add event details</h1>
           </div>
             <div className={b('title_sub-navigation')}>
               <span className={b('title_sub-navigation_icon-push-pin')} />

@@ -60,8 +60,8 @@ class EventEdit extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           {formSubmitted && <div className={b('carpet')} />}
-          <div className={b('title_sub-navigation')}>
-            <h1 className={b('title_chapter')}>Edit event details</h1>
+          <div className={b('title')}>
+            <h1 className={b('title_text')}>Edit event details</h1>
           </div>
           <div className={b('title_sub-navigation')}>
             <img alt="" src="http://res.cloudinary.com/ucu/image/upload/w_50,h_40/icon_event_debdmm.png"/>
