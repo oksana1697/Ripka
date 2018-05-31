@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import Dropzone from "react-dropzone";
 import axios from "axios";
-import {CLOUDINARY_URL} from "../api/index";
+import {CLOUDINARY_URL} from "../../api/index";
+import './PhotoUpload.scss'
+import block from '../../helpers/BEM'
 
+const b = block('PhotoUpload')
 
 
 class PhotoUpload extends Component {
@@ -44,19 +47,19 @@ class PhotoUpload extends Component {
 
   render() {
     return (
-      <div className="add__input-photo">
+      <div className={b()}>
         <Dropzone
-          className="add__photo"
+          className={b('dropzone')}
           onDrop={this.handleDrop}
           multiple
           accept="image/*"
         >
-          <p className="add__photo_text"> Upload a photo</p>
+          <p className={b('text')}> Upload a photo</p>
           {this.state.imageURL ? (
             <img
               alt=""
               src={this.state.imageURL}
-              className="add__photo_upload"
+              className={b('photo')}
             />
           ) : (
             ""

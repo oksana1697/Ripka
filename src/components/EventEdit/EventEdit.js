@@ -5,7 +5,7 @@ import { getIsEventProcessing, getIsEventFetching } from "../../reducers/index"
 import { editEvent } from "../../actions/edit"
 import { getEventById } from "../../reducers/events"
 import { fetchEvent } from "../../actions/fetch"
-import PhotoUpload from "../PhotoUpload"
+import PhotoUpload from "../PhotoUpload/PhotoUpload"
 
 import "../AddEvent/AddEvent.scss"
 import { CLOUDINARY_URL } from "../../api/index"

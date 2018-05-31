@@ -3,7 +3,7 @@ import { addEvent } from "../../actions/add"
 import { connect } from "react-redux"
 //
 import DateTimePicker from "react-datetime-picker"
-import PhotoUpload from "../PhotoUpload"
+import PhotoUpload from "../PhotoUpload/PhotoUpload"
 //
 import { getIsEventProcessing } from "../../reducers/index"
 

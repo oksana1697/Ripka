@@ -6,7 +6,7 @@ import { editUser } from "../../actions/edit"
 import { getUserById } from "../../reducers/users"
 import { fetchUser } from "../../actions/fetch"
 
-import PhotoUpload from "../PhotoUpload"
+import PhotoUpload from "../PhotoUpload/PhotoUpload"
 
 import "../AddEvent/AddEvent.scss"
 import { CLOUDINARY_URL } from "../../api/index"

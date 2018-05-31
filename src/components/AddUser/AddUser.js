@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import PhotoUpload from "../PhotoUpload"
+import PhotoUpload from "../PhotoUpload/PhotoUpload"
 
 import { Field, reduxForm } from "redux-form"
 import { addUser } from "../../actions/add"
