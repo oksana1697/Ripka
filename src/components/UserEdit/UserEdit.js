@@ -135,7 +135,7 @@ class UserEdit extends Component {
                   src={`${CLOUDINARY_URL}c_scale,r_5,w_265/${photo}.jpg`}
                 />
               <PhotoUpload
-                  // photo={URL => this.setState({ photo: URL })}
+                  photo={URL => this.setState({ photo: URL })}
               />
               </div>
               <div className={b('submit')}>

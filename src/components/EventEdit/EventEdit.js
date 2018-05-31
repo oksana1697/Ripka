@@ -34,11 +34,18 @@ class EventEdit extends Component {
     onSuccess() {},
   }
 
-  static getDerivedStateFromProps({ event, isEventProcessing, onSuccess }, { formSubmitted }) {
-    if (formSubmitted && !isEventProcessing) {
+    static getDerivedStateFromProps(nextProps, prevState) {
+    const {event, isEventProcessing, onSuccess} = nextProps
+        const { formSubmitted } = prevState
+        if (formSubmitted && !isEventProcessing) {
       onSuccess()
-    }
-    return event
+    }const nextPropsStr = JSON.stringify(nextProps)
+        const prevNextPropsStr = JSON.stringify(prevState.nextProps)
+        if (nextPropsStr !== prevNextPropsStr) {
+            return { ...event, nextProps }
+        } else {
+            return { ...prevState.event, nextProps }
+        }
   }
 
   handleSubmit = ev => {

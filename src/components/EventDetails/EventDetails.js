@@ -1,16 +1,23 @@
 import React, { Component } from "react"
 import { NavLink } from "react-router-dom"
-
-import "../../styles/event-details.scss"
-import "../../styles/common.scss"
-import "../Navigation/Navigation.scss"
-import "../../styles/map.scss"
-
+// Todo: update css - remove additional
 import moment from "moment"
 
 import { CLOUDINARY_URL } from "../../api/index"
+
 import MapContainer from "../MapContainer/MapContainer"
 import PageNotFound from "../PageNotFound/PageNotFound"
+
+
+import "../../styles/common.scss"
+import "../Navigation/Navigation.scss"
+import "../../styles/map.scss"
+import "../AddUser/AddUser.scss"
+import "./EventDetails.scss"
+
+import block from '../../helpers/BEM'
+
+const b = block('EventDetails')
 
 /**
  * Represents view of single Event Details
@@ -23,20 +30,19 @@ class EventDetails extends Component {
       return <PageNotFound />
     }
     return (
-      <div className="event-details">
-        <div>
-          <div className="event-details__subnav">
-            <div className="event-details__left">
-              <div className="event-details__edit-container">
-                <span className="event-details__icon-edit" />
+      <div className={b()}>
+          <div className={b('subnav')}>
+            <div className={b('left')}>
+              <div className={b('edit-container')}>
+                <span className={b('icon-edit')} />
                 <NavLink to={"/events/edit/" + event.id}>
-                  <button className="event-details__btn">Edit event</button>
+                  <button className={b('btn')}>Edit event</button>
                 </NavLink>
               </div>
-              <div className="event-details__delete-container">
-                <span className="event-details__icon-delete" />
+              <div className={b('delete-container')}>
+                <span className={b('icon-delete')} />
                 <button
-                  className="event-details__btn"
+                  className={b('btn')}
                   onClick={() => {
                     props.deleteEvent(event.id)
                     this.props.onSuccess()
@@ -47,84 +53,84 @@ class EventDetails extends Component {
               </div>
             </div>
           </div>
-          <div className="event-details__container">
-            <div className="event-details__main-info">
-              <h1 className="event-details__name">{event.name}</h1>
-              <h2 className="event-details__organization">{event.organization}</h2>
+          <div className={b('container')}>
+            <div className={b('main-info')}>
+              <h1 className={b('name')}>{event.name}</h1>
+              <h2 className={b('organization')}>{event.organization}</h2>
               <div>
-                <span className="event-details__icon-location" />
-                <p className="event-details__location">{event.location}</p>
+                <span className={b('icon-location')} />
+                <p className={b('location')}>{event.location}</p>
               </div>
-              <div className="event-details__block-row">
-                <button className="event-details__button-bookmark">
-                  <span className="event-details__icon-heard" />
-                  <span className="event-details__button-name">Bookmark</span>
+              <div className={b('block-row')}>
+                <button className={b('button-bookmark')}>
+                  <span className={b('icon-heard')} />
+                  <span className={b('button-name')}>Bookmark</span>
                 </button>
 
-                <button className="event-details__button-report">
-                  <span className="event-details__icon-flag" />
-                  <span className="event-details__button-name">Report</span>
+                <button className={b('button-report')}>
+                  <span className={b('icon-flag')}/>
+                  <span className={b('button-name')}>Report</span>
                 </button>
               </div>
             </div>
           </div>
-          <div className="event-details__additional-info">
-            <div className="event-details__left-info">
-              <div className="event-details__info-block">
-                <div className="event-details__title-info">
-                  <span className="event-details__icon-push-pin" />
-                  <h4 className="event-details__name-info-block">Event Overview</h4>
-                  <hr className="event-details__divider" />
+          <div className={b('additional-info')}>
+            <div className={b('left-info')}>
+              <div className={b('info-block')}>
+                <div className={b('title-info')}>
+                  <span className={b('icon-push-pin')} />
+                  <h4 className={b('name-info-block')}>Event Overview</h4>
+                  <hr className={b('divider')} />
                 </div>
-                <div className="event-details__info-cont">
-                  <h6 className="event-details__story-title">Date & Time</h6>
-                  <p className="event-details__story">{formatDate(event.time)}</p>
+                <div className={b('info-cont')}>
+                  <h6 className={b('story-title')}>Date & Time</h6>
+                  <p className={b('story')}>{formatDate(event.time)}</p>
                 </div>
-                <div className="event-details__info-cont">
-                  <h6 className="event-details__story-title">Categories</h6>
-                  <p className="event-details__story">{event.category}</p>
+                <div className={b('info-cont')}>
+                  <h6 className={b('story-title')}>Categories</h6>
+                  <p className={b('story')}>{event.category}</p>
                 </div>
-                <div className="event-details__info-cont">
-                  <h6 className="event-details__story-title">Organization</h6>
-                  <p className="event-details__story">{event.organization}</p>
+                  <div className={b('info-block')}>
+                  <h6 className={b('story-title')}>Organization</h6>
+                  <p className={b('story')}>{event.organization}</p>
                 </div>
               </div>
-              <div className="event-details__info-block">
-                <div className="event-details__title-info">
-                  <span className="event-details__icon-legal-paper" />
-                  <h4 className="event-details__name-info-block">Event description</h4>
-                  <hr className="event-details__divider" />
+              <div className={b('info-block')}>
+                <div className={b('title-info')}>
+                  <span className={b('icon-legal-paper')}/>
+                  <h4 className={b('name-info-block')}>Event description</h4>
+                  <hr className={b('divider')} />
                 </div>
-                <div className="event-details__info-cont">
-                  <p className="event-details__description">{event.description}</p>
+                <div className={b('info-cont')}>
+                  <p className={b('description')}>{event.description}</p>
                 </div>
               </div>
             </div>
-            <div className="event-details__right-info">
+            <div className={b('right-info')}>
               <span
-                className="event-details__photo"
+                className={b('photo')}
                 src={CLOUDINARY_URL + "c_fill,q_90/" + event.photo + ".jpg"}
               />
-              <div className="event-details__info-block">
-                <div className="event-details__title-info">
+                <div className={b('info-block')}>
+                <div className={b('title-info')}>
                   <span className="event-details__icon-contact" />
-                  <h4 className="event-details__name-info-block">Contacts of organization</h4>
-                  <hr className="event-details__divider" />
+                  <h4 className={b('name-info-block')}>Contacts of organization</h4>
+                  <hr className={b('divider')} />
                 </div>
-                <div className="event-details__info-cont">
-                  <h6 className="event-details__story-title">Phone number</h6>
-                  <p className="event-details__story">{event.contacts}</p>
+                <div className={b('info-cont')}>
+                  <h6 className={b('story-title')}>Phone number</h6>
+                  <p className={b('story')}>{event.contacts}</p>
                 </div>
               </div>
-              <div className="event-details__info-block">
-                <div className="event-details__title-info">
-                  <span className="event-details__icon-location" />
-                  <h4 className="event-details__name-info-block">Location</h4>
-                  <hr className="event-details__divider" />
+              <div className={b('info-block')}>
+                <div className={b('title-info')}>
+                  <span className={b('icon-location')} />
+                  <h4 className={b('name-info-block')}>Location</h4>
+                  <hr className={b('divider')} />
                 </div>
-                <div className="event-details__info-cont">
-                  <h6 className="event-details__story-title">City, country</h6>
-                  <p className="event-details__story">{event.location}</p>
+                <div className={b('info-cont')}>
+                  <h6 className={b('story-title')}>City, country</h6>
+                  <p className={b('story')}>{event.location}</p>
                 </div>
                 <div className="map__container-for-event">
                   <MapContainer events={[event]} />
@@ -133,7 +139,7 @@ class EventDetails extends Component {
             </div>
           </div>
         </div>
-      </div>
+
     )
   }
 }

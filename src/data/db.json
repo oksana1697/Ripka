@@ -2,14 +2,29 @@
   "events": [
     {
       "id": 2,
-      "name": "Horticulture and environmental volunteering in Icela",
+      "name": "Horticulture and environmental volunteering",
       "description": "CADIP offers a volunteer program where participants can engage in Forestry and Gardening activities in the small town of Hveragerdi in Iceland. Located east of Reykjavik, the program places participants at a rehabilitation and health clinic, where they work in the horticultural and environmental department (forestry, gardening, and work in greenhouses). The volunteers will also maintain the green areas around the clinic, collect herbs for making tea and assist with other environmental tasks as needed.",
       "organization": "CADIP",
       "contacts": "646-657-2900",
       "interests": "2018-05-03T08:06:52.005Z",
       "location": "Dnipro, Ukraine",
       "photo": "photo-event_vwr3vn",
-      "category": "Nonprofit"
+      "category": "Nonprofit",
+      "nextProps": {
+        "id": "2",
+        "event": {
+          "id": 2,
+          "name": "Horticulture and environmental volunteering in Icela",
+          "description": "CADIP offers a volunteer program where participants can engage in Forestry and Gardening activities in the small town of Hveragerdi in Iceland. Located east of Reykjavik, the program places participants at a rehabilitation and health clinic, where they work in the horticultural and environmental department (forestry, gardening, and work in greenhouses). The volunteers will also maintain the green areas around the clinic, collect herbs for making tea and assist with other environmental tasks as needed.",
+          "organization": "CADIP",
+          "contacts": "646-657-2900",
+          "interests": "2018-05-03T08:06:52.005Z",
+          "location": "Dnipro, Ukraine",
+          "photo": "photo-event_vwr3vn",
+          "category": "Nonprofit"
+        },
+        "isEventProcessing": false
+      }
     },
     {
       "id": 3,
@@ -98,6 +113,16 @@
       "location": "Київ, Україна",
       "photo": "photo-event_vwr3vn",
       "category": "Nonprofit"
+    },
+    {
+      "name": "gt",
+      "organization": "gg",
+      "time": "2018-05-09T21:00:00.000Z",
+      "contacts": "+380932230726",
+      "description": "e",
+      "photo": "mwpuznujtlnwpqulbcas",
+      "location": "",
+      "id": 12
     }
   ],
   "users": [
