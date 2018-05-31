@@ -15,7 +15,11 @@ import {
 } from "../../helpers/FieldLevelValidationForm"
 import { getIsUserProcessing } from "../../reducers/index"
 
-import "../AddEvent/AddEvent.scss"
+import "../AddUser/AddUser.scss"
+
+import block from '../../helpers/BEM'
+
+const b = block('AddUser')
 
 class AddUser extends Component {
   static defaultProps = {
@@ -55,26 +59,26 @@ class AddUser extends Component {
   }
 
   renderPhotoUpload = () => (
-    <div className="add__input_container-photo">
+    <div className={b('photo-upload')}>
       <PhotoUpload photo={URL => this.props.change("photo", URL)} />
     </div>
   )
 
   renderInput = ({ input, label, type, meta: { touched, error, warning } }) => (
-    <div className="add__user_input_container">
-      <input {...input} placeholder={label} type={type} className="add__input" />
+    <div className={b('input')}>
+      <input {...input} placeholder={label} type={type} className={b('input_text')} />
       {touched &&
-        ((error && <span className="add__input_warning">{error}</span>) ||
-          (warning && <span className="add__input_warning">{warning}</span>))}
+        ((error && <span className={b('input_warning')}>{error}</span>) ||
+          (warning && <span className={b('input_warning')}>{warning}</span>))}
     </div>
   )
 
   renderTextArea = ({ input, label, type, meta: { touched, error, warning } }) => (
-    <div className="add__user_input_container">
-      <textarea {...input} placeholder={label} className="add__input" />
+    <div className={b('input')}>
+      <textarea {...input} placeholder={label} className={b('input_text')} />
       {touched &&
-        ((error && <span className="add__input_warning">{error}</span>) ||
-          (warning && <span className="add__input_warning">{warning}</span>))}
+        ((error && <span className={b('input_warning')}>{error}</span>) ||
+          (warning && <span className={b('input_warning')}>{warning}</span>))}
     </div>
   )
 
@@ -83,11 +87,11 @@ class AddUser extends Component {
     const { formSubmitted } = this.state
 
     return (
-      <form className="add__user" onSubmit={this.handleSubmit}>
-        {formSubmitted && <div className="add-event__carpet" />}
-        <div className="add__user_block">
-          <div className="add__user_container">
-            <h1 className="add__user_title">Join Ripka</h1>
+      <form className={b('container')} onSubmit={this.handleSubmit}>
+        {formSubmitted && <div className={b('carpet')} />}
+        <div className={b('title')}>
+          <div className={b('title_container')}>
+            <h1 className={b('title_text')}>Join Ripka</h1>
           </div>
           <Field
             name="name"
@@ -134,11 +138,11 @@ class AddUser extends Component {
           {/*name="location"*/}
           {/*component={this.renderLocation}*/}
           {/*>*/}
-          <div className="add__user_input_container">
+          <div className={b('input')}>
             <button
               type="submit"
               disabled={invalid || pristine || submitting}
-              className="add__user_button"
+              className={b('button')}
             >
               Register
             </button>
