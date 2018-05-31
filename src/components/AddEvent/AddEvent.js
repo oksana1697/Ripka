@@ -121,7 +121,7 @@ class AddEvent extends Component {
     const { formSubmitted } = this.state
     return (
       <>
-        <form className="add" onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           {formSubmitted && <div className={b('carpet')} />}
           <div className={b('title')}>
             <div className={b('title_chapter')}>
