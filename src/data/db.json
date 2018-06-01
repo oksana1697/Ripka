@@ -1,32 +1,6 @@
 {
   "events": [
     {
-      "id": 2,
-      "name": "Horticulture and environmental volunteering",
-      "description": "CADIP offers a volunteer program where participants can engage in Forestry and Gardening activities in the small town of Hveragerdi in Iceland. Located east of Reykjavik, the program places participants at a rehabilitation and health clinic, where they work in the horticultural and environmental department (forestry, gardening, and work in greenhouses). The volunteers will also maintain the green areas around the clinic, collect herbs for making tea and assist with other environmental tasks as needed.",
-      "organization": "CADIP",
-      "contacts": "646-657-2900",
-      "interests": "2018-05-03T08:06:52.005Z",
-      "location": "Dnipro, Ukraine",
-      "photo": "photo-event_vwr3vn",
-      "category": "Nonprofit",
-      "nextProps": {
-        "id": "2",
-        "event": {
-          "id": 2,
-          "name": "Horticulture and environmental volunteering in Icela",
-          "description": "CADIP offers a volunteer program where participants can engage in Forestry and Gardening activities in the small town of Hveragerdi in Iceland. Located east of Reykjavik, the program places participants at a rehabilitation and health clinic, where they work in the horticultural and environmental department (forestry, gardening, and work in greenhouses). The volunteers will also maintain the green areas around the clinic, collect herbs for making tea and assist with other environmental tasks as needed.",
-          "organization": "CADIP",
-          "contacts": "646-657-2900",
-          "interests": "2018-05-03T08:06:52.005Z",
-          "location": "Dnipro, Ukraine",
-          "photo": "photo-event_vwr3vn",
-          "category": "Nonprofit"
-        },
-        "isEventProcessing": false
-      }
-    },
-    {
       "id": 3,
       "name": "Фестивалю 'Добрі справи 2018' потрібен логотип",
       "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",

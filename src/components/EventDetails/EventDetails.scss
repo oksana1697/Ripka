@@ -1,161 +1,92 @@
 .EventDetails {
-
-  &__title {
-    background-color: #fafafa;
-    color: #2c374a;
-    font-size: 22px;
-    padding: 30px 192px;
-    margin: 0;
-    font-weight: bold;
-    line-height: 1.59091;
-
-  }
-  &__name{
-    color: #2c374a;
-    font-size: 36px;
-    font-weight: bold;
-    margin: 0 0 5px  0;
-  }
-  &__organization{
-    line-height: 1.38889;
-    max-width: 465px;
-    margin-top: 5px;
-    color: #2c374a;
-    font-size: 18px;
+  &__header {
+    background: #f5f5f6;
+    padding: 1.5em 1.5em;
+    &_container{
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 930px;
+      &_name {
+        color: #2c374a;
+        font-weight: bold;
+      }
+      &_location {
+        margin: 5px 0 0 0;
+        color: #626977;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      &_organization {
+        color: #2c374a;
+      }
+    }
 
   }
-  &__block-row {
+  &__options {
     border-top: 1px solid #eaebed;
-    padding-top: 15px;
-    margin-top: 15px;
+    padding-top: 1em;
+    margin-top: 1em;
+    &_button {
+      font-weight: bold;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #9398a1;
+      &:active {
+        color: #89d8e0;
+      }
+      &:hover {
+        color: #89d8e0;
+      }
+    }
   }
-
-  &__button-name {
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: 5px;
-  }
-
-  &__btn{
-    font-weight: bold;
-    font-size: 11px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    margin-right: 30px;
-    height: 35px;
-    color: #fafafb;
-    text-transform: uppercase;
-  }
-
-  &__edit-container{
-    display: inline-block;
-    &:hover{
-      .event-details__btn{
-        color: #40c4cf;}
-        .event-details__icon-edit{
-          content: url("/icons/edit-blue.svg");
+  &__settings {
+    background-color: #89d8e0;
+    padding-left: 6em;
+    &_button {
+      display: inline-block;
+      &:hover {
+        color: #40c4cf;
+      }
+      ._icon-edit {
+        //content: url("../../../public/icons/edit-blue.svg");
+      }
+      ._icon-delet {
+        //content: url("../../../public/icons/delete-blue.svg");
+      }
+      &_text {
+        font-weight: bold;
+        font-size: 0.8em;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        margin-right: 2em;
+        height: 2.5em;
+        color: #fafafb;
+        text-transform: uppercase;
+        &:hover {
+          color: #40c4cf;
+          outline: none;
         }
-    }
-  }
-
-  &__delete-container{
-    display: inline-block;
-    &:hover{
-      .event-details__btn{
-      color: #40c4cf;}
-      .event-details__icon-delete{
-        content: url("/icons/delete-blue.svg");
       }
     }
   }
 
-  &__button-report{
-    font-weight: bold;
-    font-size: 13px;
-    cursor: pointer;
-    margin-right:10px;
-    background: transparent;
-    border: none;
-    vertical-align: middle;
-    color: #9398a1;
-    display: inline-block;
-    &:active {
-      color: #89d8e0;
-
-      .event-details__icon-flag {
-        content: url("/icons/flag.svg");
-      }
-    }
-    &:hover{
-      color: #89d8e0;
-
-      .event-details__icon-flag {
-        content: url("/icons/flag.svg");
-      }
-    }
-  }
-  &__button-bookmark{
-    font-weight: bold;
-    font-size: 13px;
-    cursor: pointer;
-    margin-right:10px;
-    background: transparent;
-    border: none;
-    vertical-align: middle;
-    color: #9398a1;
-    display: inline-block;
-    &:active {
-      color: #89d8e0;
-
-      .event-details__icon-heard {
-        content: url("/icons/heart.svg");
-      }
-    }
-    &:hover{
-      color: #89d8e0;
-
-      .event-details__icon-heard{
-        content: url("/icons/heart.svg");
-      }
-    }
-
-  }
-  &__main-info{
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 930px;
-  }
-  &__photo{
+  &__photo {
     max-width: 375px;
     margin: 0 auto 45px auto;
     display: block;
     min-height: 215px;
     border-radius: 10px;
     border: 1px solid #eaebed;
-
   }
-
-  &__subnav{
-    background-color: #89d8e0;
-    padding-left: 120px;
-    padding-right: 45px;
-    display: flex;
-    justify-content: space-between;
-  }
-  &__container{
-    background: #f5f5f6;
-    padding: 30px 1.5em;
-    //position: relative;
-  }
-
-  &__additional-info{
+  &__additional-info {
     max-width: 930px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 60px;
   }
-  &__name-info-block{
+  &__name-info-block {
     display: inline-block;
     margin-left: 14px;
     color: #626977;
@@ -166,25 +97,25 @@
     margin-top: 2px;
     margin-bottom: 0;
   }
-  &__info-block{
+  &__info-block {
     margin-bottom: 60px;
   }
-  &__divider{
+  &__divider {
     margin: 20px 0 0 0;
     border: 0;
     border-top: 1px solid #eff0f2;
-    height: 1px
+    height: 1px;
   }
-  &__title-info{
+  &__title-info {
     vertical-align: middle;
     padding-bottom: 24px;
   }
 
-  &__info-cont{
+  &__info-cont {
     padding: 0 10px;
-    margin-bottom: 15px
+    margin-bottom: 15px;
   }
-  &__story-title{
+  &__story-title {
     display: inline-block;
     vertical-align: top;
     width: 30%;
@@ -196,7 +127,7 @@
     text-transform: uppercase;
     margin: 0;
   }
-  &__story{
+  &__story {
     margin: 0;
     display: inline-block;
     width: 69%;
@@ -205,7 +136,7 @@
     font-size: 15px;
   }
 
-  &__category{
+  &__category {
     margin: 0;
     display: inline-block;
     line-height: 25px;
@@ -213,8 +144,7 @@
     color: #3b5ace;
   }
 
-
-  &__description{
+  &__description {
     margin: 0;
     display: inline-block;
     color: #626977;
@@ -228,22 +158,14 @@
     height: 25px;
     display: inline-block;
     vertical-align: middle;
-    content: url("/icons/location-gray.svg");
-
+    content: url('/icons/location-gray.svg');
   }
-  &__location {
-    margin: 5px 0 0 0;
-    font-size: 15px;
-    color: #626977;
-    display: inline-block;
-    vertical-align: middle;
 
-  }
-  &__left-info{
+  &__left-info {
     width: 56%;
     float: left;
   }
-  &__right-info{
+  &__right-info {
     margin-left: 10%;
     width: 32%;
     float: left;
@@ -256,7 +178,7 @@
   margin-right: 5px;
   display: inline-block;
   vertical-align: middle;
-  content: url("/icons/flag-event.svg");
+  content: url('/icons/flag-event.svg');
 }
 
 .event-details__icon-heard {
@@ -265,7 +187,7 @@
   margin-right: 5px;
   display: inline-block;
   vertical-align: middle;
-  content: url("/icons/heart-event.svg");
+  content: url('/icons/heart-event.svg');
 }
 
 .event-details__icon-contact {
@@ -273,26 +195,25 @@
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-  content: url("/icons/contact.svg");
+  content: url('/icons/contact.svg');
 }
 .event-details__icon-categories {
-  content: url("/icons/categories.svg");
+  content: url('/icons/categories.svg');
 }
-
 
 .event-details__icon-paper {
   width: 23px;
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-  content: url("/icons/paper.svg");
+  content: url('/icons/paper.svg');
 }
 .event-details__icon-location {
   width: 23px;
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-  content: url("/icons/location.svg");
+  content: url('/icons/location.svg');
 }
 
 .event-details__icon-push-pin {
@@ -300,28 +221,22 @@
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-  content: url("/icons/push-pin.svg");
+  content: url('/icons/push-pin.svg');
 }
 .event-details__icon-legal-paper {
   width: 23px;
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-  content: url("/icons/legal-paper.svg");
+  content: url('/icons/legal-paper.svg');
 }
-.event-details__icon-edit{
+.event-details__icon-edit {
   width: 18px;
   height: 18px;
   vertical-align: middle;
-  content: url("/icons/edit.svg");
-}
-.event-details__icon-delete{
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-  background: url("/icons/delete.svg");
+  content: url('/icons/edit.svg');
 }
 
 .event-details__icon-calendar {
-  background: url("/icons/calendar.svg");
+  background: url('/icons/calendar.svg');
 }

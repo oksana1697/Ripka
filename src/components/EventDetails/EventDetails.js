@@ -19,9 +19,6 @@ import block from '../../helpers/BEM'
 
 const b = block('EventDetails')
 
-/**
- * Represents view of single Event Details
- */
 class EventDetails extends Component {
   render() {
     let props = this.props
@@ -31,18 +28,17 @@ class EventDetails extends Component {
     }
     return (
       <div className={b()}>
-          <div className={b('subnav')}>
-            <div className={b('left')}>
-              <div className={b('edit-container')}>
-                <span className={b('icon-edit')} />
+          <div className={b('settings')}>
+              <div className={b('settings_button')}>
+                <span className={b('settings_button_icon-edit')} />
                 <NavLink to={"/events/edit/" + event.id}>
-                  <button className={b('btn')}>Edit event</button>
+                  <button className={b('settings_button_text')}>Edit event</button>
                 </NavLink>
               </div>
-              <div className={b('delete-container')}>
-                <span className={b('icon-delete')} />
+              <div className={b('settings_button')}>
+                <span className={b('settings_button_icon-delete')} />
                 <button
-                  className={b('btn')}
+                  className={b('settings_button_text')}
                   onClick={() => {
                     props.deleteEvent(event.id)
                     this.props.onSuccess()
@@ -51,25 +47,20 @@ class EventDetails extends Component {
                   Delete event
                 </button>
               </div>
-            </div>
           </div>
-          <div className={b('container')}>
-            <div className={b('main-info')}>
-              <h1 className={b('name')}>{event.name}</h1>
-              <h2 className={b('organization')}>{event.organization}</h2>
+          <div className={b('header')}>
+            <div className={b('header_container')}>
+              <h1 className={b('header_container_name')}>{event.name}</h1>
+              <h2 className={b('header_container_organization')}>{event.organization}</h2>
               <div>
-                <span className={b('icon-location')} />
-                <p className={b('location')}>{event.location}</p>
+                <p className={b('header_container_location')}>{event.location}</p>
               </div>
-              <div className={b('block-row')}>
-                <button className={b('button-bookmark')}>
-                  <span className={b('icon-heard')} />
-                  <span className={b('button-name')}>Bookmark</span>
+              <div className={b('options')}>
+                <button className={b('options_button')}>
+                 Bookmark
                 </button>
-
-                <button className={b('button-report')}>
-                  <span className={b('icon-flag')}/>
-                  <span className={b('button-name')}>Report</span>
+                <button className={b('options_button')}>
+                 Report
                 </button>
               </div>
             </div>
