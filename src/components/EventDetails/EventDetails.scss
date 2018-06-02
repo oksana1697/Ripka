@@ -2,7 +2,7 @@
   &__header {
     background: #f5f5f6;
     padding: 1.5em 1.5em;
-    &_container{
+    &_container {
       margin-left: auto;
       margin-right: auto;
       max-width: 930px;
@@ -20,7 +20,6 @@
         color: #2c374a;
       }
     }
-
   }
   &__options {
     border-top: 1px solid #eaebed;
@@ -48,12 +47,6 @@
       &:hover {
         color: #40c4cf;
       }
-      ._icon-edit {
-        //content: url("../../../public/icons/edit-blue.svg");
-      }
-      ._icon-delet {
-        //content: url("../../../public/icons/delete-blue.svg");
-      }
       &_text {
         font-weight: bold;
         font-size: 0.8em;
@@ -73,170 +66,48 @@
   }
 
   &__photo {
-    max-width: 375px;
-    margin: 0 auto 45px auto;
+    max-width: 24em;
     display: block;
-    min-height: 215px;
-    border-radius: 10px;
+    min-height: 14em;
+    border-radius: 1em;
     border: 1px solid #eaebed;
   }
-  &__additional-info {
-    max-width: 930px;
+  &__details {
+    max-width: 59em;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 60px;
-  }
-  &__name-info-block {
-    display: inline-block;
-    margin-left: 14px;
-    color: #626977;
-    font-size: 18px;
-    font-weight: bold;
-    vertical-align: bottom;
-    //width: 80%;
-    margin-top: 2px;
-    margin-bottom: 0;
-  }
-  &__info-block {
-    margin-bottom: 60px;
-  }
-  &__divider {
-    margin: 20px 0 0 0;
-    border: 0;
-    border-top: 1px solid #eff0f2;
-    height: 1px;
-  }
-  &__title-info {
-    vertical-align: middle;
-    padding-bottom: 24px;
+    margin-top: 1em;
+    &_left {
+      width: 56%;
+      float: left;
+    }
+    &_right {
+      margin-left: 10%;
+      width: 32%;
+      float: left;
+    }
+    &_name {
+      display: inline-block;
+      color: #626977;
+    }
+    &_divider {
+      border: 0;
+      border-top: 1px solid #eff0f2;
+      height: 1px;
+    }
   }
 
-  &__info-cont {
-    padding: 0 10px;
-    margin-bottom: 15px;
-  }
   &__story-title {
+    font-weight: bold;
     display: inline-block;
-    vertical-align: top;
     width: 30%;
     color: #626977;
-    line-height: 22px;
-    padding-top: 3px;
-    font-size: 11px;
-    font-weight: bold;
+    font-size: 0.7em;
     text-transform: uppercase;
-    margin: 0;
   }
   &__story {
     margin: 0;
     display: inline-block;
-    width: 69%;
     color: #626977;
-    line-height: 25px;
-    font-size: 15px;
   }
-
-  &__category {
-    margin: 0;
-    display: inline-block;
-    line-height: 25px;
-    font-size: 15px;
-    color: #3b5ace;
-  }
-
-  &__description {
-    margin: 0;
-    display: inline-block;
-    color: #626977;
-    line-height: 25px;
-    font-size: 15px;
-  }
-
-  &__icon-location {
-    margin-right: 5px;
-    width: 16px;
-    height: 25px;
-    display: inline-block;
-    vertical-align: middle;
-    content: url('/icons/location-gray.svg');
-  }
-
-  &__left-info {
-    width: 56%;
-    float: left;
-  }
-  &__right-info {
-    margin-left: 10%;
-    width: 32%;
-    float: left;
-  }
-}
-
-.event-details__icon-flag {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  display: inline-block;
-  vertical-align: middle;
-  content: url('/icons/flag-event.svg');
-}
-
-.event-details__icon-heard {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  display: inline-block;
-  vertical-align: middle;
-  content: url('/icons/heart-event.svg');
-}
-
-.event-details__icon-contact {
-  width: 23px;
-  height: 23px;
-  display: inline-block;
-  vertical-align: middle;
-  content: url('/icons/contact.svg');
-}
-.event-details__icon-categories {
-  content: url('/icons/categories.svg');
-}
-
-.event-details__icon-paper {
-  width: 23px;
-  height: 23px;
-  display: inline-block;
-  vertical-align: middle;
-  content: url('/icons/paper.svg');
-}
-.event-details__icon-location {
-  width: 23px;
-  height: 23px;
-  display: inline-block;
-  vertical-align: middle;
-  content: url('/icons/location.svg');
-}
-
-.event-details__icon-push-pin {
-  width: 23px;
-  height: 23px;
-  display: inline-block;
-  vertical-align: middle;
-  content: url('/icons/push-pin.svg');
-}
-.event-details__icon-legal-paper {
-  width: 23px;
-  height: 23px;
-  display: inline-block;
-  vertical-align: middle;
-  content: url('/icons/legal-paper.svg');
-}
-.event-details__icon-edit {
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-  content: url('/icons/edit.svg');
-}
-
-.event-details__icon-calendar {
-  background: url('/icons/calendar.svg');
 }

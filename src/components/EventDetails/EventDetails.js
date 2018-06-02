@@ -30,13 +30,11 @@ class EventDetails extends Component {
       <div className={b()}>
           <div className={b('settings')}>
               <div className={b('settings_button')}>
-                <span className={b('settings_button_icon-edit')} />
                 <NavLink to={"/events/edit/" + event.id}>
                   <button className={b('settings_button_text')}>Edit event</button>
                 </NavLink>
               </div>
               <div className={b('settings_button')}>
-                <span className={b('settings_button_icon-delete')} />
                 <button
                   className={b('settings_button_text')}
                   onClick={() => {
@@ -65,68 +63,52 @@ class EventDetails extends Component {
               </div>
             </div>
           </div>
-          <div className={b('additional-info')}>
-            <div className={b('left-info')}>
-              <div className={b('info-block')}>
-                <div className={b('title-info')}>
-                  <span className={b('icon-push-pin')} />
-                  <h4 className={b('name-info-block')}>Event Overview</h4>
-                  <hr className={b('divider')} />
+          <div className={b('details')}>
+            <div className={b('details_left')}>
+                <div>
+                  <h3 className={b('details_name')}>Event Overview</h3>
+                  <hr className={b('details_divider')} />
                 </div>
-                <div className={b('info-cont')}>
-                  <h6 className={b('story-title')}>Date & Time</h6>
+                <div>
+                  <p className={b('story-title')}>Date & Time</p>
                   <p className={b('story')}>{formatDate(event.time)}</p>
                 </div>
-                <div className={b('info-cont')}>
-                  <h6 className={b('story-title')}>Categories</h6>
+                <div>
+                  <p className={b('story-title')}>Categories</p>
                   <p className={b('story')}>{event.category}</p>
                 </div>
-                  <div className={b('info-block')}>
-                  <h6 className={b('story-title')}>Organization</h6>
+                  <div>
+                  <p className={b('story-title')}>Organization</p>
                   <p className={b('story')}>{event.organization}</p>
                 </div>
-              </div>
-              <div className={b('info-block')}>
-                <div className={b('title-info')}>
-                  <span className={b('icon-legal-paper')}/>
-                  <h4 className={b('name-info-block')}>Event description</h4>
-                  <hr className={b('divider')} />
+                <div>
+                  <h3 className={b('details_name')}>Event description</h3>
+                  <hr className={b('details_divider')} />
                 </div>
-                <div className={b('info-cont')}>
-                  <p className={b('description')}>{event.description}</p>
-                </div>
+              <div>
+                  <p className={b('story')}>{event.description}</p>
               </div>
             </div>
-            <div className={b('right-info')}>
+            <div className={b('details_right')}>
               <span
                 className={b('photo')}
                 src={CLOUDINARY_URL + "c_fill,q_90/" + event.photo + ".jpg"}
               />
-                <div className={b('info-block')}>
-                <div className={b('title-info')}>
-                  <span className="event-details__icon-contact" />
-                  <h4 className={b('name-info-block')}>Contacts of organization</h4>
-                  <hr className={b('divider')} />
+                <div >
+                  <h3 className={b('details_name')}>Contacts of organization</h3>
+                  <hr className={b('details_divider')} />
                 </div>
-                <div className={b('info-cont')}>
-                  <h6 className={b('story-title')}>Phone number</h6>
+                  <p className={b('story-title')}>Phone number</p>
                   <p className={b('story')}>{event.contacts}</p>
+                <div>
+                  <h3 className={b('details_name')}>Location</h3>
+                  <hr className={b('details_divider')} />
                 </div>
-              </div>
-              <div className={b('info-block')}>
-                <div className={b('title-info')}>
-                  <span className={b('icon-location')} />
-                  <h4 className={b('name-info-block')}>Location</h4>
-                  <hr className={b('divider')} />
-                </div>
-                <div className={b('info-cont')}>
-                  <h6 className={b('story-title')}>City, country</h6>
+                  <p className={b('story-title')}>City, country</p>
                   <p className={b('story')}>{event.location}</p>
-                </div>
                 <div className="map__container-for-event">
                   <MapContainer events={[event]} />
                 </div>
-              </div>
             </div>
           </div>
         </div>
