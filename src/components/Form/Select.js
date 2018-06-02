@@ -2,11 +2,11 @@ import React from "react"
 
 import "./Form.scss"
 import block from "../../helpers/BEM"
+import FieldSet from "./FieldSet"
 const b = block("Form")
 
 const Select = ({ label, input }) => (
-  <div className={b("field-set")}>
-    <label className={b("field")}>{label}</label>
+  <FieldSet label={label}>
     <select {...input} className={b("categories")}>
       <option className={b("categories")} value="nonprofit">
         Nonprofit
@@ -21,7 +21,7 @@ const Select = ({ label, input }) => (
         Medicine
       </option>
     </select>
-  </div>
+  </FieldSet>
 )
 
 export default Select

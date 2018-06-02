@@ -3,14 +3,14 @@ import DateTimePicker from "react-datetime-picker"
 
 import "../AddEvent/AddEvent.scss"
 import block from "../../helpers/BEM"
+import FieldSet from "./FieldSet"
 
 const b = block("Form")
 
 const Time = ({ label, input }) => (
-  <div className={b("field-set")}>
-    <label className={b("field")}>{label}</label>
+  <FieldSet label={label}>
     <DateTimePicker className={b("input_time")} {...input} />
-  </div>
+  </FieldSet>
 )
 
 export default Time

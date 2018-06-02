@@ -43,10 +43,14 @@ const AddEvent = ({ handleSubmit, submitting }) => (
     <Field name="category" type="select" label="Category" component={Form.Select} />
     <Field name="time" label="Time" component={Form.Time} />
 
-    <div className={b("input")}>
-      <label className={b("field")}>Location</label>
-      <Geocoder />
-    </div>
+    <Field
+      name="location"
+      component={() => (
+        <Form.FieldSet label={"Location"}>
+          <Geocoder />
+        </Form.FieldSet>
+      )}
+    />
 
     <Field name="contacts" label="Contacts" component={Form.Input} validate={[required, phoneNumber, maxLength(20)]} />
 
@@ -59,9 +63,9 @@ const AddEvent = ({ handleSubmit, submitting }) => (
 
     <Field name="photo" label="Upload Photo" component={Form.PhotoUpload} />
 
-    <div>
+    <Form.FieldSet>
       <Form.Button>Add Event</Form.Button>
-    </div>
+    </Form.FieldSet>
   </Form>
 )
 

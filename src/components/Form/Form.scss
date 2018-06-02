@@ -12,15 +12,35 @@
     border: 1px solid #6d7ce7;
   }
 
+  &__label-field {
+    flex-basis: var(--field-width);
+    width: var(--field-width);
+    box-sizing: border-box;
+    text-transform: uppercase;
+    color: #626977;
+    font-size: 12px;
+    font-weight: bold;
+
+    &:after {
+      content: " *";
+      color: red;
+    }
+  }
+
+  &__input-field {
+    flex-basis: calc(100% - var(--field-width));
+    width: calc(100% - var(--field-width));
+  }
+
   &__input {
+    width: 100%;
     box-sizing: border-box;
     font-family: inherit;
     border-radius: 4px;
     border: 1px solid #b3b3b3;
     line-height: 2rem;
     padding: 0.5rem 1rem;
-    flex-basis: calc(100% - var(--field-width));
-    width: calc(100% - var(--field-width));
+
     font-size: 1rem;
 
     outline: 0;
@@ -32,21 +52,6 @@
       width: 100%;
       padding: 0.5rem;
       height: 200px;
-    }
-  }
-
-  &__field {
-    box-sizing: border-box;
-    text-transform: uppercase;
-    color: #626977;
-    font-size: 12px;
-    font-weight: bold;
-    flex-basis: var(--field-width);
-    width: var(--field-width);
-
-    &:after {
-      content: " *";
-      color: red;
     }
   }
 
@@ -80,7 +85,6 @@
 
   &__button {
     display: block;
-    margin: 1rem 0 1rem auto;
     font-size: 1rem;
     padding: 1rem 2rem;
     border: 0;

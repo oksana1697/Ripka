@@ -1,16 +1,16 @@
 import React from "react"
 import "../Form"
 import block from "../../helpers/BEM"
+import FieldSet from "./FieldSet"
 const b = block("Form")
 
 const TextArea = ({ input, label, type, meta: { touched, error, warning } }) => (
-  <div className={b("field-set")}>
-    <label className={b("field")}>{label}</label>
+  <FieldSet label={label}>
     <textarea {...input} placeholder={label} className={b("input", ["text"])} />
     {touched &&
       ((error && <span className={b("input_warning")}>{error}</span>) ||
         (warning && <span className={b("input_warning")}>{warning}</span>))}
-  </div>
+  </FieldSet>
 )
 
 export default TextArea
