@@ -6,8 +6,8 @@ import block from "../../helpers/BEM"
 import FieldSet from "./FieldSet"
 const b = block("Form")
 
-const PhotoUpload = ({ label }) => (
-  <FieldSet label={label}>
+const PhotoUpload = ({ label, meta }) => (
+  <FieldSet label={label} meta={meta}>
     <ImageUpload photo={URL => this.props.change("photo", URL)} />
   </FieldSet>
 )

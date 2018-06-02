@@ -5,8 +5,8 @@ import block from "../../helpers/BEM"
 import FieldSet from "./FieldSet"
 const b = block("Form")
 
-const Select = ({ label, input }) => (
-  <FieldSet label={label}>
+const Select = ({ label, input, meta }) => (
+  <FieldSet label={label} meta={meta}>
     <select {...input} className={b("categories")}>
       <option className={b("categories")} value="nonprofit">
         Nonprofit

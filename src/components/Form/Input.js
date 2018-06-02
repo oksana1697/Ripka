@@ -4,12 +4,9 @@ import "./Form.scss"
 import block from "../../helpers/BEM"
 const b = block("Form")
 
-const Input = ({ input, label, type, meta: { touched, error, warning } }) => (
-  <FieldSet label={label}>
+const Input = ({ input, label, type, meta }) => (
+  <FieldSet label={label} meta={meta}>
     <input {...input} placeholder={label} type={type} className={b("input")} />
-    {touched &&
-      ((error && <span className={b("warning")}>{error}</span>) ||
-        (warning && <span className={b("warning")}>{warning}</span>))}
   </FieldSet>
 )
 

@@ -4,12 +4,9 @@ import block from "../../helpers/BEM"
 import FieldSet from "./FieldSet"
 const b = block("Form")
 
-const TextArea = ({ input, label, type, meta: { touched, error, warning } }) => (
-  <FieldSet label={label}>
+const TextArea = ({ input, label, meta }) => (
+  <FieldSet label={label} meta={meta}>
     <textarea {...input} placeholder={label} className={b("input", ["text"])} />
-    {touched &&
-      ((error && <span className={b("input_warning")}>{error}</span>) ||
-        (warning && <span className={b("input_warning")}>{warning}</span>))}
   </FieldSet>
 )
 

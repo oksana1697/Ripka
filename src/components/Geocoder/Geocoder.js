@@ -5,8 +5,7 @@ import "./Geocoder.scss"
 import block from "../../helpers/BEM"
 const b = block("Geocoder")
 
-const API_KEY =
-  "pk.eyJ1Ijoib2tzYW5hMTk5NyIsImEiOiJjamhuY2lpZ3MzcTAxMzlzMjJzZ3dueGNiIn0.CCCTbGpm18Czx3jMCcvOTw"
+const API_KEY = "pk.eyJ1Ijoib2tzYW5hMTk5NyIsImEiOiJjamhuY2lpZ3MzcTAxMzlzMjJzZ3dueGNiIn0.CCCTbGpm18Czx3jMCcvOTw"
 
 class Geocoder extends Component {
   static defaultProps = {
@@ -32,10 +31,6 @@ class Geocoder extends Component {
     focus: null,
     loading: false,
     searchTime: new Date()
-  }
-
-  componentDidMount() {
-    if (this.props.focusOnMount) this.refs.input.focus()
   }
 
   onInput = e => {
@@ -65,9 +60,7 @@ class Geocoder extends Component {
     if (this.state.loading) return
     this.setState({
       focus:
-        this.state.focus === null
-          ? 0
-          : Math.max(0, Math.min(this.state.results.length - 1, this.state.focus + dir))
+        this.state.focus === null ? 0 : Math.max(0, Math.min(this.state.results.length - 1, this.state.focus + dir))
     })
   }
 
@@ -119,7 +112,6 @@ class Geocoder extends Component {
     this.props.onSelect(place)
     this.setState({ focus: listLocation })
     // focus on the input after click to maintain key traversal
-    this.refs.input.focus()
     return false
   }
 

@@ -7,8 +7,8 @@ import FieldSet from "./FieldSet"
 
 const b = block("Form")
 
-const Time = ({ label, input }) => (
-  <FieldSet label={label}>
+const Time = ({ label, input, meta }) => (
+  <FieldSet label={label} meta={meta}>
     <DateTimePicker className={b("input_time")} {...input} />
   </FieldSet>
 )
