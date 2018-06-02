@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
-import { getIsEventProcessing, getIsEventFetching } from '../../reducers/index'
+import { getIsEventFetching } from '../../reducers/index'
 import { editEvent } from '../../actions/edit'
 import { getEventById } from '../../reducers/events'
 import { fetchEvent } from '../../actions/fetch'
@@ -142,7 +142,7 @@ class EventEdit extends Component {
 export default connect(
   (state, { id }) => ({
     isFetching: getIsEventFetching(id, state),
-    isEventProcessing: getIsEventProcessing(state),
+
     event: getEventById(state, id),
   }),
   { editEvent, fetchEvent },
@@ -155,7 +155,6 @@ export default connect(
       event,
       editEvent,
       onSuccess,
-      isEventProcessing,
     }
   },
 )(EventEdit)

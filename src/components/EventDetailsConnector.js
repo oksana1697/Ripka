@@ -14,9 +14,9 @@ export default connect(
   }),
   { fetchEvent, deleteEvent },
   ({ event, isFetching }, { fetchEvent, deleteEvent }, { id, onSuccess }) => {
-    if (!event && !isFetching) {
-      fetchEvent(id);
-    }
+
+
+    if (!event && !isFetching) fetchEvent(id)
     return {
       event,
       onSuccess,

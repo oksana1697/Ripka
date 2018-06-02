@@ -4,7 +4,6 @@ import { compose } from "ramda"
 import { Field, reduxForm } from "redux-form"
 import { maxLength, minLength, phoneNumber, required } from "../../helpers/FieldLevelValidationForm"
 //
-import { getIsEventProcessing } from "../../reducers/index"
 import { addEvent } from "../../actions/add"
 //
 import Geocoder from "../Geocoder"
@@ -13,6 +12,7 @@ import Form from "../Form"
 import "./AddEvent.scss"
 import "../../styles/react-datetime-picker.scss"
 import block from "../../helpers/BEM"
+import { withRouter } from "react-router-dom"
 const b = block("AddEvent")
 
 const AddEvent = ({ handleSubmit, submitting }) => (
@@ -24,7 +24,7 @@ const AddEvent = ({ handleSubmit, submitting }) => (
           <span className={b("breadcrumb-link")}>Job details</span>
           <span className={b("breadcrumb-link")}>Event Details</span>
         </span>
-        Add event details
+        Add event
       </h1>
 
       <h2 className={b("title", ["sub-navigation"])}>
@@ -52,14 +52,19 @@ const AddEvent = ({ handleSubmit, submitting }) => (
       )}
     />
 
-    <Field name="contacts" label="Contacts" component={Form.Input} validate={[required, phoneNumber, maxLength(20)]} />
+    <Field name="contacts" label="Contacts" component={Form.Input} validate={[required, maxLength(100)]} />
 
     <div className={b("title_sub-navigation")}>
       <span className={b("title_sub-navigation_icon-legal-paper")} />
       <h1 className={b("title_chapter")}>Event Details</h1>
     </div>
 
-    <Field name="description" label="Event Description" component={Form.TextArea} validate={[required, minLength]} />
+    <Field
+      name="description"
+      label="Event Description"
+      component={Form.TextArea}
+      validate={[required, minLength(20)]}
+    />
 
     <Field name="photo" label="Upload Photo" component={Form.PhotoUpload} />
 
@@ -70,17 +75,27 @@ const AddEvent = ({ handleSubmit, submitting }) => (
 )
 
 export default compose(
+  withRouter,
   connect(
     state => ({
-      addEventForm: state.form.addEventForm,
-      isEventProcessing: getIsEventProcessing(state)
+      addEventForm: state.form.addEventForm
     }),
     { addEvent }
   ),
   reduxForm({
+    initialValues: {
+      name: "Повстання роботів",
+      organization: "Skynet",
+      location: "Жмеринка",
+      time: new Date(),
+      photo: "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
+      description: "Настав день помсти! Шкіряні ублюдки!!",
+      contacts: "we_are_killing_humans@skynet.com"
+    },
     form: "addEventForm",
-    onSubmit(data) {
-      console.log(data)
+    onSubmit: async (data, dispatch, { addEvent, history }) => {
+      const action = await addEvent(data)
+      history.push("/events/" + action.id)
     }
   })
 )(AddEvent)

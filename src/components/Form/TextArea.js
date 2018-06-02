@@ -6,7 +6,7 @@ const b = block("Form")
 
 const TextArea = ({ input, label, meta }) => (
   <FieldSet label={label} meta={meta}>
-    <textarea {...input} placeholder={label} className={b("input", ["text"])} />
+    <textarea placeholder={label} className={b("input", ["text"])} {...input} />
   </FieldSet>
 )
 
