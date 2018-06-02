@@ -90,9 +90,10 @@ class EventDetails extends Component {
               </div>
             </div>
             <div className={b('details_right')}>
-              <span
+              <img
                 className={b('photo')}
                 src={CLOUDINARY_URL + "c_fill,q_90/" + event.photo + ".jpg"}
+                alt={'name'}
               />
                 <div >
                   <h3 className={b('details_name')}>Contacts of organization</h3>
