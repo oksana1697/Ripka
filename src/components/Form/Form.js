@@ -1,5 +1,13 @@
 import React from "react"
 
-const Form = ({ children }) => <>{children}</>
+import "./Form.scss"
+import block from "../../helpers/BEM"
+const b = block("Form")
+
+const Form = ({ children, className = "", ...props }) => (
+  <form className={b() + " " + className} {...props}>
+    {children}
+  </form>
+)
 
 export default Form

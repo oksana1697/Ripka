@@ -1,11 +1,11 @@
 import React from "react"
 
-import "../AddEvent/AddEvent.scss"
+import "./Form.scss"
 import block from "../../helpers/BEM"
-const b = block("AddEvent")
+const b = block("Form")
 
 const Select = ({ label, input }) => (
-  <div className={b("input")}>
+  <div className={b("field-set")}>
     <label className={b("field")}>{label}</label>
     <select {...input} className={b("categories")}>
       <option className={b("categories")} value="nonprofit">

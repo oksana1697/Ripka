@@ -1,16 +1,15 @@
-.react-datetime-picker{
-  &__button{
+.react-datetime-picker {
+  &__button {
+    margin-left: 0;
     border-radius: 4px;
     border: 1px solid #b3b3b3;
-    margin-left: 10px;
     padding: 10px;
 
-    &__input{
+    &__input {
       font-family: Arial, sans-serif;
     }
-
   }
-  &__calendar{
+  &__calendar {
     z-index: 1;
   }
   &__clock {
