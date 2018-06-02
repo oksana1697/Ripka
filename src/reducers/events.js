@@ -1,6 +1,5 @@
 import { combineReducers } from "redux"
 import {
-  ADD_EVENT_START,
   ADD_EVENT_FAILURE,
   ADD_EVENT_SUCCESS,
   FETCH_EVENT_SUCCESS,
@@ -11,8 +10,6 @@ import {
   FETCH_EVENTS_START,
   DELETE_EVENT_SUCCESS,
   EDIT_EVENT_SUCCESS,
-  EDIT_EVENT_FAILURE,
-  EDIT_EVENT_START,
   SEARCH_EVENTS_SUCCESS,
   SEARCH_EVENTS_FAILURE
 } from "../actions/actionTypes"
@@ -44,9 +41,15 @@ export const byId = (state = {}, action) => {
       })
 
       return { ...newState }
-    case EDIT_EVENT_SUCCESS:
-      const { edit_id } = action
-      return state.filter(el => el.id !== edit_id)
+
+    case EDIT_EVENT_SUCCESS: {
+      const { id, event } = action
+      return {
+        ...state,
+        [id]: event
+      }
+    }
+
     case FETCH_EVENT_FAILURE:
     case ADD_EVENT_FAILURE:
     case FETCH_EVENTS_FAILURE:
@@ -127,6 +130,6 @@ export default combineReducers({
   currentPage
 })
 
-export const getAllAvailableEvents = state => state.events.allIds
+export const getAllAvailableEvents = state => state.allIds
 export const getEventById = (state, id) => state.byId[id]
 export const getIsEventFetching = (id, state) => state.isFetching[id]

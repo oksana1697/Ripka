@@ -1,29 +1,33 @@
-import * as api from '../api/index';
+import * as api from "../api/index"
 import {
   editEventFailure,
   editEventStart,
   editEventSuccess,
   editUserFailure,
   editUserStart,
-  editUserSuccess,
-} from './index';
+  editUserSuccess
+} from "./index"
 
-export const editEvent = id => async dispatch => {
-  dispatch(editEventStart(id));
+export const editEvent = (id, data) => async dispatch => {
+  dispatch(editEventStart(id, data))
   try {
-    await api.editEvent(id);
-    dispatch(editEventSuccess(id));
+    const event = await api.editEvent(id, data)
+    const action = editEventSuccess(id, event)
+    dispatch(action)
+    return action
   } catch (e) {
-    dispatch(editEventFailure(id));
+    dispatch(editEventFailure(id, e))
+
+    return e
   }
-};
+}
 
 export const editUser = id => async dispatch => {
-  dispatch(editUserStart(id));
+  dispatch(editUserStart(id))
   try {
-    await api.editUser(id);
-    dispatch(editUserSuccess(id));
+    await api.editUser(id)
+    dispatch(editUserSuccess(id))
   } catch (e) {
-    dispatch(editUserFailure(id));
+    dispatch(editUserFailure(id))
   }
-};
+}

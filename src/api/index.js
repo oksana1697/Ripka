@@ -30,6 +30,6 @@ export const deleteEvent = async id => await deleteData(`${API_ENDPOINT}/events`
 
 export const deleteUser = async id => await deleteData(`${API_ENDPOINT}/users`, id)
 
-export const editEvent = updatedEvent => putData(`${API_ENDPOINT}/events`, updatedEvent)
+export const editEvent = (id, data) => putData(`${API_ENDPOINT}/events/${id}`, data)
 
 export const editUser = updatedUser => putData(`${API_ENDPOINT}/users`, updatedUser)

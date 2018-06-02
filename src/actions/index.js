@@ -70,9 +70,9 @@ export const deleteUserStart = id => ({ type: DELETE_USER_START, id })
 export const deleteUserSuccess = id => ({ type: DELETE_USER_SUCCESS, id })
 export const deleteUserFailure = id => ({ type: DELETE_USER_FAILURE, id })
 
-export const editEventStart = id => ({ type: EDIT_EVENT_START, id })
-export const editEventSuccess = id => ({ type: EDIT_EVENT_SUCCESS, id })
-export const editEventFailure = id => ({ type: EDIT_EVENT_FAILURE, id })
+export const editEventStart = (id, event) => ({ type: EDIT_EVENT_START, id, event })
+export const editEventSuccess = (id, event) => ({ type: EDIT_EVENT_SUCCESS, id, event })
+export const editEventFailure = (id, error) => ({ type: EDIT_EVENT_FAILURE, id, error })
 
 export const editUserStart = id => ({ type: EDIT_USER_START, id })
 export const editUserSuccess = id => ({ type: EDIT_USER_SUCCESS, id })

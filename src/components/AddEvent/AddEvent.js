@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { compose } from "ramda"
 import { Field, reduxForm } from "redux-form"
-import { maxLength, minLength, phoneNumber, required } from "../../helpers/FieldLevelValidationForm"
+import { maxLength, minLength, required } from "../../helpers/FieldLevelValidationForm"
 //
 import { addEvent } from "../../actions/add"
 //
@@ -15,7 +15,7 @@ import block from "../../helpers/BEM"
 import { withRouter } from "react-router-dom"
 const b = block("AddEvent")
 
-const AddEvent = ({ handleSubmit, submitting }) => (
+export const AddEvent = ({ handleSubmit, submitting, id }) => (
   <Form className={b()} onSubmit={handleSubmit}>
     {submitting && <div className={b("carpet")} />}
     <header>
@@ -24,7 +24,7 @@ const AddEvent = ({ handleSubmit, submitting }) => (
           <span className={b("breadcrumb-link")}>Job details</span>
           <span className={b("breadcrumb-link")}>Event Details</span>
         </span>
-        Add event
+        {id ? "Edit event" : "Add event"}
       </h1>
 
       <h2 className={b("title", ["sub-navigation"])}>
@@ -33,12 +33,12 @@ const AddEvent = ({ handleSubmit, submitting }) => (
       </h2>
     </header>
 
-    <Field name="name" label="Event Name" component={Form.Input} validate={[required, maxLength(20), minLength(2)]} />
+    <Field name="name" label="Event Name" component={Form.Input} validate={[required, maxLength(100), minLength(2)]} />
     <Field
       name="organization"
       label="Organization Name"
       component={Form.Input}
-      validate={[required, maxLength(15), minLength(2)]}
+      validate={[required, maxLength(100), minLength(2)]}
     />
     <Field name="category" type="select" label="Category" component={Form.Select} />
     <Field name="time" label="Time" component={Form.Time} />
@@ -69,32 +69,28 @@ const AddEvent = ({ handleSubmit, submitting }) => (
     <Field name="photo" label="Upload Photo" component={Form.PhotoUpload} />
 
     <Form.FieldSet>
-      <Form.Button>Add Event</Form.Button>
+      <Form.Button>{id ? "Edit event" : "Add event"}</Form.Button>
     </Form.FieldSet>
   </Form>
 )
 
 export default compose(
   withRouter,
-  connect(
-    state => ({
-      addEventForm: state.form.addEventForm
-    }),
-    { addEvent }
-  ),
+  connect(null, { processEvent: addEvent }),
+
   reduxForm({
-    initialValues: {
-      name: "Повстання роботів",
-      organization: "Skynet",
-      location: "Жмеринка",
-      time: new Date(),
-      photo: "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      description: "Настав день помсти! Шкіряні ублюдки!!",
-      contacts: "we_are_killing_humans@skynet.com"
-    },
+    // initialValues: {
+    //   name: "Повстання роботів",
+    //   organization: "Skynet",
+    //   location: "Жмеринка",
+    //   time: new Date(),
+    //   photo: "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
+    //   description: "Настав день помсти! Шкіряні ублюдки!!",
+    //   contacts: "we_are_killing_humans@skynet.com"
+    // },
     form: "addEventForm",
-    onSubmit: async (data, dispatch, { addEvent, history }) => {
-      const action = await addEvent(data)
+    onSubmit: async (data, dispatch, { processEvent, history }) => {
+      const action = await processEvent(data)
       history.push("/events/" + action.id)
     }
   })

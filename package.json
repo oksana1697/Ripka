@@ -42,6 +42,7 @@
     "react-js-pagination": "^3.0.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
+    "recompose": "^0.27.1",
     "redux": "^4.0",
     "redux-form": "^7.3.0",
     "redux-thunk": "^2.2.0",
