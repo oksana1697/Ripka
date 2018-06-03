@@ -1,9 +1,9 @@
 import React from "react"
-import { Link, NavLink, Route } from "react-router-dom"
 //
-import EventsSearch from "./EventsSearch"
-import UsersSearch from "./UsersSearch"
-import UserMenu from "../UserMenu/UserMenu"
+import { Link, NavLink, Route } from "react-router-dom"
+import { withEventsSearch, withUsersSearch } from "../HOC/withSearch"
+import UserMenu from "../UserMenu"
+import Search from "../Search"
 //
 import "./Navigation.scss"
 import block from "../../helpers/BEM"
@@ -27,8 +27,8 @@ const Navigation = () => (
       <button className={b("button")}>CREATE AN EVENT</button>
     </Link>
 
-    <Route exact path="/users" component={UsersSearch} />
-    <Route exact path="/events" component={EventsSearch} />
+    <Route exact path="/users" component={withUsersSearch(Search)} />
+    <Route exact path="/events" component={withEventsSearch(Search)} />
     <UserMenu />
   </div>
 )

@@ -2,15 +2,7 @@
   display: flex;
   background: rgb(64, 196, 207);
   align-items: center;
-  &__carpet {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.5);
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
-  }
+
   &__link {
     font-family: "PT Serif";
     font-size: 1rem;
@@ -24,49 +16,6 @@
     }
     &__active {
       border-bottom: 1px dashed;
-    }
-  }
-
-  &__search-bar {
-    margin-left: 1em;
-    display: inline-block;
-    position: relative;
-    &:hover &_filter_content {
-      display: block;
-    }
-    &_filter {
-      cursor: pointer;
-      padding-left: 0.7rem;
-      font-size: 1rem;
-      font-weight: 500;
-      color: #626977;
-      height: 2.6rem;
-      width: 18rem;
-      border-radius: 3px;
-      border: 1px solid #ccc;
-      line-height: 2.6rem;
-      &_content {
-        overflow-y: auto;
-        overflow-x: hidden;
-        max-height: 200px;
-        display: none;
-        position: absolute;
-        background-color: white;
-        min-width: 300px;
-        box-shadow: 0px 2px 4px 0px #1696a8;
-        z-index: 1;
-        font-size: 1em;
-        &_item {
-          padding: 1em 2em;
-          text-decoration: none;
-          display: block;
-          color: #393c44;
-        }
-        &_item:hover {
-          cursor: pointer;
-          background-color: #ddd;
-        }
-      }
     }
   }
   &__button {
