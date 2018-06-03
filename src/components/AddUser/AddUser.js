@@ -46,6 +46,8 @@ class AddUser extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const { ...user } = this.props.addUserForm.values
+
+
     const { location } = this.state
     const { addUser } = this.props
     const fullUser = { ...user, location }
