@@ -32,4 +32,4 @@ export const deleteUser = async id => await deleteData(`${API_ENDPOINT}/users`, 
 
 export const editEvent = (id, data) => putData(`${API_ENDPOINT}/events/${id}`, data)
 
-export const editUser = updatedUser => putData(`${API_ENDPOINT}/users`, updatedUser)
+export const editUser = (id, data) => putData(`${API_ENDPOINT}/users/${id}`, data)

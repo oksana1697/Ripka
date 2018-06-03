@@ -1,4 +1,4 @@
-.user-details {
+.UserDetails{
   &__title {
     background-color: #fafafa;
     color: #2c374a;
@@ -188,63 +188,43 @@
     }
   }
 
+  //&__icon{
+  //  margin: 0 0.5em;
+  //  display: inline-block;
+  //  //vertical-align: middle;
+  //  width: 20px;
+  //  height: 20px;
+  //  background-repeat: no-repeat;
+  //
+  //  &_flag{
+  //    background: url("/icons/flag.svg");
+  //  }
+  //  &_heard{
+  //    background: url("/icons/heart.svg");
+  //  }
+  //  &_contact{
+  //    background: url("/icons/contact.svg");
+  //  }
+  //  &_categories{
+  //    background: url("/icons/categories.svg");
+  //  }
+  //  &_paper{
+  //    background: url("/icons/paper.svg");
+  //  }
+  //  &_location{
+  //    content: url("/icons/location.svg");
+  //  }
+  //  &_edit{
+  //    content: url("/icons/edit.svg");
+  //  }
+  //  &_delete{
+  //    content: url("/icons/delete.svg");
+  //  }
+  //  &_calendar{
+  //    content: url("/icons/calendar.svg");
+  //  }
+  //}
 
 }
 
-.user-details__icon-flag {
-    margin-right: 5px;
-    display: inline-block;
-    vertical-align: middle;
-    background: url("/icons/flag.svg");
-}
 
-.user-details__icon-heard {
-    margin-right: 5px;
-    display: inline-block;
-    vertical-align: middle;
-    background: url("/icons/heart.svg");
-}
-
-.user-details__icon-contact {
-  width: 23px;
-  height: 23px;
-  display: inline-block;
-  vertical-align: middle;
-    content: url("/icons/contact.svg");
-}
-.user-details__icon-categories {
-  content: url("/icons/categories.svg");
-}
-
-
-.user-details__icon-paper {
-  width: 23px;
-  height: 23px;
-  display: inline-block;
-  vertical-align: middle;
-    content: url("/icons/paper.svg");
-}
-.user-details__icon-location {
-  width: 23px;
-  height: 23px;
-  display: inline-block;
-  vertical-align: middle;
-  content: url("/icons/location.svg");
-}
-
-.user-details__icon-edit{
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-  content: url("/icons/edit.svg");
-}
-.user-details__icon-delete{
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-  content: url("/icons/delete.svg");
-}
-
-.user-details__icon-calendar {
-    content: url("/icons/calendar.svg");
-}

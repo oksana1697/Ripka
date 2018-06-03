@@ -89,22 +89,6 @@
       "category": "Nonprofit"
     },
     {
-      "name": "gt",
-      "organization": "gg",
-      "time": "2018-05-09T21:00:00.000Z",
-      "contacts": "+380932230726",
-      "description": "e",
-      "photo": "mwpuznujtlnwpqulbcas",
-      "location": "",
-      "id": 12
-    },
-    {
-      "id": 13
-    },
-    {
-      "id": 14
-    },
-    {
       "name": "Повстання роботів",
       "organization": "Skynet",
       "location": "Жмеринка",
@@ -138,126 +122,6 @@
       "name": "Повстання роботів",
       "organization": "Skynet",
       "location": "Жмеринка",
-      "time": "2018-06-02T16:38:52.262Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 18
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:39:32.245Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 19
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:40:13.006Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 20
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:43:00.323Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 21
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:44:50.669Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 22
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:45:57.602Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 23
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:47:49.117Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 24
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:49:19.780Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 25
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:50:12.718Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 26
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:51:27.516Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 27
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:52:58.538Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 28
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:53:40.775Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 29
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
       "time": "2018-06-02T16:55:51.406Z",
       "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
       "description": "Настав день помсти! Шкіряні ублюдки!!",
@@ -275,102 +139,28 @@
       "id": 31
     },
     {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:59:23.805Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 32
+      "name": "Прибирання парку",
+      "organization": "Зробимо Світ Чистіше",
+      "time": "2018-06-04T21:00:00.000Z",
+      "contacts": "+380931234567",
+      "description": "Супер подія! Супер подія!",
+      "id": 41
     },
     {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T17:00:03.940Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 33
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T17:00:30.724Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 34
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T17:05:58.068Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 35
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T17:05:58.068Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 36
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T17:13:33.551Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 37
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T17:18:31.252Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 38
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T17:20:43.214Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 39
-    },
-    {
-      "name": "Повстання злих роботів.",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T18:44:08.479Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 40
+      "name": "Шукаємо IT генія для адміністрування офіційного веб сайту Грузинського Легіону",
+      "organization": "Грузинський Національний Легіон",
+      "time": "2018-06-04T21:00:00.000Z",
+      "contacts": "+380932230726",
+      "description": "Дорогі наші ВОЛОНТЕРИ!\n\n\nЗвертаємося саме до тих із вас, хто володіє знаннями та досвідом в сфері IT!\n\nАдже зараз ми розпочинаємо пошук IT генія для допомоги в оновленні нашого офіційного веб сайту www.georgianlegion.com.ua \n\nТакож шукаємо журналістів та помічників у веденні наших офіційних сторінок у соціальних мережах Facebook, G+, Instagram, Twitter, YouTube.\n\nДля тих, хто впевнений в своїх силах, очікуємо ваших листів чи резюме в директ меседж на офіційній сторінці Грузинського Національного Легіону\n\nу Facebook https://www.facebook.com/GeorgianNationalLegion/ чи на email georgianlegion2605@gmail.com!\n\n",
+      "id": 42
     }
   ],
   "users": [
     {
-      "name": "Victor Frankl",
+      "name": "Victor Franklllllll",
       "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
       "contacts": "+38098678594",
-      "interests": "Murders",
+      "interests": "Murdersssssssssssssssssssssssss",
       "location": "Odesa, Ukraine",
       "photo": "njhniezzny9ja9xmlfun",
       "nextProps": {

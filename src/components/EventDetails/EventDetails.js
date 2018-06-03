@@ -12,7 +12,7 @@ import PageNotFound from "../PageNotFound/PageNotFound"
 import "../../styles/common.scss"
 import "../Navigation/Navigation.scss"
 import "../../styles/map.scss"
-import "../AddUser/AddUser.scss"
+import "../UserAdd/UserAdd.scss"
 import "./EventDetails.scss"
 
 import block from '../../helpers/BEM'

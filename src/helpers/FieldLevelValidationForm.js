@@ -8,7 +8,7 @@ export const maxLength = memoize(max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined
 )
 
-export const minLength = memoize(min => value => (value && value.length < min ? `The name is too short` : undefined))
+export const minLength = memoize(min => value => (value && value.length < min ? `It is too short` : undefined))
 
 // value && value.length < min ? `Must be ${min} characters or more` : undefined
 export const number = memoize(value => (value && isNaN(Number(value)) ? "Must be a number" : undefined))

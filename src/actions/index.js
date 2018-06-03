@@ -59,7 +59,7 @@ export const addEventSuccess = (id, event) => ({ type: ADD_EVENT_SUCCESS, id, ev
 export const addEventFailure = error => ({ type: ADD_EVENT_FAILURE, error })
 
 export const addUserStart = users => ({ type: ADD_USER_START, users })
-export const addUserSuccess = (ids, users) => ({ type: ADD_USER_SUCCESS, ids, users })
+export const addUserSuccess = (id, user) => ({ type: ADD_USER_SUCCESS, id, user })
 export const addUserFailure = error => ({ type: ADD_USER_FAILURE, error })
 
 export const deleteEventStart = id => ({ type: DELETE_EVENT_START, id })
@@ -74,9 +74,9 @@ export const editEventStart = (id, event) => ({ type: EDIT_EVENT_START, id, even
 export const editEventSuccess = (id, event) => ({ type: EDIT_EVENT_SUCCESS, id, event })
 export const editEventFailure = (id, error) => ({ type: EDIT_EVENT_FAILURE, id, error })
 
-export const editUserStart = id => ({ type: EDIT_USER_START, id })
-export const editUserSuccess = id => ({ type: EDIT_USER_SUCCESS, id })
-export const editUserFailure = id => ({ type: EDIT_USER_FAILURE, id })
+export const editUserStart = (id, user) => ({ type: EDIT_USER_START, id, user })
+export const editUserSuccess = (id, user) => ({ type: EDIT_USER_SUCCESS, id, user })
+export const editUserFailure = (id, error) => ({ type: EDIT_USER_FAILURE, id, error })
 
 export const searchUsersSuccess = foundUsers => ({ type: SEARCH_USERS_SUCCESS, foundUsers })
 export const searchUsersStart = id => ({ type: SEARCH_USERS_START, id })

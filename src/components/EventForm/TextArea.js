@@ -1,5 +1,5 @@
 import React from "react"
-import "../Form"
+import "./"
 import block from "../../helpers/BEM"
 import FieldSet from "./FieldSet"
 const b = block("Form")
