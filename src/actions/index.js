@@ -59,7 +59,7 @@ export const addEventSuccess = (id, event) => ({ type: ADD_EVENT_SUCCESS, id, ev
 export const addEventFailure = error => ({ type: ADD_EVENT_FAILURE, error })
 
 export const addUserStart = users => ({ type: ADD_USER_START, users })
-export const addUserSuccess = (ids, users) => ({ type: ADD_USER_SUCCESS, ids, users })
+export const addUserSuccess = (id, user) => ({ type: ADD_USER_SUCCESS, id, user })
 export const addUserFailure = error => ({ type: ADD_USER_FAILURE, error })
 
 export const deleteEventStart = id => ({ type: DELETE_EVENT_START, id })

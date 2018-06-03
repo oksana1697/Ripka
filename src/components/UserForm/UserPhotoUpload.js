@@ -1,11 +1,11 @@
 import React from "react"
 import ImageUpload from "../PhotoUpload"
-import FieldSet from "./FieldSet"
+import FieldSet from "./UserFieldSet"
 
-const PhotoUpload = ({ label, meta }) => (
+const UserPhotoUpload = ({ label, meta }) => (
   <FieldSet label={label} meta={meta}>
     <ImageUpload photo={URL => this.props.change("photo", URL)} />
   </FieldSet>
-)
+);
 
-export default PhotoUpload
+export default UserPhotoUpload

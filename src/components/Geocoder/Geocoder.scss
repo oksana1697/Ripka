@@ -2,11 +2,15 @@
   position: relative;
 
   &__input {
+    width: 100%;
+    box-sizing: border-box;
     font-family: inherit;
-    font-size: 1rem;
-    height: 2rem;
+    border-radius: 4px;
+    border: 1px solid #b3b3b3;
     line-height: 2rem;
-    padding: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    outline: 0;
   }
 
   &__results {
@@ -16,6 +20,7 @@
     top: 2.5rem;
     box-shadow: 0px 1px 1px 0px Black;
     border-radius: 3px;
+    list-style: none;
 
     &_loading {
       background: #ccc;

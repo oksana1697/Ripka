@@ -2,7 +2,7 @@ import { connect } from "react-redux"
 
 import { editEvent } from "../../actions/edit"
 
-import { AddEvent } from "../AddEvent/AddEvent"
+import { EventAdd } from "../EventAdd/EventAdd"
 
 import { reduxForm } from "redux-form"
 import { withRouter } from "react-router-dom"
@@ -29,4 +29,4 @@ export default compose(
       history.push("/events/" + action.id)
     }
   })
-)(AddEvent)
+)(EventAdd)

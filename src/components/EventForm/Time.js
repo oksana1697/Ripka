@@ -1,7 +1,7 @@
 import React from "react"
 import DateTimePicker from "react-datetime-picker"
 
-import "../AddEvent/AddEvent.scss"
+import "../EventAdd/EventAdd.scss"
 import block from "../../helpers/BEM"
 import FieldSet from "./FieldSet"
 

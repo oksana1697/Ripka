@@ -2,7 +2,7 @@
   "events": [
     {
       "id": 3,
-      "name": "Повстання людей!",
+      "name": "Повстання dnnnnnnnnnn",
       "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
@@ -363,6 +363,14 @@
       "description": "Настав день помсти! Шкіряні ублюдки!!",
       "contacts": "we_are_killing_humans@skynet.com",
       "id": 40
+    },
+    {
+      "name": "fghj",
+      "organization": "fghjk",
+      "time": "2018-06-06T07:10:00.000Z",
+      "contacts": "1234567890",
+      "description": "qwertyuiopqwertyuiop",
+      "id": 41
     }
   ],
   "users": [
@@ -443,6 +451,23 @@
       "photo": "it3abc7o2ivwj9c3pzou",
       "location": "Dnipro, Dnipropetrovsk Oblast, Ukraine",
       "id": 5
+    },
+    {
+      "name": "hjjjjj",
+      "email": "j@ih.com",
+      "contacts": "1234567890",
+      "description": "bnm b n ",
+      "interests": "vbnm,",
+      "location": "",
+      "id": 6
+    },
+    {
+      "name": "Olen",
+      "email": "olenka.notfaor.skibinska@gmail.com",
+      "contacts": "1234567890",
+      "description": "fghfghjklcvghjklfghfghjklcvghjkl",
+      "interests": "fghfghjklcvghjklfghfghjklcvghjkl",
+      "id": 7
     }
   ]
 }

@@ -2,7 +2,7 @@ import * as api from "../api/index"
 import { normalize } from "normalizr"
 
 import { addEventFailure, addEventStart, addEventSuccess, addUserFailure, addUserStart, addUserSuccess } from "./index"
-import { event as eventSchema, arrayOfUsers } from "./schema"
+import { event as eventSchema, user as userSchema } from "./schema"
 
 export const addEvent = events => async dispatch => {
   const tempEvent = { ...events }
@@ -28,17 +28,25 @@ export const addEvent = events => async dispatch => {
 }
 
 export const addUser = users => async dispatch => {
-  const tempUser = { ...users }
-  dispatch(addUserStart(users))
-  try {
-    let users = await api.addUser(tempUser)
-    if (!users.errors) {
-      users = normalize([users], arrayOfUsers)
-      dispatch(addUserSuccess(users.result, users.entities.users))
-    } else {
-      dispatch(addUserFailure(users.error))
+    const tempUser = { ...users }
+    dispatch(addUserStart(users))
+    try {
+        let user = await api.addUser(tempUser)
+
+        if (!user.errors) {
+            user = normalize([user], [userSchema])
+            const userId = user.result[0]
+            user = user.entities.users[userId]
+
+            const action = addUserSuccess(userId, user)
+            dispatch(action)
+
+            return action
+        } else {
+            return dispatch(addUserFailure(user.error))
+        }
+    } catch (error) {
+        return dispatch(addUserFailure(error))
     }
-  } catch (error) {
-    dispatch(addUserFailure(error))
-  }
 }
+
