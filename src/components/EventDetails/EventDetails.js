@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, withRouter } from "react-router-dom"
 // Todo: update css - remove additional
 import moment from "moment"
 
@@ -8,13 +8,13 @@ import { CLOUDINARY_URL } from "../../api/index"
 import MapContainer from "../MapContainer/MapContainer"
 import PageNotFound from "../PageNotFound/PageNotFound"
 
-import "../../styles/common.scss"
-import "../Navigation/Navigation.scss"
 import "../../styles/map.scss"
-import "../ManipulateUser/ManipulateUser.scss"
 import "./EventDetails.scss"
 
 import block from "../../helpers/BEM"
+import { compose } from "ramda"
+import withEvent from "../HOC/withEvent"
+import { withProps } from "recompose"
 
 const b = block("EventDetails")
 const formatDate = date => new Date(moment(date).format()).toDateString()
@@ -108,4 +108,7 @@ class EventDetails extends Component {
     )
   }
 }
-export default EventDetails
+
+const enhance = compose(withRouter, withProps(({ match }) => ({ id: Number(match.params.id) })), withEvent)
+
+export default enhance(EventDetails)

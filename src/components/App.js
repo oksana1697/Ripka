@@ -5,7 +5,6 @@ import EventAdd from "./EventAdd/EventAdd"
 import EventsList from "./EventsList"
 import VisibleUserList from "./VisibleUserList"
 
-import EventDetailsConnector from "./EventDetailsConnector"
 import EventEdit from "./EventEdit/EventEdit"
 import ManipulateUser from "./ManipulateUser"
 import UserDetailsConnector from "./UserDetailsConnector"
@@ -17,6 +16,7 @@ import { createUser, editUser } from "./HOC/user"
 import Landing from "./Landing"
 
 import PageNotFound from "./PageNotFound/PageNotFound"
+import EventDetails from "./EventDetails"
 
 const App = () => (
   <>
@@ -24,7 +24,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Landing} />
       <Route exact path="/users" component={VisibleUserList} />
-      <Route exact path="/events" component={() => <EventsList/>} />
+      <Route exact path="/events" component={() => <EventsList />} />
 
       <Route exact path="/addevent" component={EventAdd} />
       <Route exact path="/events/edit/:id" component={EventEdit} />
@@ -32,9 +32,7 @@ const App = () => (
       <Route exact path="/adduser" component={createUser(ManipulateUser)} />
       <Route exact path="/users/edit/:id" component={editUser(ManipulateUser)} />
 
-      <Route exact path="/events/:id">
-        {props => <EventDetailsConnector id={props.match.params.id} onSuccess={() => props.history.push("/events")} />}
-      </Route>
+      <Route exact path="/events/:id" component={EventDetails} />
 
       <Route exact path="/users/:id">
         {props => <UserDetailsConnector id={props.match.params.id} onSuccess={() => props.history.push("/users")} />}

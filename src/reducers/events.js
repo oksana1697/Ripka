@@ -10,8 +10,7 @@ import {
   FETCH_EVENTS_START,
   DELETE_EVENT_SUCCESS,
   EDIT_EVENT_SUCCESS,
-  SEARCH_EVENTS_SUCCESS,
-  SEARCH_EVENTS_FAILURE
+  SEARCH_EVENTS_SUCCESS
 } from "../actions/actionTypes"
 import { uniq } from "ramda"
 
