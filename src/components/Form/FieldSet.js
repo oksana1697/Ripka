@@ -6,13 +6,14 @@ const b = block("Form")
 
 const FieldSet = ({ children, label, meta = {} }) => (
   <div className={b("field-set")}>
-    <label className={b("label-field")}>{label}</label>
-    <div className={b("input-field")}>
+    {label && <label className={b("label-field")}>{label}</label>}
+
+    <div className={b("input-field", { single: !label })}>
       {children}
 
       {(meta.touched && //prettier-ignore
         (meta.error && <span className={b("error")}>{meta.error}</span>)) ||
-      (meta.warning && <span className={b("warning")}>{meta.warning}</span>)}
+        (meta.warning && <span className={b("warning")}>{meta.warning}</span>)}
     </div>
   </div>
 )

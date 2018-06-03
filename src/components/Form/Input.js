@@ -4,9 +4,9 @@ import "./Form.scss"
 import block from "../../helpers/BEM"
 const b = block("Form")
 
-const Input = ({ input, label, type, meta }) => (
+const Input = ({ input, placeholder, label, type, meta }) => (
   <FieldSet label={label} meta={meta}>
-    <input {...input} placeholder={label} type={type} className={b("input")} />
+    <input {...input} placeholder={placeholder} type={type} className={b("input")} />
   </FieldSet>
 )
 

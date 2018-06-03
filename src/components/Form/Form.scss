@@ -27,6 +27,11 @@
     position: relative;
     flex-basis: calc(100% - var(--field-width));
     width: calc(100% - var(--field-width));
+
+    &_single {
+      flex-basis: 100%;
+      width: 100%;
+    }
   }
 
   &__input {
