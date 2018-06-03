@@ -1,14 +1,17 @@
 import React, { Component } from "react"
 import { NavLink } from "react-router-dom"
 
-import "../../styles/user-details.scss"
-import "../User/User.scss"
-import "../../styles/common.scss"
-import "../../styles/map.scss"
-
 import { CLOUDINARY_URL } from "../../api/index"
 import MapContainerUsers from "../MapContainer/MapContainerUsers"
 import PageNotFound from "../PageNotFound/PageNotFound"
+
+import "./UserDetails.scss"
+import "../User/User.scss"
+import "../../styles/common.scss"
+import "../../styles/map.scss"
+import block from '../../helpers/BEM'
+
+const b = block('UserDetails')
 
 class UserDetails extends Component {
   render() {
@@ -18,20 +21,20 @@ class UserDetails extends Component {
       return <PageNotFound />
     }
     return (
-      <div>
-        <div className="user-details__main-container">
-          <div className="user-details__subnav">
-            <div className="user-details__left">
-              <div className="user-details__edit">
-                <img alt="" className="event-details__icon-edit" />
+      <div className={b()}>
+        <div className={b("main-container")}>
+          <div className={b("subnav")}>
+            <div className={b("left")}>
+              <div className={b("edit")}>
+                <span className={b("icon", ['edit'])} />
                 <NavLink to={"/users/edit/" + user.id}>
-                  <button className="user-details__btn">Edit user</button>
+                  <button className={b("btn")}>Edit user</button>
                 </NavLink>
               </div>
-              <div className="user-details__delete">
-                <img alt="" className="event-details__icon-delete" />
+              <div className={b("delete")}>
+                <span className={b("icon",["delete"])} />
                 <button
-                  className="user-details__btn"
+                  className={b("btn")}
                   onClick={() => {
                     props.deleteUser(user.id)
                     this.props.onSuccess()
@@ -42,59 +45,59 @@ class UserDetails extends Component {
               </div>
             </div>
           </div>
-          <div className="user-details__big">
+          <div className={b("big")}>
             <img
               alt=""
-              className="user-details__photo"
+              className={b("photo")}
               src={`${CLOUDINARY_URL}w_170,h_170,q_90,c_fill,g_faces/${user.photo}.jpg`}
             />
-            <h1 className="user-details__name">{user.name}</h1>
+            <h1 className={b("name")}>{user.name}</h1>
 
-            <div className="user-details__block-row">
-              <button className="user-details__button">
-                <img alt="" className="user-details__icon-heard" />
-                <span className="user-details__button-descr">Bookmark</span>
+            <div className={b("block-row")}>
+              <button className={b("button")}>
+                <span className={b("icon", ["heard"])} />
+                <span className={b("button-descr")}>Bookmark</span>
               </button>
-              <button className="user-details__button">
-                <img alt="" className="user-details__icon-flag" />
-                <span className="user-details__button-descr">Report</span>
+              <button className={b("button")}>
+                <span className={b("icon",["flag"])} />
+                <span className={b("button-descr")}>Report</span>
               </button>
             </div>
           </div>
-          <div className="user-details__info">
-            <div className="user-details__in">
-              <div className="user-details__title-info">
-                <img alt="" className="user-details__icon-paper" />
-                <h4 className="user-details__subt">About {user.name}</h4>
-                <hr className="user-details__hr" />
+          <div className={b("info")}>
+            <div className={b("in")}>
+              <div className={b("title-info")}>
+                <span className={b("icon", ["paper"])} />
+                <h4 className={b("subt")}>About {user.name}</h4>
+                <hr className={b("hr")} />
               </div>
-              <div className="user-details__info-cont">
-                <h6 className="user-details__story-title">Story</h6>
-                <p className="user-details__story">{user.description}</p>
-              </div>
-            </div>
-            <div className="user-details__in">
-              <div className="user-details__title-info">
-                <img alt="" className="user-details__icon-contact" />
-                <h4 className="user-details__subt">Contacts</h4>
-                <hr className="user-details__hr" />
-              </div>
-              <div className="user-details__info-cont">
-                <h6 className="user-details__story-title">Phone number</h6>
-                <p className="user-details__story">{user.contacts}</p>
+              <div className={b("info-cont")}>
+                <h6 className={b("story-title")}>Story</h6>
+                <p className={b("story")}>{user.description}</p>
               </div>
             </div>
-            <div className="user-details__in">
-              <div className="user-details__title-info">
-                <img alt="" className="user-details__icon-location" />
-                <h4 className="user-details__subt">Location</h4>
-                <hr className="user-details__hr" />
+            <div className={b("in")}>
+              <div className={b("title-info")}>
+                <span className={b("icon", ["contact"])} />
+                <h4 className={b("subt")}>Contacts</h4>
+                <hr className={b("hr")} />
               </div>
-              <div className="user-details__info-cont">
-                <h6 className="user-details__story-title user-details__story-title_location">
+              <div className={b("info-cont")}>
+                <h6 className={b("story-title")}>Phone number</h6>
+                <p className={b("story")}>{user.contacts}</p>
+              </div>
+            </div>
+            <div className={b("in")}>
+              <div className={b("title-info")}>
+                <span className={b("icon", ["location"])} />
+                <h4 className={b("subt")}>Location</h4>
+                <hr className={b("hr")} />
+              </div>
+              <div className={b("info-cont")}>
+                <h6 className={b("story-title", ["location"])}>
                   City, country
                 </h6>
-                <p className="user-details__story user-details__story_location">{user.location}</p>
+                <p className={b("story", ["location"])}>{user.location}</p>
                 <div className="map__container">
                   <MapContainerUsers users={[user]} />
                 </div>
