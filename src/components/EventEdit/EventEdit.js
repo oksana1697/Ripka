@@ -17,15 +17,15 @@ export default compose(
   connect(
     null,
     //prettier-ignore
-    (dispatch, { id }) => ({ processEvent: data => dispatch(editEvent(id, data)) })
+    { processEvent: editEvent}
   ),
 
   mapProps(props => ({ initialValues: props.event, ...props })),
 
   reduxForm({
     form: "addEventForm",
-    onSubmit: async (data, dispatch, { processEvent, history }) => {
-      const action = await processEvent(data)
+    onSubmit: async (data, dispatch, { id, processEvent, history }) => {
+      const action = await processEvent(id, data)
       history.push("/events/" + action.id)
     }
   })
