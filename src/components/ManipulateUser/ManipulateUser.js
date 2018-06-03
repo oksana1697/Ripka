@@ -1,22 +1,15 @@
 import React from "react"
-import { connect } from "react-redux"
-import { compose } from "ramda"
-import { Field, reduxForm } from "redux-form"
-
 import { maxLength, required, email_check, minLength } from "../../helpers/FieldLevelValidationForm"
 
-import { addUser } from "../../actions/add"
-
-import Geocoder from "../Geocoder/Geocoder"
+import { Field } from "redux-form"
 import Form from "../Form"
+import Geocoder from "../Geocoder/Geocoder"
 
-import "./UserAdd.scss"
+import "./ManipulateUser.scss"
 import block from "../../helpers/BEM"
-import { withRouter } from "react-router-dom"
+const b = block("ManipulateUser")
 
-const b = block("UserAdd")
-
-export const UserAdd = ({ handleSubmit, submitting, id }) => (
+const ManipulateUser = ({ handleSubmit, submitting, id }) => (
   <Form className={b()} onSubmit={handleSubmit}>
     {submitting && <div className={b("carpet")} />}
     <div className={b("container")}>
@@ -52,15 +45,4 @@ export const UserAdd = ({ handleSubmit, submitting, id }) => (
   </Form>
 )
 
-export default compose(
-  withRouter,
-  connect(null, { processUser: addUser }),
-
-  reduxForm({
-    form: "addUserForm",
-    onSubmit: async (data, dispatch, { processUser, history }) => {
-      const action = await processUser(data)
-      history.push("/users/" + action.id)
-    }
-  })
-)(UserAdd)
+export default ManipulateUser
