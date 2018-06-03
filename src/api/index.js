@@ -8,7 +8,8 @@ export const fetchPaginateUsers = page => getData(`${API_ENDPOINT}/users?_page=$
 
 export const fetchPaginateEvents = page => getData(`${API_ENDPOINT}/events?_page=${page}&_limit=5`)
 
-export const findEvents = filter => getData(`${API_ENDPOINT}/events?q=${filter}`)
+export const findEvents = (query, offset, count) =>
+  getData(`${API_ENDPOINT}/events?q=${query}&_page=${Math.floor(offset / count) + 1}&_limit=${count}`)
 
 export const findUsers = filter => getData(`${API_ENDPOINT}/users?q=${filter}`)
 

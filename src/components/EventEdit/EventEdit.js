@@ -7,11 +7,12 @@ import { EventAdd } from "../EventAdd/EventAdd"
 import { reduxForm } from "redux-form"
 import { withRouter } from "react-router-dom"
 import { compose } from "ramda"
-import { mapProps } from "recompose"
+import { mapProps, withProps } from "recompose"
 import withEvent from "../HOC/withEvent"
 
 export default compose(
   withRouter,
+  withProps(({ match }) => ({ id: Number(match.params.id) })),
   withEvent,
 
   connect(

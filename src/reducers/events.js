@@ -17,6 +17,15 @@ import { uniq } from "ramda"
 
 export const byId = (state = {}, action) => {
   switch (action.type) {
+    case SEARCH_EVENTS_SUCCESS: {
+      const { data } = action
+
+      return {
+        ...state,
+        ...data.entities.events
+      }
+    }
+
     case ADD_EVENT_SUCCESS: {
       const { id, event } = action
       return {
@@ -83,11 +92,6 @@ export const allIds = (state = [], action) => {
 }
 const searchEvents = (state = [], action) => {
   switch (action.type) {
-    case SEARCH_EVENTS_SUCCESS:
-      return Object.keys(action.foundEvents).map(key => action.foundEvents[key])
-
-    case SEARCH_EVENTS_FAILURE:
-      return []
     default:
       return state
   }
@@ -122,14 +126,49 @@ const currentPage = (state = 0, action) => {
       return state
   }
 }
+
+const searchResults = (state = {}, action) => {
+  switch (action.type) {
+    case SEARCH_EVENTS_SUCCESS: {
+      const { query, offset, count, data } = action
+
+      const result = state[query] || []
+      for (let i = 0; i < count; i++) {
+        result[offset + i] = data.result[i]
+      }
+
+      return {
+        ...state,
+        [query]: result
+      }
+    }
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
   byId,
   allIds,
   isFetching,
 
   searchEvents,
-  currentPage
+  currentPage,
+
+  searchResults
 })
+
+export const getSearchEventsResult = (offset, count, query, state) => {
+  const search = state.searchResults[query] || []
+
+  let result = []
+  for (let i = 0; i < count; i++) {
+    result[i] = search[offset + i]
+  }
+  result = result.filter(a => a)
+
+  return result.length !== 0 ? result : null
+}
 
 export const getEventsSearchResults = state => state.searchEvents
 export const getAllAvailableEvents = state => state.allIds

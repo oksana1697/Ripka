@@ -2,7 +2,7 @@ import React from "react"
 
 import EventAdd from "./EventAdd/EventAdd"
 
-import VisibleEventList from "./VisibleEventList"
+import EventsList from "./EventsList"
 import VisibleUserList from "./VisibleUserList"
 
 import EventDetailsConnector from "./EventDetailsConnector"
@@ -24,7 +24,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Landing} />
       <Route exact path="/users" component={VisibleUserList} />
-      <Route exact path="/events" component={VisibleEventList} />
+      <Route exact path="/events" component={() => <EventsList/>} />
 
       <Route exact path="/addevent" component={EventAdd} />
       <Route exact path="/events/edit/:id" component={EventEdit} />

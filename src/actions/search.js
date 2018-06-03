@@ -1,43 +1,43 @@
 import {
-  fetchEventFailure,
   fetchUsersFailure,
   searchEventsFailure,
   searchEventsStart,
   searchEventsSuccess,
   searchUsersFailure,
   searchUsersStart,
-  searchUsersSuccess,
-} from './index';
-import {arrayOfEvents, arrayOfUsers} from './schema';
-import { normalize } from 'normalizr';
-import * as api from '../api/index';
+  searchUsersSuccess
+} from "./index"
+import { arrayOfUsers, event as eventSchema } from "./schema"
+import { normalize } from "normalizr"
+import * as api from "../api/index"
 
-export const searchEvents = filter =>async dispatch => {
-  dispatch(searchEventsStart(filter));
+export const searchEvents = (query, offset, count) => async dispatch => {
+  dispatch(searchEventsStart(query, offset, count))
+
   try {
-    let events = await api.findEvents(filter);
-    if (!events.error) {
-      events = normalize(events, arrayOfEvents);
-      dispatch(searchEventsSuccess(events.entities.events));
-    } else {
-      dispatch(searchEventsFailure(events.error));
-    }
-  } catch (error) {
-    fetchEventFailure(error);
+    const payload = await api.findEvents(query, offset, count)
+    const events = normalize(payload, [eventSchema])
+    const action = searchEventsSuccess(query, offset, count, events)
+    dispatch(action)
+    return action
+  } catch (e) {
+    const action = searchEventsFailure(query, offset, count, e)
+    dispatch(action)
+    return action
   }
-};
+}
 
 export const searchUsers = filter => async dispatch => {
-  dispatch(searchUsersStart(filter));
+  dispatch(searchUsersStart(filter))
   try {
-    let users = await api.findUsers(filter);
+    let users = await api.findUsers(filter)
     if (!users.error) {
-      users = normalize(users, arrayOfUsers);
-      dispatch(searchUsersSuccess(users.entities.users));
+      users = normalize(users, arrayOfUsers)
+      dispatch(searchUsersSuccess(users.entities.users))
     } else {
-      dispatch(searchUsersFailure(users.error));
+      dispatch(searchUsersFailure(users.error))
     }
   } catch (error) {
-    fetchUsersFailure(error);
+    fetchUsersFailure(error)
   }
-};
+}

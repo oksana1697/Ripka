@@ -9,12 +9,7 @@ const b = block("Event")
 
 const Event = ({ id, name, description, date, location, organization, photo }) => (
   <div className={b()}>
-    <img
-      alt={name}
-      src={`${CLOUDINARY_URL}w_80,h_80,c_fill,q_90/${photo}.jpg`}
-      className={b("photo")}
-    />
-
+    <img alt={name} src={`${CLOUDINARY_URL}w_80,h_80,c_fill,q_90/${photo}.jpg`} className={b("photo")} />
     <div className={b("description")}>
       <h3 className={b("title")}>
         <Link to={"/events/" + id}>{name}</Link>
@@ -26,6 +21,6 @@ const Event = ({ id, name, description, date, location, organization, photo }) =
       </p>
     </div>
   </div>
-);
+)
 
 export default Event

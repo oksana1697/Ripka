@@ -11,6 +11,8 @@ const eventApp = combineReducers({
 export default eventApp
 
 //Events
+export const getSearchEventsResult = (offset, count, query, state) => fromEvents.getSearchEventsResult(offset, count, query, state.events)
+
 export const getEventsSearchResults = state => fromEvents.getEventsSearchResults(state.events)
 export const getAllAvailableEvents = state => fromEvents.getAllAvailableEvents(state.events)
 export const getEventById = (state, id) => fromEvents.getEventById(state.events, id)
