@@ -47,18 +47,18 @@ export const fetchEvents = () => async dispatch => {
 };
 
 export const fetchUsers = () => async dispatch => {
-  // dispatch(fetchUsersStart());
-  // try {
-  //   let response = await api.fetchUsers();
-  //   if (!response.error) {
-  //     response = normalize(response, arrayOfUsers);
-  //       dispatch(fetchUsersSuccess(response.result, response.entities.users));
-  //   } else {
-  //     dispatch(fetchUsersFailure(response.error));
-  //   }
-  // } catch (error) {
-  //   fetchUsersFailure(error);
-  // }
+  dispatch(fetchUsersStart());
+  try {
+    let response = await api.fetchUsers();
+    if (!response.error) {
+      response = normalize(response, arrayOfUsers);
+        dispatch(fetchUsersSuccess(response.result, response.entities.users));
+    } else {
+      dispatch(fetchUsersFailure(response.error));
+    }
+  } catch (error) {
+    fetchUsersFailure(error);
+  }
 };
 
 export const fetchUser = id => async dispatch => {
