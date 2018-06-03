@@ -16,7 +16,7 @@ export const editEvent = (id, data) => async dispatch => {
         dispatch(action)
         return action
     } catch (e) {
-        dispatch(editEventFailure(id, e))
+        dispatch(editEventFailure(id, e));
 
         return e
     }
