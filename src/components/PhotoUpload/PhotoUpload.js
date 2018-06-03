@@ -34,10 +34,8 @@ class PhotoUpload extends Component {
         )
         .then(response => {
           const data = response.data;
-
           const imageURL = CLOUDINARY_URL+ "/" + data.public_id; // You should store this URL for future references in your app
           this.setState({ imageURL });
-
           this.props.photo(data.public_id);
           return imageURL;
         });
