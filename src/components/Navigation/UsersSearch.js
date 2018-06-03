@@ -5,18 +5,19 @@ import { searchUsers } from "../../actions/search"
 import "./Navigation.scss"
 import { connect } from "react-redux"
 
-import block from '../../helpers/BEM'
+import block from "../../helpers/BEM"
+import { compose } from "ramda"
 
-const b = block('Navigation')
-class NavigationSearchUsers extends Component {
+const b = block("Navigation")
+class UsersSearch extends Component {
   state = {
     filter: ""
   }
 
-  changeHandler = property => ev => {
-    const { value } = ev.target
+  changeHandler = property => ({ target }) => {
+    const { value } = target
     const { searchUsers } = this.props
-    searchUsers(ev.target.value)
+    searchUsers(value)
     this.setState({ [property]: value })
   }
 
@@ -25,19 +26,19 @@ class NavigationSearchUsers extends Component {
     const { filter, formSubmitted } = this.state
 
     return (
-      <form className={b('search-bar')}>
-        {formSubmitted && <div className={b('carpet')} />}
+      <form className={b("search-bar")}>
+        {formSubmitted && <div className={b("carpet")} />}
 
         <input
           value={filter}
           onChange={this.changeHandler("filter")}
           placeholder="Search by key word"
-          className={b('search-bar_filter')}
+          className={b("search-bar_filter")}
         />
 
-        <div className={b('search-bar_filter_content')}>
+        <div className={b("search-bar_filter_content")}>
           {foundUsers.map(user => (
-            <Link className={b('search-bar_filter_content_item')} key={user.id} to={"users/" + user.id}>
+            <Link className={b("search-bar_filter_content_item")} key={user.id} to={"users/" + user.id}>
               {user.name}
             </Link>
           ))}
@@ -47,14 +48,13 @@ class NavigationSearchUsers extends Component {
   }
 }
 
-export default withRouter(
+// prettier-ignore
+const enhance = compose(
+  withRouter,
   connect(
-    store => {
-      const foundUsers = store.users.searchUsers
-      return {
-        foundUsers
-      }
-    },
+    store => ({ foundUsers: store.users.searchUsers }),
     { searchUsers }
-  )(NavigationSearchUsers)
+  )
 )
+
+export default enhance(UsersSearch)

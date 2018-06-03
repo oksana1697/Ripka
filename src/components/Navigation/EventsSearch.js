@@ -5,10 +5,11 @@ import { NavLink, withRouter } from "react-router-dom"
 import { searchEvents } from "../../actions/search"
 
 import "./Navigation.scss"
-import block from "../../helpers/BEM";
+import block from "../../helpers/BEM"
+import { compose } from "ramda"
 
-const b = block('Navigation')
-class NavigationSearchEvents extends Component {
+const b = block("Navigation")
+class EventsSearch extends Component {
   state = {
     filter: ""
   }
@@ -26,17 +27,18 @@ class NavigationSearchEvents extends Component {
 
     return (
       <form>
-        {formSubmitted && <div className={b('carpet')} />}
-        <div className={b('search-bar')}>
+        {formSubmitted && <div className={b("carpet")} />}
+        <div className={b("search-bar")}>
           <input
             value={filter}
             onChange={this.changeHandler("filter")}
             placeholder="Search by key word"
-            className={b('search-bar_filter')}
+            className={b("search-bar_filter")}
           />
-          <div className={b('search-bar_filter_content')}>
+
+          <div className={b("search-bar_filter_content")}>
             {foundEvents.map(({ id, name }) => (
-              <NavLink className={b('search-bar_filter_content_item')} key={id} to={"/events/" + id}>
+              <NavLink className={b("search-bar_filter_content_item")} key={id} to={"/events/" + id}>
                 {name}
               </NavLink>
             ))}
@@ -47,16 +49,13 @@ class NavigationSearchEvents extends Component {
   }
 }
 
-NavigationSearchEvents = withRouter(
+// prettier-ignore
+const enhancer = compose(
+  withRouter,
   connect(
-    store => {
-      const foundEvents = store.events.searchEvents
-      return {
-        foundEvents
-      }
-    },
+    store => ({ foundEvents: store.events.searchEvents }),
     { searchEvents }
-  )(NavigationSearchEvents)
+  )
 )
 
-export default NavigationSearchEvents
+export default enhancer(EventsSearch)
