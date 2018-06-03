@@ -1,7 +1,7 @@
 import React from "react"
 //
-import { Link, NavLink, Route } from "react-router-dom"
-import { withEventsSearch, withUsersSearch } from "../HOC/withSearch"
+import { Link, NavLink } from "react-router-dom"
+import { withUniversalSearch } from "../HOC/withSearch"
 import UserMenu from "../UserMenu"
 import Search from "../Search"
 //
@@ -9,11 +9,15 @@ import "./Navigation.scss"
 import block from "../../helpers/BEM"
 const b = block("Navigation")
 
+const UniversalSearch = withUniversalSearch(Search)
+
 const Navigation = () => (
   <div className={b()}>
     <h1 className={b("logo")}>
       <Link to="/">Ripka</Link>
     </h1>
+
+    <UniversalSearch />
 
     <NavLink className={b("link")} activeClassName={b("link", ["active"])} to="/events">
       Events
@@ -26,9 +30,6 @@ const Navigation = () => (
     <Link to="/addevent">
       <button className={b("button")}>CREATE AN EVENT</button>
     </Link>
-
-    <Route exact path="/users" component={withUsersSearch(Search)} />
-    <Route exact path="/events" component={withEventsSearch(Search)} />
     <UserMenu />
   </div>
 )

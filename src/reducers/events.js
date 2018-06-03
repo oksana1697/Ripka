@@ -85,6 +85,7 @@ const searchEvents = (state = [], action) => {
   switch (action.type) {
     case SEARCH_EVENTS_SUCCESS:
       return Object.keys(action.foundEvents).map(key => action.foundEvents[key])
+
     case SEARCH_EVENTS_FAILURE:
       return []
     default:
@@ -130,6 +131,7 @@ export default combineReducers({
   currentPage
 })
 
+export const getEventsSearchResults = state => state.searchEvents
 export const getAllAvailableEvents = state => state.allIds
 export const getEventById = (state, id) => state.byId[id]
 export const getIsEventFetching = (id, state) => state.isFetching[id]

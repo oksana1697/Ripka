@@ -10,10 +10,14 @@ const eventApp = combineReducers({
 })
 export default eventApp
 
+//Events
+export const getEventsSearchResults = state => fromEvents.getEventsSearchResults(state.events)
 export const getAllAvailableEvents = state => fromEvents.getAllAvailableEvents(state.events)
 export const getEventById = (state, id) => fromEvents.getEventById(state.events, id)
 export const getIsEventFetching = (id, state) => fromEvents.getIsEventFetching(id, state.events)
 
+//Users
+export const getUsersSearchResults = state => fromUsers.getUsersSearchResults(state.users)
 export const getAllAvailableUsers = state => fromUsers.getAllAvailableUsers(state.users)
 export const getUserById = (state, id) => fromUsers.getUserById(state.users, id)
 export const getIsUserFetching = (id, state) => fromUsers.getIsUserFetching(id, state.users)

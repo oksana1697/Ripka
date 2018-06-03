@@ -33,9 +33,16 @@ class Search extends Component {
 
         {open && <div className={b("carpet")} onClick={() => this.setState({ open: false })} />}
         <div className={b("popup", { open })}>
-          {searchResults.map(({ id, name }) => (
-            <span onClick={() => onSelect(id)} className={b("search-item")} key={id}>
-              {name}
+          {searchResults.map(result => (
+            <span
+              onClick={() => {
+                this.setState({ open: false })
+                onSelect(result)
+              }}
+              className={b("search-item")}
+              key={result.type + result.id}
+            >
+              {result.name}
             </span>
           ))}
         </div>
