@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { NavLink } from "react-router-dom"
+import {NavLink, withRouter} from "react-router-dom"
 
 import { CLOUDINARY_URL } from "../../api/index"
 import MapContainerUsers from "../MapContainer/MapContainerUsers"
@@ -10,6 +10,9 @@ import "../User/User.scss"
 import "../../styles/common.scss"
 import "../../styles/map.scss"
 import block from '../../helpers/BEM'
+import {withProps} from "recompose";
+import {compose} from "ramda";
+import withUser from "../HOC/withUser";
 
 const b = block('UserDetails')
 
@@ -110,4 +113,6 @@ class UserDetails extends Component {
   }
 }
 
-export default UserDetails
+const enhance = compose(withRouter, withProps(({ match }) => ({ id: Number(match.params.id) })), withUser)
+
+export default enhance(UserDetails)

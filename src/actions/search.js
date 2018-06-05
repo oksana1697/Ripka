@@ -1,5 +1,4 @@
 import {
-  fetchUsersFailure,
   searchEventsFailure,
   searchEventsStart,
   searchEventsSuccess,
@@ -7,7 +6,7 @@ import {
   searchUsersStart,
   searchUsersSuccess
 } from "./index"
-import { arrayOfUsers, event as eventSchema } from "./schema"
+import { user as userSchema, event as eventSchema } from "./schema"
 import { normalize } from "normalizr"
 import * as api from "../api/index"
 
@@ -27,17 +26,20 @@ export const searchEvents = (query, offset, count) => async dispatch => {
   }
 }
 
-export const searchUsers = filter => async dispatch => {
-  dispatch(searchUsersStart(filter))
-  try {
-    let users = await api.findUsers(filter)
-    if (!users.error) {
-      users = normalize(users, arrayOfUsers)
-      dispatch(searchUsersSuccess(users.entities.users))
-    } else {
-      dispatch(searchUsersFailure(users.error))
+
+export const searchUsers = (query, offset, count) => async dispatch => {
+    dispatch(searchUsersStart(query, offset, count))
+
+    try {
+        const payload = await api.findUsers(query, offset, count)
+        const users = normalize(payload, [userSchema])
+        const action = searchUsersSuccess(query, offset, count, users)
+        dispatch(action)
+        return action
+    } catch (e) {
+        const action = searchUsersFailure(query, offset, count, e)
+        dispatch(action)
+        return action
     }
-  } catch (error) {
-    fetchUsersFailure(error)
-  }
 }
+

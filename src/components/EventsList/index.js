@@ -1,2 +1,2 @@
-import EventContainer from "./EventsList"
-export default EventContainer
+import EventsList from "./EventsList"
+export default EventsList

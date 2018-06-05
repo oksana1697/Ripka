@@ -1,23 +1,32 @@
 import { combineReducers } from "redux"
 import {
-  ADD_USER_FAILURE,
-  ADD_USER_SUCCESS,
-  FETCH_USER_SUCCESS,
-  FETCH_USER_START,
-  FETCH_USER_FAILURE,
-  FETCH_USERS_FAILURE,
-  FETCH_USERS_SUCCESS,
-  DELETE_USER_SUCCESS,
-  EDIT_USER_SUCCESS,
-  SEARCH_USERS_SUCCESS,
-  SEARCH_USERS_FAILURE,
-  FETCH_USERS_START
+    ADD_USER_FAILURE,
+    ADD_USER_SUCCESS,
+    FETCH_USER_SUCCESS,
+    FETCH_USER_START,
+    FETCH_USER_FAILURE,
+    FETCH_USERS_FAILURE,
+    FETCH_USERS_SUCCESS,
+    DELETE_USER_SUCCESS,
+    EDIT_USER_SUCCESS,
+    SEARCH_USERS_SUCCESS,
+    SEARCH_USERS_FAILURE,
+    FETCH_USERS_START, SEARCH_EVENTS_SUCCESS
 } from "../actions/actionTypes"
 import { uniq } from "ramda"
 
 export const byId = (state = {}, action) => {
   switch (action.type) {
-    case ADD_USER_SUCCESS: {
+      case SEARCH_USERS_SUCCESS: {
+          const { data } = action
+
+          return {
+              ...state,
+              ...data.entities.users
+          }
+      }
+
+      case ADD_USER_SUCCESS: {
       const { id, user } = action
       return {
         ...state,
@@ -81,16 +90,11 @@ export const allIds = (state = [], action) => {
 }
 
 const searchUsers = (state = [], action) => {
-  switch (action.type) {
-    case SEARCH_USERS_SUCCESS:
-      return Object.keys(action.foundUsers).map(key => action.foundUsers[key])
-    case SEARCH_USERS_FAILURE:
-      return []
-    default:
-      return state
-  }
+    switch (action.type) {
+        default:
+            return state
+    }
 }
-
 const isUserFetching = (state = {}, action) => {
   switch (action.type) {
     case FETCH_USER_START:
@@ -112,12 +116,49 @@ const isUserFetching = (state = {}, action) => {
       return state
   }
 }
+
+const searchResults = (state = {}, action) => {
+    switch (action.type) {
+        case SEARCH_USERS_SUCCESS: {
+            const { query, offset, count, data } = action
+
+            const result = state[query] || []
+            for (let i = 0; i < count; i++) {
+                result[offset + i] = data.result[i]
+            }
+
+            return {
+                ...state,
+                [query]: result
+            }
+        }
+        default:
+            return state
+    }
+}
+
+
+
 export default combineReducers({
   byId,
   allIds,
   isUserFetching,
-  searchUsers
+  searchUsers,
+    searchResults
 })
+
+
+export const getSearchUsersResult = (offset, count, query, state) => {
+    const search = state.searchResults[query] || []
+
+    let result = []
+    for (let i = 0; i < count; i++) {
+        result[i] = search[offset + i]
+    }
+    result = result.filter(a => a)
+
+    return result.length !== 0 ? result : null
+}
 
 export const getUsersSearchResults = state => state.searchUsers
 export const getAllAvailableUsers = state => state.allIds

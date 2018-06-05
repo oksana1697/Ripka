@@ -4,14 +4,11 @@ const API_ENDPOINT = "http://localhost:3000"
 export const CLOUDINARY_URL = "https://res.cloudinary.com/ucu/image/upload/"
 export const API_KEY = "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo"
 
-export const fetchPaginateUsers = page => getData(`${API_ENDPOINT}/users?_page=${page}&_limit=5`)
-
-export const fetchPaginateEvents = page => getData(`${API_ENDPOINT}/events?_page=${page}&_limit=5`)
-
 export const findEvents = (query, offset, count) =>
   getData(`${API_ENDPOINT}/events?q=${query}&_page=${Math.floor(offset / count) + 1}&_limit=${count}`)
 
-export const findUsers = filter => getData(`${API_ENDPOINT}/users?q=${filter}`)
+export const findUsers = (query, offset, count) =>
+    getData(`${API_ENDPOINT}/users?q=${query}&_page=${Math.floor(offset / count) + 1}&_limit=${count}`)
 
 export const fetchSliceEvents = num => getData(`${API_ENDPOINT}/events?_start=` + num + "&_limit=4")
 

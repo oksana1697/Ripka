@@ -50,7 +50,6 @@ export const fetchUsersSuccess = (ids, users) => ({ type: FETCH_USERS_SUCCESS, i
 export const fetchUsersFailure = error => ({ type: FETCH_USERS_FAILURE, error })
 
 export const fetchEventsStart = () => ({ type: FETCH_EVENTS_START })
-// export const fetchEventsSuccess = (ids, events, currentPage) => ({type: FETCH_EVENTS_SUCCESS, ids, events, currentPage});
 export const fetchEventsSuccess = (ids, events) => ({ type: FETCH_EVENTS_SUCCESS, ids, events })
 export const fetchEventsFailure = error => ({ type: FETCH_EVENTS_FAILURE, error })
 
@@ -78,10 +77,6 @@ export const editUserStart = (id, user) => ({ type: EDIT_USER_START, id, user })
 export const editUserSuccess = (id, user) => ({ type: EDIT_USER_SUCCESS, id, user })
 export const editUserFailure = (id, error) => ({ type: EDIT_USER_FAILURE, id, error })
 
-export const searchUsersSuccess = foundUsers => ({ type: SEARCH_USERS_SUCCESS, foundUsers })
-export const searchUsersStart = id => ({ type: SEARCH_USERS_START, id })
-export const searchUsersFailure = id => ({ type: SEARCH_USERS_FAILURE, id })
-
 export const searchEventsStart = (query, offset, count) => ({ type: SEARCH_EVENTS_START, query, offset, count })
 export const searchEventsSuccess = (query, offset, count, data) => ({
   type: SEARCH_EVENTS_SUCCESS,
@@ -97,4 +92,20 @@ export const searchEventsFailure = (query, offset, count, error) => ({
   offset,
   count,
   error
+})
+export const searchUsersStart = (query, offset, count) => ({ type: SEARCH_USERS_START, query, offset, count })
+export const searchUsersSuccess = (query, offset, count, data) => ({
+    type: SEARCH_USERS_SUCCESS,
+    query,
+    offset,
+    count,
+    data
+})
+
+export const searchUsersFailure = (query, offset, count, error) => ({
+    type: SEARCH_USERS_FAILURE,
+    query,
+    offset,
+    count,
+    error
 })
