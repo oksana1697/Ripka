@@ -11,7 +11,8 @@ const eventApp = combineReducers({
 export default eventApp
 
 //Events
-export const getSearchEventsResult = (offset, count, query, state) => fromEvents.getSearchEventsResult(offset, count, query, state.events)
+export const getSearchEventsResult = (offset, count, query, state) =>
+  fromEvents.getSearchEventsResult(offset, count, query, state.events)
 
 export const getEventsSearchResults = state => fromEvents.getEventsSearchResults(state.events)
 export const getAllAvailableEvents = state => fromEvents.getAllAvailableEvents(state.events)
@@ -19,9 +20,13 @@ export const getEventById = (state, id) => fromEvents.getEventById(state.events,
 export const getIsEventFetching = (id, state) => fromEvents.getIsEventFetching(id, state.events)
 
 //Users
-export const getSearchUsersResult = (offset, count, query, state) => fromUsers.getSearchUsersResult(offset, count, query, state.users)
+export const getSearchUsersResult = (offset, count, query, state) =>
+  fromUsers.getSearchUsersResult(offset, count, query, state.users)
 export const getUsersSearchTotalCount = (query, state) => fromUsers.getUsersSearchTotalCount(query, state.users)
-export const getUsersSearchResults = state => fromUsers.getUsersSearchResults(state.users)
-export const getAllAvailableUsers = state => fromUsers.getAllAvailableUsers(state.users)
+export const getIfUsersSearchFetching = (offset, count, query, state) =>
+  fromUsers.getIfUsersSearchFetching(offset, count, query, state.users)
+
+// export const getUsersSearchResults = state => fromUsers.getUsersSearchResults(state.users)
+// export const getAllAvailableUsers = state => fromUsers.getAllAvailableUsers(state.users)
 export const getUserById = (state, id) => fromUsers.getUserById(state.users, id)
 export const getIsUserFetching = (id, state) => fromUsers.getIsUserFetching(id, state.users)

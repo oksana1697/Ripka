@@ -24,7 +24,7 @@ const EventsList = ({ events, offset, count, query }) => {
     <div>
       <div className={b("content")}>
         <div className={b("block")}>{events.map(event => <ConnectedEvent id={event} key={event} />)}</div>
-        <MapContainer events={events} />
+        {/*<MapContainer events={events} />*/}
       </div>
       <div className={b("pagination")}>
         {offset !== 0 && <Link className={b("pagination-btn")} to={`/events/?offset=${offset - count}&count=${count}`}>{`< Prev`}</Link>}

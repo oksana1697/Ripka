@@ -10,7 +10,7 @@ import {
   DELETE_USER_SUCCESS,
   EDIT_USER_SUCCESS,
   SEARCH_USERS_SUCCESS,
-  FETCH_USERS_START
+  FETCH_USERS_START, SEARCH_USERS_START, SEARCH_USERS_FAILURE
 } from "../actions/actionTypes"
 import { pathOr, uniq } from "ramda"
 
@@ -120,7 +120,6 @@ const searchResults = (state = {}, action) => {
   switch (action.type) {
     case SEARCH_USERS_SUCCESS: {
       const { query, offset, count, data } = action
-
       const result = state[query] || []
       let totalCount = Infinity
       if (data.result.length <= count) {
@@ -139,13 +138,38 @@ const searchResults = (state = {}, action) => {
       return state
   }
 }
+const isSearchFetching = (state = {}, action) => {
+  switch(action.type){
+    case SEARCH_USERS_START: {
+      const { query, offset, count } = action
+      const search = new URLSearchParams()
+      search.set("query", query)
+      search.set("offset", offset)
+      search.set("count", count)
+      return {... state, [search.toString()]: true}
+    }
+    case SEARCH_USERS_SUCCESS:
+    case SEARCH_USERS_FAILURE: {
+      const { query, offset, count } = action
+      const search = new URLSearchParams()
+      search.set("query", query)
+      search.set("offset", offset)
+      search.set("count", count)
+      return {... state, [search.toString()]: false}
+    }
+    default:
+      return state
 
+  }
+
+}
 export default combineReducers({
   byId,
   allIds,
   isUserFetching,
   searchUsers,
-  searchResults
+  searchResults,
+  isSearchFetching
 })
 
 export const getSearchUsersResult = (offset, count, query, state) => {
@@ -165,7 +189,15 @@ export const getUsersSearchTotalCount = (query, state) => pathOr(
     ["searchResults", query, "totalCount"],
     state
 );
+export const getIfUsersSearchFetching = (offset, count, query, state) => {
+  const search = new URLSearchParams()
+  search.set("query", query)
+  search.set("offset", offset)
+  search.set("count", count)
+  return state.isSearchFetching[search.toString()]
+}
 export const getUsersSearchResults = state => state.searchUsers
+
 export const getAllAvailableUsers = state => state.allIds
 export const getUserById = (state, id) => state.byId[id]
 export const getIsUserFetching = (id, state) => state.isUserFetching[id]
