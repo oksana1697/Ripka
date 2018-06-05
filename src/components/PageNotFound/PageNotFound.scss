@@ -1,33 +1,31 @@
-.page-not-found{
+.PageNotFound {
   background: #40c4cf;
   text-align: center;
-  height:100vh;
+  height: 100vh;
 
-  & h1, h2{
+  &__title {
+    font-size: 60px;
+    padding-top: 190px;
     margin: 0;
     color: white;
   }
-  & p{
-    color: #ececec;
-    font-size: 20px;
-  }
-  & span{
-    color: #ececec;
-    font-size: 20px;
-    text-transform: uppercase;
-  }
 
-  &__title{
-    font-size: 60px;
-    padding-top: 190px;
-  }
-
-  &__sub-title{
+  &__sub-title {
     font-size: 30px;
     text-transform: uppercase;
+    margin: 0;
+    color: white;
+  }
+  &__text {
+    color: #ececec;
+    font-size: 20px;
+
+    &_uppercase {
+      text-transform: uppercase;
+    }
   }
 
-  & button{
+  &__home-btn {
     margin-top: 45px;
     margin-bottom: 130px;
     color: white;
@@ -39,7 +37,7 @@
     padding: 15px 35px;
     font-size: 20px;
 
-    &:hover{
+    &:hover {
       border: 2px solid #5d89d0;
       color: #5d89d0;
     }

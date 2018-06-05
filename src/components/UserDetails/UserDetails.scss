@@ -188,42 +188,42 @@
     }
   }
 
-  //&__icon{
-  //  margin: 0 0.5em;
-  //  display: inline-block;
-  //  //vertical-align: middle;
-  //  width: 20px;
-  //  height: 20px;
-  //  background-repeat: no-repeat;
-  //
-  //  &_flag{
-  //    background: url("/icons/flag.svg");
-  //  }
-  //  &_heard{
-  //    background: url("/icons/heart.svg");
-  //  }
-  //  &_contact{
-  //    background: url("/icons/contact.svg");
-  //  }
-  //  &_categories{
-  //    background: url("/icons/categories.svg");
-  //  }
-  //  &_paper{
-  //    background: url("/icons/paper.svg");
-  //  }
-  //  &_location{
-  //    content: url("/icons/location.svg");
-  //  }
-  //  &_edit{
-  //    content: url("/icons/edit.svg");
-  //  }
-  //  &_delete{
-  //    content: url("/icons/delete.svg");
-  //  }
-  //  &_calendar{
-  //    content: url("/icons/calendar.svg");
-  //  }
-  //}
+  &__icon{
+    margin: 0 0.5em;
+    //display: inline-block;
+    //vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+
+    &_flag{
+      background: url("/icons/flag.svg");
+    }
+    &_heard{
+      background: url("/icons/heart.svg");
+    }
+    &_contact{
+      background: url("/icons/contact.svg");
+    }
+    &_categories{
+      background: url("/icons/categories.svg");
+    }
+    &_paper{
+      background: url("/icons/paper.svg");
+    }
+    &_location{
+      background: url("/icons/location.svg");
+    }
+    &_edit{
+      background: url("/icons/edit.svg");
+    }
+    &_delete{
+      background: url("/icons/delete.svg");
+    }
+    &_calendar{
+      background: url("/icons/calendar.svg");
+    }
+  }
 
 }
 

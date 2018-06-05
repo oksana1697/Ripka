@@ -1,7 +1,10 @@
 import React, { Component } from "react"
-
-import "../../styles/category.scss"
 import { Link } from "react-router-dom"
+
+import block from "../../helpers/BEM"
+import "./Landing.scss"
+const b = block("Landing")
+
 /**
  * Represents view of Landing with static image.
  */
@@ -13,81 +16,81 @@ class Landing extends Component {
   render() {
     return (
       <div>
-        <span className="category__image" />
-        <div className="category__subnavigation_container">
-          <span className="category__item-icon-check" />
-          <div className="category__subnavigation_inline">
+        <span className={b("cover-img")} />
+        <div className={b("registration")}>
+          <span className={b("icon", ["check"])} />
+          <div className={b("registration-container")}>
             <div>
-              <h3 className="category__subnavigation">Become a priority Volunteer</h3>
-              <span className="category__subnavigation_span">
+              <h3 className={b("text")}>Become a priority Volunteer</h3>
+              <span className={b("additional")}>
                 Increase your odds of an interview by 50%
               </span>
             </div>
           </div>
           <Link to="/adduser">
-            <button className="category__subnavigation_button">Get Started</button>
+            <button className={b("registration-button")}>Get Started</button>
           </Link>
         </div>
-        <div className="category__container">
-          <div className="category__item">
-            <div className="category__item-icon">
-              <span className="category__item-icon-education" />
+        <div className={b("category-container")}>
+          <div className={b("category")}>
+            <div className={b("item")}>
+              <span className={b("icon", ["education"])} />
             </div>
-            <h5 className="category__item-title">Education</h5>
+            <h5 className={b("category-title")}>Education</h5>
           </div>
-          <div className="category__item">
-            <div className="category__item-icon">
-              <span className="category__item-icon-food" />
+          <div className={b("category")}>
+            <div className={b("item")}>
+              <span className={b("icon", ["food"])}  />
             </div>
-            <h5 className="category__item-title">Food&Drink</h5>
+            <h5 className={b("category-title")}>Food&Drink</h5>
           </div>
-          <div className="category__item">
-            <div className="category__item-icon">
-              <span className="category__item-icon-nonprofit" />
+          <div className={b("category")}>
+            <div className={b("item")}>
+              <span className={b("icon", ["nonprofit"])} />
             </div>
-            <h5 className="category__item-title">Nonprofit</h5>
+            <h5 className={b("category-title")}>Nonprofit</h5>
           </div>
-          <div className="category__item">
-            <div className="category__item-icon">
-              <span className="category__item-icon-education" />
+          <div className={b("category")}>
+            <div className={b("item")}>
+              <span className={b("icon", ["education"])}  />
             </div>
-            <h5 className="category__item-title">Education</h5>
+            <h5 className={b("category-title")}>Education</h5>
           </div>
-          <div className="category__item">
-            <div className="category__item-icon">
-              <span className="category__item-icon-food" />
+          <div className={b("category")}>
+            <div className={b("item")}>
+              <span className={b("icon", ["food"])} />
             </div>
-            <h5 className="category__item-title">Food&Drink</h5>
+            <h5 className={b("category-title")}>Food&Drink</h5>
           </div>
-          <div className="category__item">
-            <div className="category__item-icon">
-              <span className="category__item-icon-nonprofit" />
+          <div className={b("category")}>
+            <div className={b("item")}>
+              <span className={b("icon", ["nonprofit"])} />
             </div>
-            <h5 className="category__item-title">Nonprofit</h5>
+            <h5 className={b("category-title")}>Nonprofit</h5>
           </div>
-          <div className="category__item">
-            <div className="category__item-icon">
-              <span className="category__item-icon-education" />
+          <div className={b("category")}>
+            <div className={b("item")}>
+              <span className={b("icon", ["education"])}  />
             </div>
-            <h5 className="category__item-title">Education</h5>
+            <h5 className={b("category-title")}>Education</h5>
           </div>
-          <div className="category__item">
-            <div className="category__item-icon">
-              <span className="category__item-icon-food" />
+          <div className={b("category")}>
+            <div className={b("item")}>
+              <span className={b("icon", ["food"])}  />
             </div>
-            <h5 className="category__item-title">Food&Drink</h5>
+            <h5 className={b("category-title")}>Food&Drink</h5>
           </div>
-          <div className="category__item">
-            <div className="category__item-icon">
-              <span className="category__item-icon-nonprofit" />
+          <div className={b("category")}>
+            <div className={b("item")}>
+              <span className={b("icon", ["nonprofit"])} />
             </div>
-            <h5 className="category__item-title">Nonprofit</h5>
+            <h5 className={b("category-title")}>Nonprofit</h5>
           </div>
-          <div className="category__item">
-            <div className="category__item-icon">
-              <span className="category__item-icon-education" />
+          <div className={b("category")}>
+            <div className={b("item")}>
+              <span className={b("icon", ["education"])}  />
             </div>
-            <h5 className="category__item-title">Education</h5>
+            <h5 className={b("category-title")}>Education</h5>
           </div>
         </div>
       </div>

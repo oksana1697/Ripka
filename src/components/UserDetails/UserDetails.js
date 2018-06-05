@@ -26,13 +26,15 @@ class UserDetails extends Component {
           <div className={b("subnav")}>
             <div className={b("left")}>
               <div className={b("edit")}>
-                <span className={b("icon", ['edit'])} />
+
                 <NavLink to={"/users/edit/" + user.id}>
-                  <button className={b("btn")}>Edit user</button>
+                  <button className={b("btn")}>
+                    <span className={b("icon", ['edit'])} />
+                    Edit user
+                  </button>
                 </NavLink>
               </div>
               <div className={b("delete")}>
-                <span className={b("icon",["delete"])} />
                 <button
                   className={b("btn")}
                   onClick={() => {
@@ -40,6 +42,7 @@ class UserDetails extends Component {
                     this.props.onSuccess()
                   }}
                 >
+                  <span className={b("icon",["delete"])} />
                   Delete user
                 </button>
               </div>

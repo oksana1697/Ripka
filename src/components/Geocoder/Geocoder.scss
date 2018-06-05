@@ -21,6 +21,7 @@
     box-shadow: 0px 1px 1px 0px Black;
     border-radius: 3px;
     list-style: none;
+    z-index: 1;
 
     &_loading {
       background: #ccc;

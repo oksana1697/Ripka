@@ -2,7 +2,7 @@
   "events": [
     {
       "id": 3,
-      "name": "Повстання людей I",
+      "name": "Повстання людей II",
       "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",
       "organization": "Добрі справи 2018",
       "contacts": "+38098678594",
@@ -160,7 +160,7 @@
   ],
   "users": [
     {
-      "name": "Victor Frankl 1",
+      "name": "Victor Frankl",
       "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
       "contacts": "+38098678594",
       "interests": "Murdersssssssssssssssssssssssss",
