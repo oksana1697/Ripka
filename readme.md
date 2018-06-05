@@ -20,14 +20,14 @@ A step by step series of examples that tell you have to get a development env ru
 
 
 ```
-npm run start:server
+npm run start
 ```
 
 ### Choose the data you want to work with:
 
 Static data
 ```
-npm run data:local
+npm run api
 ```
 Fake data
 ```
