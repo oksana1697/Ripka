@@ -20,7 +20,7 @@ export const getIsEventFetching = (id, state) => fromEvents.getIsEventFetching(i
 
 //Users
 export const getSearchUsersResult = (offset, count, query, state) => fromUsers.getSearchUsersResult(offset, count, query, state.users)
-
+export const getUsersSearchTotalCount = (query, state) => fromUsers.getUsersSearchTotalCount(query, state.users)
 export const getUsersSearchResults = state => fromUsers.getUsersSearchResults(state.users)
 export const getAllAvailableUsers = state => fromUsers.getAllAvailableUsers(state.users)
 export const getUserById = (state, id) => fromUsers.getUserById(state.users, id)

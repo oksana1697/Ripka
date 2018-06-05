@@ -8,7 +8,7 @@ export const findEvents = (query, offset, count) =>
   getData(`${API_ENDPOINT}/events?q=${query}&_page=${Math.floor(offset / count) + 1}&_limit=${count}`)
 
 export const findUsers = (query, offset, count) =>
-    getData(`${API_ENDPOINT}/users?q=${query}&_page=${Math.floor(offset / count) + 1}&_limit=${count}`)
+    getData(`${API_ENDPOINT}/users?q=${query}&_page=${Math.floor(offset / count) + 1}&_limit=${count+1}`)
 
 export const fetchSliceEvents = num => getData(`${API_ENDPOINT}/events?_start=` + num + "&_limit=4")
 

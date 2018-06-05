@@ -103,7 +103,7 @@ const isFetching = (state = {}, action) => {
       return {
         ...state,
         [action.id]: true
-      }
+      };
     case FETCH_EVENTS_FAILURE:
     case FETCH_EVENTS_SUCCESS:
     case FETCH_EVENT_FAILURE:
@@ -116,7 +116,6 @@ const isFetching = (state = {}, action) => {
       return state
   }
 }
-
 
 const searchResults = (state = {}, action) => {
   switch (action.type) {

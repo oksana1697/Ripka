@@ -22,7 +22,6 @@ class Geocoder extends Component {
     onSuggest: function() {},
     focusOnMount: true,
     onSelect: a => {
-      console.log(a)
     }
   }
 
