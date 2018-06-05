@@ -117,14 +117,6 @@ const isFetching = (state = {}, action) => {
   }
 }
 
-const currentPage = (state = 0, action) => {
-  switch (action.type) {
-    case FETCH_EVENTS_SUCCESS:
-      return ++state
-    default:
-      return state
-  }
-}
 
 const searchResults = (state = {}, action) => {
   switch (action.type) {
@@ -152,7 +144,6 @@ export default combineReducers({
   isFetching,
 
   searchEvents,
-  currentPage,
 
   searchResults
 })

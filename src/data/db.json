@@ -1,5 +1,25 @@
 {
   "events": [
+    {"id": 1,
+    "name": "Фестивалю 'Добрі справи 2018' потрібен логотип",
+    "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",
+    "organization": "Добрі справи 2018",
+    "contacts": "+38098678594",
+    "interests": "2018-05-03T08:06:52.005Z",
+    "location": "Чернігів, Україна",
+    "photo": "photo-event_vwr3vn",
+    "category": "Nonprofit"
+    },
+    {      "id": 2,
+      "name": "Фестивалю 'Добрі справи 2018' потрібен логотип",
+      "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",
+      "organization": "Добрі справи 2018",
+      "contacts": "+38098678594",
+      "interests": "2018-05-03T08:06:52.005Z",
+      "location": "Чернігів, Україна",
+      "photo": "photo-event_vwr3vn",
+      "category": "Nonprofit"
+    },
     {
       "id": 3,
       "name": "Повстання людей II",
@@ -109,92 +129,23 @@
       "id": 16
     },
     {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:38:24.483Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 17
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:55:51.406Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 30
-    },
-    {
-      "name": "Повстання роботів",
-      "organization": "Skynet",
-      "location": "Жмеринка",
-      "time": "2018-06-02T16:57:03.746Z",
-      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-      "description": "Настав день помсти! Шкіряні ублюдки!!",
-      "contacts": "we_are_killing_humans@skynet.com",
-      "id": 31
-    },
-    {
-      "name": "Прибирання парку",
-      "organization": "Зробимо Світ Чистіше",
-      "time": "2018-06-04T21:00:00.000Z",
-      "contacts": "+380931234567",
-      "description": "Супер подія! Супер подія!",
-      "id": 41
-    },
-    {
       "name": "Шукаємо IT генія для адміністрування офіційного веб сайту Грузинського Легіону",
       "organization": "Грузинський Національний Легіон",
       "time": "2018-06-04T21:00:00.000Z",
+      "photo": "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
       "contacts": "+380932230726",
       "description": "Дорогі наші ВОЛОНТЕРИ!\n\n\nЗвертаємося саме до тих із вас, хто володіє знаннями та досвідом в сфері IT!\n\nАдже зараз ми розпочинаємо пошук IT генія для допомоги в оновленні нашого офіційного веб сайту www.georgianlegion.com.ua \n\nТакож шукаємо журналістів та помічників у веденні наших офіційних сторінок у соціальних мережах Facebook, G+, Instagram, Twitter, YouTube.\n\nДля тих, хто впевнений в своїх силах, очікуємо ваших листів чи резюме в директ меседж на офіційній сторінці Грузинського Національного Легіону\n\nу Facebook https://www.facebook.com/GeorgianNationalLegion/ чи на email georgianlegion2605@gmail.com!\n\n",
-      "id": 42
-    },
-    {
-      "id": 43
+      "id": 17
     }
   ],
   "users": [
     {
-      "name": "Victor Frankl",
+      "name": "Victor Frankl 1",
       "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
       "contacts": "+38098678594",
-      "interests": "Murdersssssssssssssssssssssssss",
       "location": "Odesa, Ukraine",
       "photo": "njhniezzny9ja9xmlfun",
-      "nextProps": {
-        "id": "1",
-        "user": {
-          "name": "",
-          "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
-          "contacts": "+38098678594",
-          "interests": "Murders",
-          "location": "",
-          "photo": "njhniezzny9ja9xmlfun",
-          "nextProps": {
-            "id": "1",
-            "user": {
-              "name": "Rick Black",
-              "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
-              "contacts": "+38098678594",
-              "email": "test@gmail.com",
-              "location": "",
-              "photo": "njhniezzny9ja9xmlfun",
-              "interests": "Murders",
-              "id": 1
-            },
-            "isUserProcessing": false
-          },
-          "email": "test@gmail.com",
-          "id": 1
-        },
-        "isUserProcessing": false
-      },
-      "email": "test@gmail.com",
+      "interests": "Murders",
       "id": 1
     },
     {
@@ -238,12 +189,102 @@
       "id": 5
     },
     {
-      "name": "Adolf",
-      "email": "who_is_adolf@ss.com",
-      "contacts": "12312",
-      "interests": "Bla blaBla blaBla blaBla bla",
-      "description": "Bla blaBla blaBla blaBla bla",
-      "id": 6
+      "name": "Victor Frankl",
+      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
+      "contacts": "+38098678594",
+      "location": "Odesa, Ukraine",
+      "photo": "njhniezzny9ja9xmlfun",
+      "interests": "Murders",
+      "id": 1
+    },
+    {
+      "name": "Вітольд Гомбрович",
+      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n      ",
+      "contacts": "+38098678594",
+      "email": "test@gmail.com",
+      "location": "Тернопіль, Україна",
+      "photo": "pioih8qrevagdrriltwn",
+      "interests": "Murders",
+      "id": 2
+    },
+    {
+      "name": "Анатолій Сидоренко",
+      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n      ",
+      "contacts": "+38098678594",
+      "email": "test@gmail.com",
+      "location": "Львів, Україна",
+      "photo": "gor88wv5sp9kpkmwbu91",
+      "interests": "Murders",
+      "id": 3
+    },
+    {
+      "name": "Андрій Любка",
+      "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n     ",
+      "contacts": "+38098678594",
+      "email": "test@gmail.com",
+      "location": "Київ, Україна",
+      "photo": "tnbzxqaizumhvwfjbzcb",
+      "interests": "Murders",
+      "id": 4
+    },
+    {
+      "name": "Ivan Prokop",
+      "email": "ivan@gmail.com",
+      "contacts": "0501360805",
+      "description": "I like JS",
+      "interests": "Murders",
+      "photo": "it3abc7o2ivwj9c3pzou",
+      "location": "Dnipro, Dnipropetrovsk Oblast, Ukraine",
+      "id": 5
+    },
+    {
+      "name": "Victor Frankl 1",
+      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
+      "contacts": "+38098678594",
+      "location": "Odesa, Ukraine",
+      "photo": "njhniezzny9ja9xmlfun",
+      "interests": "Murders",
+      "id": 1
+    },
+    {
+      "name": "Вітольд Гомбрович",
+      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n      ",
+      "contacts": "+38098678594",
+      "email": "test@gmail.com",
+      "location": "Тернопіль, Україна",
+      "photo": "pioih8qrevagdrriltwn",
+      "interests": "Murders",
+      "id": 2
+    },
+    {
+      "name": "Анатолій Сидоренко",
+      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n      ",
+      "contacts": "+38098678594",
+      "email": "test@gmail.com",
+      "location": "Львів, Україна",
+      "photo": "gor88wv5sp9kpkmwbu91",
+      "interests": "Murders",
+      "id": 3
+    },
+    {
+      "name": "Андрій Любка",
+      "description": " He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n     ",
+      "contacts": "+38098678594",
+      "email": "test@gmail.com",
+      "location": "Київ, Україна",
+      "photo": "tnbzxqaizumhvwfjbzcb",
+      "interests": "Murders",
+      "id": 4
+    },
+    {
+      "name": "Ivan Prokop",
+      "email": "ivan@gmail.com",
+      "contacts": "0501360805",
+      "description": "I like JS",
+      "interests": "Murders",
+      "photo": "it3abc7o2ivwj9c3pzou",
+      "location": "Dnipro, Dnipropetrovsk Oblast, Ukraine",
+      "id": 5
     }
   ]
 }
