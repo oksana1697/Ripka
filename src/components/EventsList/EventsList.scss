@@ -24,15 +24,30 @@
     line-height: 1.59091;
   }
 
-  &__pagination {
+  //&__pagination {
+  //  display: flex;
+  //  justify-content: center;
+  //  &_nav {
+  //    border: 1px solid #8080809c;
+  //    padding: 10px;
+  //    line-height: 0.5;
+  //    border-radius: 1px;
+  //    color: grey;
+  //  }
+  //}
+
+  &__pagination{
     display: flex;
     justify-content: center;
-    &_nav {
-      border: 1px solid #8080809c;
-      padding: 10px;
-      line-height: 0.5;
-      border-radius: 1px;
-      color: grey;
-    }
+    margin-bottom: 100px;
+  }
+  &__pagination-btn{
+    border: 1px solid #40c4cf;
+    border-radius: 30px;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: #40c4cf;
+    font-weight: bold;
   }
 }

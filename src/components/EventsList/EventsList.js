@@ -21,17 +21,16 @@ const ConnectedEvent = compose(withEvent, flattenProp("event"))(Event)
 
 const EventsList = ({ events, offset, count, query }) => {
   return !events ? null : (
-    <div className={b("content")}>
-      <div className={b("block")}>
-        {events.map(event => <ConnectedEvent id={event} key={event} />)}
-
-        <div>
-          {offset !== 0 && <Link to={`/events/?offset=${offset - count}&count=${count}`}>{`< Prev`}</Link>}
-          &nbsp;&nbsp;
-          {events.length === count && <Link to={`/events/?offset=${offset + count}&count=${count}`}>{`Next >`}</Link>}
-        </div>
+    <div>
+      <div className={b("content")}>
+        <div className={b("block")}>{events.map(event => <ConnectedEvent id={event} key={event} />)}</div>
+        <MapContainer events={events} />
       </div>
-      <MapContainer events={events} />
+      <div className={b("pagination")}>
+        {offset !== 0 && <Link className={b("pagination-btn")} to={`/events/?offset=${offset - count}&count=${count}`}>{`< Prev`}</Link>}
+        &nbsp;&nbsp;
+        {events.length === count && <Link className={b("pagination-btn")} to={`/events/?offset=${offset + count}&count=${count}`}>{`Next >`}</Link>}
+      </div>
     </div>
   )
 }

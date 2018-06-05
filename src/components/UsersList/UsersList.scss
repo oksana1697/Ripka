@@ -1,4 +1,7 @@
 .UsersList {
+  &__container{
+
+  }
   &__content {
     max-width: 930px;
     margin-left: auto;
@@ -10,5 +13,18 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 700px;
+  }
+  &__pagination{
+    display: flex;
+    justify-content: center;
+  }
+  &__pagination-btn{
+    border: 1px solid #40c4cf;
+    border-radius: 30px;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: #40c4cf;
+    font-weight: bold;
   }
 }
