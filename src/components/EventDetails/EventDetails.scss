@@ -50,20 +50,22 @@
     border-top: 1px solid #eaebed;
     padding-top: 1em;
     margin-top: 1em;
-    &_button {
-      padding: 0;
-      margin: 0 1rem 0 0;
-      font-weight: bold;
-      cursor: pointer;
-      background: transparent;
-      border: none;
-      color: #9398a1;
-      &:active {
-        color: #89d8e0;
-      }
-      &:hover {
-        color: #89d8e0;
-      }
+    display: flex;
+  }
+  &__option-button{
+    display: flex;
+    padding: 0;
+    margin: 0 1rem 0 0;
+    font-weight: bold;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: #40c4cf;
+    &:active {
+      color: #89d8e0;
+    }
+    &:hover {
+      color: #89d8e0;
     }
   }
   &__photo {
@@ -85,23 +87,23 @@
     }
     &_right-block {
       margin-left: 10%;
-      width: 28%;
+      width: 39%;
       float: left;
     }
   }
   &__details-title{
-    //display: inline-block;
+    display: flex;
     color: #626977;
     border-bottom: 1px solid #eff0f2;
     margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
     margin-top: 3rem;
+    height: 60px;
   }
 
   &__story-title {
     font-weight: bold;
     display: inline-block;
-    width: 30%;
+    width: 23%;
     color: #626977;
     font-size: 0.7em;
     text-transform: uppercase;
@@ -113,24 +115,44 @@
     color: #626977;
   }
   &__icon {
-    margin: 0 0.5em;
-    display: inline-block;
-    //vertical-align: middle;
-    width: 20px;
-    height: 20px;
-    background-repeat: no-repeat;
+    margin: 1rem 0.5rem;
+    width: 30px;
+    height: 38px;
 
     &_flag {
-      background: url("/icons/flag.svg");
+      background: url("/icons/flag.svg") no-repeat;
+      margin: 0 0.1rem 0 2rem;
+      width: 26px;
+      height: 20px;
     }
     &_heard {
-      background: url("/icons/heart.svg");
+      background: url("/icons/heart.svg") no-repeat;
+      margin: 0 0.1rem 0 0;
+      width: 26px;
+      height: 20px;
     }
     &_edit {
-      background: url("/icons/edit.svg");
+      background: url("/icons/edit.svg") no-repeat;
     }
     &_delete {
-      background: url("/icons/delete.svg");
+      background: url("/icons/delete.svg") no-repeat;
+    }
+    &_push-pin{
+      background: url("/icons/push-pin.svg") no-repeat;
+    }
+    &_legal-paper{
+      background: url("/icons/legal-paper.svg") no-repeat;
+    }
+    &_contact{
+      background: url("/icons/contact.svg") no-repeat;
+      margin: 0.5rem;
+      width: 38px;
+    }
+    &_location{
+      background: url("/icons/location.svg") no-repeat;
+      margin: 1rem 0.5rem;
+      width: 23px;
+      height: 23px;
     }
   }
 }

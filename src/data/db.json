@@ -1,16 +1,18 @@
 {
   "events": [
-    {"id": 1,
-    "name": "Фестивалю 'Добрі справи 2018' потрібен логотип",
-    "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",
-    "organization": "Добрі справи 2018",
-    "contacts": "+38098678594",
-    "interests": "2018-05-03T08:06:52.005Z",
-    "location": "Чернігів, Україна",
-    "photo": "photo-event_vwr3vn",
-    "category": "Nonprofit"
+    {
+      "id": 1,
+      "name": "Фестивалю 'Добрі справи 2018' потрібен логотип V",
+      "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",
+      "organization": "Добрі справи 2018",
+      "contacts": "+38098678594",
+      "interests": "2018-05-03T08:06:52.005Z",
+      "location": "Чернігів, Україна",
+      "photo": "photo-event_vwr3vn",
+      "category": "Nonprofit"
     },
-    {      "id": 2,
+    {
+      "id": 2,
       "name": "Фестивалю 'Добрі справи 2018' потрібен логотип",
       "description": "'Добрі справи 2018'- фестиваль, що має за мету зібрати в одному місці велику кулькість людей які займаються благодійністтю та роблять добрі справи. Зокрема це будуть громадські організації та благодійні фонди, а також ініціативні групи чи люди які своїми соціальними проектами чи добрими вчинками зробили великий внесок в скарбницю добрих справ і заслуговують розказати про себе і залучити до своєї діяльності як можна більше людей з числа гостей фестивалю. А ще на всіх гостей фестивалю чекатиме сюрприз в формі інтерактивнлї гри, в якій зможе взяти участь кожен і виграти подарунки від наших спонсорів та партнерів.",
       "organization": "Добрі справи 2018",
@@ -140,21 +142,21 @@
   ],
   "users": [
     {
-      "name": "Victor Frankl 1",
-      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
-      "contacts": "+38098678594",
-      "location": "Odesa, Ukraine",
-      "photo": "njhniezzny9ja9xmlfun",
-      "interests": "Murders",
-      "id": 1
-    },
-    {
-      "name": "Вітольд Гомбрович",
+      "name": "Вітольд Гомбрович V",
       "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n      ",
       "contacts": "+38098678594",
       "email": "test@gmail.com",
       "location": "Тернопіль, Україна",
       "photo": "pioih8qrevagdrriltwn",
+      "interests": "Murdersssssssssssssssa",
+      "id": 1
+    },
+    {
+      "name": "Victor Frankl 1",
+      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.",
+      "contacts": "+38098678594",
+      "location": "Odesa, Ukraine",
+      "photo": "njhniezzny9ja9xmlfun",
       "interests": "Murders",
       "id": 2
     },
@@ -195,7 +197,7 @@
       "location": "Odesa, Ukraine",
       "photo": "njhniezzny9ja9xmlfun",
       "interests": "Murders",
-      "id": 1
+      "id": 6
     },
     {
       "name": "Вітольд Гомбрович",
@@ -205,7 +207,7 @@
       "location": "Тернопіль, Україна",
       "photo": "pioih8qrevagdrriltwn",
       "interests": "Murders",
-      "id": 2
+      "id": 7
     },
     {
       "name": "Анатолій Сидоренко",
@@ -215,7 +217,7 @@
       "location": "Львів, Україна",
       "photo": "gor88wv5sp9kpkmwbu91",
       "interests": "Murders",
-      "id": 3
+      "id": 8
     },
     {
       "name": "Андрій Любка",
@@ -225,7 +227,7 @@
       "location": "Київ, Україна",
       "photo": "tnbzxqaizumhvwfjbzcb",
       "interests": "Murders",
-      "id": 4
+      "id": 9
     },
     {
       "name": "Ivan Prokop",
@@ -235,7 +237,17 @@
       "interests": "Murders",
       "photo": "it3abc7o2ivwj9c3pzou",
       "location": "Dnipro, Dnipropetrovsk Oblast, Ukraine",
-      "id": 5
+      "id": 10
+    },
+    {
+      "name": "Анатолій Сидоренко",
+      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n      ",
+      "contacts": "+38098678594",
+      "email": "test@gmail.com",
+      "location": "Львів, Україна",
+      "photo": "gor88wv5sp9kpkmwbu91",
+      "interests": "Murders",
+      "id": 11
     },
     {
       "name": "Victor Frankl 1",
@@ -244,7 +256,7 @@
       "location": "Odesa, Ukraine",
       "photo": "njhniezzny9ja9xmlfun",
       "interests": "Murders",
-      "id": 1
+      "id": 12
     },
     {
       "name": "Вітольд Гомбрович",
@@ -254,17 +266,7 @@
       "location": "Тернопіль, Україна",
       "photo": "pioih8qrevagdrriltwn",
       "interests": "Murders",
-      "id": 2
-    },
-    {
-      "name": "Анатолій Сидоренко",
-      "description": "He works in Non profit organizaion LEF full time, which spread eco-initiatives. Robert believes that by using conservation as a tool will not only protect our remarkable natural world, but also will protect and improve human lives. He wants to attract more people to their initiative.\n      ",
-      "contacts": "+38098678594",
-      "email": "test@gmail.com",
-      "location": "Львів, Україна",
-      "photo": "gor88wv5sp9kpkmwbu91",
-      "interests": "Murders",
-      "id": 3
+      "id": 13
     },
     {
       "name": "Андрій Любка",
@@ -274,7 +276,7 @@
       "location": "Київ, Україна",
       "photo": "tnbzxqaizumhvwfjbzcb",
       "interests": "Murders",
-      "id": 4
+      "id": 14
     },
     {
       "name": "Ivan Prokop",
@@ -284,7 +286,7 @@
       "interests": "Murders",
       "photo": "it3abc7o2ivwj9c3pzou",
       "location": "Dnipro, Dnipropetrovsk Oblast, Ukraine",
-      "id": 5
+      "id": 15
     }
   ]
 }

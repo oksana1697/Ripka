@@ -1,13 +1,46 @@
 .UserDetails{
-  &__title {
-    background-color: #fafafa;
-    color: #2c374a;
-    font-size: 22px;
-    padding: 30px 192px;
-    margin: 0;
-    font-weight: bold;
-    line-height: 1.59091;
 
+  &__settings {
+    background: #89d8e0;
+    padding-left: 6em;
+  }
+  &__settings-button {
+    display: inline-block;
+    margin-right: 2rem;
+    &:hover {
+      color: #40c4cf;
+    }
+  }
+  &__settings-text {
+    font-weight: bold;
+    font-size: 0.8em;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    height: 2.5em;
+    color: #fafafb;
+    text-transform: uppercase;
+    &:hover {
+      color: #40c4cf;
+      outline: none;
+    }
+  }
+
+  &__header{
+    background-color: #fafafa;
+    width: 100%;
+    height: 370px;
+    text-align: center;
+    //position: relative;
+  }
+
+  &__photo{
+    border: 1px solid #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    width: 170px;
+    height: 170px;
+    margin-top: 50px;
   }
   &__name{
     color: #2c374a;
@@ -15,43 +48,22 @@
     font-weight: bold;
     margin: 0;
   }
-  &__block-row {
-    display: inline;
+  &__options {
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    justify-content: center;
   }
 
-  &__button-descr {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  &__btn{
-    font-weight: bold;
-    font-size: 11px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    margin-right: 30px;
-    height: 35px;
-    color: #fafafb;
-    text-transform: uppercase;
-
-    &:active {
-      color: #40c4cf;
-    }
-    &:hover{
-      color: #40c4cf;
-    }
-  }
-
-  &__button{
+  &__option-button{
+    display: flex;
+    justify-content: center;
     font-weight: bold;
     font-size: 11px;
     //cursor: pointer;
     //margin-right: 30px;
-    height: 35px;
+    height: 3rem;
     width: 210px;
     text-transform: uppercase;
     color: #40c4cf;
@@ -69,70 +81,26 @@
     }
   }
 
-  &__photo{
-      border: 1px solid #fff;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      width: 170px;
-      height: 170px;
-      margin-top: 50px;
-  }
-
-
-  &__main-container{
-    //display: flex;
-    //padding: 20px;
-    padding-bottom: 120px;
-  }
-  &__subnav{
-    background-color: #89d8e0;
-    padding-left: 120px;
-    padding-right: 45px;
-    display: flex;
-    justify-content: space-between;
-  }
-  &__big{
-    background-color: #fafafa;
-    width: 100%;
-    height: 350px;
-    text-align: center;
-    //position: relative;
-  }
-
-  &__info{
+  &__details{
     max-width: 930px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 60px;
   }
-  &__subt{
-    display: inline-block;
-    margin-left: 14px;
+  &__details-title{
+    vertical-align: middle;
+    display: flex;
+    margin-left: 1rem;
     color: #626977;
     font-size: 18px;
     font-weight: bold;
-    vertical-align: bottom;
-    //width: 80%;
-    margin-top: 2px;
-    margin-bottom: 0px;
-    clear:both;
-  }
-  &__in{
-    margin-bottom: 60px;
-  }
-  &__hr{
-    margin: 20px 0 0 0;
-    border: 0;
-    border-top: 1px solid #eff0f2;
-    height: 1px
-  }
-  &__title-info{
-    vertical-align: middle;
-    padding-bottom: 24px;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eff0f2;
   }
 
-  &__info-cont{
+  &__info-container{
     padding: 0 40px;
+    margin-bottom: 5rem;
   }
   &__story-title{
     display: inline-block;
@@ -166,62 +134,47 @@
     }
   }
 
-  &__edit{
-    display: inline-block;
-    &:hover{
-      .event-details__btn{
-        color: #40c4cf;}
-      .event-details__icon-edit{
-        background: url("/icons/edit-blue.svg");
-      }
-    }
-  }
-
-  &__delete{
-    display: inline-block;
-    &:hover{
-      .event-details__btn{
-        color: #40c4cf;}
-      .event-details__icon-delete{
-        background: url("/icons/delete-blue.svg");
-      }
-    }
-  }
-
   &__icon{
-    margin: 0 0.5em;
     //display: inline-block;
     //vertical-align: middle;
-    width: 20px;
-    height: 20px;
-    background-repeat: no-repeat;
+    margin: 0.5rem;
+    width: 38px;
+    height: 38px;
 
     &_flag{
-      background: url("/icons/flag.svg");
+      background: url("/icons/flag.svg") no-repeat;
+      width: 21px;
+      height: 19px;
     }
     &_heard{
-      background: url("/icons/heart.svg");
+      background: url("/icons/heart.svg") no-repeat;
+      width: 21px;
+      height: 19px;
     }
     &_contact{
-      background: url("/icons/contact.svg");
+      margin: 0.6rem 0.5rem;
+      background: url("/icons/contact.svg") no-repeat;
     }
     &_categories{
-      background: url("/icons/categories.svg");
+      background: url("/icons/categories.svg") no-repeat;
     }
     &_paper{
-      background: url("/icons/paper.svg");
+      background: url("/icons/paper.svg") no-repeat;
     }
     &_location{
-      background: url("/icons/location.svg");
+      background: url("/icons/location.svg") no-repeat;
+      margin: 1rem 0.5rem;
+      width: 23px;
+      height: 23px;
     }
     &_edit{
-      background: url("/icons/edit.svg");
+      background: url("/icons/edit.svg") no-repeat;
     }
     &_delete{
-      background: url("/icons/delete.svg");
+      background: url("/icons/delete.svg") no-repeat;
     }
     &_calendar{
-      background: url("/icons/calendar.svg");
+      background: url("/icons/calendar.svg") no-repeat;
     }
   }
 

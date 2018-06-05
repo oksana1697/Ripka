@@ -56,15 +56,24 @@ class EventDetails extends Component {
                             <p className={b("location")}>{event.location}</p>
                         </div>
                         <div className={b("options")}>
-                            <button className={b("options", ["button"])}>Bookmark</button>
-                            <button className={b("options", ["button"])}>Report</button>
+                            <button className={b("option-button")}>
+                                <span className={b("icon", ["heard"])} />
+                                Bookmark
+                            </button>
+                            <button className={b("option-button")}>
+                                <span className={b("icon", ["flag"])} />
+                                Report
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div className={b("details")}>
                     <div className={b("details", ["left-block"])}>
+                        <div className={b("details-title")}>
+                            <span className={b("icon", ["push-pin"])} />
+                            <h3>Event Overview</h3>
+                        </div>
                         <div>
-                            <h3 className={b("details-title")}>Event Overview</h3>
                             <p className={b("story-title")}>Date & Time</p>
                             <p className={b("story")}>{formatDate(event.time)}</p>
                         </div>
@@ -76,23 +85,28 @@ class EventDetails extends Component {
                             <p className={b("story-title")}>Organization</p>
                             <p className={b("story")}>{event.organization}</p>
                         </div>
-                        <div>
-                            <h3 className={b("details-title")}>Event description</h3>
-                            <p className={b("story")}>{event.description}</p>
+                        <div className={b("details-title")}>
+                            <span className={b("icon", ["legal-paper"])} />
+                            <h3>Event description</h3>
                         </div>
+                            <p className={b("story")}>{event.description}</p>
                     </div>
                     <div className={b("details", ["right-block"])}>
                         <img className={b("photo")} src={CLOUDINARY_URL + "c_fill,q_90/" + event.photo + ".jpg"}
                              alt={"name"}/>
+                        <div className={b("details-title")}>
+                            <span className={b("icon", ["contact"])} />
+                            <h3>Contacts of organization</h3>
+                        </div>
                         <div>
-                            <h3 className={b("details-title")}>Contacts of organization</h3>
-
                             <p className={b("story-title")}>Phone number</p>
                             <p className={b("story")}>{event.contacts}</p>
                         </div>
+                        <div className={b("details-title")}>
+                            <span className={b("icon", ["location"])} />
+                            <h3>Location</h3>
+                        </div>
                         <div>
-                            <h3 className={b("details-title")}>Location</h3>
-
                             <p className={b("story-title")}>City, country</p>
                             <p className={b("story")}>{event.location}</p>
                         </div>
