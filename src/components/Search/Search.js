@@ -4,7 +4,7 @@ import "./Search.scss"
 import block from "../../helpers/BEM"
 import withUser from "../HOC/withUser"
 import { compose } from "ramda"
-import { renameProp, renameProps } from "recompose"
+import { renameProp } from "recompose"
 const b = block("Search")
 const SearchItem = ({ result, onSelect }) => (
   <span onClick={() => onSelect(result)} className={b("search-item")}>
@@ -33,7 +33,7 @@ class Search extends Component {
         <input
           className={b("input")}
           onFocus={() => this.setState({ open: true })}
-            onChange={this.changeHandler}
+          onChange={this.changeHandler}
           value={query}
           placeholder="Search by key word"
         />
@@ -45,7 +45,7 @@ class Search extends Component {
               <WithUserSearchItem
                 key={result}
                 result={result}
-                onSelect={(value) => {
+                onSelect={value => {
                   this.setState({ open: false })
                   onSelect(value)
                 }}

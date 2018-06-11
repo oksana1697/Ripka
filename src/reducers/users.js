@@ -10,9 +10,11 @@ import {
   DELETE_USER_SUCCESS,
   EDIT_USER_SUCCESS,
   SEARCH_USERS_SUCCESS,
-  FETCH_USERS_START, SEARCH_USERS_START, SEARCH_USERS_FAILURE
+  FETCH_USERS_START,
+  SEARCH_USERS_START,
+  SEARCH_USERS_FAILURE
 } from "../actions/actionTypes"
-import { pathOr, uniq } from "ramda"
+import { pathOr, uniq, contains, path } from "ramda"
 
 export const byId = (state = {}, action) => {
   switch (action.type) {
@@ -119,15 +121,12 @@ const isUserFetching = (state = {}, action) => {
 const searchResults = (state = {}, action) => {
   switch (action.type) {
     case SEARCH_USERS_SUCCESS: {
-      const { query, offset, count, data } = action
-      const result = state[query] || []
-      let totalCount = Infinity
-      if (data.result.length <= count) {
-        totalCount = offset + data.result.length
-      }
-      for (let i = 0; i < count; i++) {
-        result[offset + i] = data.result[i]
-      }
+      const { query, offset, count, data, meta } = action
+      const totalCount = meta.total
+
+      let result = pathOr(Array(totalCount), [query, "result"], state)
+
+      result = [...result.slice(0, offset), ...data.result, ...result.slice(offset + count)]
 
       return {
         ...state,
@@ -139,14 +138,14 @@ const searchResults = (state = {}, action) => {
   }
 }
 const isSearchFetching = (state = {}, action) => {
-  switch(action.type){
+  switch (action.type) {
     case SEARCH_USERS_START: {
       const { query, offset, count } = action
       const search = new URLSearchParams()
       search.set("query", query)
       search.set("offset", offset)
       search.set("count", count)
-      return {... state, [search.toString()]: true}
+      return { ...state, [search.toString()]: true }
     }
     case SEARCH_USERS_SUCCESS:
     case SEARCH_USERS_FAILURE: {
@@ -155,13 +154,11 @@ const isSearchFetching = (state = {}, action) => {
       search.set("query", query)
       search.set("offset", offset)
       search.set("count", count)
-      return {... state, [search.toString()]: false}
+      return { ...state, [search.toString()]: false }
     }
     default:
       return state
-
   }
-
 }
 export default combineReducers({
   byId,
@@ -173,22 +170,17 @@ export default combineReducers({
 })
 
 export const getSearchUsersResult = (offset, count, query, state) => {
-  const search = pathOr([], ["searchResults", query, "result"], state)
+  const search = path(["searchResults", query, "result"], state)
 
-  let result = []
-  for (let i = 0; i < count; i++) {
-    result[i] = search[offset + i]
+  if (!search) {
+    return null
+  } else {
+    const result = search.slice(offset, offset + count)
+    return contains(undefined, result) ? null : result
   }
-  result = result.filter(a => a)
-
-  return result.length !== 0 ? result : null
 }
 
-export const getUsersSearchTotalCount = (query, state) => pathOr(
-    Infinity,
-    ["searchResults", query, "totalCount"],
-    state
-);
+export const getUsersSearchTotalCount = (query, state) => path(["searchResults", query, "totalCount"], state)
 export const getIfUsersSearchFetching = (offset, count, query, state) => {
   const search = new URLSearchParams()
   search.set("query", query)
@@ -196,8 +188,6 @@ export const getIfUsersSearchFetching = (offset, count, query, state) => {
   search.set("count", count)
   return state.isSearchFetching[search.toString()]
 }
-export const getUsersSearchResults = state => state.searchUsers
 
-export const getAllAvailableUsers = state => state.allIds
 export const getUserById = (state, id) => state.byId[id]
 export const getIsUserFetching = (id, state) => state.isUserFetching[id]

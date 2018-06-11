@@ -1,14 +1,14 @@
-import * as api from '../api/index'
+import * as api from "../api/index"
 import {
   fetchEventFailure,
   fetchEventStart,
   fetchEventSuccess,
   fetchUserFailure,
   fetchUserStart,
-  fetchUserSuccess,
-} from './index'
-import { arrayOfEvents, arrayOfUsers } from './schema'
-import { normalize } from 'normalizr'
+  fetchUserSuccess
+} from "./index"
+import { arrayOfEvents, arrayOfUsers } from "./schema"
+import { normalize } from "normalizr"
 
 export const fetchEvent = id => async dispatch => {
   dispatch(fetchEventStart(id))

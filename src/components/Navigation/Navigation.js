@@ -1,7 +1,7 @@
 import React from "react"
 //
 import { Link, NavLink } from "react-router-dom"
-import { withUniversalSearch, withUsersSearch } from "../HOC/withSearch"
+import { /*withUniversalSearch,*/ withUsersSearch } from "../HOC/withSearch"
 import UserMenu from "../UserMenu"
 import Search from "../Search"
 //

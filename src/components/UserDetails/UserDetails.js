@@ -100,6 +100,6 @@ class UserDetails extends Component {
   }
 }
 
-const enhance = compose(withRouter, withProps(({ match }) => ({ id: Number(match.params.id) })), withUser)
+const enhance = compose(withRouter, withProps(({ match }) => ({ id: match.params.id })), withUser)
 
 export default enhance(UserDetails)

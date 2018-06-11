@@ -26,7 +26,5 @@ export const getUsersSearchTotalCount = (query, state) => fromUsers.getUsersSear
 export const getIfUsersSearchFetching = (offset, count, query, state) =>
   fromUsers.getIfUsersSearchFetching(offset, count, query, state.users)
 
-// export const getUsersSearchResults = state => fromUsers.getUsersSearchResults(state.users)
-// export const getAllAvailableUsers = state => fromUsers.getAllAvailableUsers(state.users)
 export const getUserById = (state, id) => fromUsers.getUserById(state.users, id)
 export const getIsUserFetching = (id, state) => fromUsers.getIsUserFetching(id, state.users)

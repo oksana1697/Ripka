@@ -94,12 +94,13 @@ export const searchEventsFailure = (query, offset, count, error) => ({
   error
 })
 export const searchUsersStart = (query, offset, count) => ({ type: SEARCH_USERS_START, query, offset, count })
-export const searchUsersSuccess = (query, offset, count, data) => ({
+export const searchUsersSuccess = (query, offset, count, data, meta) => ({
     type: SEARCH_USERS_SUCCESS,
     query,
     offset,
     count,
-    data
+    data,
+    meta
 })
 
 export const searchUsersFailure = (query, offset, count, error) => ({

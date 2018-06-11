@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { compose } from "ramda"
 
 import Event from "../Event"
-import MapContainer from "../MapContainer/MapContainer"
+// import MapContainer from "../MapContainer/MapContainer"
 
 import { getSearchEventsResult } from "../../reducers"
 

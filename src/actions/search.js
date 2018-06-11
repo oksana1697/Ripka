@@ -26,20 +26,19 @@ export const searchEvents = (query, offset, count) => async dispatch => {
   }
 }
 
-
 export const searchUsers = (query, offset, count) => async dispatch => {
-    dispatch(searchUsersStart(query, offset, count))
+  dispatch(searchUsersStart(query, offset, count))
 
-    try {
-        const payload = await api.findUsers(query, offset, count)
-        const users = normalize(payload, [userSchema])
-        const action = searchUsersSuccess(query, offset, count, users)
-        dispatch(action)
-        return action
-    } catch (e) {
-        const action = searchUsersFailure(query, offset, count, e)
-        dispatch(action)
-        return action
-    }
+  try {
+    const payload = await api.findUsers(query, offset, count)
+    const users = normalize(payload.result, [userSchema])
+    const { meta } = payload
+    const action = searchUsersSuccess(query, offset, count, users, meta)
+    dispatch(action)
+    return action
+  } catch (e) {
+    const action = searchUsersFailure(query, offset, count, e)
+    dispatch(action)
+    return action
+  }
 }
-

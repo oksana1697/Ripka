@@ -3,9 +3,9 @@ import { connect } from "react-redux"
 import { compose } from "ramda"
 
 import User from "../User"
-import MapContainerUsers from "../MapContainer/MapContainerUsers"
+// import MapContainerUsers from "../MapContainer/MapContainerUsers"
 
-import { getSearchUsersResult } from "../../reducers"
+import { getIfUsersSearchFetching, getSearchUsersResult } from "../../reducers"
 
 import "./UsersList.scss"
 import block from "../../helpers/BEM"
@@ -20,7 +20,7 @@ const b = block("UsersList")
 
 const ConnectedUser = compose(withUser, flattenProp("user"))(User)
 
-const UsersList = ({ users, offset, count, query, totalCount}) => {
+const UsersList = ({ users, offset, count, query, totalCount }) => {
   return !users ? null : (
     <div>
       <div className={b("content")}>
@@ -32,7 +32,7 @@ const UsersList = ({ users, offset, count, query, totalCount}) => {
           <Link className={b("pagination-btn")} to={`/users/?offset=${offset - count}&count=${count}`}>{`< Prev`}</Link>
         )}
         &nbsp;&nbsp;
-        {(users.length + offset) < (totalCount )&& (
+        {users.length + offset < totalCount && (
           <Link className={b("pagination-btn")} to={`/users/?offset=${offset + count}&count=${count}`}>{`Next >`}</Link>
         )}
       </div>
@@ -47,24 +47,25 @@ const enhancer = compose(
   withProps(({ location }) => {
     const urlSearch = new URLSearchParams(location.search)
     const offset = Number(urlSearch.get("offset")) || 0
-    const count = Number(urlSearch.get("count")) || 5
+    const count = Number(urlSearch.get("count")) || 9
     const query = urlSearch.get("q") || ""
     return { offset, count, query }
   }),
+
   connect(
     (state, { offset, count, query }) => ({
       totalCount: getUsersSearchTotalCount(query, state),
-
-      users: getSearchUsersResult(offset, count, query, state)
+      users: getSearchUsersResult(offset, count, query, state),
+      isSearchFetching: getIfUsersSearchFetching(offset, count, query, state)
     }),
 
     { find: searchUsers },
 
-    ({ users , totalCount}, { find }, ownProps) => {
+    ({ users, totalCount, isSearchFetching }, { find }, ownProps) => {
       const { query, offset, count } = ownProps
 
-      if (!users) find(query, offset, count)
-      return users ? { users, totalCount,...ownProps } : { pending: true, ...ownProps }
+      if (!users && !isSearchFetching) find(query, offset, count)
+      return users ? { users, totalCount, ...ownProps } : { pending: true, ...ownProps }
     }
   )
 )
