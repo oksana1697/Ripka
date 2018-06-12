@@ -4,7 +4,7 @@ import { compose } from "ramda"
 import { Field, reduxForm } from "redux-form"
 import { maxLength, minLength, required } from "../../helpers/FieldLevelValidationForm"
 //
-import { addEvent } from "../../actions/add"
+import { addEvent } from "../../actions/events"
 //
 import Geocoder from "../Geocoder"
 import Form from "../Form"

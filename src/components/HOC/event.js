@@ -2,11 +2,11 @@ import { connect } from "react-redux"
 import { compose } from "ramda"
 import { reduxForm } from "redux-form"
 
-import { addEvent } from "../../actions/add"
-import { editEvent as editEventactionCreator } from "../../actions/edit"
+import { addEvent } from "../../actions/events"
+import { editEvent as editEventactionCreator } from "../../actions/events"
 import { withRouter } from "react-router-dom"
 
-import { fetchEvent } from "../../actions/fetch"
+import { fetchEvent } from "../../actions/events"
 import {
   getIfEventsSearchFetching,
   getIsEventFetching,
@@ -15,7 +15,7 @@ import {
   getEventsSearchTotalCount
 } from "../../reducers"
 import { mapProps, withProps } from "recompose"
-import { searchEvents } from "../../actions/search"
+import { searchEvents } from "../../actions/events"
 
 export const searchEvent = connect(
   (state, { offset, count, query }) => ({

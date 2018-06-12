@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { fetchEvent } from "../../actions/fetch"
+import { fetchEvent } from "../../actions/events"
 import { getEventById } from "../../reducers"
 import { getIsEventFetching } from "../../reducers/index"
 

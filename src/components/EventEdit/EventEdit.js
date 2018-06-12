@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 
-import { editEvent } from "../../actions/edit"
+import { editEvent } from "../../actions/events"
 
 import { EventAdd } from "../EventAdd/EventAdd"
 

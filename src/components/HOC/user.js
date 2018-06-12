@@ -2,11 +2,11 @@ import { connect } from "react-redux"
 import { compose } from "ramda"
 import { reduxForm } from "redux-form"
 
-import { addUser } from "../../actions/add"
-import { editUser as editUseractionCreator } from "../../actions/edit"
+import { addUser } from "../../actions/users"
+import { editUser as editUseractionCreator } from "../../actions/users"
 import { withRouter } from "react-router-dom"
 
-import { fetchUser } from "../../actions/fetch"
+import { fetchUser } from "../../actions/users"
 import {
   getIfUsersSearchFetching,
   getIsUserFetching,
@@ -15,7 +15,7 @@ import {
   getUsersSearchTotalCount
 } from "../../reducers"
 import { mapProps, withProps } from "recompose"
-import { searchUsers } from "../../actions/search"
+import { searchUsers } from "../../actions/users"
 
 export const searchUser = connect(
   (state, { offset, count, query }) => ({
