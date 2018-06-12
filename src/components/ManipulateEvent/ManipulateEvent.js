@@ -1,22 +1,17 @@
 import React from "react"
-import { connect } from "react-redux"
-import { compose } from "ramda"
-import { Field, reduxForm } from "redux-form"
 import { maxLength, minLength, required } from "../../helpers/FieldLevelValidationForm"
-//
-import { addEvent } from "../../actions/events"
-//
-import Geocoder from "../Geocoder"
+
+import { Field} from "redux-form"
 import Form from "../Form"
-//
-import "./EventAdd.scss"
+import Geocoder from "../Geocoder"
+
+import "./ManipulateEvent.scss"
 import "../../styles/react-datetime-picker.scss"
 import block from "../../helpers/BEM"
-import { withRouter } from "react-router-dom"
 
-const b = block("EventAdd")
+const b = block("ManipulateEvent")
 
-export const EventAdd = ({ handleSubmit, submitting, id }) => (
+export const ManipulateEvent = ({ handleSubmit, submitting, id }) => (
   <Form className={b()} onSubmit={handleSubmit}>
     {submitting && <div className={b("carpet")} />}
     <header>
@@ -75,24 +70,4 @@ export const EventAdd = ({ handleSubmit, submitting, id }) => (
   </Form>
 )
 
-export default compose(
-  withRouter,
-  connect(null, { processEvent: addEvent }),
-
-  reduxForm({
-    // initialValues: {
-    //   name: "Повстання роботів",
-    //   organization: "Skynet",
-    //   location: "Жмеринка",
-    //   time: new Date(),
-    //   photo: "terminator-2-terminator-t-800-endoskeleton-maquette-sideshow-300157-01_mwmdru",
-    //   description: "Настав день помсти! Шкіряні ублюдки!!",
-    //   contacts: "we_are_killing_humans@skynet.com"
-    // },
-    form: "addEventForm",
-    onSubmit: async (data, dispatch, { processEvent, history }) => {
-      const action = await processEvent(data)
-      history.push("/events/" + action.id)
-    }
-  })
-)(EventAdd)
+export default ManipulateEvent
