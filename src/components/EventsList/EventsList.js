@@ -12,7 +12,7 @@ import withEvent from '../HOC/withEvent'
 import { flattenProp, withProps } from 'recompose'
 import { Link, withRouter } from 'react-router-dom'
 
-import { searchEvent } from "../HOC/eventtest"
+import { searchEvent } from "../HOC/event"
 
 const b = block('EventsList')
 

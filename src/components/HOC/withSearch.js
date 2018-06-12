@@ -2,7 +2,7 @@ import { withRouter } from "react-router-dom"
 import { compose } from "ramda"
 import { defaultProps, renameProp, withHandlers, withState } from "recompose"
 import { searchUser } from "./user"
-import { searchEvent } from "./eventtest"
+import { searchEvent } from "./event"
 
 
 export const withEventsSearch = compose(

@@ -12,7 +12,7 @@ import "./EventDetails.scss"
 
 import block from "../../helpers/BEM"
 import {compose} from "ramda"
-import withEvent from "../HOC/eventtest"
+import {withEvent} from "../HOC/event"
 import {branch, renderComponent, withProps} from "recompose"
 
 const b = block("EventDetails")
