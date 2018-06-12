@@ -90,12 +90,6 @@ export const allIds = (state = [], action) => {
   }
 }
 
-const searchUsers = (state = [], action) => {
-  switch (action.type) {
-    default:
-      return state
-  }
-}
 const isUserFetching = (state = {}, action) => {
   switch (action.type) {
     case FETCH_USER_START:
@@ -120,6 +114,11 @@ const isUserFetching = (state = {}, action) => {
 
 const searchResults = (state = {}, action) => {
   switch (action.type) {
+    case EDIT_USER_SUCCESS:
+    case ADD_USER_SUCCESS:
+    case DELETE_USER_SUCCESS:
+      return {}
+
     case SEARCH_USERS_SUCCESS: {
       const { query, offset, count, data, meta } = action
       const totalCount = meta.total
@@ -164,7 +163,6 @@ export default combineReducers({
   byId,
   allIds,
   isUserFetching,
-  searchUsers,
   searchResults,
   isSearchFetching
 })

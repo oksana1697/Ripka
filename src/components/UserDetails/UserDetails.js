@@ -1,42 +1,38 @@
 import React from "react"
 import { NavLink, withRouter } from "react-router-dom"
+import { branch, renderComponent, withHandlers, withProps } from "recompose"
+import { connect } from "react-redux"
 
 import { CLOUDINARY_URL } from "../../api/index"
+
+import { compose } from "ramda"
+import { withUser } from "../HOC/user"
+
+import { deleteUser } from "../../actions/users"
+
 import MapContainerUsers from "../MapContainer/MapContainerUsers"
 import PageNotFound from "../PageNotFound/PageNotFound"
 
 import "./UserDetails.scss"
-import "../User/User.scss"
-import "../../styles/common.scss"
-import "../../styles/map.scss"
 import block from "../../helpers/BEM"
-import { branch, renderComponent, withProps } from "recompose"
-import { compose } from "ramda"
-import { withUser } from "../HOC/user"
-
 const b = block("UserDetails")
 
-const UserDetails = ({ user, deleteUser, onSuccess }) => (
+const UserDetails = ({ user, deleteUser, onDeleteSuccess }) => (
   <div className={b()}>
     <div className={b("settings")}>
-      <div className={b("settings-button")}>
-        <NavLink to={"/users/edit/" + user.id}>
-          <span className={b("icon", ["edit"])} />
-          <button className={b("settings-text")}>Edit profile</button>
-        </NavLink>
-      </div>
-      <div className={b("settings-button")}>
-        <span className={b("icon", ["delete"])} />
-        <button
-          className={b("settings-text")}
-          onClick={() => {
-            deleteUser(user.id)
-            onSuccess()
-          }}
-        >
-          Delete profile
-        </button>
-      </div>
+      <NavLink className={b("settings-text")} to={"/users/edit/" + user.id}>
+        Edit profile
+      </NavLink>
+
+      <button
+        className={b("settings-text")}
+        onClick={async () => {
+          await deleteUser(user.id)
+          onDeleteSuccess()
+        }}
+      >
+        Delete profile
+      </button>
     </div>
     <div className={b("header")}>
       <img alt="" className={b("photo")} src={`${CLOUDINARY_URL}w_170,h_170,q_90,c_fill,g_faces/${user.photo}.jpg`} />
@@ -89,9 +85,13 @@ const UserDetails = ({ user, deleteUser, onSuccess }) => (
 
 const enhance = compose(
   withRouter,
+  withHandlers({
+    onDeleteSuccess: ({ history }) => () => history.push("/users")
+  }),
   withProps(({ match }) => ({ id: match.params.id })),
   withUser,
-  branch(({ user }) => !user, renderComponent(PageNotFound))
+  branch(({ user }) => !user, renderComponent(PageNotFound)),
+  connect(null, { deleteUser })
 )
 
 export default enhance(UserDetails)

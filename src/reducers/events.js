@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux"
 import {
   ADD_EVENT_FAILURE,
   ADD_EVENT_SUCCESS,
@@ -11,13 +11,10 @@ import {
   DELETE_EVENT_SUCCESS,
   EDIT_EVENT_SUCCESS,
   SEARCH_EVENTS_SUCCESS,
-  SEARCH_USERS_SUCCESS,
-  SEARCH_USERS_FAILURE,
-  SEARCH_USERS_START,
   SEARCH_EVENTS_START,
-  SEARCH_EVENTS_FAILURE,
-} from '../actions/actionTypes'
-import { pathOr, uniq, contains, path } from 'ramda'
+  SEARCH_EVENTS_FAILURE
+} from "../actions/actionTypes"
+import { pathOr, uniq, contains, path } from "ramda"
 
 export const byId = (state = {}, action) => {
   switch (action.type) {
@@ -26,7 +23,7 @@ export const byId = (state = {}, action) => {
 
       return {
         ...state,
-        ...data.entities.events,
+        ...data.entities.events
       }
     }
 
@@ -34,14 +31,14 @@ export const byId = (state = {}, action) => {
       const { id, event } = action
       return {
         ...state,
-        [id]: event,
+        [id]: event
       }
     }
 
     case FETCH_EVENT_SUCCESS:
       return {
         ...state,
-        ...action.events,
+        ...action.events
       }
     case FETCH_EVENTS_SUCCESS:
       return { ...action.events }
@@ -59,7 +56,7 @@ export const byId = (state = {}, action) => {
       const { id, event } = action
       return {
         ...state,
-        [id]: event,
+        [id]: event
       }
     }
 
@@ -108,7 +105,7 @@ const isFetching = (state = {}, action) => {
     case FETCH_EVENTS_START:
       return {
         ...state,
-        [action.id]: true,
+        [action.id]: true
       }
     case FETCH_EVENTS_FAILURE:
     case FETCH_EVENTS_SUCCESS:
@@ -116,7 +113,7 @@ const isFetching = (state = {}, action) => {
     case FETCH_EVENT_SUCCESS:
       return {
         ...state,
-        [action.id]: false,
+        [action.id]: false
       }
     default:
       return state
@@ -125,17 +122,21 @@ const isFetching = (state = {}, action) => {
 
 const searchResults = (state = {}, action) => {
   switch (action.type) {
+    case EDIT_EVENT_SUCCESS:
+    case ADD_EVENT_SUCCESS:
+      return {}
+
     case SEARCH_EVENTS_SUCCESS: {
       const { query, offset, count, data, meta } = action
       const totalCount = meta.total
 
-      let result = pathOr(Array(totalCount), [query, 'result'], state)
+      let result = pathOr(Array(totalCount), [query, "result"], state)
 
       result = [...result.slice(0, offset), ...data.result, ...result.slice(offset + count)]
 
       return {
         ...state,
-        [query]: { result, totalCount },
+        [query]: { result, totalCount }
       }
     }
     default:
@@ -147,18 +148,18 @@ const isSearchFetching = (state = {}, action) => {
     case SEARCH_EVENTS_START: {
       const { query, offset, count } = action
       const search = new URLSearchParams()
-      search.set('query', query)
-      search.set('offset', offset)
-      search.set('count', count)
+      search.set("query", query)
+      search.set("offset", offset)
+      search.set("count", count)
       return { ...state, [search.toString()]: true }
     }
     case SEARCH_EVENTS_SUCCESS:
     case SEARCH_EVENTS_FAILURE: {
       const { query, offset, count } = action
       const search = new URLSearchParams()
-      search.set('query', query)
-      search.set('offset', offset)
-      search.set('count', count)
+      search.set("query", query)
+      search.set("offset", offset)
+      search.set("count", count)
       return { ...state, [search.toString()]: false }
     }
     default:
@@ -171,24 +172,24 @@ export default combineReducers({
   isFetching,
   searchEvents,
   searchResults,
-  isSearchFetching,
+  isSearchFetching
 })
 
 export const getSearchEventsResult = (offset, count, query, state) => {
-    const search = path(["searchResults", query, "result"], state)
-    if (!search) {
-        return null
-    } else {
-        const result = search.slice(offset, offset + count)
-        return contains(undefined, result) ? null : result
-    }
+  const search = path(["searchResults", query, "result"], state)
+  if (!search) {
+    return null
+  } else {
+    const result = search.slice(offset, offset + count)
+    return contains(undefined, result) ? null : result
+  }
 }
 export const getEventsSearchTotalCount = (query, state) => path(["searchResults", query, "totalCount"], state)
 export const getIfEventsSearchFetching = (offset, count, query, state) => {
   const search = new URLSearchParams()
-  search.set('query', query)
-  search.set('offset', offset)
-  search.set('count', count)
+  search.set("query", query)
+  search.set("offset", offset)
+  search.set("count", count)
   return state.isSearchFetching[search.toString()]
 }
 export const getEventById = (state, id) => state.byId[id]
