@@ -77,7 +77,13 @@ export const editUserStart = (id, user) => ({ type: EDIT_USER_START, id, user })
 export const editUserSuccess = (id, user) => ({ type: EDIT_USER_SUCCESS, id, user })
 export const editUserFailure = (id, error) => ({ type: EDIT_USER_FAILURE, id, error })
 
-export const searchEventsStart = (query, offset, count) => ({ type: SEARCH_EVENTS_START, query, offset, count })
+export const searchEventsStart = (query, offset, count) => ({
+  type: SEARCH_EVENTS_START,
+  query,
+  offset,
+  count
+})
+
 export const searchEventsSuccess = (query, offset, count, data, meta) => ({
   type: SEARCH_EVENTS_SUCCESS,
   query,

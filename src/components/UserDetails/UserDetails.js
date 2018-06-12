@@ -22,7 +22,7 @@ const UserDetails = ({ user, deleteUser, onSuccess }) => (
       <div className={b("settings-button")}>
         <NavLink to={"/users/edit/" + user.id}>
           <span className={b("icon", ["edit"])} />
-          <button className={b("settings-text")}>Edit event</button>
+          <button className={b("settings-text")}>Edit profile</button>
         </NavLink>
       </div>
       <div className={b("settings-button")}>
@@ -34,7 +34,7 @@ const UserDetails = ({ user, deleteUser, onSuccess }) => (
             onSuccess()
           }}
         >
-          Delete event
+          Delete profile
         </button>
       </div>
     </div>
