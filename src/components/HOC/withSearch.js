@@ -1,20 +1,21 @@
-import { searchEvents } from "../../actions/search"
 import { withRouter } from "react-router-dom"
 import { compose } from "ramda"
-import { connect } from "react-redux"
-import { getEventsSearchResults } from "../../reducers"
 import { defaultProps, renameProp, withHandlers, withState } from "recompose"
 import { searchUser } from "./user"
+import { searchEvent } from "./eventtest"
+
 
 export const withEventsSearch = compose(
-  withRouter,
-  connect(
-    (state, { history }) => ({
-      searchResults: getEventsSearchResults(state),
-      onSelect: value => history.push("/events/" + value.id)
-    }),
-    { find: searchEvents }
-  )
+    withRouter,
+    withState("query", "onQueryChange", ""),
+
+    defaultProps({ offset: 0, count: 5 }),
+    searchEvent,
+
+    renameProp("events", "searchResults"),
+    withHandlers({
+        onSelect: ({ history }) => value => history.push("/events/" + value.id)
+    })
 )
 
 export const withUsersSearch = compose(

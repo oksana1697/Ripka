@@ -6,9 +6,7 @@ export const CLOUDINARY_URL = "https://res.cloudinary.com/ucu/image/upload/"
 export const API_KEY = "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo"
 
 export const findEvents = (query, offset, count) =>
-  getData(`${API_ENDPOINT}/events?q=${query}&_page=${Math.floor(offset / count) + 1}&_limit=${count}`)
-export const fetchSliceEvents = num => getData(`${API_ENDPOINT}/events?_start=` + num + "&_limit=4")
-export const fetchEvents = () => getData(`${API_ENDPOINT}/events`)
+    getData(`${API_ENDPOINT}/events?q=${query}&offset=${offset}&count=${count}`)
 export const fetchEvent = id => getData(`${API_ENDPOINT}/events/${id}`)
 export const addEvent = newEvent => postData(`${API_ENDPOINT}/events`, newEvent)
 export const deleteEvent = async id => await deleteData(`${API_ENDPOINT}/events`, id)

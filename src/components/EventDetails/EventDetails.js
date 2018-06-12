@@ -1,6 +1,5 @@
 import React, {Component} from "react"
 import {NavLink, withRouter} from "react-router-dom"
-// Todo: update css - remove additional
 import moment from "moment"
 
 import {CLOUDINARY_URL} from "../../api/index"
@@ -13,20 +12,13 @@ import "./EventDetails.scss"
 
 import block from "../../helpers/BEM"
 import {compose} from "ramda"
-import withEvent from "../HOC/withEvent"
-import {withProps} from "recompose"
+import withEvent from "../HOC/eventtest"
+import {branch, renderComponent, withProps} from "recompose"
 
 const b = block("EventDetails")
 const formatDate = date => new Date(moment(date).format()).toDateString()
 
-class EventDetails extends Component {
-    render() {
-        let props = this.props
-        const {event} = this.props
-        if (!event) {
-            return <PageNotFound/>
-        }
-        return (
+const EventDetails = ({event, deleteEvent, onSuccess}) => (
             <div className={b()}>
                 <div className={b("settings")}>
                     <div className={b("settings-button")}>
@@ -40,8 +32,8 @@ class EventDetails extends Component {
                         <button
                             className={b("settings-text")}
                             onClick={() => {
-                                props.deleteEvent(event.id)
-                                this.props.onSuccess()
+                                deleteEvent(event.id)
+                                onSuccess()
                             }}
                         >
                             Delete event
@@ -116,10 +108,13 @@ class EventDetails extends Component {
                     </div>
                 </div>
             </div>
-        )
-    }
-}
+)
 
-const enhance = compose(withRouter, withProps(({match}) => ({id: Number(match.params.id)})), withEvent)
+const enhance = compose(
+    withRouter,
+    withProps(({match}) => ({id: match.params.id})),
+    withEvent,
+    branch(({ event }) => !event, renderComponent(PageNotFound))
+)
 
 export default enhance(EventDetails)

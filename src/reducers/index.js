@@ -14,15 +14,20 @@ export default eventApp
 export const getSearchEventsResult = (offset, count, query, state) =>
   fromEvents.getSearchEventsResult(offset, count, query, state.events)
 
-export const getEventsSearchResults = state => fromEvents.getEventsSearchResults(state.events)
-export const getAllAvailableEvents = state => fromEvents.getAllAvailableEvents(state.events)
+export const getEventsSearchTotalCount = (query, state) => fromEvents.getEventsSearchTotalCount(query, state.events)
+
 export const getEventById = (state, id) => fromEvents.getEventById(state.events, id)
 export const getIsEventFetching = (id, state) => fromEvents.getIsEventFetching(id, state.events)
+
+export const getIfEventsSearchFetching = (offset, count, query, state) =>
+    fromEvents.getIfEventsSearchFetching(offset, count, query, state.events)
 
 //Users
 export const getSearchUsersResult = (offset, count, query, state) =>
   fromUsers.getSearchUsersResult(offset, count, query, state.users)
+
 export const getUsersSearchTotalCount = (query, state) => fromUsers.getUsersSearchTotalCount(query, state.users)
+
 export const getIfUsersSearchFetching = (offset, count, query, state) =>
   fromUsers.getIfUsersSearchFetching(offset, count, query, state.users)
 

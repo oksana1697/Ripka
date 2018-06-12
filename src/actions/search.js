@@ -4,19 +4,20 @@ import {
   searchEventsSuccess,
   searchUsersFailure,
   searchUsersStart,
-  searchUsersSuccess
-} from "./index"
-import { user as userSchema, event as eventSchema } from "./schema"
-import { normalize } from "normalizr"
-import * as api from "../api/index"
+  searchUsersSuccess,
+} from './index'
+import { user as userSchema, event as eventSchema } from './schema'
+import { normalize } from 'normalizr'
+import * as api from '../api/index'
 
 export const searchEvents = (query, offset, count) => async dispatch => {
   dispatch(searchEventsStart(query, offset, count))
 
   try {
     const payload = await api.findEvents(query, offset, count)
-    const events = normalize(payload, [eventSchema])
-    const action = searchEventsSuccess(query, offset, count, events)
+    const events = normalize(payload.result, [eventSchema])
+    const { meta } = payload
+    const action = searchEventsSuccess(query, offset, count, events , meta)
     dispatch(action)
     return action
   } catch (e) {
