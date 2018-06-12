@@ -7,21 +7,42 @@ import { editUser as editUseractionCreator } from "../../actions/edit"
 import { withRouter } from "react-router-dom"
 
 import { fetchUser } from "../../actions/fetch"
-import { getIsUserFetching, getUserById } from "../../reducers"
-import { mapProps } from "recompose"
+import {
+  getIfUsersSearchFetching,
+  getIsUserFetching,
+  getSearchUsersResult,
+  getUserById,
+  getUsersSearchTotalCount
+} from "../../reducers"
+import { mapProps, withProps } from "recompose"
+import { searchUsers } from "../../actions/search"
 
-const withUser = connect(
-  (state, { match }) => {
-    const id = Number(match.params.id)
-    return {
-      id,
-      user: getUserById(state, id),
-      isUserFetching: getIsUserFetching(id, state)
-    }
-  },
+export const searchUser = connect(
+  (state, { offset, count, query }) => ({
+    totalCount: getUsersSearchTotalCount(query, state),
+    users: getSearchUsersResult(offset, count, query, state),
+    isSearchFetching: getIfUsersSearchFetching(offset, count, query, state)
+  }),
+
+  { find: searchUsers },
+
+  ({ users, totalCount, isSearchFetching }, { find }, ownProps) => {
+    const { query, offset, count } = ownProps
+
+    if (!users && !isSearchFetching) find(query, offset, count)
+    return users ? { users, totalCount, ...ownProps } : { pending: true, ...ownProps }
+  }
+)
+
+export const withUser = connect(
+  (state, { id }) => ({
+    id,
+    user: getUserById(state, id),
+    isFetching: getIsUserFetching(id, state)
+  }),
   { fetchUser },
-  ({ user, isUserFetching, id }, { fetchUser }, ownProps) => {
-    if (!user && !isUserFetching) fetchUser(id)
+  ({ user, isFetching, id }, { fetchUser }, ownProps) => {
+    if (!user && !isFetching) fetchUser(id)
     return user ? { user, id, ...ownProps } : { pending: true, id, ...ownProps }
   }
 )
@@ -41,6 +62,7 @@ export const createUser = compose(
 
 export const editUser = compose(
   withRouter,
+  withProps(({ match }) => ({ id: match.params.id })),
   withUser,
 
   connect(null, { processUser: editUseractionCreator }),

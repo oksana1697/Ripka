@@ -1,9 +1,10 @@
-import { searchEvents, searchUsers } from "../../actions/search"
+import { searchEvents } from "../../actions/search"
 import { withRouter } from "react-router-dom"
 import { compose } from "ramda"
 import { connect } from "react-redux"
-import { getEventsSearchResults, getIfUsersSearchFetching, getSearchUsersResult } from "../../reducers"
-import { withProps, withState } from "recompose"
+import { getEventsSearchResults } from "../../reducers"
+import { defaultProps, renameProp, withHandlers, withState } from "recompose"
+import { searchUser } from "./user"
 
 export const withEventsSearch = compose(
   withRouter,
@@ -19,20 +20,13 @@ export const withEventsSearch = compose(
 export const withUsersSearch = compose(
   withRouter,
   withState("query", "onQueryChange", ""),
-  connect(
-    (state, { history, query }) => ({
-      searchResults: getSearchUsersResult(0, 5, query, state),
-      isSearchFetching: getIfUsersSearchFetching(0, 5, query, state),
 
-      onSelect: value => history.push("/users/" + value.id)
-    }),
-    { find: searchUsers }
-  ),
-  withProps(({ searchResults, isSearchFetching, query, find }) => {
-    if (!searchResults && !isSearchFetching) {
-      find(query, 0, 5)
-    }
-    return {}
+  defaultProps({ offset: 0, count: 5 }),
+  searchUser,
+
+  renameProp("users", "searchResults"),
+  withHandlers({
+    onSelect: ({ history }) => value => history.push("/users/" + value.id)
   })
 )
 

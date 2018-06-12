@@ -2,7 +2,7 @@ import React, { Component } from "react"
 
 import "./Search.scss"
 import block from "../../helpers/BEM"
-import withUser from "../HOC/withUser"
+import { withUser } from "../HOC/user"
 import { compose } from "ramda"
 import { renameProp } from "recompose"
 const b = block("Search")

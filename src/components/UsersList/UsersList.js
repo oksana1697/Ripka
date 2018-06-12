@@ -1,20 +1,18 @@
 import React from "react"
-import { connect } from "react-redux"
+
 import { compose } from "ramda"
 
 import User from "../User"
 // import MapContainerUsers from "../MapContainer/MapContainerUsers"
 
-import { getIfUsersSearchFetching, getSearchUsersResult } from "../../reducers"
-
 import "./UsersList.scss"
 import block from "../../helpers/BEM"
 
-import { searchUsers } from "../../actions/search"
-import withUser from "../HOC/withUser"
+import { withUser } from "../HOC/user"
 import { flattenProp, withProps } from "recompose"
 import { Link, withRouter } from "react-router-dom"
-import { getUsersSearchTotalCount } from "../../reducers/index"
+
+import { searchUser } from "../HOC/user"
 
 const b = block("UsersList")
 
@@ -42,8 +40,6 @@ const UsersList = ({ users, offset, count, query, totalCount }) => {
 
 const enhancer = compose(
   withRouter,
-  // Todo add comments for hack
-  // Todo : update Env or configure prettier
   withProps(({ location }) => {
     const urlSearch = new URLSearchParams(location.search)
     const offset = Number(urlSearch.get("offset")) || 0
@@ -51,23 +47,7 @@ const enhancer = compose(
     const query = urlSearch.get("q") || ""
     return { offset, count, query }
   }),
-
-  connect(
-    (state, { offset, count, query }) => ({
-      totalCount: getUsersSearchTotalCount(query, state),
-      users: getSearchUsersResult(offset, count, query, state),
-      isSearchFetching: getIfUsersSearchFetching(offset, count, query, state)
-    }),
-
-    { find: searchUsers },
-
-    ({ users, totalCount, isSearchFetching }, { find }, ownProps) => {
-      const { query, offset, count } = ownProps
-
-      if (!users && !isSearchFetching) find(query, offset, count)
-      return users ? { users, totalCount, ...ownProps } : { pending: true, ...ownProps }
-    }
-  )
+  searchUser
 )
 
 export default enhancer(UsersList)
