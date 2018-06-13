@@ -3,12 +3,12 @@ import React from "react"
 import { compose } from "ramda"
 
 import User from "../User"
-// import MapContainerUsers from "../MapContainer/MapContainerUsers"
+import MapContainerUsers from "../MapContainer/MapContainerUsers"
 
 import "./UsersList.scss"
 import block from "../../helpers/BEM"
 
-import { withUser } from "../HOC/user"
+import withUser from "../HOC/withUser"
 import { flattenProp, withProps } from "recompose"
 import { Link, withRouter } from "react-router-dom"
 
@@ -22,8 +22,8 @@ const UsersList = ({ users, offset, count, query, totalCount }) => {
   return !users ? null : (
     <div>
       <div className={b("content")}>
-        <div className={b("block")}>{users.map(user => <ConnectedUser id={user} key={user} />)}</div>
-        {/*<MapContainerUsers users={users} />*/}
+        <div className={b("block")}>{users.map(({id}) => <ConnectedUser id={id} key={id} />)}</div>
+        <MapContainerUsers users={users} />
       </div>
       <div className={b("pagination")}>
         {offset !== 0 && (

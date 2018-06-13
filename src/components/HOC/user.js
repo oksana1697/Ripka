@@ -17,10 +17,12 @@ import {
 import { mapProps, withProps } from "recompose"
 import { searchUsers } from "../../actions/users"
 
+const searchHelper = (users, byId) => {if (users) return users.map((id) => byId[id]) };
 export const searchUser = connect(
   (state, { offset, count, query }) => ({
+
     totalCount: getUsersSearchTotalCount(query, state),
-    users: getSearchUsersResult(offset, count, query, state),
+    users: searchHelper(getSearchUsersResult(offset, count, query, state), state.users.byId),
     isSearchFetching: getIfUsersSearchFetching(offset, count, query, state)
   }),
 
@@ -30,6 +32,8 @@ export const searchUser = connect(
     const { query, offset, count } = ownProps
 
     if (!users && !isSearchFetching) find(query, offset, count)
+    console.log("needed users:", users)
+
     return users ? { users, totalCount, ...ownProps } : { pending: true, ...ownProps }
   }
 )

@@ -7,8 +7,8 @@ import { compose } from "ramda"
 import { renameProp } from "recompose"
 const b = block("Search")
 const SearchItem = ({ result, onSelect }) => (
-  <span onClick={() => onSelect(result)} className={b("search-item")}>
-    {result.name}
+<span onClick={() => onSelect(result)} className={b("search-item")}>
+   {result.name}
   </span>
 )
 const WithUserSearchItem = compose(renameProp("result", "id"), withUser, renameProp("user", "result"))(SearchItem)

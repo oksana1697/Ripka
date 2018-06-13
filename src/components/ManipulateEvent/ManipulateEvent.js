@@ -48,9 +48,10 @@ export const ManipulateEvent = ({ handleSubmit, submitting, id }) => (
 
     <Field
       name="location"
-      component={() => (
-        <Form.FieldSet label={"Location"}>
-          <Geocoder />
+      enableReinitialize={true}
+      component={({input}) => (
+        <Form.FieldSet name="location" label={"Location"}>
+          <Geocoder input={input} />
         </Form.FieldSet>
       )}
     />

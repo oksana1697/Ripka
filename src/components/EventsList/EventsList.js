@@ -3,7 +3,7 @@ import React from 'react'
 import { compose } from 'ramda'
 
 import Event from '../Event'
-// import MapContainer from "../MapContainer/MapContainer"
+import MapContainer from "../MapContainer/MapContainer"
 
 import './EventsList.scss'
 import block from '../../helpers/BEM'
@@ -22,8 +22,8 @@ const EventsList = ({ events, offset, count, query, totalCount }) => {
   return !events ? null : (
     <div>
       <div className={b('content')}>
-        <div className={b('block')}>{events.map(event => <ConnectedEvent id={event} key={event} />)}</div>
-        {/*<MapContainer events={events} />*/}
+        <div className={b('block')}>{events.map(({id}) => <ConnectedEvent id={id} key={id} />)}</div>
+        <MapContainer events={events} />
       </div>
       <div className={b('pagination')}>
         {offset !== 0 && (
@@ -46,7 +46,7 @@ const enhancer = compose(
     withProps(({ location }) => {
         const urlSearch = new URLSearchParams(location.search)
         const offset = Number(urlSearch.get("offset")) || 0
-        const count = Number(urlSearch.get("count")) || 9
+        const count = Number(urlSearch.get("count")) || 4
         const query = urlSearch.get("q") || ""
         return { offset, count, query }
     }),

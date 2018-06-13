@@ -33,10 +33,11 @@ const ManipulateUser = ({ handleSubmit, submitting, id }) => (
       <Field name="contacts" placeholder={"+380501360805"} component={Form.Input} validate={[required, maxLength(100)]} />
       <Field
         name="location"
+        enableReinitialize={true}
         placeholder={"Kiev, Ukraine"}
-        component={() => (
-          <Form.FieldSet>
-            <Geocoder />
+        component={({input}) => (
+          <Form.FieldSet name="location">
+            <Geocoder input={input} />
           </Form.FieldSet>
         )}
       />
