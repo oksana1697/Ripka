@@ -4,9 +4,9 @@ import block from "../../helpers/BEM"
 import FieldSet from "./FieldSet"
 const b = block("Form")
 
-const TextArea = ({ input, label, meta }) => (
+const TextArea = ({ input, placeholder, label, meta }) => (
   <FieldSet label={label} meta={meta}>
-    <textarea placeholder={label} className={b("input", ["text"])} {...input} />
+    <textarea placeholder={placeholder} className={b("input", ["text"])} {...input} />
   </FieldSet>
 )
 

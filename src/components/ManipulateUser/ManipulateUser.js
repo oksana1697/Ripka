@@ -18,24 +18,30 @@ const ManipulateUser = ({ handleSubmit, submitting, id }) => (
       </header>
       <Field
         name="name"
-        placeholder={"John Snow"}
+        placeholder="John Snow"
         component={Form.Input}
         validate={[required, maxLength(20), minLength(2)]}
       />
 
-      <Field name="email" component={Form.Input} validate={[required, email_check]} />
+      <Field
+        name="email"
+        placeholder="john.snow@gmail.com"
+        component={Form.Input}
+        validate={[required, email_check]}
+      />
 
-      <Field name="contacts" component={Form.Input} validate={[required, maxLength(100)]} />
+      <Field name="contacts" placeholder={"+380501360805"} component={Form.Input} validate={[required, maxLength(100)]} />
       <Field
         name="location"
+        placeholder={"Kiev, Ukraine"}
         component={() => (
           <Form.FieldSet>
             <Geocoder />
           </Form.FieldSet>
         )}
       />
-      <Field name="description" component={Form.TextArea} validate={[required, minLength(20)]} />
-      <Field name="interests" component={Form.TextArea} validate={[required, minLength(20)]} />
+      <Field name="description" placeholder={"Write about you"} component={Form.TextArea} validate={[required, minLength(20)]} />
+      <Field name="interests" placeholder={"Write your interests"} component={Form.TextArea} validate={[required, minLength(20)]} />
       <Field name="photo" component={Form.PhotoUpload} />
 
       <Form.FieldSet>

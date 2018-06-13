@@ -1,7 +1,7 @@
 import React from "react"
 import { maxLength, minLength, required } from "../../helpers/FieldLevelValidationForm"
 
-import { Field} from "redux-form"
+import { Field } from "redux-form"
 import Form from "../Form"
 import Geocoder from "../Geocoder"
 
@@ -29,10 +29,17 @@ export const ManipulateEvent = ({ handleSubmit, submitting, id }) => (
       </h2>
     </header>
 
-    <Field name="name" label="Event Name" component={Form.Input} validate={[required, maxLength(100), minLength(2)]} />
+    <Field
+      name="name"
+      label="Event Name"
+      placeholder="The Good Things 2018 Festival needs a logo"
+      component={Form.Input}
+      validate={[required, maxLength(100), minLength(2)]}
+    />
     <Field
       name="organization"
       label="Organization Name"
+      placeholder="The Good Things 2018"
       component={Form.Input}
       validate={[required, maxLength(100), minLength(2)]}
     />
@@ -48,7 +55,13 @@ export const ManipulateEvent = ({ handleSubmit, submitting, id }) => (
       )}
     />
 
-    <Field name="contacts" label="Contacts" component={Form.Input} validate={[required, maxLength(100)]} />
+    <Field
+      name="contacts"
+      label="Contacts"
+      placeholder="+380501360805"
+      component={Form.Input}
+      validate={[required, maxLength(100)]}
+    />
 
     <h2 className={b("title", ["sub-navigation"])}>
       <span className={b("icon", ["legal-paper"])} />
@@ -58,6 +71,7 @@ export const ManipulateEvent = ({ handleSubmit, submitting, id }) => (
     <Field
       name="description"
       label="Event Description"
+      placeholder="Write about your event"
       component={Form.TextArea}
       validate={[required, minLength(20)]}
     />
