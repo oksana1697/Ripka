@@ -92,12 +92,7 @@ export const allIds = (state = [], action) => {
       return state
   }
 }
-const searchEvents = (state = [], action) => {
-  switch (action.type) {
-    default:
-      return state
-  }
-}
+
 
 const isFetching = (state = {}, action) => {
   switch (action.type) {
@@ -124,6 +119,7 @@ const searchResults = (state = {}, action) => {
   switch (action.type) {
     case EDIT_EVENT_SUCCESS:
     case ADD_EVENT_SUCCESS:
+    case DELETE_EVENT_SUCCESS:
       return {}
 
     case SEARCH_EVENTS_SUCCESS: {
@@ -170,7 +166,6 @@ export default combineReducers({
   byId,
   allIds,
   isFetching,
-  searchEvents,
   searchResults,
   isSearchFetching
 })

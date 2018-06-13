@@ -2,10 +2,13 @@ import React from "react"
 import {NavLink, withRouter} from "react-router-dom"
 import moment from "moment"
 
+import { connect } from "react-redux"
 import {CLOUDINARY_URL} from "../../api/index"
 
 import MapContainer from "../MapContainer/MapContainer"
 import PageNotFound from "../PageNotFound/PageNotFound"
+
+import { deleteEvent } from "../../actions/events"
 
 import "../../styles/map.scss"
 import "./EventDetails.scss"
@@ -13,32 +16,25 @@ import "./EventDetails.scss"
 import block from "../../helpers/BEM"
 import {compose} from "ramda"
 import {withEvent} from "../HOC/event"
-import {branch, renderComponent, withProps} from "recompose"
+import { branch, renderComponent, withHandlers, withProps } from "recompose"
 
 const b = block("EventDetails")
 const formatDate = date => new Date(moment(date).format()).toDateString()
 
-const EventDetails = ({event, deleteEvent, onSuccess}) => (
+const EventDetails = ({event, deleteEvent, onDeleteSuccess}) => (
             <div className={b()}>
                 <div className={b("settings")}>
-                    <div className={b("settings-button")}>
-                        <NavLink to={"/events/edit/" + event.id}>
-                            <span className={b("icon", ["edit"])}/>
-                            <button className={b("settings-text")}>Edit event</button>
-                        </NavLink>
-                    </div>
-                    <div className={b("settings-button")}>
-                        <span className={b("icon", ["delete"])}/>
+                        <NavLink className={b("settings-text")} to={"/events/edit/" + event.id}>Edit event</NavLink>
+
                         <button
                             className={b("settings-text")}
-                            onClick={() => {
-                                deleteEvent(event.id)
-                                onSuccess()
+                            onClick={async () => {
+                                await deleteEvent(event.id)
+                              onDeleteSuccess()
                             }}
                         >
                             Delete event
                         </button>
-                    </div>
                 </div>
                 <div className={b("header")}>
                     <div className={b("header", ["container"])}>
@@ -112,9 +108,13 @@ const EventDetails = ({event, deleteEvent, onSuccess}) => (
 
 const enhance = compose(
     withRouter,
+  withHandlers({
+    onDeleteSuccess: ({ history }) => () => history.push("/events")
+  }),
     withProps(({match}) => ({id: match.params.id})),
     withEvent,
-    branch(({ event }) => !event, renderComponent(PageNotFound))
+    branch(({ event }) => !event, renderComponent(PageNotFound)),
+  connect(null, {deleteEvent})
 )
 
 export default enhance(EventDetails)
