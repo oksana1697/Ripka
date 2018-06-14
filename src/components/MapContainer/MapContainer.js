@@ -1,16 +1,13 @@
 import React, { Component } from "react"
 
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react"
-import { getLocation } from "../../api/api"
+import { getData } from "../../api/api"
 import { API_KEY } from "../../api/index"
 
 class MapContainer extends Component {
   constructor(props) {
     super(props)
-
     const { events } = this.props
-
-    console.log('events', events);
     this.state = {
       activeMarker: {},
       selectedPlace: {},
@@ -21,7 +18,7 @@ class MapContainer extends Component {
     const getUrl = ({ location }) =>
       `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${API_KEY}`
 
-    Promise.all(events.map(event => getLocation(getUrl(event)))) //makes request and wait until last res
+    Promise.all(events.map(event => getData(getUrl(event)))) //makes request and wait until last res
       .then(values => {
         this.setState({
           ...this.state,

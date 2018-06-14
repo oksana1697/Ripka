@@ -17,27 +17,23 @@ import {
 import { mapProps, withProps } from "recompose"
 import { searchEvents } from "../../actions/events"
 
-
-const searchHelper = (events, byId) => {if (events) return events.map((id) => byId[id]) };
+const searchHelper = (events, byId) => {
+  if (events) return events.map(id => byId[id])
+}
 export const searchEvent = connect(
-  (state, { offset, count, query }) => { console.log('state', state);
-  return ({
+  (state, { offset, count, query }) => ({
     totalCount: getEventsSearchTotalCount(query, state),
     events: searchHelper(getSearchEventsResult(offset, count, query, state), state.events.byId),
     isSearchFetching: getIfEventsSearchFetching(offset, count, query, state)
-  })},
+  }),
 
   { find: searchEvents },
 
   ({ events, totalCount, isSearchFetching }, { find }, ownProps) => {
     const { query, offset, count } = ownProps
-console.log('events', events);
     if (!events && !isSearchFetching) find(query, offset, count)
-    console.log("needed events:", events)
-
     return events ? { events, totalCount, ...ownProps } : { pending: true, ...ownProps }
-  },
-
+  }
 )
 
 export const withEvent = connect(
@@ -52,8 +48,6 @@ export const withEvent = connect(
     return event ? { event, id, ...ownProps } : { pending: true, id, ...ownProps }
   }
 )
-
-
 
 export const createEvent = compose(
   withRouter,

@@ -76,7 +76,7 @@ const UserDetails = ({ user, deleteUser, onDeleteSuccess }) => (
         <h6 className={b("story-title", ["location"])}>City, country</h6>
         <p className={b("story", ["location"])}>{user.location}</p>
         <div className="map__container">
-          <MapContainerUsers users={[user]} />
+          <MapContainerUsers users={[user.id]} />
         </div>
       </div>
     </div>

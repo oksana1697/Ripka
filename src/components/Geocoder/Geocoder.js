@@ -5,62 +5,37 @@ import "./Geocoder.scss"
 import block from "../../helpers/BEM"
 const b = block("Geocoder")
 
-const API_KEY = "pk.eyJ1Ijoib2tzYW5hMTk5NyIsImEiOiJjamhuY2lpZ3MzcTAxMzlzMjJzZ3dueGNiIn0.CCCTbGpm18Czx3jMCcvOTw"
-
 class Geocoder extends Component {
-
-  constructor(props){
-    super(props);
-    console.log('constructor');
-
-  }
-
   static defaultProps = {
-    accessToken: API_KEY,
-    endpoint: "https://api.tiles.mapbox.com",
     inputClass: "",
 
     inputPlaceholder: "Search",
     showLoader: false,
-    source: "mapbox.places",
-    proximity: "",
-    bbox: "",
-    types: "",
     onSuggest: function() {},
     focusOnMount: true,
-    onSelect: a => {
-    },
+    onSelect: a => {}
   }
 
   state = {
     results: [],
     focus: null,
     loading: false,
-    searchTime: new Date(),
+    searchTime: new Date()
   }
 
-  onInput = e => {
+  onInput = async e => {
     this.setState({ loading: true })
-    const value = e.target.value;
-    console.log('value', value);
-    this.props.input.onChange(value);
+    const { value } = e.target
+    this.props.input.onChange(value)
     if (value === "") {
       this.setState({
         results: [],
         focus: null,
-        loading: false,
+        loading: false
       })
     } else {
-      search(
-        this.props.endpoint,
-        this.props.source,
-        this.props.accessToken,
-        this.props.proximity,
-        this.props.bbox,
-        this.props.types,
-        value,
-        this.onResult
-      )
+      const { searchTime, result } = await search(value)
+      this.onResult(result, searchTime)
     }
   }
 
@@ -116,10 +91,9 @@ class Geocoder extends Component {
     }
   }
 
-  clickOption = ({place_name}, listLocation) => {
-    console.log('place', place_name);
-    this.setState({ focus: listLocation, results: []});
-    this.props.input.onChange(place_name);
+  clickOption = ({ place_name }, listLocation) => {
+    this.setState({ focus: listLocation, results: [] })
+    this.props.input.onChange(place_name)
     // this.props.onSelect(place)
 
     // focus on the input after click to maintain key traversal
@@ -127,7 +101,11 @@ class Geocoder extends Component {
   }
 
   render() {
-    const { inputPlaceholder, showLoader, input: {value}} = this.props
+    const {
+      inputPlaceholder,
+      showLoader,
+      input: { value }
+    } = this.props
     const { results, loading, focus } = this.state
 
     return (
@@ -159,8 +137,8 @@ class Geocoder extends Component {
     )
   }
 
-  componentWillUnmount(){
-    console.log('unmount');
+  componentWillUnmount() {
+    console.log("unmount")
   }
 }
 

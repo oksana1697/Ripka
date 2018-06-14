@@ -26,4 +26,4 @@ export const putData = async (url, data) => makeRequest(url, "PATCH", data)
 export const deleteData = async (url, id) => {
   await makeRequest(url + "/" + id, "DELETE")
 }
-export const getLocation = async url => await makeRequest(url, "GET")
+

@@ -22,7 +22,8 @@ const UsersList = ({ users, offset, count, query, totalCount }) => {
   return !users ? null : (
     <div>
       <div className={b("content")}>
-        <div className={b("block")}>{users.map(({id}) => <ConnectedUser id={id} key={id} />)}</div>
+        <div className={b("block")}>{users.map(id => <ConnectedUser id={id} key={id} />)}</div>
+
         <MapContainerUsers users={users} />
       </div>
       <div className={b("pagination")}>

@@ -129,7 +129,6 @@ const searchResults = (state = {}, action) => {
       let result = pathOr(Array(totalCount), [query, "result"], state)
 
       result = [...result.slice(0, offset), ...data.result, ...result.slice(offset + count)]
-      console.log("result ids:", result)
       return {
         ...state,
         [query]: { result, totalCount }
@@ -176,7 +175,6 @@ export const getSearchEventsResult = (offset, count, query, state) => {
     return null
   } else {
     const result = search.slice(offset, offset + count)
-    console.log("result:" ,result)
     return contains(undefined, result) ? null : result
   }
 }
