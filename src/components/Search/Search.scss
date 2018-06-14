@@ -52,6 +52,12 @@
     height: 24px;
     width: 24px;
     margin: 0 0.5rem 0 0 ;
+
+    &_event{
+      height: 16px;
+      width: 16px;
+      content: url("http://res.cloudinary.com/drzw6h31n/image/upload/w_600,h_600/w_48/v1529013187/event-item_fabqqn.jpg");
+    }
   }
 
   &__search-item {

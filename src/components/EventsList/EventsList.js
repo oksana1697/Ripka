@@ -8,7 +8,7 @@ import MapContainer from "../MapContainer/MapContainer"
 import './EventsList.scss'
 import block from '../../helpers/BEM'
 
-import withEvent from '../HOC/withEvent'
+import {withEvent} from '../HOC/event'
 import { flattenProp, withProps } from 'recompose'
 import { Link, withRouter } from 'react-router-dom'
 
@@ -46,7 +46,7 @@ const enhancer = compose(
     withProps(({ location }) => {
         const urlSearch = new URLSearchParams(location.search)
         const offset = Number(urlSearch.get("offset")) || 0
-        const count = Number(urlSearch.get("count")) || 4
+        const count = Number(urlSearch.get("count")) || 9
         const query = urlSearch.get("q") || ""
         return { offset, count, query }
     }),

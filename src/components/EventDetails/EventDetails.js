@@ -87,7 +87,7 @@ const EventDetails = ({event, deleteEvent, onDeleteSuccess}) => (
                             <h3>Contacts of organization</h3>
                         </div>
                         <div>
-                            <p className={b("story-title")}>Phone number</p>
+                            <p className={b("story-title", ["phone"])}>Phone number</p>
                             <p className={b("story")}>{event.contacts}</p>
                         </div>
                         <div className={b("details-title")}>
@@ -95,7 +95,7 @@ const EventDetails = ({event, deleteEvent, onDeleteSuccess}) => (
                             <h3>Location</h3>
                         </div>
                         <div>
-                            <p className={b("story-title")}>City, country</p>
+                            <p className={b("story-title", ["location"])}>City, country</p>
                             <p className={b("story")}>{event.location}</p>
                         </div>
                         <div className="map__container-for-event">

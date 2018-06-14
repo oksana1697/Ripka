@@ -8,7 +8,7 @@ import MapContainerUsers from "../MapContainer/MapContainerUsers"
 import "./UsersList.scss"
 import block from "../../helpers/BEM"
 
-import withUser from "../HOC/withUser"
+import {withUser} from "../HOC/user"
 import { flattenProp, withProps } from "recompose"
 import { Link, withRouter } from "react-router-dom"
 

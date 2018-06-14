@@ -23,7 +23,7 @@ const UserSearchItem = ({ user, onSelect, history }) => (
       className={b("photo", ["user"])}
     />
     <span>{user.name}&nbsp;</span>
-    <span style={{fontSize: "0.7rem"}}>[{user.location}]</span>
+    {/*<span style={{fontSize: "0.7rem"}}>[{user.location}]</span>*/}
   </span>
 )
 
@@ -35,6 +35,7 @@ const EventSearchItem = ({ event, onSelect, history }) => (
     }}
     className={b("search-item")}
   >
+    <span className={b("photo", ["event"])} />
     {/*TODO: rename to "title"*/}
     {event.name}
   </span>
