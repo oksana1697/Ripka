@@ -1,18 +1,47 @@
 import React, { Component } from "react"
-
+import { CLOUDINARY_URL } from "../../api/index"
 import "./Search.scss"
 import block from "../../helpers/BEM"
 import { withUser } from "../HOC/user"
 import { compose } from "ramda"
 import { renameProp } from "recompose"
+import { withEvent } from "../HOC/event"
+import { withRouter } from "react-router-dom"
 const b = block("Search")
 
-const SearchItem = ({ result, onSelect }) => (
-  <span onClick={() => onSelect(result)} className={b("search-item")}>
-    {result.name}
+const UserSearchItem = ({ user, onSelect, history }) => (
+  <span
+    onClick={() => {
+      history.push(`/users/${user.id}`)
+      onSelect(user)
+    }}
+    className={b("search-item", ["user"])}
+  >
+    <img
+      alt={user.name}
+      src={`${CLOUDINARY_URL}w_600,h_600,c_thumb,g_faces/w_48,r_48/${user.photo}.jpg`}
+      className={b("photo", ["user"])}
+    />
+    <span>{user.name}&nbsp;</span>
+    <span style={{fontSize: "0.7rem"}}>[{user.location}]</span>
   </span>
 )
-const WithUserSearchItem = compose(renameProp("result", "id"), withUser, renameProp("user", "result"))(SearchItem)
+
+const EventSearchItem = ({ event, onSelect, history }) => (
+  <span
+    onClick={() => {
+      history.push(`/events/${event.id}`)
+      onSelect(event)
+    }}
+    className={b("search-item")}
+  >
+    {/*TODO: rename to "title"*/}
+    {event.name}
+  </span>
+)
+
+const WithUserSearchItem = compose(withRouter, renameProp("result", "id"), withUser)(UserSearchItem)
+const WithEventSearchItem = compose(withRouter, renameProp("result", "id"), withEvent)(EventSearchItem)
 
 class Search extends Component {
   state = { open: false }
@@ -24,7 +53,7 @@ class Search extends Component {
   }
 
   render() {
-    const { searchResults, onSelect, query } = this.props
+    const { searchResults, query } = this.props
     const { open } = this.state
 
     return (
@@ -40,16 +69,16 @@ class Search extends Component {
         {open && <div className={b("carpet")} onClick={() => this.setState({ open: false })} />}
         <div className={b("popup", { open })}>
           {searchResults &&
-            searchResults.map(result => (
-              <WithUserSearchItem
-                key={result}
-                result={result}
-                onSelect={value => {
-                  this.setState({ open: false })
-                  onSelect(value)
-                }}
-              />
-            ))}
+            searchResults.map(
+              ({ result, type }) =>
+                type === "user" ? (
+                  <WithUserSearchItem key={result} result={result} onSelect={() => this.setState({ open: false })} />
+                ) : type === "event" ? (
+                  <WithEventSearchItem key={result} result={result} onSelect={() => this.setState({ open: false })} />
+                ) : (
+                  ""
+                )
+            )}
         </div>
       </form>
     )

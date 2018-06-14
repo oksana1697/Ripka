@@ -48,7 +48,17 @@
     z-index: 1;
   }
 
+  &__photo {
+    height: 24px;
+    width: 24px;
+    margin: 0 0.5rem 0 0 ;
+  }
+
   &__search-item {
+    &_user {
+      display: flex;
+      align-items: center;
+    }
     margin: 1rem 0;
     text-decoration: none;
     display: block;

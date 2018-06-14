@@ -1,7 +1,7 @@
 import React from "react"
 //
 import { Link, NavLink } from "react-router-dom"
-import { /*withEventsSearch,*/ /*withUniversalSearch,*/ withUsersSearch } from "../HOC/withSearch"
+import { withUniversalSearch } from "../HOC/withSearch"
 import UserMenu from "../UserMenu"
 import Search from "../Search"
 //
@@ -9,10 +9,7 @@ import "./Navigation.scss"
 import block from "../../helpers/BEM"
 const b = block("Navigation")
 
-// const UniversalSearch = withUniversalSearch(Search)
-const UniversalSearch = withUsersSearch(Search)
-// const UniversalSearch = withEventsSearch(Search)
-
+const UniversalSearch = withUniversalSearch(Search)
 
 const Navigation = () => (
   <div className={b()}>

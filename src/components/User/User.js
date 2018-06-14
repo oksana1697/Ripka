@@ -8,7 +8,11 @@ const b = block("User")
 
 const User = ({ id, name, description, contacts, interests, location, photo }) => (
   <div className={b()}>
-    <img alt={name} src={`${CLOUDINARY_URL}r_100,w_80,h_80,q_90,c_thumb,g_faces/${photo}.jpg`} className={b("photo")}/>
+    <img
+      alt={name}
+      src={`${CLOUDINARY_URL}w_600,h_600,c_thumb,g_faces/w_160,r_160/${photo}.jpg`}
+      className={b("photo")}
+    />
     <h3 className={b("name")}>
       <Link to={"/users/" + id}>{name}</Link>
     </h3>
