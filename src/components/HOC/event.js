@@ -17,13 +17,11 @@ import {
 import { mapProps, withProps } from "recompose"
 import { searchEvents } from "../../actions/events"
 
-const searchHelper = (events, byId) => {
-  if (events) return events.map(id => byId[id])
-}
+
 export const searchEvent = connect(
   (state, { offset, count, query }) => ({
     totalCount: getEventsSearchTotalCount(query, state),
-    events: searchHelper(getSearchEventsResult(offset, count, query, state), state.events.byId),
+    events: getSearchEventsResult(offset, count, query, state),
     isSearchFetching: getIfEventsSearchFetching(offset, count, query, state)
   }),
 

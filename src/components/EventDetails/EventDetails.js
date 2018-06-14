@@ -99,7 +99,7 @@ const EventDetails = ({event, deleteEvent, onDeleteSuccess}) => (
                             <p className={b("story")}>{event.location}</p>
                         </div>
                         <div className="map__container-for-event">
-                            <MapContainer events={[event]}/>
+                            <MapContainer events={[event.id]}/>
                         </div>
                     </div>
                 </div>

@@ -22,7 +22,7 @@ const EventsList = ({ events, offset, count, query, totalCount }) => {
   return !events ? null : (
     <div>
       <div className={b('content')}>
-        <div className={b('block')}>{events.map(({id}) => <ConnectedEvent id={id} key={id} />)}</div>
+        <div className={b('block')}>{events.map(id => <ConnectedEvent id={id} key={id} />)}</div>
         <MapContainer events={events} />
       </div>
       <div className={b('pagination')}>
